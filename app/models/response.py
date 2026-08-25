@@ -1,4 +1,5 @@
 from pydantic import BaseModel
 
-class UserResponse(BaseModel):
-    userResponse: str
+class ResponseToUserRequest(BaseModel):
+    #The string generated as response to the user input.
+    responseToUserRequest: str

@@ -2,9 +2,9 @@ from models.request import UserRequest
 from models.response import UserResponse
 import requests
 
+#function to generate response from the LLM
 def generate_response(request: UserRequest) -> UserResponse:
-    # Placeholder for generating a response based on the user input.
-    # In a real implementation, this would involve calling an LLM or other processing logic.
+    # Raw LLM response from the LLM service
     response = requests.post("http://localhost:11434/api/generate", 
                              json = {"model": "lfm2.5-thinking:1.2b",
                                       "prompt": request.userInput ,
