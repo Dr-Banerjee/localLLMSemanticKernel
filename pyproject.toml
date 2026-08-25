@@ -1,0 +1,27 @@
+[project]
+name = "local-llm-semantic-kernel-app"
+version = "0.1.0"
+description = "Python application using Semantic Kernel with a local LFM 2.5 model"
+requires-python = ">=3.11"
+
+dependencies = [
+    "semantic-kernel",
+    "pydantic",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
