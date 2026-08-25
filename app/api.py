@@ -6,5 +6,5 @@ app = FastAPI()
 
 @app.post("/answer")
 def get_answer(request: UserRequest):
-    answerService.process(request)
-    return {"message": "Answer processed."}
+    response = answerService.process(request)
+    return response

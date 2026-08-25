@@ -1,7 +1,8 @@
 from models.request import UserRequest
+from models.response import UserResponse
 import services.llm_service as llmService
 
-def process(request: UserRequest) -> None:
-    #At the moment one just prints the user  input.
-    llmService.generate_response(request)
+def process(request: UserRequest) -> UserResponse:
+    #Feed the user input to the LLM service and return the generated response
+    return llmService.generate_response(request)
     

@@ -1,4 +1,7 @@
-def generate_response(request: UserRequest) -> None:
+from models.request import UserRequest
+from models.response import UserResponse
+
+def generate_response(request: UserRequest) -> UserResponse:
     # Placeholder for generating a response based on the user input.
     # In a real implementation, this would involve calling an LLM or other processing logic.
-    print(f"Response to: {request.userInput}")
+    return UserResponse(userResponse=f"Processed input: {request.userInput}")
