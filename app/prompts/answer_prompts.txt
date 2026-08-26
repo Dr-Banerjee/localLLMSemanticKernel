@@ -60,7 +60,7 @@ When someone says "hit the books," they mean "start studying!"
 
 The child has entered:
 
-{{user_input}}
+{{$user_input}}
 
 Explain the idiom using the same style as the examples above.
 
