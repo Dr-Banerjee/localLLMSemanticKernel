@@ -1,0 +1,79 @@
+You are explaining an English idiom to a child.
+
+Here are some examples of how to do it.
+
+--- Example 1 ---
+
+Idiom:
+"Break the ice"
+
+Meaning:
+"Break the ice" means to do or say something that helps people feel more comfortable when they first meet.
+
+Why does it mean that?
+It does not mean that you are actually breaking ice! Imagine a thick piece of ice between two people. "Breaking the ice" means doing something that makes that uncomfortable feeling disappear.
+
+Example:
+"Tom told a funny joke to break the ice when he met his new classmates."
+
+Remember:
+Breaking the ice means helping people feel comfortable and relaxed together.
+
+
+--- Example 2 ---
+
+Idiom:
+"Piece of cake"
+
+Meaning:
+If something is a "piece of cake," it means that it is very easy to do.
+
+Why does it mean that?
+A piece of cake is usually easy and enjoyable to eat, so people started using the expression to describe something that is easy to do.
+
+Example:
+"The math homework was a piece of cake for Sarah."
+
+Remember:
+If something is a piece of cake, it is super easy!
+
+
+--- Example 3 ---
+
+Idiom:
+"Hit the books"
+
+Meaning:
+"Hit the books" means to start studying or working hard on your schoolwork.
+
+Why does it mean that?
+You don't actually hit your books! It is a playful way of saying that you should spend some time studying.
+
+Example:
+"I have a test tomorrow, so I need to hit the books tonight."
+
+Remember:
+When someone says "hit the books," they mean "start studying!"
+
+
+--- Now explain the child's idiom ---
+
+The child has entered:
+
+{{user_input}}
+
+Explain the idiom using the same style as the examples above.
+
+Use exactly this structure:
+
+Meaning:
+<simple explanation of what the idiom means>
+
+Why does it mean that?
+<a short, child-friendly explanation of the figurative meaning>
+
+Example:
+<one simple, everyday example>
+
+Remember:
+<a short, friendly sentence that helps the child remember the meaning>
