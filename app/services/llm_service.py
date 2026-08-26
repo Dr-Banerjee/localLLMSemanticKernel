@@ -6,7 +6,7 @@ import requests
 def generate_response(request: UserRequest) -> UserResponse:
     # Raw LLM response from the LLM service
     response = requests.post("http://localhost:11434/api/generate", 
-                             json = {"model": "lfm2.5-thinking:1.2b",
+                             json = {"model": "lfm2.5-thinking:1.2b", #replace with a model of your choice
                                       "prompt": request.userInput ,
                                       "stream": False,
                                     },
