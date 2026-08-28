@@ -3,7 +3,7 @@ import asyncio
 from services.llm_service import generate_response
 
 async def main():
-    answer = await generate_response("There's many a twixt between the cup and the lip.")
+    answer = await generate_response("to perform a moonraker's errand")
 
     print(answer)
 
