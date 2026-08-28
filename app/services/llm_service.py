@@ -46,13 +46,14 @@ def createAnswerFunction()-> KernelFunctionFromPrompt:
     )
     return answerFunction
     
-async def generate_response(user_input: str) -> str:
+async def generate_response(user_input: str) -> ResponseToUserRequest:
     kernel = createKernel()
 
     answerFunction = createAnswerFunction()
     arguments = KernelArguments(
         user_input=user_input,
         )    
-    response = await kernel.invoke(answerFunction, arguments=arguments)
+    result = await kernel.invoke(answerFunction, arguments=arguments)
+    response = result.model_validate(result)
     
-    return str(response)    
+    return response    
