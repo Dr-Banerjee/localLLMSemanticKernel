@@ -46,7 +46,7 @@ def createAnswerFunction()-> KernelFunctionFromPrompt:
     )
     return answerFunction
     
-async def generate_response(userRequest: UserRequest) -> str:
+async def generate_response(userRequest: UserRequest) -> ResponseToUserRequest:
     kernel = createKernel()
     userInput = userRequest.userInput
     answerFunction = createAnswerFunction()
@@ -54,5 +54,16 @@ async def generate_response(userRequest: UserRequest) -> str:
         user_input=userInput,
         )    
     response = await kernel.invoke(answerFunction, arguments=arguments)
-    
-    return str(response)    
+    responseToUserRequest = parseResponseText(response.value[0].items[0].text)
+    return responseToUserRequest
+
+#Intended to parse the incoming string and return ResponseToUserRequest object
+def parseResponseText(text: str) -> ResponseToUserRequest:
+    textArray = text.split('\n\n')
+    responseToUserRequest = ResponseToUserRequest(meaning=textArray[0],
+                                                  reason=textArray[1],
+                                                  example=textArray[2],
+                                                  remember=textArray[3]                                                    
+                                                )
+    return responseToUserRequest
+
