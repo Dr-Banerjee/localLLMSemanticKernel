@@ -1,6 +1,6 @@
 from models.request import UserRequest
 from models.response import ResponseToUserRequest
-import services.llm_service as llmService
+import app.services.single_chat_service as llmService
 
 #function to feed the user input to the LLM service.
 async def process(request: UserRequest) -> ResponseToUserRequest:
