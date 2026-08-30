@@ -17,8 +17,9 @@ class SingleChatService:
         pass
     #returns a semantic kernel function taking into account system as well as answer prompts.
     def createAnswerFunction(self)-> KernelFunctionFromPrompt:
-        systemPrompt = LoadPrompt.loadPrompt("system_prompts.txt")
-        answerPrompt = LoadPrompt.loadPrompt("answer_prompts.txt")
+        loadPrompt = LoadPrompt()
+        systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
+        answerPrompt = loadPrompt.loadPrompt("answer_prompts.txt")
         #form a prompt  with sytem and answer prompts to be used in the kernel function    
         prompt = f"""
                     <message role="system">
