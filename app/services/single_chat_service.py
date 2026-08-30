@@ -10,7 +10,9 @@ from semantic_kernel.functions import KernelArguments
 from kernel.kernel import createKernel
 from utils.load_prompt import LoadPrompt
 
+#Service class which enables us to send single requests to the LLM
 class SingleChatService:
+    #constructor
     def __init__(self):
         pass
     #returns a semantic kernel function taking into account system as well as answer prompts.

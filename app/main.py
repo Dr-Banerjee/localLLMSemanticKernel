@@ -16,10 +16,12 @@ async def root():
     return {"message": "Hello World"}
 
 @app.post("/answer")
-#post endpoint to receive user input and return the response from the LLM
+#post endpoint to receive user input and return the response from the LLM for a single query
 async def get_answer(request: UserRequest):
     response = await answerService.process(request)    
     return response
+
+#post endpoint to carryout conversations with the LLM
 @app.post("/conversations/{conversationId}/messages")
 async def send_message(
     conversationId: str,
