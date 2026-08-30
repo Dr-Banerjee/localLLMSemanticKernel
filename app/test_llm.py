@@ -1,9 +1,11 @@
 import asyncio
-
-from app.services.single_chat_service import generate_response
+from models.request import UserRequest
+from services.single_chat_service import SingleChatService
 
 async def main():
-    answer = await generate_response("to perform a moonraker's errand")
+    singleChatService = SingleChatService()
+    newUserRequest = UserRequest(userInput="to perform a moonraker's errand")    
+    answer = await singleChatService.generate_response(newUserRequest)
 
     print(answer)
 
