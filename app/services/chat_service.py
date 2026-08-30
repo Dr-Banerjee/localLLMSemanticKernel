@@ -32,7 +32,11 @@ class ChatService:
             systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
             newChatHistory.add_system_message(systemPrompt)            
             self.histories[conversationId] = newChatHistory
-        chatHistoryWithCreationInfo = ConversationCourse(conversationId=conversationId,chatHistory=self.histories[conversationId], newlyCreated=historyNewlyCreated)
+        chatHistoryWithCreationInfo = ConversationCourse(
+                                                         conversationId=conversationId,
+                                                         chatHistory=self.histories[conversationId], 
+                                                         newlyCreated=historyNewlyCreated
+                                                         )
         return chatHistoryWithCreationInfo
     
     #given a conversationId and a UserRequest we process the userRequest
