@@ -10,5 +10,5 @@ async def process(request: UserRequest) -> ResponseToUserRequest:
     #Feed the user input to the LLM service and return the generated response
     return await singleChatService.generate_response(request)
 async def chatProcess(conversationId: int, request: UserRequest) -> str:    
-    return await singleChatService.processUserRequest(conversationId,request)
+    return await chatService.processUserRequest(conversationId,request)
     
