@@ -62,11 +62,7 @@ class SingleChatService:
 
     #Intended to parse the incoming string and return ResponseToUserRequest object
     def parseResponseText(self,text: str) -> ResponseToUserRequest:
-        textArray = text.split('\n\n')
-        responseToUserRequest = ResponseToUserRequest(meaning=textArray[0],
-                                                    reason=textArray[1],
-                                                    example=textArray[2],
-                                                    remember=textArray[3]                                                    
-                                                    )
+        
+        responseToUserRequest = ResponseToUserRequest(response=text)
         return responseToUserRequest
 

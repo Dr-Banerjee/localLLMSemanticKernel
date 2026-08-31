@@ -35,6 +35,4 @@ async def send_message(
         request,
     )
 
-    return {
-        "answer": answer
-    }
+    return answer

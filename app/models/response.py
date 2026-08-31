@@ -1,12 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 class ResponseToUserRequest(BaseModel):
-    #The meaning of the idiom
-    meaning: str
-    #The reason why the idiom means so
-    reason: str
-    #an example of the idiom being used
-    example: str
-    #small sentence that will help the kid remember the idiom
-    #and it's meaning
-    remember: str
+    # makes it immutable and is almost like a record in C#
+    model_config = ConfigDict(frozen=True)
+    #The LLM's response.
+    response: str

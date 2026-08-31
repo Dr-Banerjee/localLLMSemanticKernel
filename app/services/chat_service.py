@@ -1,8 +1,9 @@
+from models.response import ResponseToUserRequest
 from kernel.kernel import createKernel
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
 from semantic_kernel.connectors.ai.ollama import OllamaChatPromptExecutionSettings
 from semantic_kernel.contents import ChatHistory
-from models.chat_history_with_creation_info import ConversationCourse
+from models.conversation_course import ConversationCourse
 from models.request import UserRequest
 from utils.load_prompt import LoadPrompt
 from utils.chat_history_logger import ChatHistoryLogger
@@ -40,7 +41,7 @@ class ChatService:
         return chatHistoryWithCreationInfo
     
     #given a conversationId and a UserRequest we process the userRequest
-    async def processUserRequest(self, conversationId: int, request: UserRequest) -> str:
+    async def processUserRequest(self, conversationId: int, request: UserRequest) -> ResponseToUserRequest:
         chatHistoryWithCreationInfo = self.getOrCreateHistory(conversationId=conversationId)
         #the actual string that the user sends in as input.
         userInput = request.userInput        
@@ -50,8 +51,9 @@ class ChatService:
                                                                     kernel=self.kernel,
                                                                     settings=self.settings,
                                                                 )
-        chatHistory.add_assistant_message(str(response))        
-        return str(response)
+        chatHistory.add_assistant_message(str(response))
+
+        return ResponseToUserRequest(response=str(response))
     
     #Handle addition of user input to chat history
     def addUserInputToChatHistory(self, chatHistoryWithCreationInfo: ConversationCourse, userInput: str)->ChatHistory:

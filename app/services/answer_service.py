@@ -10,10 +10,11 @@ class AnswerService:
 
     #function to feed the user input to the singleChatService.
     async def processSingleRequest(self, request: UserRequest) -> ResponseToUserRequest:
-        #Feed the user input to the LLM service and return the generated response
-        return await self.singleChatService.generate_response(request)
+        response = await self.singleChatService.generate_response(request)
+        return response
 
     #function to feed conversationId and user request to the chatService
-    async def chatProcess(self, conversationId: int, request: UserRequest) -> str:    
-        return await self.chatService.processUserRequest(conversationId,request)
+    async def chatProcess(self, conversationId: int, request: UserRequest) -> ResponseToUserRequest:
+        response = await self.chatService.processUserRequest(conversationId,request)        
+        return response
     
