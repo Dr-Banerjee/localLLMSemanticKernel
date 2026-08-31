@@ -18,10 +18,25 @@ class ChatService:
             num_predict=500,
             function_choice_behavior=FunctionChoiceBehavior.Auto(),
         )
-        self.histories = {}
+        self.histories = {}    
+    
+    #given a conversationId and a UserRequest we process the userRequest
+    async def processUserRequest(self, conversationId: int, request: UserRequest) -> ResponseToUserRequest:
+        conversationCourse = self.getOrCreateConversationCourse(conversationId=conversationId)
+        #the actual string that the user sends in as input.
+        userInput = request.userInput        
+        chatHistory= self.addUserInputToConversationCourse(conversationCourse,userInput)
+        response = await self.chatService.get_chat_message_content(
+                                                                    chat_history=chatHistory,
+                                                                    kernel=self.kernel,
+                                                                    settings=self.settings,
+                                                                )
+        chatHistory.add_assistant_message(str(response))
+
+        return ResponseToUserRequest(response=str(response))
 
     #given a conversationId gets the chat history corressponding to it
-    def getOrCreateHistory(self, conversationId: int) -> ConversationCourse:        
+    def getOrCreateConversationCourse(self, conversationId: int) -> ConversationCourse:        
         #denotes whether it is a new conversation.
         historyNewlyCreated = False
         if conversationId not in self.histories:
@@ -32,38 +47,23 @@ class ChatService:
             systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
             newChatHistory.add_system_message(systemPrompt)            
             self.histories[conversationId] = newChatHistory
-        chatHistoryWithCreationInfo = ConversationCourse(
-                                                         conversationId=conversationId,
-                                                         chatHistory=self.histories[conversationId], 
-                                                         newlyCreated=historyNewlyCreated
-                                                         )
-        return chatHistoryWithCreationInfo
-    
-    #given a conversationId and a UserRequest we process the userRequest
-    async def processUserRequest(self, conversationId: int, request: UserRequest) -> ResponseToUserRequest:
-        chatHistoryWithCreationInfo = self.getOrCreateHistory(conversationId=conversationId)
-        #the actual string that the user sends in as input.
-        userInput = request.userInput        
-        chatHistory= self.addUserInputToChatHistory(chatHistoryWithCreationInfo,userInput)
-        response = await self.chatService.get_chat_message_content(
-                                                                    chat_history=chatHistory,
-                                                                    kernel=self.kernel,
-                                                                    settings=self.settings,
-                                                                )
-        chatHistory.add_assistant_message(str(response))
-
-        return ResponseToUserRequest(response=str(response))
+        conversationCourse = ConversationCourse(
+                                                            conversationId=conversationId,
+                                                            chatHistory=self.histories[conversationId], 
+                                                            newlyCreated=historyNewlyCreated
+                                                            )
+        return conversationCourse
     
     #Handle addition of user input to chat history
-    def addUserInputToChatHistory(self, chatHistoryWithCreationInfo: ConversationCourse, userInput: str)->ChatHistory:
-        chatHistory = chatHistoryWithCreationInfo.chatHistory
-        isNewlyCreatedChatHistory = chatHistoryWithCreationInfo.newlyCreated
+    def addUserInputToConversationCourse(self, conversationCourse: ConversationCourse, userInput: str)->ChatHistory:
+        conversationCourse = conversationCourse.chatHistory
+        isNewlyCreatedChatHistory = conversationCourse.newlyCreated
         #A prompt template to explain an idiom with the userInput being the initial idiom.
         if isNewlyCreatedChatHistory:
-            self.handleInitialUserRequest(chatHistory, userInput)
+            self.handleInitialUserRequest(conversationCourse, userInput)
         else:
-            chatHistory.add_user_message(userInput)
-        return chatHistory
+            conversationCourse.add_user_message(userInput)
+        return conversationCourse
     
     #Handle the initial user request
     def handleInitialUserRequest(self,chatHistory: ChatHistory, userInput: str)-> None:
