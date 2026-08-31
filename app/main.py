@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from models.request import UserRequest
-from models.response import ResponseToUserRequest
+from data_transfer_objects.request import UserRequest
+from data_transfer_objects.response import ResponseToUserRequest
 from services.answer_service import AnswerService
 import logging 
 import sys

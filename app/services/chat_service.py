@@ -1,12 +1,11 @@
-from models.response import ResponseToUserRequest
+from data_transfer_objects.response import ResponseToUserRequest
 from kernel.kernel import createKernel
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
 from semantic_kernel.connectors.ai.ollama import OllamaChatPromptExecutionSettings
 from semantic_kernel.contents import ChatHistory
 from models.conversation_course import ConversationCourse
-from models.request import UserRequest
+from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
-from utils.chat_history_logger import ChatHistoryLogger
 
 class ChatService:
     #constructor

@@ -1,5 +1,5 @@
 import asyncio
-from models.request import UserRequest
+from app.data_transfer_objects.request import UserRequest
 from services.single_chat_service import SingleChatService
 
 async def main():
