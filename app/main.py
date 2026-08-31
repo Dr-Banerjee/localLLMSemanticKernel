@@ -1,20 +1,17 @@
 from fastapi import FastAPI
-from data_transfer_objects.request import UserRequest
-from data_transfer_objects.response import ResponseToUserRequest
-from services.answer_service import AnswerService
+from app.data_transfer_objects.request import UserRequest
+from app.data_transfer_objects.response import ResponseToUserRequest
+from app.services.answer_service import AnswerService
 import logging 
 import sys
 
-# Configure application logging 
-logging.basicConfig( level=logging.INFO, stream=sys.stdout, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s", ) 
-logger = logging.getLogger(__name__)
+
 
 app = FastAPI()
 answerService = AnswerService()
 
 @app.get("/") 
 async def root(): 
-    logger.info("Root endpoint called") 
     return {"message": "Hello World"}
 
 #post endpoint to receive user input and return the response from the LLM for a single query

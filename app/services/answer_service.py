@@ -1,7 +1,7 @@
-from data_transfer_objects.request import UserRequest
-from data_transfer_objects.response import ResponseToUserRequest
-from services.single_chat_service import SingleChatService
-from services.chat_service import ChatService
+from app.data_transfer_objects.request import UserRequest
+from app.data_transfer_objects.response import ResponseToUserRequest
+from app.services.single_chat_service import SingleChatService
+from app.services.chat_service import ChatService
 
 class AnswerService:
     def __init__(self):

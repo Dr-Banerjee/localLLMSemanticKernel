@@ -1,11 +1,11 @@
-from data_transfer_objects.response import ResponseToUserRequest
-from kernel.kernel import createKernel
+from app.data_transfer_objects.response import ResponseToUserRequest
+from app.kernel.kernel import createKernel
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
 from semantic_kernel.connectors.ai.ollama import OllamaChatPromptExecutionSettings
 from semantic_kernel.contents import ChatHistory
-from models.conversation_course import ConversationCourse
-from data_transfer_objects.request import UserRequest
-from utils.load_prompt import LoadPrompt
+from app.models.conversation_course import ConversationCourse
+from app.data_transfer_objects.request import UserRequest
+from app.utils.load_prompt import LoadPrompt
 
 class ChatService:
     #constructor
@@ -38,32 +38,33 @@ class ChatService:
     #given a conversationId gets the chat history corressponding to it
     def getOrCreateConversationCourse(self, conversationId: int) -> ConversationCourse:        
         #denotes whether it is a new conversation.
-        historyNewlyCreated = False
+        conversationCourseNewlyCreated = False
         if conversationId not in self.histories:
             newChatHistory = ChatHistory()
-            historyNewlyCreated = True
+            conversationCourseNewlyCreated = True
             #load and feed a prompt determining the tone and persona of the app
             loadPrompt = LoadPrompt()            
             systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
-            newChatHistory.add_system_message(systemPrompt)            
+            newChatHistory.add_system_message(systemPrompt)
+
             self.histories[conversationId] = newChatHistory
         conversationCourse = ConversationCourse(
                                                             conversationId=conversationId,
                                                             chatHistory=self.histories[conversationId], 
-                                                            newlyCreated=historyNewlyCreated
+                                                            newlyCreated=conversationCourseNewlyCreated
                                                             )
         return conversationCourse
     
     #Handle addition of user input to chat history
     def addUserInputToConversationCourse(self, conversationCourse: ConversationCourse, userInput: str)->ChatHistory:
-        conversationCourse = conversationCourse.chatHistory
-        isNewlyCreatedChatHistory = conversationCourse.newlyCreated
+        chatHistoryOfConversationCourse = conversationCourse.chatHistory
+        isNewlyCreatedonversation = conversationCourse.newlyCreated
         #A prompt template to explain an idiom with the userInput being the initial idiom.
-        if isNewlyCreatedChatHistory:
-            self.handleInitialUserRequest(conversationCourse, userInput)
+        if isNewlyCreatedonversation:
+            self.handleInitialUserRequest(chatHistoryOfConversationCourse, userInput)
         else:
-            conversationCourse.add_user_message(userInput)
-        return conversationCourse
+            chatHistoryOfConversationCourse.add_user_message(userInput)
+        return chatHistoryOfConversationCourse
     
     #Handle the initial user request
     def handleInitialUserRequest(self,chatHistory: ChatHistory, userInput: str)-> None:

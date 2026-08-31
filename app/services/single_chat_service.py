@@ -2,13 +2,13 @@ from semantic_kernel.contents import ChatHistory
 from semantic_kernel.connectors.ai.chat_completion_client_base import ChatCompletionClientBase
 from semantic_kernel.connectors.ai.ollama import OllamaChatPromptExecutionSettings
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
-from data_transfer_objects.request import UserRequest
-from data_transfer_objects.response import ResponseToUserRequest
+from app.data_transfer_objects.request import UserRequest
+from app.data_transfer_objects.response import ResponseToUserRequest
 import requests
 from semantic_kernel.functions import KernelFunctionFromPrompt
 from semantic_kernel.functions import KernelArguments
-from kernel.kernel import createKernel
-from utils.load_prompt import LoadPrompt
+from app.kernel.kernel import createKernel
+from app.utils.load_prompt import LoadPrompt
 
 #Service class which enables us to send single requests to the LLM
 class SingleChatService:
