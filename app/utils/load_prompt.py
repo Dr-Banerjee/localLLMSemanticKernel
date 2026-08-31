@@ -2,7 +2,7 @@ class LoadPrompt:
     def __init__(self):
         pass
     #given the fileName it loads the prompt out of it
-    def loadPrompt(fileName : str)-> str:
+    def loadPrompt(self,fileName : str)-> str:
         with open(
             f"prompts/{fileName}",
             "r",

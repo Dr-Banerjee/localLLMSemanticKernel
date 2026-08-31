@@ -2,21 +2,24 @@ from semantic_kernel.contents import ChatHistory
 from semantic_kernel.connectors.ai.chat_completion_client_base import ChatCompletionClientBase
 from semantic_kernel.connectors.ai.ollama import OllamaChatPromptExecutionSettings
 from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
-from models.request import UserRequest
-from models.response import ResponseToUserRequest
+from data_transfer_objects.request import UserRequest
+from data_transfer_objects.response import ResponseToUserRequest
 import requests
 from semantic_kernel.functions import KernelFunctionFromPrompt
 from semantic_kernel.functions import KernelArguments
 from kernel.kernel import createKernel
 from utils.load_prompt import LoadPrompt
 
+#Service class which enables us to send single requests to the LLM
 class SingleChatService:
+    #constructor
     def __init__(self):
         pass
     #returns a semantic kernel function taking into account system as well as answer prompts.
     def createAnswerFunction(self)-> KernelFunctionFromPrompt:
-        systemPrompt = LoadPrompt.loadPrompt("system_prompts.txt")
-        answerPrompt = LoadPrompt.loadPrompt("answer_prompts.txt")
+        loadPrompt = LoadPrompt()
+        systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
+        answerPrompt = loadPrompt.loadPrompt("answer_prompts.txt")
         #form a prompt  with sytem and answer prompts to be used in the kernel function    
         prompt = f"""
                     <message role="system">
@@ -59,11 +62,7 @@ class SingleChatService:
 
     #Intended to parse the incoming string and return ResponseToUserRequest object
     def parseResponseText(self,text: str) -> ResponseToUserRequest:
-        textArray = text.split('\n\n')
-        responseToUserRequest = ResponseToUserRequest(meaning=textArray[0],
-                                                    reason=textArray[1],
-                                                    example=textArray[2],
-                                                    remember=textArray[3]                                                    
-                                                    )
+        
+        responseToUserRequest = ResponseToUserRequest(response=text)
         return responseToUserRequest
 
