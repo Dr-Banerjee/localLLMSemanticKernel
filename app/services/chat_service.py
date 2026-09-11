@@ -56,14 +56,14 @@ class ChatService:
     
     #Handle addition of user input to chat history
     def addUserInputToConversationCourse(self, conversationCourse: ConversationCourse, userInput: str)->ChatHistory:
-        conversationCourse = conversationCourse.chatHistory
         isNewlyCreatedChatHistory = conversationCourse.newlyCreated
+        chatHistoryOfConversation = conversationCourse.chatHistory                
         #A prompt template to explain an idiom with the userInput being the initial idiom.
         if isNewlyCreatedChatHistory:
-            self.handleInitialUserRequest(conversationCourse, userInput)
+            self.handleInitialUserRequest(chatHistoryOfConversation, userInput)
         else:
-            conversationCourse.add_user_message(userInput)
-        return conversationCourse
+            chatHistoryOfConversation.add_user_message(userInput)
+        return chatHistoryOfConversation
     
     #Handle the initial user request
     def handleInitialUserRequest(self,chatHistory: ChatHistory, userInput: str)-> None:
