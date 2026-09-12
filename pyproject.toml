@@ -11,6 +11,9 @@ dependencies = [
     "fastapi",
     "uvicorn[standard]",
     "requests",
+    "sqlalchemy[asyncio]",
+    "asyncpg",
+    "alembic",
 ]
 
 [project.optional-dependencies]
