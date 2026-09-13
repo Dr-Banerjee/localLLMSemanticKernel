@@ -1,0 +1,87 @@
+:root {
+  --ink: #3a2a1a;
+  --bark: #6b3f2a;
+  --leaf: #2f7d4a;
+  --leaf-dark: #215736;
+  --moss: #8fbc6a;
+  --sky: #7ec8e3;
+  --sky-deep: #4ea7c9;
+  --sunset: #ffb085;
+  --sun: #ffd45a;
+  --berry: #e05a6f;
+  --cream: #fff6e4;
+  --paper: #fffdf6;
+  --rose: #ff8fab;
+  --violet: #b794f6;
+  --mint: #7edbb5;
+  --amber: #f6c453;
+  --peach: #ffb38a;
+  --shadow: 0 10px 0 rgba(58, 42, 26, 0.12);
+  --radius-card: 28px;
+  --radius-pill: 999px;
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--sky);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: linear-gradient(180deg, #8fd6ef 0%, #b8e6f5 38%, #ffe7a3 78%, #8fbc6a 100%);
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
