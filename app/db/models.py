@@ -20,7 +20,6 @@ class Conversation(Base):
 
     id: Mapped[int] = mapped_column(
         BigInteger,
-        Identity(),
         primary_key=True,
     )
 
