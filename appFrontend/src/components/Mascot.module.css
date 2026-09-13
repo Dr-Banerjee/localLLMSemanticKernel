@@ -1,0 +1,95 @@
+.wrap {
+  width: min(220px, 46vw);
+  margin-inline: auto;
+  transform-origin: 50% 90%;
+}
+
+.owl {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.shadow {
+  fill: rgba(58, 42, 26, 0.18);
+}
+
+.pupils {
+  transform-origin: 100px 112px;
+}
+
+.star {
+  transform-origin: 164px 46px;
+}
+
+.happy {
+  animation: bob 2.8s ease-in-out infinite;
+}
+
+.think {
+  animation: sway 2.4s ease-in-out infinite;
+}
+
+.think .pupils {
+  animation: glance 2.4s ease-in-out infinite;
+}
+
+.cheer {
+  animation: hop 0.9s ease-in-out infinite;
+}
+
+.cheer .star {
+  animation: sparkle 0.9s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes glance {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.04);
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}

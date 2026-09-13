@@ -1,0 +1,33 @@
+.wrap {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.title {
+  font-family: "Fredoka", "Nunito", sans-serif;
+  color: var(--leaf-dark);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.chip {
+  padding: 0.55rem 0.9rem;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 4px 0 rgba(58, 42, 26, 0.12);
+}
+
+.chip:hover:not(:disabled),
+.chip:focus-visible:not(:disabled) {
+  background: #ffe7a3;
+  transform: translateY(-2px);
+}
+
+.chip:disabled {
+  opacity: 0.55;
+}
