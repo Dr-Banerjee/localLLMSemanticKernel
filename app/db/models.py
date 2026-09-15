@@ -13,7 +13,7 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from .base import Base
 
-
+#TO DO: put the classes in different files. And put them in a folder models instead.
 class Conversation(Base):
     __tablename__ = "conversations"
     __table_args__ = {"schema": "conversations"}
@@ -21,6 +21,7 @@ class Conversation(Base):
     id: Mapped[int] = mapped_column(
         BigInteger,
         primary_key=True,
+        autoincrement=False,
     )
 
     created_at: Mapped[datetime] = mapped_column(
