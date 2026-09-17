@@ -4,9 +4,9 @@ from services.single_chat_service import SingleChatService
 from services.chat_service import ChatService
 
 class AnswerService:
-    def __init__(self):
-        self.chatService = ChatService()
-        self.singleChatService = SingleChatService()
+    def __init__(self, chatService: ChatService, singleChatService: SingleChatService) -> None:
+        self.chatService = chatService
+        self.singleChatService = singleChatService
 
     #function to feed the user input to the singleChatService.
     async def processSingleRequest(self, request: UserRequest) -> ResponseToUserRequest:
