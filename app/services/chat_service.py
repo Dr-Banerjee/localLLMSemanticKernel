@@ -6,10 +6,12 @@ from semantic_kernel.contents import ChatHistory
 from models.conversation_course import ConversationCourse
 from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
+from db.repositories.conversation_repository import ConversationRepository
+from db.unit_of_work_factory import UnitOfWorkFactory
 
 class ChatService:
     #constructor
-    def __init__(self):
+    def __init__(self, unitOfWorkFactory: UnitOfWorkFactory) -> None:
         self.kernel = createKernel()
         self.chatService = self.kernel.get_service()
         self.settings = OllamaChatPromptExecutionSettings(
@@ -18,51 +20,88 @@ class ChatService:
             num_predict=500,
             function_choice_behavior=FunctionChoiceBehavior.Auto(),
         )
-        self.histories = {}    
+        self.unitOfWorkFactory = unitOfWorkFactory
     
     #given a conversationId and a UserRequest we process the userRequest
     async def processUserRequest(self, conversationId: int, request: UserRequest) -> ResponseToUserRequest:
-        conversationCourse = self.getOrCreateConversationCourse(conversationId=conversationId)
+        conversationCourse = await self.getOrCreateConversationCourse(conversationId=conversationId)
         #the actual string that the user sends in as input.
         userInput = request.userInput        
-        chatHistory= self.addUserInputToConversationCourse(conversationCourse,userInput)
+        chatHistory= await self.addUserInputToConversationCourse(conversationCourse,userInput)
         response = await self.chatService.get_chat_message_content(
                                                                     chat_history=chatHistory,
                                                                     kernel=self.kernel,
                                                                     settings=self.settings,
                                                                 )
-        chatHistory.add_assistant_message(str(response))
+        assistantResponse = str(response)
+        chatHistory.add_assistant_message(assistantResponse)
 
-        return ResponseToUserRequest(response=str(response))
+        async with self.unitOfWorkFactory.create() as unitOfWork:
+            await unitOfWork.conversationRepository.addMessage(
+                conversationId=conversationId,
+                role="assistant",
+                content=assistantResponse,
+            )
+
+        return ResponseToUserRequest(response=assistantResponse)
 
     #given a conversationId gets the chat history corressponding to it
-    def getOrCreateConversationCourse(self, conversationId: int) -> ConversationCourse:        
+    async def getOrCreateConversationCourse(self, conversationId: int) -> ConversationCourse:        
         #denotes whether it is a new conversation.
         historyNewlyCreated = False
-        if conversationId not in self.histories:
-            newChatHistory = ChatHistory()
-            historyNewlyCreated = True
-            #load and feed a prompt determining the tone and persona of the app
-            loadPrompt = LoadPrompt()            
+
+        async with self.unitOfWorkFactory.create() as unitOfWork:
+            conversationRepository = unitOfWork.conversationRepository
+            conversation = await conversationRepository.getConversation(conversationId)
+            if conversation is None:
+                await conversationRepository.createConversation(conversationId)
+                historyNewlyCreated = True
+            messages = await conversationRepository.getMessages(conversationId)     
+
+        chatHistory = ChatHistory()
+        # Loose strings need to be stored in an enum als it needs to be fixed in the db that no ther roles are allowed.
+        for message in messages:
+            if message.role == "system":
+                chatHistory.add_system_message(message.content)
+            elif message.role == "user":
+                chatHistory.add_user_message(message.content)
+            elif message.role == "assistant":
+                chatHistory.add_assistant_message(message.content)
+
+        if historyNewlyCreated:
+            loadPrompt = LoadPrompt()
             systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
-            newChatHistory.add_system_message(systemPrompt)            
-            self.histories[conversationId] = newChatHistory
+            chatHistory.add_system_message(systemPrompt)
+
+            async with self.unitOfWorkFactory.create() as unitOfWork:
+                await unitOfWork.conversationRepository.addMessage(
+                    conversationId=conversationId,
+                    role="system",
+                    content=systemPrompt,
+                )
         conversationCourse = ConversationCourse(
                                                             conversationId=conversationId,
-                                                            chatHistory=self.histories[conversationId], 
+                                                            chatHistory=chatHistory, 
                                                             newlyCreated=historyNewlyCreated
                                                             )
         return conversationCourse
     
     #Handle addition of user input to chat history
-    def addUserInputToConversationCourse(self, conversationCourse: ConversationCourse, userInput: str)->ChatHistory:
+    async def addUserInputToConversationCourse(self, conversationCourse: ConversationCourse, userInput: str)->ChatHistory:
         isNewlyCreatedChatHistory = conversationCourse.newlyCreated
+        conversationId = conversationCourse.conversationId
         chatHistoryOfConversation = conversationCourse.chatHistory                
         #A prompt template to explain an idiom with the userInput being the initial idiom.
         if isNewlyCreatedChatHistory:
             self.handleInitialUserRequest(chatHistoryOfConversation, userInput)
         else:
             chatHistoryOfConversation.add_user_message(userInput)
+        async with self.unitOfWorkFactory.create() as unitOfWork:
+                        await unitOfWork.conversationRepository.addMessage(
+                            conversationId=conversationId,
+                            role="user",
+                            content=userInput,
+                        )
         return chatHistoryOfConversation
     
     #Handle the initial user request
@@ -70,6 +109,6 @@ class ChatService:
         #The initial request is always to explain the meaning of an idiom
         loadPrompt = LoadPrompt()           
         initalAnswerPrompt = loadPrompt.loadPrompt("answer_prompts.txt")
-        initalAnswerPrompt = initalAnswerPrompt.replace('{{$user_input}}',userInput)
+        initalAnswerPrompt = initalAnswerPrompt.replace('{{$user_input}}',userInput)        
         chatHistory.add_user_message(initalAnswerPrompt)
     

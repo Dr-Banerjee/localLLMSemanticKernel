@@ -5,28 +5,25 @@ from db.models import Conversation
 from db.models import Message
 
 class ConversationRepository:
-    def __init__(self, database : Database) -> None:
-        self.database = database
+    def __init__(self, session: AsyncSession) -> None:
+        self.session = session
 
     async def getConversation(self, conversationId : int) -> Conversation | None:
-        async with self.database.createSession() as session:
-            result = await session.execute(
-                select(Conversation).where(
-                    Conversation.id == conversationId
-                )
+        result = await self.session.execute(
+            select(Conversation).where(
+                Conversation.id == conversationId
             )
-            return result.scalar_one_or_none()
+        )
+        return result.scalar_one_or_none()
         
     async def createConversation(self, conversationId : int) -> Conversation:
-        async with self.database.createSession() as session:
-            async with session.begin():
-                conversation = Conversation(
-                                                id = conversationId
-                                            )
-                session.add(conversation)
-                await session.flush()
-                await session.refresh(conversation)
-            return conversation
+        conversation = Conversation(
+                                        id = conversationId
+                                    )
+        self.session.add(conversation)
+        await self.session.flush()
+        await self.session.refresh(conversation)
+        return conversation
         
     async def addMessage(
         self,
@@ -34,34 +31,33 @@ class ConversationRepository:
         role: str,
         content: str,
     ) -> Message:
-        async with self.database.createSession() as session:
-            async with session.begin():
-                message = Message(
-                    conversation_id=conversationId,
-                    role=role,
-                    content=content,
-                )
+        
+        message = Message(
+            conversation_id=conversationId,
+            role=role,
+            content=content,
+        )
 
-                session.add(message)
-                await session.flush()
-                await session.refresh(message)
-            return message
+        self.session.add(message)
+        await self.session.flush()
+        await self.session.refresh(message)
+        return message
 
     async def getMessages(
         self,
         conversationId: int,
     ) -> list[Message]:
-        async with self.database.createSession() as session:
-            result = await session.execute(
-                select(Message)
-                .where(
-                    Message.id == conversationId
-                )
-                .order_by(Message.id)
+        
+        result = await self.session.execute(
+            select(Message)
+            .where(
+                Message.conversation_id == conversationId
             )
+            .order_by(Message.id)
+        )
 
-            return list(result.scalars().all())
-    #Not pretty happy with creating sessions in this manner.
+        return list(result.scalars().all())
+    #Is there a better way to deal with it?
     async def getOrCreateConversation(
     self,
     conversationId: int,
