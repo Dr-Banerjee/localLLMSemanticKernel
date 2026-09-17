@@ -8,6 +8,11 @@ import sys
 from db.database import Database
 from config.settings import Settings
 import os
+from services.chat_service import ChatService
+from db.repositories.conversation_repository import ConversationRepository
+from services.single_chat_service import SingleChatService
+from db.unit_of_work_factory import UnitOfWorkFactory
+from db.unit_of_work import UnitOfWork
 
 def createApp()-> FastAPI:
     # Configure application logging 
@@ -31,7 +36,10 @@ def createApp()-> FastAPI:
     database = Database(
         settings.databaseUrl
     )
-    answerService = AnswerService()
+    unitOfWorkFactory = UnitOfWorkFactory(database)
+    chatService = ChatService(unitOfWorkFactory)
+    singleChatService = SingleChatService()
+    answerService = AnswerService(chatService, singleChatService)
 
     @app.get("/") 
     async def root(): 
