@@ -1,4 +1,4 @@
-from sqlalchemy import select
+from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from db.database import Database
 from db.models.conversation import Conversation
@@ -38,7 +38,7 @@ class ConversationRepository:
         conversationId: int,
         role: str,
         content: str,
-    ) -> Message:
+    ) -> Message: 
         
         message = Message(
             conversation_id=conversationId,
@@ -47,6 +47,11 @@ class ConversationRepository:
         )
 
         self.session.add(message)
+        conversation = await self.session.get(
+             Conversation,
+             conversationId
+        )
+        conversation.updated_at = func.now()
         await self.session.flush()
         await self.session.refresh(message)
         return message
