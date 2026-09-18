@@ -12,12 +12,11 @@ from services.chat_service import ChatService
 from db.repositories.conversation_repository import ConversationRepository
 from services.single_chat_service import SingleChatService
 from db.unit_of_work_factory import UnitOfWorkFactory
-from db.unit_of_work import UnitOfWork
+from auth.session_token_service import SessionTokenService
+from auth.current_user_service import CurrentUserService
+from auth.current_user_dependency import CurrentUserDependency
 
 def createApp()-> FastAPI:
-    # Configure application logging 
-    logging.basicConfig( level=logging.INFO, stream=sys.stdout, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s", ) 
-    logger = logging.getLogger(__name__)
 
     app = FastAPI()
     app.add_middleware(
@@ -40,11 +39,14 @@ def createApp()-> FastAPI:
     chatService = ChatService(unitOfWorkFactory)
     singleChatService = SingleChatService()
     answerService = AnswerService(chatService, singleChatService)
-
-    @app.get("/") 
-    async def root(): 
-        logger.info("Root endpoint called") 
-        return {"message": "Hello World"}
+    sessionTokenService = SessionTokenService()
+    currentUserService = CurrentUserService(
+        unitOfWorkFactory
+    )
+    currentUserDependency = CurrentUserDependency(
+        currentUserService,
+        sessionTokenService
+    )
 
     #post endpoint to receive user input and return the response from the LLM for a single query
     @app.post("/answer")
