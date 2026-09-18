@@ -1,4 +1,4 @@
-from fastapi import FastAPI,Response, Depends
+from fastapi import FastAPI,Response, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
@@ -17,6 +17,7 @@ from auth.current_user_service import CurrentUserService
 from auth.current_user_dependency import CurrentUserDependency
 from auth.anonymous_session_service import AnonymousSessionService
 from db.models.user import User
+from services.conversation_summaries_query_service import ConversationSummariesQueryService
 
 def createApp()-> FastAPI:
 
@@ -41,6 +42,7 @@ def createApp()-> FastAPI:
     chatService = ChatService(unitOfWorkFactory)
     singleChatService = SingleChatService()
     answerService = AnswerService(chatService, singleChatService)
+    conversationSummariesQueryService = ConversationSummariesQueryService(unitOfWorkFactory)
     
     sessionTokenService = SessionTokenService()
     anonymousSessionService = AnonymousSessionService(
@@ -94,7 +96,7 @@ def createApp()-> FastAPI:
         return {"message": "Session created"}
     
     @app.get("/me") # Need to move it to a new Controller
-    async def get_current_user(
+    async def getCurrentUser(
         currentUser: User = Depends(
             currentUserDependency.resolveCurrentUser
         ),
@@ -102,4 +104,16 @@ def createApp()-> FastAPI:
         return {
             "id": str(currentUser.id),
         }
+    @app.get("/conversations/summaries")
+    async def getConversationSummaries(
+        currentUser: User = Depends(
+            currentUserDependency.resolveCurrentUser
+        ),
+        page : int = Query(default = 1, ge=1),
+        pageSize: int = Query(default=20, ge=1, le=100),        
+    ):
+        return await conversationSummariesQueryService.getConversationSummaries( userId=currentUser.id,
+                                                                                page=page,
+                                                                                pageSize=pageSize
+                                                                                )
     return app    
