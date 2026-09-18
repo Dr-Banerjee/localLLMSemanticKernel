@@ -1,4 +1,4 @@
-import type { ResponseToUserRequest, UserRequest } from "../types";
+import type { ResponseToUserRequest, UserRequest} from "../types";
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(
   /\/$/,
@@ -60,6 +60,22 @@ export function sendConversationMessage(conversationId: number, userInput: strin
     {
       method: "POST",
       body: JSON.stringify(body),
+      credentials: "include", //must change for production
     },
   );
+}
+
+export async function getUser(){
+  return await fetch(`${API_BASE_URL}/me`, {
+    method: "GET", 
+    credentials: "include", //must change for production
+  })
+}
+
+export async function createSession()
+{
+  return await fetch(`${API_BASE_URL}/session`, {
+    method: "POST",
+    credentials: "include", //must change for production
+  })
 }
