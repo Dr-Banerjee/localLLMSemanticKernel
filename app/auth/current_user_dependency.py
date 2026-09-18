@@ -1,8 +1,9 @@
-from fastapi import Cookie, HTTPException, status
+from fastapi import Cookie, HTTPException, status, Request
 
 from db.models.user import User
 from auth.current_user_service import CurrentUserService
 from auth.session_token_service import SessionTokenService
+from config.settings import Settings
 
 class CurrentUserDependency:
 
@@ -12,18 +13,19 @@ class CurrentUserDependency:
         self,
         currentUserService: CurrentUserService,        
         sessionTokenService: SessionTokenService,
+        settings: Settings
     ) -> None:
         self.currentUserService = currentUserService
         self.sessionTokenService = sessionTokenService
+        self.sessionCookieName = settings.sessionCookieName
 
     async def resolveCurrentUser(
         self,
-        sessionToken: str | None = Cookie(
-            default=None,
-            alias=SESSION_COOKIE_NAME,
-        ),
+        request: Request
     ) -> User:
-
+        sessionToken = request.cookies.get(
+            self.sessionCookieName
+        )        
         if sessionToken is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
