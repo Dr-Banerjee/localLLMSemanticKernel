@@ -119,7 +119,7 @@ class ConversationRepository:
                 Conversation.id.desc(),
             )
             .offset(offset)
-            .limit(pageSize)
+            .limit(pageSize +1) #for checking whether there's another page
         )
 
         return result.mappings().all()
