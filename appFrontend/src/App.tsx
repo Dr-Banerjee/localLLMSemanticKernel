@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ApiError, sendConversationMessage } from "./api/client";
 import { ConversationScreen } from "./components/ConversationScreen";
 import { HomeScreen } from "./components/HomeScreen";
 import type { ChatMessage } from "./types";
 import { createConversationId, createMessageId } from "./utils/chat";
 import styles from "./App.module.css";
+import { SessionService } from "./services/sessionService";
 
 function lastUserContent(messages: ChatMessage[]): string | null {
   for (let index = messages.length - 1; index >= 0; index -= 1) {
@@ -22,7 +23,11 @@ export default function App() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const requestTokenRef = useRef(0);
+  const requestTokenRef = useRef(0);  
+  useEffect(() => {
+    const sessionService = new SessionService();
+    void sessionService.initialiseSession();
+  }, []);
 
   async function askPip(nextConversationId: number, userInput: string) {
     const token = requestTokenRef.current + 1;

@@ -8,6 +8,8 @@ from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
 from db.repositories.conversation_repository import ConversationRepository
 from db.unit_of_work_factory import UnitOfWorkFactory
+from uuid import UUID
+from fastapi import HTTPException, status
 
 class ChatService:
     #constructor
@@ -23,8 +25,8 @@ class ChatService:
         self.unitOfWorkFactory = unitOfWorkFactory
     
     #given a conversationId and a UserRequest we process the userRequest
-    async def processUserRequest(self, conversationId: int, request: UserRequest) -> ResponseToUserRequest:
-        conversationCourse = await self.getOrCreateConversationCourse(conversationId=conversationId)
+    async def processUserRequest(self, conversationId: int, request: UserRequest, userId: UUID) -> ResponseToUserRequest:
+        conversationCourse = await self.getOrCreateConversationCourse(conversationId=conversationId, userId = userId)
         #the actual string that the user sends in as input.
         userInput = request.userInput        
         chatHistory= await self.addUserInputToConversationCourse(conversationCourse,userInput)
@@ -46,17 +48,23 @@ class ChatService:
         return ResponseToUserRequest(response=assistantResponse)
 
     #given a conversationId gets the chat history corressponding to it
-    async def getOrCreateConversationCourse(self, conversationId: int) -> ConversationCourse:        
+    async def getOrCreateConversationCourse(self, conversationId: int, userId: UUID) -> ConversationCourse:        
         #denotes whether it is a new conversation.
         historyNewlyCreated = False
 
         async with self.unitOfWorkFactory.create() as unitOfWork:
             conversationRepository = unitOfWork.conversationRepository
-            conversation = await conversationRepository.getConversation(conversationId)
-            if conversation is None:
-                await conversationRepository.createConversation(conversationId)
+            conversation = await conversationRepository.getConversation(conversationId, userId) 
+            if conversation is None:                
+                conversationExists = await conversationRepository.conversationExists(conversationId)
+                if conversationExists:
+                     raise HTTPException(
+                                            status_code=status.HTTP_403_FORBIDDEN,
+                                            detail="Conversation does not belong to the current user",
+                                        )
+                await conversationRepository.createConversation(conversationId, userId)
                 historyNewlyCreated = True
-            messages = await conversationRepository.getMessages(conversationId)     
+            messages = await conversationRepository.getMessages(conversationId, userId)    
 
         chatHistory = ChatHistory()
         # Loose strings need to be stored in an enum als it needs to be fixed in the db that no ther roles are allowed.

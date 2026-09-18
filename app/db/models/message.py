@@ -1,4 +1,5 @@
 from datetime import datetime
+from uuid import UUID, uuid7
 
 from sqlalchemy import (
                         BigInteger,
@@ -10,31 +11,15 @@ from sqlalchemy import (
                         text
                         )
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.dialects.postgresql import UUID as PostgreSQLUUID
 
-from .base import Base
+from db.base import Base
 
 #TO DO: put the classes in different files. And put them in a folder models instead.
-class Conversation(Base):
-    __tablename__ = "conversations"
-    __table_args__ = {"schema": "conversations"}
 
-    id: Mapped[int] = mapped_column(
-        BigInteger,
-        primary_key=True,
-        autoincrement=False,
-    )
 
-    created_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        nullable=False,
-        server_default=text("CURRENT_TIMESTAMP"),
-    )
 
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True),
-        nullable=False,
-        server_default=text("CURRENT_TIMESTAMP"),
-    )
+
 
 class Message(Base):
     __tablename__ = "messages"
@@ -51,6 +36,7 @@ class Message(Base):
         ForeignKey(
             "conversations.conversations.id",
             ondelete="CASCADE",
+            name="fk_messages_conversation_id"
         ),
         nullable=False,
     )
