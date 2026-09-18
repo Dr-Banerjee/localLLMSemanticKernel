@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Response, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
@@ -15,6 +15,8 @@ from db.unit_of_work_factory import UnitOfWorkFactory
 from auth.session_token_service import SessionTokenService
 from auth.current_user_service import CurrentUserService
 from auth.current_user_dependency import CurrentUserDependency
+from auth.anonymous_session_service import AnonymousSessionService
+from db.models.user import User
 
 def createApp()-> FastAPI:
 
@@ -39,7 +41,13 @@ def createApp()-> FastAPI:
     chatService = ChatService(unitOfWorkFactory)
     singleChatService = SingleChatService()
     answerService = AnswerService(chatService, singleChatService)
+    
     sessionTokenService = SessionTokenService()
+    anonymousSessionService = AnonymousSessionService(
+    unitOfWorkFactory,
+    sessionTokenService,
+    settings,
+    )
     currentUserService = CurrentUserService(
         unitOfWorkFactory
     )
@@ -50,13 +58,13 @@ def createApp()-> FastAPI:
 
     #post endpoint to receive user input and return the response from the LLM for a single query
     @app.post("/answer")
-    async def get_answer(request: UserRequest):
+    async def getAnswer(request: UserRequest):
         response = await answerService.processSingleRequest(request)    
         return response
 
     #post endpoint to carryout conversations with the LLM
     @app.post("/conversations/{conversationId}/messages")
-    async def send_message(
+    async def sendMessage(
         conversationId: int,
         request: UserRequest,
     ):
@@ -67,6 +75,26 @@ def createApp()-> FastAPI:
         )
 
         return answer
-    return app
-
-
+    @app.post("/session") #Need to move it to a new controller
+    async def createSession(response: Response):
+        sessionToken = await anonymousSessionService.createSession()
+        response.set_cookie(
+            key="session", #Make it configurable for prod it should be host session.
+            value=sessionToken,
+            httponly=True,
+            secure=False, #Make it configurable for prod it should be True.
+            samesite="lax",
+            path="/",
+            max_age=settings.anonymousSessionLifetimeDays*24*60*60            
+        )
+        return {"message": "Session created"}
+    @app.get("/me") # Need to move it to a new Controller
+    async def get_current_user(
+        currentUser: User = Depends(
+            currentUserDependency.resolveCurrentUser
+        ),
+    ):
+        return {
+            "id": str(currentUser.id),
+        }
+    return app    

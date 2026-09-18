@@ -1,6 +1,6 @@
 from fastapi import HTTPException, status
 
-from db.models import User
+from db.models.user import User
 from db.unit_of_work_factory import UnitOfWorkFactory
 
 class CurrentUserService:
@@ -8,19 +8,18 @@ class CurrentUserService:
     def __init__(
         self,
         unitOfWorkFactory: UnitOfWorkFactory,
-        tokenHash: str
     ) -> None:
         self.unitOfWorkFactory = unitOfWorkFactory
-        self.tokenHash = tokenHash
 
     async def resolveCurrentUser(
         self,
+        tokenHash: str
     ) -> User:        
 
         async with self.unitOfWorkFactory.create() as unitOfWork:
 
             session = await unitOfWork.sessionRepository.getValidSession(
-                self.tokenHash
+                tokenHash
             )
 
             if session is None:

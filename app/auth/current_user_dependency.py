@@ -6,7 +6,7 @@ from auth.session_token_service import SessionTokenService
 
 class CurrentUserDependency:
 
-    SESSION_COOKIE_NAME = "__Host-session"
+    SESSION_COOKIE_NAME = "session" #Need to configure it properly for prod it should be host session.
 
     def __init__(
         self,

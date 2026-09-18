@@ -13,7 +13,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.dialects.postgresql import UUID as PostgreSQLUUID
 
-from .base import Base
+from db.base import Base
 
 #TO DO: put the classes in different files. And put them in a folder models instead.
 
