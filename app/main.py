@@ -67,11 +67,15 @@ def createApp()-> FastAPI:
     async def sendMessage(
         conversationId: int,
         request: UserRequest,
+        currentUser: User = Depends(
+                    currentUserDependency.resolveCurrentUser
+                ),
     ):
 
         answer = await answerService.chatProcess(
             conversationId,
             request,
+            currentUser.id
         )
 
         return answer
@@ -88,6 +92,7 @@ def createApp()-> FastAPI:
             max_age=settings.anonymousSessionLifetimeDays*24*60*60            
         )
         return {"message": "Session created"}
+    
     @app.get("/me") # Need to move it to a new Controller
     async def get_current_user(
         currentUser: User = Depends(
