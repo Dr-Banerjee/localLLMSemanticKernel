@@ -21,20 +21,15 @@ from services.conversation_summaries_query_service import ConversationSummariesQ
 
 def createApp()-> FastAPI:
 
-    app = FastAPI()
+    app = FastAPI()    
+    settings = Settings()
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[
-            "http://localhost:5173",
-            "http://127.0.0.1:5173",
-            "http://localhost:4173",
-            "http://127.0.0.1:4173",
-        ],
+        allow_origins=settings.corsAllowedOrigins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    settings = Settings()
     database = Database(
         settings.databaseUrl
     )
@@ -55,7 +50,8 @@ def createApp()-> FastAPI:
     )
     currentUserDependency = CurrentUserDependency(
         currentUserService,
-        sessionTokenService
+        sessionTokenService,
+        settings
     )
 
     #post endpoint to receive user input and return the response from the LLM for a single query
@@ -85,11 +81,11 @@ def createApp()-> FastAPI:
     async def createSession(response: Response):
         sessionToken = await anonymousSessionService.createSession()
         response.set_cookie(
-            key="session", #Make it configurable for prod it should be host session.
+            key=settings.sessionCookieName,
             value=sessionToken,
             httponly=True,
-            secure=False, #Make it configurable for prod it should be True.
-            samesite="lax",
+            secure=settings.sessionCookieSecure,
+            samesite=settings.sessionCookieSameSite,
             path="/",
             max_age=settings.anonymousSessionLifetimeDays*24*60*60            
         )
