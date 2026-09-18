@@ -1,8 +1,8 @@
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from db.database import Database
-from db.models import Conversation
-from db.models import Message
+from db.models.conversation import Conversation
+from db.models.message import Message
 
 class ConversationRepository:
     def __init__(self, session: AsyncSession) -> None:
