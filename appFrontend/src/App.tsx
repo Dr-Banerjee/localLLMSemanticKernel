@@ -1,11 +1,33 @@
-import { useRef, useState, useEffect } from "react";
-import { ApiError, sendConversationMessage } from "./api/client";
-import { ConversationScreen } from "./components/ConversationScreen";
-import { HomeScreen } from "./components/HomeScreen";
-import type { ChatMessage } from "./types";
-import { createConversationId, createMessageId } from "./utils/chat";
+import { lazy, Suspense, useRef, useState } from "react";
+import { useQueryClient } from "@tanstack/react-query";
+import { messageForApiError } from "./api/errors";
+import { ScreenFallback } from "./components/ScreenFallback";
+import { useInitialiseSession } from "./hooks/useInitialiseSession";
+import { conversationMessagesQueryOptions } from "./hooks/useConversationMessages";
+import { useSendConversationMessage } from "./hooks/useSendConversationMessage";
+import type { AppScreen, ChatMessage, ConversationSummary } from "./types";
+import {
+  createConversationId,
+  createMessageId,
+  idiomFromMessages,
+  mapConversationMessages,
+} from "./utils/chat";
 import styles from "./App.module.css";
-import { SessionService } from "./services/sessionService";
+
+const HomeScreen = lazy(async () => {
+  const module = await import("./components/HomeScreen");
+  return { default: module.HomeScreen };
+});
+
+const ConversationScreen = lazy(async () => {
+  const module = await import("./components/ConversationScreen");
+  return { default: module.ConversationScreen };
+});
+
+const ConversationSummariesScreen = lazy(async () => {
+  const module = await import("./components/ConversationSummariesScreen");
+  return { default: module.ConversationSummariesScreen };
+});
 
 function lastUserContent(messages: ChatMessage[]): string | null {
   for (let index = messages.length - 1; index >= 0; index -= 1) {
@@ -17,26 +39,33 @@ function lastUserContent(messages: ChatMessage[]): string | null {
 }
 
 export default function App() {
-  const [screen, setScreen] = useState<"home" | "conversation">("home");
+  const queryClient = useQueryClient();
+  const sendMessage = useSendConversationMessage();
+  useInitialiseSession();
+
+  const [screen, setScreen] = useState<AppScreen>("home");
   const [idiom, setIdiom] = useState("");
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isSending, setIsSending] = useState(false);
+  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const requestTokenRef = useRef(0);  
-  useEffect(() => {
-    const sessionService = new SessionService();
-    void sessionService.initialiseSession();
-  }, []);
+  const [errorKind, setErrorKind] = useState<"send" | "load" | null>(null);
+  const requestTokenRef = useRef(0);
+  const openedSummaryRef = useRef<ConversationSummary | null>(null);
 
   async function askPip(nextConversationId: number, userInput: string) {
     const token = requestTokenRef.current + 1;
     requestTokenRef.current = token;
     setIsSending(true);
     setError(null);
+    setErrorKind(null);
 
     try {
-      const { response } = await sendConversationMessage(nextConversationId, userInput);
+      const { response } = await sendMessage.mutateAsync({
+        conversationId: nextConversationId,
+        userInput,
+      });
       if (token !== requestTokenRef.current) {
         return;
       }
@@ -50,11 +79,8 @@ export default function App() {
       if (token !== requestTokenRef.current) {
         return;
       }
-      const message =
-        caught instanceof ApiError
-          ? caught.message
-          : "Something wobbled. Let’s try again in a moment!";
-      setError(message);
+      setError(messageForApiError(caught));
+      setErrorKind("send");
     } finally {
       if (token === requestTokenRef.current) {
         setIsSending(false);
@@ -76,16 +102,20 @@ export default function App() {
       kind: "idiom",
     };
 
+    openedSummaryRef.current = null;
     setConversationId(nextConversationId);
     setIdiom(trimmed);
     setMessages([userMessage]);
+    setIsLoadingHistory(false);
+    setError(null);
+    setErrorKind(null);
     setScreen("conversation");
     void askPip(nextConversationId, trimmed);
   }
 
   function askFollowUp(question: string) {
     const trimmed = question.trim();
-    if (!trimmed || isSending || conversationId === null) {
+    if (!trimmed || isSending || isLoadingHistory || conversationId === null) {
       return;
     }
 
@@ -99,7 +129,46 @@ export default function App() {
     void askPip(conversationId, trimmed);
   }
 
+  async function openExistingConversation(summary: ConversationSummary) {
+    const token = requestTokenRef.current + 1;
+    requestTokenRef.current = token;
+    openedSummaryRef.current = summary;
+    setIsSending(false);
+    setConversationId(summary.id);
+    setIdiom(summary.initialMessage);
+    setMessages([]);
+    setError(null);
+    setErrorKind(null);
+    setIsLoadingHistory(true);
+    setScreen("conversation");
+
+    try {
+      const history = await queryClient.query(conversationMessagesQueryOptions(summary.id));
+      if (token !== requestTokenRef.current) {
+        return;
+      }
+      const mapped = mapConversationMessages(history);
+      setMessages(mapped);
+      setIdiom(idiomFromMessages(mapped, summary.initialMessage));
+    } catch (caught) {
+      if (token !== requestTokenRef.current) {
+        return;
+      }
+      setError(messageForApiError(caught));
+      setErrorKind("load");
+    } finally {
+      if (token === requestTokenRef.current) {
+        setIsLoadingHistory(false);
+      }
+    }
+  }
+
   function retryLast() {
+    if (errorKind === "load" && openedSummaryRef.current) {
+      void openExistingConversation(openedSummaryRef.current);
+      return;
+    }
+
     const lastQuestion = lastUserContent(messages);
     if (!lastQuestion || conversationId === null || isSending) {
       return;
@@ -109,29 +178,54 @@ export default function App() {
 
   function resetToHome() {
     requestTokenRef.current += 1;
+    openedSummaryRef.current = null;
     setIsSending(false);
+    setIsLoadingHistory(false);
     setScreen("home");
     setIdiom("");
     setConversationId(null);
     setMessages([]);
     setError(null);
+    setErrorKind(null);
+  }
+
+  function goToSummaries() {
+    requestTokenRef.current += 1;
+    setIsSending(false);
+    setIsLoadingHistory(false);
+    setError(null);
+    setErrorKind(null);
+    setScreen("summaries");
   }
 
   return (
     <div className={styles.shell}>
-      {screen === "home" ? (
-        <HomeScreen onStart={startConversation} />
-      ) : (
-        <ConversationScreen
-          idiom={idiom}
-          messages={messages}
-          isSending={isSending}
-          error={error}
-          onAsk={askFollowUp}
-          onRetry={retryLast}
-          onNewIdiom={resetToHome}
-        />
-      )}
+      <Suspense fallback={<ScreenFallback />}>
+        {screen === "home" ? (
+          <HomeScreen onStart={startConversation} onViewSummaries={goToSummaries} />
+        ) : null}
+        {screen === "summaries" ? (
+          <ConversationSummariesScreen
+            onBackHome={resetToHome}
+            onOpenConversation={(summary) => {
+              void openExistingConversation(summary);
+            }}
+          />
+        ) : null}
+        {screen === "conversation" ? (
+          <ConversationScreen
+            idiom={idiom}
+            messages={messages}
+            isSending={isSending}
+            isLoadingHistory={isLoadingHistory}
+            error={error}
+            onAsk={askFollowUp}
+            onRetry={retryLast}
+            onNewIdiom={resetToHome}
+            onViewSummaries={goToSummaries}
+          />
+        ) : null}
+      </Suspense>
     </div>
   );
 }

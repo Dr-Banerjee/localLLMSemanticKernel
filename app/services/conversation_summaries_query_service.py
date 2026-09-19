@@ -17,15 +17,14 @@ class ConversationSummariesQueryService:
                 page,
                 pageSize
             )
-            hasNextPage = False
-            if len(rows) > pageSize:
-                hasNextPage = True
-            
+            hasNextPage = len(rows) > pageSize
+            visibleRows = rows[:pageSize]
+                        
             conversationSummaries = [ConversationSummary(
                                                         id=row["id"],
                                                         createdAt=row["createdAt"],
                                                         updatedAt=row["updatedAt"],
-                                                        initialMessage=row["initialMessage"],) for row in rows]
+                                                        initialMessage=row["initialMessage"],) for row in visibleRows]
             conversationSummariesResponse = ConversationSummaryResponse(
                                                                         items=conversationSummaries,
                                                                         page=page,

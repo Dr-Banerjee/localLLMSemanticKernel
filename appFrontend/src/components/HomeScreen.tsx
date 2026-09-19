@@ -6,9 +6,10 @@ import styles from "./HomeScreen.module.css";
 
 type HomeScreenProps = {
   onStart: (idiom: string) => void;
+  onViewSummaries: () => void;
 };
 
-export function HomeScreen({ onStart }: HomeScreenProps) {
+export function HomeScreen({ onStart, onViewSummaries }: HomeScreenProps) {
   const [idiom, setIdiom] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -27,6 +28,9 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
       <div className={`${styles.cloud} ${styles.cloudTwo}`} aria-hidden="true" />
 
       <header className={styles.hero}>
+        <button className={styles.navButton} type="button" onClick={onViewSummaries}>
+          Sayings you’ve learned
+        </button>
         <Mascot mood="happy" />
         <p className={styles.kicker}>Pip’s Idiom Nest</p>
         <h1>Heard a funny saying? Let’s figure it out together!</h1>
