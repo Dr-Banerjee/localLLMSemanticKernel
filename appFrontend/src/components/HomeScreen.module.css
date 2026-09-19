@@ -81,6 +81,17 @@
   font-size: 0.95rem;
 }
 
+.navButton {
+  position: relative;
+  z-index: 1;
+  padding: 0.55rem 0.95rem;
+  border: 4px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--sun);
+  box-shadow: 0 5px 0 rgba(58, 42, 26, 0.14);
+  font-family: "Fredoka", "Nunito", sans-serif;
+}
+
 .hero h1 {
   max-width: 18ch;
   font-family: "Fredoka", "Nunito", sans-serif;
@@ -164,7 +175,7 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }

@@ -1,4 +1,4 @@
-from fastapi import FastAPI,Response, Depends, Query
+from fastapi import FastAPI, Response, Depends, Query, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
@@ -18,23 +18,19 @@ from auth.current_user_dependency import CurrentUserDependency
 from auth.anonymous_session_service import AnonymousSessionService
 from db.models.user import User
 from services.conversation_summaries_query_service import ConversationSummariesQueryService
+from data_transfer_objects.conversation_message import ConversationMessage
 
 def createApp()-> FastAPI:
 
-    app = FastAPI()
+    app = FastAPI()    
+    settings = Settings()
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=[
-            "http://localhost:5173",
-            "http://127.0.0.1:5173",
-            "http://localhost:4173",
-            "http://127.0.0.1:4173",
-        ],
+        allow_origins=settings.corsAllowedOrigins,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    settings = Settings()
     database = Database(
         settings.databaseUrl
     )
@@ -55,7 +51,8 @@ def createApp()-> FastAPI:
     )
     currentUserDependency = CurrentUserDependency(
         currentUserService,
-        sessionTokenService
+        sessionTokenService,
+        settings
     )
 
     #post endpoint to receive user input and return the response from the LLM for a single query
@@ -85,11 +82,11 @@ def createApp()-> FastAPI:
     async def createSession(response: Response):
         sessionToken = await anonymousSessionService.createSession()
         response.set_cookie(
-            key="session", #Make it configurable for prod it should be host session.
+            key=settings.sessionCookieName,
             value=sessionToken,
             httponly=True,
-            secure=False, #Make it configurable for prod it should be True.
-            samesite="lax",
+            secure=settings.sessionCookieSecure,
+            samesite=settings.sessionCookieSameSite,
             path="/",
             max_age=settings.anonymousSessionLifetimeDays*24*60*60            
         )
@@ -116,4 +113,36 @@ def createApp()-> FastAPI:
                                                                                 page=page,
                                                                                 pageSize=pageSize
                                                                                 )
+
+    @app.get("/conversations/{conversationId}/messages")
+    async def getConversationMessages(
+        conversationId: int,
+        currentUser: User = Depends(
+            currentUserDependency.resolveCurrentUser
+        ),
+    ):
+        async with unitOfWorkFactory.create() as unitOfWork:
+            conversation = await unitOfWork.conversationRepository.getConversation(
+                conversationId,
+                currentUser.id,
+            )
+            if conversation is None:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail="Conversation not found",
+                )
+            messages = await unitOfWork.conversationRepository.getMessages(
+                conversationId,
+                currentUser.id,
+            )
+            return [
+                ConversationMessage(
+                    id=message.id,
+                    role=message.role,
+                    content=message.content,
+                    createdAt=message.created_at,
+                )
+                for message in messages
+            ]
+
     return app    

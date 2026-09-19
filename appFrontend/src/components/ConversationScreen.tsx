@@ -13,10 +13,12 @@ type ConversationScreenProps = {
   idiom: string;
   messages: ChatMessage[];
   isSending: boolean;
+  isLoadingHistory?: boolean;
   error: string | null;
   onAsk: (question: string) => void;
   onRetry: () => void;
   onNewIdiom: () => void;
+  onViewSummaries: () => void;
 };
 
 function encouragementFor(followUpCount: number): string {
@@ -36,10 +38,12 @@ export function ConversationScreen({
   idiom,
   messages,
   isSending,
+  isLoadingHistory = false,
   error,
   onAsk,
   onRetry,
   onNewIdiom,
+  onViewSummaries,
 }: ConversationScreenProps) {
   const endRef = useRef<HTMLDivElement>(null);
   const followUpCount = messages.filter((message) => message.kind === "followup").length;
@@ -48,7 +52,7 @@ export function ConversationScreen({
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-  }, [messages, isSending, error]);
+  }, [messages, isSending, isLoadingHistory, error]);
 
   return (
     <section className={styles.screen}>
@@ -60,9 +64,14 @@ export function ConversationScreen({
             <h1 className={styles.idiom}>{idiom}</h1>
           </div>
         </div>
-        <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
-          New saying
-        </button>
+        <div className={styles.actions}>
+          <button className={styles.newSaying} type="button" onClick={onViewSummaries}>
+            Your sayings
+          </button>
+          <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
+            New saying
+          </button>
+        </div>
       </header>
 
       <p className={styles.stars} aria-live="polite">
@@ -92,12 +101,16 @@ export function ConversationScreen({
           );
         })}
 
-        {isSending ? (
+        {isSending || isLoadingHistory ? (
           <div className={styles.thinking} aria-label="Pip is thinking">
             <span />
             <span />
             <span />
-            <p>Pip is thinking of a kind, simple answer...</p>
+            <p>
+              {isLoadingHistory
+                ? "Pip is opening this saying for you..."
+                : "Pip is thinking of a kind, simple answer..."}
+            </p>
           </div>
         ) : null}
 
@@ -110,7 +123,7 @@ export function ConversationScreen({
           </div>
         ) : null}
 
-        {!isSending && hasAssistantReply ? (
+        {!isSending && !isLoadingHistory && hasAssistantReply ? (
           <FollowUpChips prompts={followUpPrompts} disabled={isSending} onSelect={onAsk} />
         ) : null}
 
@@ -121,7 +134,7 @@ export function ConversationScreen({
         <Composer
           placeholder="Ask Pip another question..."
           submitLabel="Ask"
-          disabled={isSending}
+          disabled={isSending || isLoadingHistory}
           onSubmit={onAsk}
         />
       </div>

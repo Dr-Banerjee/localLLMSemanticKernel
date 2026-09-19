@@ -1,0 +1,63 @@
+.card {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  min-height: 168px;
+  padding: 1.1rem 1.15rem 1.15rem;
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 0 8px 0 rgba(58, 42, 26, 0.16);
+}
+
+.kicker {
+  font-size: 0.85rem;
+  color: rgba(58, 42, 26, 0.78);
+}
+
+.idiom {
+  justify-self: stretch;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+}
+
+.idiom:hover,
+.idiom:focus-visible {
+  color: var(--leaf-dark);
+}
+
+.meta,
+.hint {
+  font-size: 0.92rem;
+}
+
+.sky {
+  background: linear-gradient(160deg, #d7f4ff, #9adcf2);
+}
+
+.rose {
+  background: linear-gradient(160deg, #ffe0ea, #ff9fb8);
+}
+
+.violet {
+  background: linear-gradient(160deg, #efe4ff, #c4a6ff);
+}
+
+.mint {
+  background: linear-gradient(160deg, #dbfff0, #86ebc0);
+}
+
+.amber {
+  background: linear-gradient(160deg, #fff1c2, #ffd45a);
+}
+
+.peach {
+  background: linear-gradient(160deg, #ffe4d0, #ffb085);
+}

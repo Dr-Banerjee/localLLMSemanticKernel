@@ -6,6 +6,10 @@ export type ResponseToUserRequest = {
   response: string;
 };
 
+export type CurrentUser = {
+  id: string;
+};
+
 export type ChatRole = "user" | "assistant";
 
 export type ChatMessage = {
@@ -13,6 +17,32 @@ export type ChatMessage = {
   role: ChatRole;
   content: string;
   kind?: "idiom" | "followup";
+};
+
+export type ConversationMessage = {
+  id: number;
+  role: string;
+  content: string;
+  createdAt: string;
+};
+
+export type ConversationSummary = {
+  id: number;
+  createdAt: string;
+  updatedAt: string;
+  initialMessage: string;
+};
+
+export type ConversationSummaryResponse = {
+  items: ConversationSummary[];
+  page: number;
+  pageSize: number;
+  hasNextPage: boolean;
+};
+
+export type ConversationSummariesQueryParams = {
+  page: number;
+  pageSize: number;
 };
 
 export type ParsedExplanation = {
@@ -28,3 +58,5 @@ export type FeaturedIdiom = {
   emoji: string;
   accent: "sky" | "rose" | "violet" | "mint" | "amber" | "peach";
 };
+
+export type AppScreen = "home" | "summaries" | "conversation";
