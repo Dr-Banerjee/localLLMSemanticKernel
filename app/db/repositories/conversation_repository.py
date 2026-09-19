@@ -113,7 +113,8 @@ class ConversationRepository:
                 Conversation.updated_at.label("updatedAt"),
                 initialMessage.label("initialMessage"),
             )
-            .where(Conversation.user_id == userId)
+            .where(Conversation.user_id == userId,
+                   initialMessage.is_not(None))
             .order_by(
                 Conversation.updated_at.desc(),
                 Conversation.id.desc(),

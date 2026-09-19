@@ -38,6 +38,13 @@
   overflow-wrap: anywhere;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: flex-end;
+}
+
 .newSaying {
   flex: 0 0 auto;
   padding: 0.65rem 0.9rem;
@@ -131,7 +138,7 @@
     align-items: flex-start;
   }
 
-  .newSaying {
+  .actions {
     margin-top: 0.35rem;
   }
 }

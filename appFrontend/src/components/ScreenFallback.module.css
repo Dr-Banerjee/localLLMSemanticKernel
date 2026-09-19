@@ -1,0 +1,8 @@
+.fallback {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+  padding: 3rem 1.2rem;
+  text-align: center;
+  font-family: "Fredoka", "Nunito", sans-serif;
+}
