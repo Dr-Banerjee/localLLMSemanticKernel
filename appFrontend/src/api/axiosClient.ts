@@ -1,10 +1,11 @@
 import axios, { isAxiosError, type InternalAxiosRequestConfig } from "axios";
 import { ApiError } from "./errors";
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000").replace(
-  /\/$/,
-  "",
-);
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "");
+
+if (!API_BASE_URL) {
+  throw new Error("VITE_API_BASE_URL is not configured");
+}
 const REQUEST_TIMEOUT_MS = 120_000;
 
 type RetryableRequestConfig = InternalAxiosRequestConfig & {
