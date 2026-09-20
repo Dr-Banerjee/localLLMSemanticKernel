@@ -21,12 +21,11 @@ export function HomeScreen({ onStart, onViewSummaries }: HomeScreenProps) {
     onStart(nextIdiom);
   }
 
-  return (
+  return (<>    
+    <div className={styles.sun} aria-hidden="true" />
+    <div className={`${styles.cloud} ${styles.cloudOne}`} aria-hidden="true" />
+    <div className={`${styles.cloud} ${styles.cloudTwo}`} aria-hidden="true" />
     <section className={styles.screen}>
-      <div className={styles.sun} aria-hidden="true" />
-      <div className={`${styles.cloud} ${styles.cloudOne}`} aria-hidden="true" />
-      <div className={`${styles.cloud} ${styles.cloudTwo}`} aria-hidden="true" />
-
       <header className={styles.hero}>
         <button className={styles.navButton} type="button" onClick={onViewSummaries}>
           Sayings you’ve learned
@@ -66,5 +65,6 @@ export function HomeScreen({ onStart, onViewSummaries }: HomeScreenProps) {
         </div>
       </div>
     </section>
+    </>
   );
 }
