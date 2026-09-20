@@ -1,8 +1,10 @@
 import os
+from dotenv import load_dotenv
 
 
 class Settings:
     def __init__(self) -> None:
+        load_dotenv()
         self.databaseUrl = os.environ["DATABASE_URL"]
 
         isProduction = os.getenv("APP_ENV") == "production"
