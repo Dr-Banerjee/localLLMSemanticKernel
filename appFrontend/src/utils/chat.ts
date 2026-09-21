@@ -14,7 +14,7 @@ function sliceBetween(text: string, start: RegExp, end: RegExp): string | null {
 }
 
 export function parseExplanation(text: string): ParsedExplanation | null {
-  const normalized = text.replace(/\r\n/g, "\n").trim();
+  const normalized = text.replaceAll("\r\n", "\n").trim();
   const meaning = sliceBetween(normalized, /Meaning:/i, /Why does it mean that\??/i);
   const why = sliceBetween(normalized, /Why does it mean that\??/i, /Example:/i);
   const example = sliceBetween(normalized, /Example:/i, /Remember:/i);

@@ -10,11 +10,12 @@ export function conversationMessagesQueryOptions(conversationId: number) {
 }
 
 export function useConversationMessages(conversationId: number | null) {
-  return useQuery({
-    queryKey: conversationKeys.messages(conversationId ?? 0),
-    queryFn:
-      conversationId === null
-        ? skipToken
-        : ({ signal }) => fetchConversationMessages(conversationId, { signal }),
-  });
+  return useQuery(
+    conversationId === null
+      ? {
+          queryKey: conversationKeys.messages(0),
+          queryFn: skipToken,
+        }
+      : conversationMessagesQueryOptions(conversationId),
+  );
 }
