@@ -1,7 +1,7 @@
 import { fetchCurrentUser } from "../api/session";
 
 export class SessionService {
-  async initialiseSession(): Promise<void> {
-    await fetchCurrentUser();
+  async initialiseSession(signal?: AbortSignal): Promise<void> {
+    await fetchCurrentUser({ signal });
   }
 }

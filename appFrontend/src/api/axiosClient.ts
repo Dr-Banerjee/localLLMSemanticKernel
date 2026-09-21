@@ -1,5 +1,11 @@
-import axios, { isAxiosError, type InternalAxiosRequestConfig } from "axios";
+import axios, { AxiosError, HttpStatusCode, isAxiosError } from "axios";
 import { ApiError } from "./errors";
+
+declare module "axios" {
+  interface AxiosRequestConfig {
+    _retried?: boolean;
+  }
+}
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "");
 
@@ -7,10 +13,6 @@ if (!API_BASE_URL) {
   throw new Error("VITE_API_BASE_URL is not configured");
 }
 const REQUEST_TIMEOUT_MS = 120_000;
-
-type RetryableRequestConfig = InternalAxiosRequestConfig & {
-  _retried?: boolean;
-};
 
 export const axiosClient = axios.create({
   baseURL: API_BASE_URL,
@@ -27,7 +29,7 @@ function toApiError(error: unknown): ApiError {
   }
 
   if (isAxiosError(error)) {
-    if (error.code === "ECONNABORTED") {
+    if (error.code === AxiosError.ECONNABORTED || error.code === AxiosError.ETIMEDOUT) {
       return new ApiError("Pip is still thinking. Let’s try that question once more!");
     }
 
@@ -50,11 +52,16 @@ axiosClient.interceptors.response.use(
       return Promise.reject(toApiError(error));
     }
 
-    const config = error.config as RetryableRequestConfig | undefined;
+    const config = error.config;
     const requestUrl = config?.url ?? "";
     const isSessionRequest = requestUrl.includes("/session");
 
-    if (error.response?.status === 401 && config && !config._retried && !isSessionRequest) {
+    if (
+      error.response?.status === HttpStatusCode.Unauthorized &&
+      config &&
+      !config._retried &&
+      !isSessionRequest
+    ) {
       config._retried = true;
       try {
         await axiosClient.post("/session");

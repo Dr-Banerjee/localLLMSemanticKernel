@@ -7,7 +7,7 @@ const sessionService = new SessionService();
 export function useInitialiseSession() {
   return useQuery({
     queryKey: sessionKeys.current,
-    queryFn: () => sessionService.initialiseSession(),
+    queryFn: ({ signal }) => sessionService.initialiseSession(signal),
     staleTime: Infinity,
     retry: 1,
   });
