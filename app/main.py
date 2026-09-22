@@ -56,13 +56,13 @@ currentUserDependency = CurrentUserDependency(
 )
 
 #post endpoint to receive user input and return the response from the LLM for a single query
-@app.post("/answer")
+@app.post("/api/conversations/answer")
 async def getAnswer(request: UserRequest):
     response = await answerService.processSingleRequest(request)    
     return response
 
 #post endpoint to carryout conversations with the LLM
-@app.post("/conversations/{conversationId}/messages")
+@app.post("/api/conversations/{conversationId}/messages")
 async def sendMessage(
     conversationId: int,
     request: UserRequest,
@@ -78,7 +78,7 @@ async def sendMessage(
     )
 
     return answer
-@app.post("/session") #Need to move it to a new controller
+@app.post("/api/sessions/session") #Need to move it to a new controller
 async def createSession(response: Response):
     sessionToken = await anonymousSessionService.createSession()
     response.set_cookie(
@@ -92,7 +92,7 @@ async def createSession(response: Response):
     )
     return {"message": "Session created"}
 
-@app.get("/me") # Need to move it to a new Controller
+@app.get("/api/sessions/me") # Need to move it to a new Controller
 async def getCurrentUser(
     currentUser: User = Depends(
         currentUserDependency.resolveCurrentUser
@@ -101,7 +101,7 @@ async def getCurrentUser(
     return {
         "id": str(currentUser.id),
     }
-@app.get("/conversations/summaries")
+@app.get("/api/conversations/summaries")
 async def getConversationSummaries(
     currentUser: User = Depends(
         currentUserDependency.resolveCurrentUser
@@ -114,7 +114,7 @@ async def getConversationSummaries(
                                                                             pageSize=pageSize
                                                                             )
 
-@app.get("/conversations/{conversationId}/messages")
+@app.get("/api/conversations/{conversationId}/messages")
 async def getConversationMessages(
     conversationId: int,
     currentUser: User = Depends(
