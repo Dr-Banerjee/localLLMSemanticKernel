@@ -17,7 +17,7 @@ export async function fetchConversationSummaries(
   params: ConversationSummariesQueryParams,
   { signal }: RequestOptions = {},
 ): Promise<ConversationSummaryResponse> {
-  const { data } = await axiosClient.get<ConversationSummaryResponse>("/conversations/summaries", {
+  const { data } = await axiosClient.get<ConversationSummaryResponse>("/api/conversations/summaries", {
     params,
     signal,
   });
@@ -29,7 +29,7 @@ export async function fetchConversationMessages(
   { signal }: RequestOptions = {},
 ): Promise<ConversationMessage[]> {
   const { data } = await axiosClient.get<ConversationMessage[]>(
-    `/conversations/${conversationId}/messages`,
+    `/api/conversations/${conversationId}/messages`,
     { signal },
   );
   return data;
@@ -42,7 +42,7 @@ export async function postConversationMessage(
 ): Promise<ResponseToUserRequest> {
   const body: UserRequest = { userInput };
   const { data } = await axiosClient.post<ResponseToUserRequest>(
-    `/conversations/${conversationId}/messages`,
+    `/api/conversations/${conversationId}/messages`,
     body,
     { signal },
   );
