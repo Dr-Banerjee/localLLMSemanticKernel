@@ -40,7 +40,7 @@ services:
       SESSION_COOKIE_SAMESITE: ${SESSION_COOKIE_SAMESITE}
       CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8001:8000" #for production only. Need to supply it properply based on the environment
     depends_on:
       postgres:
         condition: service_healthy
