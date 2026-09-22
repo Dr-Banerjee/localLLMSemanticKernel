@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useQueryClient } from "@tanstack/react-query";
+import { noop, useQueryClient } from "@tanstack/react-query";
 import { conversationMessagesQueryOptions } from "../hooks/useConversationMessages";
 import { useConversationSummaries } from "../hooks/useConversationSummaries";
 import type { ConversationSummary } from "../types";
@@ -25,11 +25,10 @@ export function ConversationSummariesScreen({
   );
 
   function prefetchMessages(conversationId: number) {
-    void queryClient.query(conversationMessagesQueryOptions(conversationId)).catch(() => undefined);
+    void queryClient.query(conversationMessagesQueryOptions(conversationId)).catch(noop);
   }
 
-  const isLoading =
-  summariesQuery.isPending;
+  const isLoading = summariesQuery.isPending;
   const error = summariesQuery.error;
 
   return (

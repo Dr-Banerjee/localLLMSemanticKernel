@@ -30,12 +30,7 @@ const ConversationSummariesScreen = lazy(async () => {
 });
 
 function lastUserContent(messages: ChatMessage[]): string | null {
-  for (let index = messages.length - 1; index >= 0; index -= 1) {
-    if (messages[index].role === "user") {
-      return messages[index].content;
-    }
-  }
-  return null;
+  return messages.findLast((message) => message.role === "user")?.content ?? null;
 }
 
 export default function App() {

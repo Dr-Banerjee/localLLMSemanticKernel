@@ -1,14 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { sessionKeys } from "../api/queryKeys";
 import { SessionService } from "../services/sessionService";
 
 const sessionService = new SessionService();
 
-export function useInitialiseSession() {
-  return useQuery({
+export function sessionQueryOptions() {
+  return queryOptions({
     queryKey: sessionKeys.current,
-    queryFn: () => sessionService.initialiseSession(),
+    queryFn: ({ signal }) => sessionService.initialiseSession(signal),
     staleTime: Infinity,
     retry: 1,
   });
+}
+
+export function useInitialiseSession() {
+  return useQuery(sessionQueryOptions());
 }

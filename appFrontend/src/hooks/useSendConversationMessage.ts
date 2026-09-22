@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { mutationOptions, useMutation } from "@tanstack/react-query";
 import { postConversationMessage } from "../api/conversations";
 import { conversationKeys } from "../api/queryKeys";
 
@@ -7,19 +7,21 @@ type SendConversationMessageVariables = {
   userInput: string;
 };
 
-export function useSendConversationMessage() {
-  const queryClient = useQueryClient();
-
-  return useMutation({
+export function sendConversationMessageMutationOptions() {
+  return mutationOptions({
     mutationFn: ({ conversationId, userInput }: SendConversationMessageVariables) =>
       postConversationMessage(conversationId, userInput),
-    onSuccess: async (_data, variables) => {
+    onSuccess: async (_data, variables, _onMutateResult, { client }) => {
       await Promise.all([
-        queryClient.invalidateQueries({ queryKey: conversationKeys.summaries() }),
-        queryClient.invalidateQueries({
+        client.invalidateQueries({ queryKey: conversationKeys.summaries() }),
+        client.invalidateQueries({
           queryKey: conversationKeys.messages(variables.conversationId),
         }),
       ]);
     },
   });
+}
+
+export function useSendConversationMessage() {
+  return useMutation(sendConversationMessageMutationOptions());
 }
