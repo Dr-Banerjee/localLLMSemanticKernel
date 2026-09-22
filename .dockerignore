@@ -1,0 +1,39 @@
+# Secrets / environment files
+.env
+.env.*
+appFrontend/.env
+appFrontend/.env.*
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Git
+.git/
+
+# IDE / editor files
+.vscode/
+
+# Python build artifacts
+build/
+*.egg-info/
+
+# Tests
+tests/
+app/test_*.py
+
+# Frontend dependencies and build output
+appFrontend/node_modules/
+appFrontend/dist/
+
+# Logs
+*.log

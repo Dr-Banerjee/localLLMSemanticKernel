@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useId, useState, type SubmitEvent } from "react";
 import styles from "./Composer.module.css";
 
 type ComposerProps = {
@@ -9,9 +9,10 @@ type ComposerProps = {
 };
 
 export function Composer({ placeholder, submitLabel, disabled = false, onSubmit }: ComposerProps) {
+  const inputId = useId();
   const [value, setValue] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const nextValue = value.trim();
     if (!nextValue || disabled) {
@@ -24,11 +25,11 @@ export function Composer({ placeholder, submitLabel, disabled = false, onSubmit 
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label className={styles.srOnly} htmlFor="composer-input">
+      <label className={styles.srOnly} htmlFor={inputId}>
         {placeholder}
       </label>
       <input
-        id="composer-input"
+        id={inputId}
         className={styles.input}
         value={value}
         placeholder={placeholder}

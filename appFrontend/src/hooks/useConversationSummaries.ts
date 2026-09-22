@@ -9,11 +9,14 @@ type UseConversationSummariesOptions = {
 export function conversationSummariesQueryOptions() {
   return infiniteQueryOptions({
     queryKey: conversationKeys.summaries(),
-    queryFn: ({ pageParam }) =>
-      fetchConversationSummaries({
-        page: pageParam,
-        pageSize: DEFAULT_PAGE_SIZE,
-      }),
+    queryFn: ({ pageParam, signal }) =>
+      fetchConversationSummaries(
+        {
+          page: pageParam,
+          pageSize: DEFAULT_PAGE_SIZE,
+        },
+        { signal },
+      ),
     initialPageParam: 1,
     getNextPageParam: (lastPage) => (lastPage.hasNextPage ? lastPage.page + 1 : undefined),
   });

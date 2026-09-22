@@ -158,6 +158,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.env.docker
 
 # Spyder project settings
 .spyderproject
@@ -222,3 +223,5 @@ __marimo__/
 # Frontend
 appFrontend/node_modules/
 appFrontend/dist/
+*.local
+.DS_Store
