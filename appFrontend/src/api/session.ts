@@ -6,10 +6,10 @@ type RequestOptions = {
 };
 
 export async function fetchCurrentUser({ signal }: RequestOptions = {}): Promise<CurrentUser> {
-  const { data } = await axiosClient.get<CurrentUser>("/me", { signal });
+  const { data } = await axiosClient.get<CurrentUser>("/api/sessions/me", { signal });
   return data;
 }
 
 export async function createSession({ signal }: RequestOptions = {}): Promise<void> {
-  await axiosClient.post("/session", undefined, { signal });
+  await axiosClient.post("/api/sessions/session", undefined, { signal });
 }

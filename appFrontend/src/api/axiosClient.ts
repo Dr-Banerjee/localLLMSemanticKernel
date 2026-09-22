@@ -64,7 +64,7 @@ axiosClient.interceptors.response.use(
     ) {
       config._retried = true;
       try {
-        await axiosClient.post("/session");
+        await axiosClient.post("/api/sessions/session");
         return axiosClient.request(config);
       } catch (sessionError) {
         return Promise.reject(toApiError(sessionError));
