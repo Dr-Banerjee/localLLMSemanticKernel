@@ -223,3 +223,5 @@ __marimo__/
 # Frontend
 appFrontend/node_modules/
 appFrontend/dist/
+*.local
+.DS_Store
