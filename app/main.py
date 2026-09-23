@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Response, Depends, Query, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
+from services.conversation_messages_query_service import ConversationMessagesQueryService
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
 from services.answer_service import AnswerService
@@ -18,9 +19,6 @@ from auth.current_user_dependency import CurrentUserDependency
 from auth.anonymous_session_service import AnonymousSessionService
 from db.models.user import User
 from services.conversation_summaries_query_service import ConversationSummariesQueryService
-from data_transfer_objects.conversation_message import ConversationMessage
-
-
 
 app = FastAPI()    
 settings = Settings()
@@ -39,7 +37,7 @@ chatService = ChatService(unitOfWorkFactory)
 singleChatService = SingleChatService()
 answerService = AnswerService(chatService, singleChatService)
 conversationSummariesQueryService = ConversationSummariesQueryService(unitOfWorkFactory)
-
+conversationMessagesQueryService = ConversationMessagesQueryService(unitOfWorkFactory)
 sessionTokenService = SessionTokenService()
 anonymousSessionService = AnonymousSessionService(
 unitOfWorkFactory,
@@ -121,28 +119,4 @@ async def getConversationMessages(
         currentUserDependency.resolveCurrentUser
     ),
 ):
-    async with unitOfWorkFactory.create() as unitOfWork:
-        conversation = await unitOfWork.conversationRepository.getConversation(
-            conversationId,
-            currentUser.id,
-        )
-        if conversation is None:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="Conversation not found",
-            )
-        messages = await unitOfWork.conversationRepository.getMessages(
-            conversationId,
-            currentUser.id,
-        )
-        return [
-            ConversationMessage(
-                id=message.id,
-                role=message.role,
-                content=message.content,
-                createdAt=message.created_at,
-            )
-            for message in messages
-        ]
-
-       
+    return await conversationMessagesQueryService.getConversationMessages(conversationId=conversationId, userId= currentUser.id)
