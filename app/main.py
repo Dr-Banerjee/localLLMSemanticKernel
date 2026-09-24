@@ -10,9 +10,9 @@ from db.database import Database
 from config.settings import Settings
 import os
 from services.chat_service import ChatService
-from db.repositories.conversation_repository import ConversationRepository
 from services.single_chat_service import SingleChatService
 from db.unit_of_work_factory import UnitOfWorkFactory
+from kernel.semantic_kernel_chat_completion import SemanticKernelChatCompletion
 from auth.session_token_service import SessionTokenService
 from auth.current_user_service import CurrentUserService
 from auth.current_user_dependency import CurrentUserDependency
@@ -34,8 +34,9 @@ database = Database(
     settings.databaseUrl
 )
 unitOfWorkFactory = UnitOfWorkFactory(database)
-chatService = ChatService(unitOfWorkFactory)
-singleChatService = SingleChatService()
+chatCompletion = SemanticKernelChatCompletion()
+chatService = ChatService(unitOfWorkFactory, chatCompletion)
+singleChatService = SingleChatService(chatCompletion)
 answerService = AnswerService(chatService, singleChatService)
 conversationSummariesQueryService = ConversationSummariesQueryService(unitOfWorkFactory)
 conversationMessagesQueryService = ConversationMessagesQueryService(unitOfWorkFactory)

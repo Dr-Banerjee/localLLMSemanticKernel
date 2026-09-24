@@ -1,41 +1,39 @@
 from data_transfer_objects.response import ResponseToUserRequest
-from kernel.kernel import createKernel
-from semantic_kernel.connectors.ai.function_choice_behavior import FunctionChoiceBehavior
-from semantic_kernel.connectors.ai.ollama import OllamaChatPromptExecutionSettings
-from semantic_kernel.contents import ChatHistory
+from data_transfer_objects.chat_turn import ChatTurn
 from models.conversation_course import ConversationCourse
 from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
+from abstractions.i_chat_completion import IChatCompletion
 from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
 from exceptions.exceptions import ConversationForbidden
 from uuid import UUID
 
+
 class ChatService:
-    #constructor
-    def __init__(self, unitOfWorkFactory: IUnitOfWorkFactory) -> None:
-        self.kernel = createKernel()
-        self.chatService = self.kernel.get_service()
-        self.settings = OllamaChatPromptExecutionSettings(
-            temperature=0.7,
-            top_p=0.8,
-            num_predict=500,
-            function_choice_behavior=FunctionChoiceBehavior.Auto(),
-        )
+    def __init__(
+        self,
+        unitOfWorkFactory: IUnitOfWorkFactory,
+        chatCompletion: IChatCompletion,
+    ) -> None:
         self.unitOfWorkFactory = unitOfWorkFactory
-    
-    #given a conversationId and a UserRequest we process the userRequest
-    async def processUserRequest(self, conversationId: int, request: UserRequest, userId: UUID) -> ResponseToUserRequest:
-        conversationCourse = await self.getOrCreateConversationCourse(conversationId=conversationId, userId = userId)
-        #the actual string that the user sends in as input.
-        userInput = request.userInput        
-        chatHistory= await self.addUserInputToConversationCourse(conversationCourse,userInput)
-        response = await self.chatService.get_chat_message_content(
-                                                                    chat_history=chatHistory,
-                                                                    kernel=self.kernel,
-                                                                    settings=self.settings,
-                                                                )
-        assistantResponse = str(response)
-        chatHistory.add_assistant_message(assistantResponse)
+        self.chatCompletion = chatCompletion
+
+    async def processUserRequest(
+        self,
+        conversationId: int,
+        request: UserRequest,
+        userId: UUID,
+    ) -> ResponseToUserRequest:
+        conversationCourse = await self.getOrCreateConversationCourse(
+            conversationId=conversationId,
+            userId=userId,
+        )
+        userInput = request.userInput
+        chatHistory = await self.addUserInputToConversationCourse(
+            conversationCourse,
+            userInput,
+        )
+        assistantResponse = await self.chatCompletion.complete(chatHistory)
 
         async with self.unitOfWorkFactory.create() as unitOfWork:
             await unitOfWork.conversationRepository.addMessage(
@@ -46,38 +44,47 @@ class ChatService:
 
         return ResponseToUserRequest(response=assistantResponse)
 
-    #given a conversationId gets the chat history corressponding to it
-    async def getOrCreateConversationCourse(self, conversationId: int, userId: UUID) -> ConversationCourse:        
-        #denotes whether it is a new conversation.
+    async def getOrCreateConversationCourse(
+        self,
+        conversationId: int,
+        userId: UUID,
+    ) -> ConversationCourse:
         historyNewlyCreated = False
 
         async with self.unitOfWorkFactory.create() as unitOfWork:
             conversationRepository = unitOfWork.conversationRepository
-            conversation = await conversationRepository.getConversation(conversationId, userId) 
-            if conversation is None:                
-                conversationExists = await conversationRepository.conversationExists(conversationId)
+            conversation = await conversationRepository.getConversation(
+                conversationId,
+                userId,
+            )
+            if conversation is None:
+                conversationExists = await conversationRepository.conversationExists(
+                    conversationId
+                )
                 if conversationExists:
                     raise ConversationForbidden(
                         "Conversation does not belong to the current user"
                     )
-                await conversationRepository.createConversation(conversationId, userId)
+                await conversationRepository.createConversation(
+                    conversationId,
+                    userId,
+                )
                 historyNewlyCreated = True
-            messages = await conversationRepository.getMessages(conversationId, userId)    
+            messages = await conversationRepository.getMessages(
+                conversationId,
+                userId,
+            )
 
-        chatHistory = ChatHistory()
-        # Loose strings need to be stored in an enum als it needs to be fixed in the db that no ther roles are allowed.
-        for message in messages:
-            if message.role == "system":
-                chatHistory.add_system_message(message.content)
-            elif message.role == "user":
-                chatHistory.add_user_message(message.content)
-            elif message.role == "assistant":
-                chatHistory.add_assistant_message(message.content)
+        chatHistory = [
+            ChatTurn(role=message.role, content=message.content)
+            for message in messages
+            if message.role in ("system", "user", "assistant")
+        ]
 
         if historyNewlyCreated:
             loadPrompt = LoadPrompt()
             systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
-            chatHistory.add_system_message(systemPrompt)
+            chatHistory.append(ChatTurn(role="system", content=systemPrompt))
 
             async with self.unitOfWorkFactory.create() as unitOfWork:
                 await unitOfWork.conversationRepository.addMessage(
@@ -85,36 +92,46 @@ class ChatService:
                     role="system",
                     content=systemPrompt,
                 )
-        conversationCourse = ConversationCourse(
-                                                            conversationId=conversationId,
-                                                            chatHistory=chatHistory, 
-                                                            newlyCreated=historyNewlyCreated
-                                                            )
-        return conversationCourse
-    
-    #Handle addition of user input to chat history
-    async def addUserInputToConversationCourse(self, conversationCourse: ConversationCourse, userInput: str)->ChatHistory:
+
+        return ConversationCourse(
+            conversationId=conversationId,
+            chatHistory=chatHistory,
+            newlyCreated=historyNewlyCreated,
+        )
+
+    async def addUserInputToConversationCourse(
+        self,
+        conversationCourse: ConversationCourse,
+        userInput: str,
+    ) -> list[ChatTurn]:
         isNewlyCreatedChatHistory = conversationCourse.newlyCreated
         conversationId = conversationCourse.conversationId
-        chatHistoryOfConversation = conversationCourse.chatHistory                
-        #A prompt template to explain an idiom with the userInput being the initial idiom.
+        chatHistoryOfConversation = list(conversationCourse.chatHistory)
+
         if isNewlyCreatedChatHistory:
             self.handleInitialUserRequest(chatHistoryOfConversation, userInput)
         else:
-            chatHistoryOfConversation.add_user_message(userInput)
+            chatHistoryOfConversation.append(
+                ChatTurn(role="user", content=userInput)
+            )
+
         async with self.unitOfWorkFactory.create() as unitOfWork:
-                        await unitOfWork.conversationRepository.addMessage(
-                            conversationId=conversationId,
-                            role="user",
-                            content=userInput,
-                        )
+            await unitOfWork.conversationRepository.addMessage(
+                conversationId=conversationId,
+                role="user",
+                content=userInput,
+            )
         return chatHistoryOfConversation
-    
-    #Handle the initial user request
-    def handleInitialUserRequest(self,chatHistory: ChatHistory, userInput: str)-> None:
-        #The initial request is always to explain the meaning of an idiom
-        loadPrompt = LoadPrompt()           
+
+    def handleInitialUserRequest(
+        self,
+        chatHistory: list[ChatTurn],
+        userInput: str,
+    ) -> None:
+        loadPrompt = LoadPrompt()
         initalAnswerPrompt = loadPrompt.loadPrompt("answer_prompts.txt")
-        initalAnswerPrompt = initalAnswerPrompt.replace('{{$user_input}}',userInput)        
-        chatHistory.add_user_message(initalAnswerPrompt)
-    
+        initalAnswerPrompt = initalAnswerPrompt.replace(
+            "{{$user_input}}",
+            userInput,
+        )
+        chatHistory.append(ChatTurn(role="user", content=initalAnswerPrompt))
