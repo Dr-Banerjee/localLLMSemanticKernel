@@ -1,13 +1,13 @@
 from fastapi import HTTPException, status
 
-from db.models.user import User
-from db.unit_of_work_factory import UnitOfWorkFactory
+from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
+from models.user import User
 
 class CurrentUserService:
 
     def __init__(
         self,
-        unitOfWorkFactory: UnitOfWorkFactory,
+        unitOfWorkFactory: IUnitOfWorkFactory,
     ) -> None:
         self.unitOfWorkFactory = unitOfWorkFactory
 

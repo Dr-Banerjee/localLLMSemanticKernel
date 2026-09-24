@@ -17,7 +17,8 @@ from auth.session_token_service import SessionTokenService
 from auth.current_user_service import CurrentUserService
 from auth.current_user_dependency import CurrentUserDependency
 from auth.anonymous_session_service import AnonymousSessionService
-from db.models.user import User
+from exceptions.exceptions import ConversationForbidden, ConversationNotFound
+from models.user import User
 from services.conversation_summaries_query_service import ConversationSummariesQueryService
 
 app = FastAPI()    
@@ -69,11 +70,17 @@ async def sendMessage(
             ),
 ):
 
-    answer = await answerService.chatProcess(
-        conversationId,
-        request,
-        currentUser.id
-    )
+    try:
+        answer = await answerService.chatProcess(
+            conversationId,
+            request,
+            currentUser.id
+        )
+    except ConversationForbidden:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Conversation does not belong to the current user",
+        )
 
     return answer
 @app.post("/api/sessions/session") #Need to move it to a new controller
@@ -119,4 +126,13 @@ async def getConversationMessages(
         currentUserDependency.resolveCurrentUser
     ),
 ):
-    return await conversationMessagesQueryService.getConversationMessages(conversationId=conversationId, userId= currentUser.id)
+    try:
+        return await conversationMessagesQueryService.getConversationMessages(
+            conversationId=conversationId,
+            userId=currentUser.id,
+        )
+    except ConversationNotFound:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Conversation not found",
+        )

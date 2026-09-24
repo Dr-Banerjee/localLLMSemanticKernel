@@ -1,10 +1,10 @@
 from uuid import UUID
-from db.unit_of_work_factory import UnitOfWorkFactory
+from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
 from data_transfer_objects.conversation_message import ConversationMessage
-from fastapi import HTTPException, status
+from exceptions.exceptions import ConversationNotFound
 
 class ConversationMessagesQueryService:
-    def __init__(self, unitOfWorkFactory: UnitOfWorkFactory) -> None:
+    def __init__(self, unitOfWorkFactory: IUnitOfWorkFactory) -> None:
         self.unitOfWorkFactory = unitOfWorkFactory
     async def getConversationMessages(self, conversationId: int, userId: UUID) -> list[ConversationMessage]:
         # Logic to retrieve messages for the given conversationId and UserId
@@ -14,10 +14,7 @@ class ConversationMessagesQueryService:
                     userId,
                 )
                 if conversation is None:
-                    raise HTTPException(
-                        status_code=status.HTTP_404_NOT_FOUND,
-                        detail="Conversation not found",
-                    )
+                    raise ConversationNotFound("Conversation not found")
                 messages = await unitOfWork.conversationRepository.getMessages(
                     conversationId,
                     userId,

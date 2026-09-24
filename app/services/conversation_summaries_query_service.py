@@ -1,30 +1,23 @@
 from uuid import UUID
-from db.unit_of_work_factory import UnitOfWorkFactory
-from data_transfer_objects.conversation_summary import ConversationSummary
+from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
 from data_transfer_objects.conversation_summary_response import ConversationSummaryResponse
 class ConversationSummariesQueryService:
     def __init__(self,
-                 unitOfWorkFactory: UnitOfWorkFactory) -> None:
+                 unitOfWorkFactory: IUnitOfWorkFactory) -> None:
         self.unitOfWorkFactory = unitOfWorkFactory
 
     async def getConversationSummaries(self,
                                        userId: UUID,
                                        page: int,
-                                       pageSize: int) -> list[ConversationSummary]:
+                                       pageSize: int) -> ConversationSummaryResponse:
         async with self.unitOfWorkFactory.create() as unitOfWork:
-            rows = await unitOfWork.conversationRepository.getConversationSummaries(
+            summaries = await unitOfWork.conversationRepository.getConversationSummaries(
                 userId,
                 page,
                 pageSize
             )
-            hasNextPage = len(rows) > pageSize
-            visibleRows = rows[:pageSize]
-                        
-            conversationSummaries = [ConversationSummary(
-                                                        id=row["id"],
-                                                        createdAt=row["createdAt"],
-                                                        updatedAt=row["updatedAt"],
-                                                        initialMessage=row["initialMessage"],) for row in visibleRows]
+            hasNextPage = len(summaries) > pageSize
+            conversationSummaries = summaries[:pageSize]
             conversationSummariesResponse = ConversationSummaryResponse(
                                                                         items=conversationSummaries,
                                                                         page=page,

@@ -6,13 +6,13 @@ from semantic_kernel.contents import ChatHistory
 from models.conversation_course import ConversationCourse
 from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
-from db.unit_of_work_factory import UnitOfWorkFactory
+from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
+from exceptions.exceptions import ConversationForbidden
 from uuid import UUID
-from fastapi import HTTPException, status
 
 class ChatService:
     #constructor
-    def __init__(self, unitOfWorkFactory: UnitOfWorkFactory) -> None:
+    def __init__(self, unitOfWorkFactory: IUnitOfWorkFactory) -> None:
         self.kernel = createKernel()
         self.chatService = self.kernel.get_service()
         self.settings = OllamaChatPromptExecutionSettings(
@@ -57,10 +57,9 @@ class ChatService:
             if conversation is None:                
                 conversationExists = await conversationRepository.conversationExists(conversationId)
                 if conversationExists:
-                     raise HTTPException(
-                                            status_code=status.HTTP_403_FORBIDDEN,
-                                            detail="Conversation does not belong to the current user",
-                                        )
+                    raise ConversationForbidden(
+                        "Conversation does not belong to the current user"
+                    )
                 await conversationRepository.createConversation(conversationId, userId)
                 historyNewlyCreated = True
             messages = await conversationRepository.getMessages(conversationId, userId)    

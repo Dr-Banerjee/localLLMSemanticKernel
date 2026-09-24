@@ -1,6 +1,6 @@
 from fastapi import Cookie, HTTPException, status, Request
 
-from db.models.user import User
+from models.user import User
 from auth.current_user_service import CurrentUserService
 from auth.session_token_service import SessionTokenService
 from config.settings import Settings
