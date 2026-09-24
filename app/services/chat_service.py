@@ -6,7 +6,6 @@ from semantic_kernel.contents import ChatHistory
 from models.conversation_course import ConversationCourse
 from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
-from db.repositories.conversation_repository import ConversationRepository
 from db.unit_of_work_factory import UnitOfWorkFactory
 from uuid import UUID
 from fastapi import HTTPException, status
