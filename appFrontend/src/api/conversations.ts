@@ -35,6 +35,13 @@ export async function fetchConversationMessages(
   return data;
 }
 
+export async function deleteConversation(
+  conversationId: number,
+  { signal }: RequestOptions = {},
+): Promise<void> {
+  await axiosClient.delete(`/api/conversations/${conversationId}`, { signal });
+}
+
 export async function postConversationMessage(
   conversationId: number,
   userInput: string,

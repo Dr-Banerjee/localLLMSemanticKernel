@@ -3,6 +3,7 @@ from unittest.mock import AsyncMock, MagicMock
 import pytest
 
 from commands.chat_command import ChatCommand
+from commands.delete_conversation_command import DeleteConversationCommand
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
 from queries.conversationMessagesQuery import ConversationMessagesQuery
@@ -22,7 +23,9 @@ def mediator():
     summariesHandler.handleConversationSummariesQuery = AsyncMock(
         return_value="summaries"
     )
-    return Mediator(chatHandler, summariesHandler, messagesHandler)
+    deleteHandler = MagicMock()
+    deleteHandler.handleDeleteConversationCommand = AsyncMock(return_value=None)
+    return Mediator(chatHandler, summariesHandler, messagesHandler, deleteHandler)
 
 
 @pytest.mark.asyncio
@@ -63,6 +66,19 @@ async def test_send_routesConversationSummariesQuery(mediator, userId):
         userId,
         2,
         10,
+    )
+
+
+@pytest.mark.asyncio
+async def test_send_routesDeleteConversationCommand(mediator, userId):
+    command = DeleteConversationCommand(4, userId)
+
+    result = await mediator.send(command)
+
+    assert result is None
+    mediator.deleteConversationCommandHandler.handleDeleteConversationCommand.assert_awaited_once_with(
+        4,
+        userId,
     )
 
 

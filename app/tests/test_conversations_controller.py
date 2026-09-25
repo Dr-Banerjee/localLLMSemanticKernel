@@ -81,6 +81,26 @@ def test_getConversationSummaries(appClient, currentUser):
     mediator.send.assert_awaited()
 
 
+def test_deleteConversation_success(appClient):
+    client, mediator, _ = appClient
+    mediator.send = AsyncMock(return_value=None)
+
+    response = client.delete("/api/conversations/11")
+
+    assert response.status_code == 204
+    mediator.send.assert_awaited()
+
+
+def test_deleteConversation_notFound(appClient):
+    client, mediator, _ = appClient
+    mediator.send = AsyncMock(side_effect=ConversationNotFoundException())
+
+    response = client.delete("/api/conversations/11")
+
+    assert response.status_code == 404
+    assert response.json()["detail"] == "Conversation not found"
+
+
 def test_getConversationMessages_notFound(appClient):
     client, mediator, _ = appClient
     mediator.send = AsyncMock(side_effect=ConversationNotFoundException())

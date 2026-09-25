@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { noop, useQueryClient } from "@tanstack/react-query";
 import { conversationMessagesQueryOptions } from "../hooks/useConversationMessages";
 import { useConversationSummaries } from "../hooks/useConversationSummaries";
+import { useDeleteConversation } from "../hooks/useDeleteConversation";
 import type { ConversationSummary } from "../types";
 import { ConversationSummaryCard } from "./ConversationSummaryCard";
 import { Mascot } from "./Mascot";
@@ -18,6 +19,7 @@ export function ConversationSummariesScreen({
 }: ConversationSummariesScreenProps) {
   const queryClient = useQueryClient();
   const summariesQuery = useConversationSummaries();
+  const deleteConversation = useDeleteConversation();
 
   const summaries = useMemo(
     () => summariesQuery.data?.pages.flatMap((page) => page.items) ?? [],
@@ -86,6 +88,12 @@ export function ConversationSummariesScreen({
                 summary={summary}
                 index={index}
                 onOpen={onOpenConversation}
+                onDelete={(selected) => {
+                  deleteConversation.mutate(selected.id);
+                }}
+                isDeleting={
+                  deleteConversation.isPending && deleteConversation.variables === summary.id
+                }
                 onPrefetch={prefetchMessages}
               />
             ))}
