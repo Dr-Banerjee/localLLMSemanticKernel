@@ -1,7 +1,8 @@
-from fastapi import HTTPException, status
-
 from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
+from exceptions.invalid_session_exception import InvalidSessionException
+from exceptions.user_not_found_exception import UserNotFoundException
 from models.user import User
+
 
 class CurrentUserService:
 
@@ -13,28 +14,21 @@ class CurrentUserService:
 
     async def resolveCurrentUser(
         self,
-        tokenHash: str
-    ) -> User:        
-
+        tokenHash: str,
+    ) -> User:
         async with self.unitOfWorkFactory.create() as unitOfWork:
-
             session = await unitOfWork.sessionRepository.getValidSession(
                 tokenHash
             )
 
             if session is None:
-                raise HTTPException(
-                    status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="Invalid or expired session",
-                )
+                raise InvalidSessionException("Invalid or expired session")
 
             user = await unitOfWork.userRepository.getUser(
                 session.user_id
             )
 
             if user is None:
-                raise HTTPException(
-                    status_code=status.HTTP_401_UNAUTHORIZED,
-                    detail="User not found",
-                )
+                raise UserNotFoundException("User not found")
+
             return user

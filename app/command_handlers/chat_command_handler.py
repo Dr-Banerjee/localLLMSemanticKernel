@@ -5,11 +5,11 @@ from data_transfer_objects.request import UserRequest
 from utils.load_prompt import LoadPrompt
 from abstractions.i_chat_completion import IChatCompletion
 from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
-from exceptions.exceptions import ConversationForbidden
+from exceptions.conversation_forbidden_exception import ConversationForbiddenException
 from uuid import UUID
 
 
-class ChatService:
+class ChatCommandHandler:
     def __init__(
         self,
         unitOfWorkFactory: IUnitOfWorkFactory,
@@ -18,7 +18,7 @@ class ChatService:
         self.unitOfWorkFactory = unitOfWorkFactory
         self.chatCompletion = chatCompletion
 
-    async def processUserRequest(
+    async def handleChatCommand(
         self,
         conversationId: int,
         request: UserRequest,
@@ -62,7 +62,7 @@ class ChatService:
                     conversationId
                 )
                 if conversationExists:
-                    raise ConversationForbidden(
+                    raise ConversationForbiddenException(
                         "Conversation does not belong to the current user"
                     )
                 await conversationRepository.createConversation(

@@ -1,54 +1,35 @@
 import asyncio
-import os
 
-from db.database import Database
-from db.unit_of_work import UnitOfWork
+from sqlalchemy import text
+from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.engine import make_url
+
+from config.settings import Settings
 
 
-async def main() -> None:
-    database = Database(os.environ["DATABASE_URL"])
+async def main():
+    settings = Settings()
 
-    conversationId = 987654
+    url = make_url(settings.databaseUrl)
+
+    print("driver:", url.drivername)
+    print("username:", url.username)
+    print("host:", url.host)
+    print("port:", url.port)
+    print("database:", url.database)
+    print("password present:", url.password is not None)
+
+    engine = create_async_engine(
+        settings.databaseUrl,
+        pool_pre_ping=True,
+    )
 
     try:
-        async with UnitOfWork(database) as unitOfWork:
-            conversation = (
-                await unitOfWork.conversationRepository
-                .getOrCreateConversation(conversationId)
-            )
-
-            print(
-                "Conversation:",
-                conversation.id,
-            )
-
-            message = (
-                await unitOfWork.conversationRepository
-                .addMessage(
-                    conversationId=conversationId,
-                    role="user",
-                    content="Unit of Work test",
-                )
-            )
-
-            print(
-                "Message:",
-                message.id,
-                message.conversation_id,
-            )
-
-            messages = (
-                await unitOfWork.conversationRepository
-                .getMessages(conversationId)
-            )
-
-            print(
-                "Messages in same unit of work:",
-                len(messages),
-            )
-
+        async with engine.connect() as connection:
+            result = await connection.execute(text("SELECT current_user, current_database()"))
+            print("DB connection successful:", result.fetchone())
     finally:
-        await database.dispose()
+        await engine.dispose()
 
 
 asyncio.run(main())
