@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 
 from auth.current_user_dependency import CurrentUserDependency
 from commands.chat_command import ChatCommand
+from commands.delete_conversation_command import DeleteConversationCommand
 from data_transfer_objects.request import UserRequest
 from exceptions.conversation_forbidden_exception import ConversationForbiddenException
 from exceptions.conversation_not_found_exception import ConversationNotFoundException
@@ -71,6 +72,29 @@ class ConversationsController:
             try:
                 return await self.mediator.send(
                     ConversationMessagesQuery(
+                        conversationId=conversationId,
+                        userId=currentUser.id,
+                    )
+                )
+            except ConversationNotFoundException:
+                raise HTTPException(
+                    status_code=status.HTTP_404_NOT_FOUND,
+                    detail="Conversation not found",
+                )
+
+        @self.router.delete(
+            "/{conversationId}",
+            status_code=status.HTTP_204_NO_CONTENT,
+        )
+        async def deleteConversation(
+            conversationId: int,
+            currentUser: User = Depends(
+                self.currentUserDependency.resolveCurrentUser
+            ),
+        ):
+            try:
+                await self.mediator.send(
+                    DeleteConversationCommand(
                         conversationId=conversationId,
                         userId=currentUser.id,
                     )

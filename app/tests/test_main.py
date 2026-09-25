@@ -39,6 +39,7 @@ def test_main_includesConversationAndSessionRouters(mainModule):
     openApiPaths = set(mainModule.app.openapi()["paths"])
 
     assert "/api/conversations/{conversationId}/messages" in openApiPaths
+    assert "/api/conversations/{conversationId}" in openApiPaths
     assert "/api/conversations/summaries" in openApiPaths
     assert "/api/sessions/session" in openApiPaths
     assert "/api/sessions/me" in openApiPaths

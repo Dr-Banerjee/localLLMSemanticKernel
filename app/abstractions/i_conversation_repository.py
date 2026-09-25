@@ -52,3 +52,11 @@ class IConversationRepository(ABC):
         pageSize: int,
     ) -> list[ConversationSummary]:
         pass
+
+    @abstractmethod
+    async def deleteConversation(
+        self,
+        conversationId: int,
+        userId: UUID,
+    ) -> None:
+        pass
