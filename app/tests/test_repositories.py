@@ -155,3 +155,17 @@ async def test_conversationRepository_crudPaths():
     assert exists is True
     assert missingExists is False
     assert summaries[0].id == 5
+
+
+@pytest.mark.asyncio
+async def test_conversationRepository_deleteConversation():
+    session = MagicMock()
+    session.execute = AsyncMock()
+    session.flush = AsyncMock()
+    repository = ConversationRepository(session)
+    userId = uuid7()
+
+    await repository.deleteConversation(5, userId)
+
+    session.execute.assert_awaited()
+    session.flush.assert_awaited()

@@ -1,4 +1,5 @@
 from commands.chat_command import ChatCommand
+from commands.delete_conversation_command import DeleteConversationCommand
 from data_transfer_objects.request import UserRequest
 from queries.conversationMessagesQuery import ConversationMessagesQuery
 from queries.conversationSummariesQuery import ConversationSummariesQuery
@@ -12,6 +13,14 @@ def test_chatCommand_storesFields():
 
     assert command.conversationId == 4
     assert command.request is request
+    assert command.userId == userId
+
+
+def test_deleteConversationCommand_storesFields():
+    userId = uuid7()
+    command = DeleteConversationCommand(6, userId)
+
+    assert command.conversationId == 6
     assert command.userId == userId
 
 

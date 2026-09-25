@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from sqlalchemy import func, select
+from sqlalchemy import delete, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from abstractions.i_conversation_repository import IConversationRepository
@@ -159,3 +159,16 @@ class ConversationRepository(IConversationRepository):
             )
             for row in result.mappings().all()
         ]
+
+    async def deleteConversation(
+        self,
+        conversationId: int,
+        userId: UUID,
+    ) -> None:
+        await self.session.execute(
+            delete(ConversationRecord).where(
+                ConversationRecord.id == conversationId,
+                ConversationRecord.user_id == userId,
+            )
+        )
+        await self.session.flush()

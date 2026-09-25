@@ -8,6 +8,9 @@ from auth.current_user_dependency import CurrentUserDependency
 from auth.current_user_service import CurrentUserService
 from auth.session_token_service import SessionTokenService
 from command_handlers.chat_command_handler import ChatCommandHandler
+from command_handlers.delete_conversation_command_handler import (
+    DeleteConversationCommandHandler,
+)
 from config.settings import Settings
 from db.database import Database
 from db.unit_of_work_factory import UnitOfWorkFactory
@@ -33,10 +36,12 @@ chatCompletion = SemanticKernelChatCompletion()
 chatCommandHandler = ChatCommandHandler(unitOfWorkFactory, chatCompletion)
 conversationSummariesQueryHandler = ConversationSummariesQueryHandler(unitOfWorkFactory)
 conversationMessagesQueryHandler = ConversationMessagesQueryHandler(unitOfWorkFactory)
+deleteConversationCommandHandler = DeleteConversationCommandHandler(unitOfWorkFactory)
 mediator = Mediator(
     chatCommandHandler,
     conversationSummariesQueryHandler,
     conversationMessagesQueryHandler,
+    deleteConversationCommandHandler,
 )
 sessionTokenService = SessionTokenService()
 anonymousSessionService = AnonymousSessionService(
