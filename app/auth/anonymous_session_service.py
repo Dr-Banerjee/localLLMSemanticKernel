@@ -1,12 +1,12 @@
 from datetime import datetime, timedelta, timezone
 from auth.session_token_service import SessionTokenService
 from config.settings import Settings
-from db.unit_of_work_factory import UnitOfWorkFactory
+from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
 
 class AnonymousSessionService:
     def __init__(
             self,
-            unitOfWorkFactory: UnitOfWorkFactory,
+            unitOfWorkFactory: IUnitOfWorkFactory,
             sessionTokenService: SessionTokenService,
             settings: Settings
     ) -> None:
