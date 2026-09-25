@@ -1,126 +1,161 @@
-from sqlalchemy import select, func
-from sqlalchemy.ext.asyncio import AsyncSession
-from db.database import Database
-from db.models.conversation import Conversation
-from db.models.message import Message
 from uuid import UUID
-from data_transfer_objects.conversation_summary import ConversationSummary
 
-class ConversationRepository:
+from sqlalchemy import func, select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from abstractions.i_conversation_repository import IConversationRepository
+from data_transfer_objects.conversation_summary import ConversationSummary
+from db.models.conversation import Conversation as ConversationRecord
+from db.models.message import Message as MessageRecord
+from data_transfer_objects.conversation import Conversation
+from data_transfer_objects.message import Message
+
+
+class ConversationRepository(IConversationRepository):
     def __init__(self, session: AsyncSession) -> None:
         self.session = session
 
-    async def getConversation(self, 
-                              conversationId : int,
-                              userId: UUID) -> Conversation | None:
+    async def getConversation(
+        self,
+        conversationId: int,
+        userId: UUID,
+    ) -> Conversation | None:
         result = await self.session.execute(
-            select(Conversation).where(
-                Conversation.id == conversationId,
-                Conversation.user_id == userId
+            select(ConversationRecord).where(
+                ConversationRecord.id == conversationId,
+                ConversationRecord.user_id == userId,
             )
         )
-        return result.scalar_one_or_none()
-        
-    async def createConversation(self, 
-                                 conversationId : int,
-                                 userId: UUID) -> Conversation:
-        conversation = Conversation(
-                                        id = conversationId,
-                                        user_id = userId
-                                    )
-        self.session.add(conversation)
+        record = result.scalar_one_or_none()
+        if record is None:
+            return None
+
+        return Conversation(id=record.id)
+
+    async def createConversation(
+        self,
+        conversationId: int,
+        userId: UUID,
+    ) -> Conversation:
+        record = ConversationRecord(
+            id=conversationId,
+            user_id=userId,
+        )
+        self.session.add(record)
         await self.session.flush()
-        await self.session.refresh(conversation)
-        return conversation
-        
+        await self.session.refresh(record)
+        return Conversation(id=record.id)
+
     async def addMessage(
         self,
         conversationId: int,
         role: str,
         content: str,
-    ) -> Message: 
-        
-        message = Message(
+    ) -> Message:
+        record = MessageRecord(
             conversation_id=conversationId,
             role=role,
             content=content,
         )
 
-        self.session.add(message)
+        self.session.add(record)
         conversation = await self.session.get(
-             Conversation,
-             conversationId
+            ConversationRecord,
+            conversationId,
         )
         conversation.updated_at = func.now()
         await self.session.flush()
-        await self.session.refresh(message)
-        return message
+        await self.session.refresh(record)
+        return Message(
+            id=record.id,
+            role=record.role,
+            content=record.content,
+            created_at=record.created_at,
+        )
 
     async def getMessages(
         self,
         conversationId: int,
-        userId: UUID
+        userId: UUID,
     ) -> list[Message]:
-        
         result = await self.session.execute(
-            select(Message)
+            select(MessageRecord)
             .join(
-                Conversation,
-                Message.conversation_id == Conversation.id
+                ConversationRecord,
+                MessageRecord.conversation_id == ConversationRecord.id,
             )
             .where(
-                Message.conversation_id == conversationId,
-                Conversation.user_id == userId,
+                MessageRecord.conversation_id == conversationId,
+                ConversationRecord.user_id == userId,
             )
-            .order_by(Message.id)
+            .order_by(MessageRecord.id)
         )
 
-        return list(result.scalars().all())
-    
-    async def conversationExists(self, 
-                                  conversationId : int
-                                  ) -> bool:
-            result = await self.session.execute(
-                select(Conversation).where(
-                    Conversation.id == conversationId
-                )
+        return [
+            Message(
+                id=record.id,
+                role=record.role,
+                content=record.content,
+                created_at=record.created_at,
             )
-            return result.scalar_one_or_none() is not None
+            for record in result.scalars().all()
+        ]
+
+    async def conversationExists(
+        self,
+        conversationId: int,
+    ) -> bool:
+        result = await self.session.execute(
+            select(ConversationRecord).where(
+                ConversationRecord.id == conversationId
+            )
+        )
+        return result.scalar_one_or_none() is not None
 
     async def getConversationSummaries(
-    self,
-    userId: UUID,
-    page: int,
-    pageSize: int,
-    ):
+        self,
+        userId: UUID,
+        page: int,
+        pageSize: int,
+    ) -> list[ConversationSummary]:
         offset = (page - 1) * pageSize
 
         initialMessage = (
-            select(Message.content)
+            select(MessageRecord.content)
             .where(
-                Message.conversation_id == Conversation.id,
-                Message.role == "user",
+                MessageRecord.conversation_id == ConversationRecord.id,
+                MessageRecord.role == "user",
             )
-            .order_by(Message.id)
+            .order_by(MessageRecord.id)
             .limit(1)
             .scalar_subquery()
         )
 
         result = await self.session.execute(
             select(
-                Conversation.id.label("id"),
-                Conversation.created_at.label("createdAt"),
-                Conversation.updated_at.label("updatedAt"),
+                ConversationRecord.id.label("id"),
+                ConversationRecord.created_at.label("createdAt"),
+                ConversationRecord.updated_at.label("updatedAt"),
                 initialMessage.label("initialMessage"),
             )
-            .where(Conversation.user_id == userId,
-                   initialMessage.is_not(None))
+            .where(
+                ConversationRecord.user_id == userId,
+                initialMessage.is_not(None),
+            )
             .order_by(
-                Conversation.updated_at.desc(),
-                Conversation.id.desc(),
+                ConversationRecord.updated_at.desc(),
+                ConversationRecord.id.desc(),
             )
             .offset(offset)
-            .limit(pageSize +1) #for checking whether there's another page
+            .limit(pageSize + 1)
         )
 
-        return result.mappings().all()
+        return [
+            ConversationSummary(
+                id=row["id"],
+                createdAt=row["createdAt"],
+                updatedAt=row["updatedAt"],
+                initialMessage=row["initialMessage"],
+            )
+            for row in result.mappings().all()
+        ]

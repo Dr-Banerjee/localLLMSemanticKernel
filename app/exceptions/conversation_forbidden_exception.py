@@ -1,0 +1,2 @@
+class ConversationForbiddenException(Exception):
+    pass

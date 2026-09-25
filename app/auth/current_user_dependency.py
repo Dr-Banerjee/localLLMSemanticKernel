@@ -1,19 +1,20 @@
-from fastapi import Cookie, HTTPException, status, Request
+from fastapi import HTTPException, status, Request
 
-from db.models.user import User
 from auth.current_user_service import CurrentUserService
 from auth.session_token_service import SessionTokenService
 from config.settings import Settings
+from exceptions.invalid_session_exception import InvalidSessionException
+from exceptions.user_not_found_exception import UserNotFoundException
+from models.user import User
+
 
 class CurrentUserDependency:
 
-    SESSION_COOKIE_NAME = "session" #Need to configure it properly for prod it should be host session.
-
     def __init__(
         self,
-        currentUserService: CurrentUserService,        
+        currentUserService: CurrentUserService,
         sessionTokenService: SessionTokenService,
-        settings: Settings
+        settings: Settings,
     ) -> None:
         self.currentUserService = currentUserService
         self.sessionTokenService = sessionTokenService
@@ -21,20 +22,32 @@ class CurrentUserDependency:
 
     async def resolveCurrentUser(
         self,
-        request: Request
+        request: Request,
     ) -> User:
         sessionToken = request.cookies.get(
             self.sessionCookieName
-        )        
+        )
         if sessionToken is None:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
                 detail="Session required",
             )
-        tokenHash = self.sessionTokenService.hashToken(
-                    sessionToken
-                )   
 
-        return await self.currentUserService.resolveCurrentUser(
-            tokenHash
+        tokenHash = self.sessionTokenService.hashToken(
+            sessionToken
         )
+
+        try:
+            return await self.currentUserService.resolveCurrentUser(
+                tokenHash
+            )
+        except InvalidSessionException:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid or expired session",
+            )
+        except UserNotFoundException:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="User not found",
+            )

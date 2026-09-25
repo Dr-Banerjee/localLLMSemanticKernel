@@ -1,5 +1,6 @@
 import logging
-from semantic_kernel.contents import ChatHistory
+
+from data_transfer_objects.chat_turn import ChatTurn
 
 
 class ChatHistoryLogger:
@@ -8,7 +9,7 @@ class ChatHistoryLogger:
 
     def log(
         self,
-        chat_history: ChatHistory,
+        chat_history: list[ChatTurn],
         conversation_id: str | None = None,
     ) -> None:
         prefix = (
