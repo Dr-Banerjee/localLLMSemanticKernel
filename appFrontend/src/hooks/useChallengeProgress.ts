@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { mutationOptions, useMutation, useQuery } from "@tanstack/react-query";
 import { fetchOrCreateChallengeProgress, updateChallengeProgress } from "../api/challenge";
 import { challengeKeys } from "../api/queryKeys";
 
@@ -9,13 +9,15 @@ export function useChallengeProgress() {
   });
 }
 
-export function useAdvanceChallengeStep() {
-  const queryClient = useQueryClient();
-
-  return useMutation({
+export function advanceChallengeStepMutationOptions() {
+  return mutationOptions({
     mutationFn: (challengeStep: number) => updateChallengeProgress(challengeStep),
-    onSuccess: (progress) => {
-      queryClient.setQueryData(challengeKeys.progress, progress);
+    onSuccess: (progress, _challengeStep, _onMutateResult, { client }) => {
+      client.setQueryData(challengeKeys.progress, progress);
     },
   });
+}
+
+export function useAdvanceChallengeStep() {
+  return useMutation(advanceChallengeStepMutationOptions());
 }

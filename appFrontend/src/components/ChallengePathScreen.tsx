@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { useQueryClient } from "@tanstack/react-query";
-import { updateChallengeProgress } from "../api/challenge";
 import { messageForApiError } from "../api/errors";
-import { challengeKeys } from "../api/queryKeys";
 import {
   challengeIdiomCount,
   challengeIdioms,
   type ChallengeIdiom,
 } from "../data/challengeIdioms";
-import { useChallengeProgress } from "../hooks/useChallengeProgress";
+import { useAdvanceChallengeStep, useChallengeProgress } from "../hooks/useChallengeProgress";
 import { Birdhouse, houseName, Tree } from "./ChallengeScenery";
 import { Mascot } from "./Mascot";
 import styles from "./ChallengePathScreen.module.css";
@@ -53,8 +50,8 @@ export function ChallengePathScreen({
   onBackHome,
   onOpenIdiom,
 }: ChallengePathScreenProps) {
-  const queryClient = useQueryClient();
   const progressQuery = useChallengeProgress();
+  const advanceStep = useAdvanceChallengeStep();
   const currentRef = useRef<HTMLLIElement>(null);
   const [actionError, setActionError] = useState<string | null>(null);
   const [isOpening, setIsOpening] = useState(false);
@@ -79,8 +76,7 @@ export function ChallengePathScreen({
     setIsOpening(true);
     try {
       if (state === "current") {
-        await updateChallengeProgress(progress.challenge_step + 1);
-        await queryClient.invalidateQueries({ queryKey: challengeKeys.progress });
+        await advanceStep.mutateAsync(progress.challenge_step + 1);
       }
       await onOpenIdiom(idiom);
     } catch (error) {
