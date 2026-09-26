@@ -12,6 +12,7 @@ from data_transfer_objects.message import Message
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
 from data_transfer_objects.session import Session
+from models.challenge_progress import ChallengeProgress
 from models.conversation_course import ConversationCourse
 from models.user import User
 
@@ -78,3 +79,17 @@ def test_user_and_conversationCourse():
 
     assert user.id == userId
     assert course.newlyCreated is True
+
+
+def test_challengeProgress_model():
+    now = datetime.now(timezone.utc)
+    userId = uuid7()
+    progress = ChallengeProgress(
+        user_id=userId,
+        created_at=now,
+        updated_at=now,
+        challenge_step=1,
+    )
+
+    assert progress.user_id == userId
+    assert progress.challenge_step == 1

@@ -1,0 +1,2432 @@
+[
+  {
+    "id": 1,
+    "idiom": "turn a blind eye",
+    "meaning": "to ignore something you know is wrong",
+    "nomenclature_reason": "It pictures someone closing their eyes so they can't see the problem, as if the eye is blind.",
+    "example": "The librarian turned a blind eye when the kids whispered in the reading room.",
+    "remember": "If you close your eyes, you pretend you didn't see.",
+    "rarity": 1
+  },
+  {
+    "id": 2,
+    "idiom": "bite off more than you can chew",
+    "meaning": "to take on a task that is too big or difficult",
+    "nomenclature_reason": "It likens trying to chew a huge bite of food that won't fit in your mouth.",
+    "example": "She tried to organize the whole school fair alone and soon realized she had bitten off more than she could chew.",
+    "remember": "Don't try to chew a bite that's bigger than your mouth.",
+    "rarity": 1
+  },
+  {
+    "id": 3,
+    "idiom": "let the cat out of the bag",
+    "meaning": "to reveal a secret by accident",
+    "nomenclature_reason": "Imagine a cat hidden in a bag; when the bag opens, the cat jumps out and everyone sees it.",
+    "example": "Tom let the cat out of the bag when he mentioned the surprise party to Sarah.",
+    "remember": "When the cat jumps out, the secret is out.",
+    "rarity": 1
+  },
+  {
+    "id": 4,
+    "idiom": "hit the nail on the head",
+    "meaning": "to describe something exactly right",
+    "nomenclature_reason": "It pictures a hammer striking a nail perfectly, so the job is done with one blow.",
+    "example": "When Maya said the project needed more planning, she hit the nail on the head.",
+    "remember": "A perfect hammer hit means a perfect answer.",
+    "rarity": 1
+  },
+  {
+    "id": 5,
+    "idiom": "cost an arm and a leg",
+    "meaning": "to be very expensive",
+    "nomenclature_reason": "It imagines having to give up something as valuable as your arm and leg to pay for it.",
+    "example": "The new video game console cost an arm and a leg, so I saved my allowance for months.",
+    "remember": "If it needs an arm and a leg, it's super pricey.",
+    "rarity": 1
+  },
+  {
+    "id": 6,
+    "idiom": "go the extra mile",
+    "meaning": "to make more effort than is expected",
+    "nomenclature_reason": "It pictures walking farther than the distance you were asked to travel.",
+    "example": "The teacher went the extra mile by giving us extra practice worksheets.",
+    "remember": "Walk farther than asked to help others.",
+    "rarity": 1
+  },
+  {
+    "id": 7,
+    "idiom": "keep your fingers crossed",
+    "meaning": "to hope that something will happen the way you want",
+    "nomenclature_reason": "Crossing fingers is a old habit that people believed would bring good luck.",
+    "example": "I kept my fingers crossed that I would win the spelling bee.",
+    "remember": "Crossed fingers bring hopeful wishes.",
+    "rarity": 1
+  },
+  {
+    "id": 8,
+    "idiom": "have a chip on your shoulder",
+    "meaning": "to be angry about something that happened in the past",
+    "nomenclature_reason": "It comes from the old idea of carrying a small piece of wood (a chip) as a sign of being ready to fight.",
+    "example": "After losing the game, Jake had a chip on his shoulder and didn't want to play.",
+    "remember": "A chip on the shoulder means you feel upset about something.",
+    "rarity": 1
+  },
+  {
+    "id": 9,
+    "idiom": "beat around the bush",
+    "meaning": "to avoid talking directly about something",
+    "nomenclature_reason": "It comes from hunters who would walk around a bush instead of going straight to the animal.",
+    "example": "Stop beating around the bush and tell me what you really think.",
+    "remember": "Going around the bush means not saying it straight.",
+    "rarity": 1
+  },
+  {
+    "id": 10,
+    "idiom": "be in hot water",
+    "meaning": "to be in trouble",
+    "nomenclature_reason": "Imagine being stuck in boiling water-it's uncomfortable and hard to get out of.",
+    "example": "Sam was in hot water after he forgot to do his homework.",
+    "remember": "Hot water means you're in a sticky spot.",
+    "rarity": 1
+  },
+  {
+    "id": 11,
+    "idiom": "add fuel to the fire",
+    "meaning": "to make a bad situation worse",
+    "nomenclature_reason": "If you pour more fuel on a fire, it burns brighter and hotter.",
+    "example": "His teasing only added fuel to the fire during the argument.",
+    "remember": "More fuel makes the fire grow bigger.",
+    "rarity": 1
+  },
+  {
+    "id": 12,
+    "idiom": "get cold feet",
+    "meaning": "to become nervous before doing something important",
+    "nomenclature_reason": "It pictures your feet feeling cold because you are scared to move forward.",
+    "example": "She got cold feet right before her big piano recital.",
+    "remember": "Cold feet mean you feel shaky about trying.",
+    "rarity": 1
+  },
+  {
+    "id": 13,
+    "idiom": "let sleeping dogs lie",
+    "meaning": "to avoid causing trouble by not bringing up old problems",
+    "nomenclature_reason": "If a dog is sleeping, waking it might cause a bark or bite, so it's safer to leave it alone.",
+    "example": "I decided to let sleeping dogs lie and didn't mention the argument from last week.",
+    "remember": "Leave the sleeping dog alone so nothing wakes up.",
+    "rarity": 1
+  },
+  {
+    "id": 14,
+    "idiom": "cut to the chase",
+    "meaning": "to get to the important part without delay",
+    "nomenclature_reason": "It comes from movies where you skip the long build-up and go straight to the exciting chase scene.",
+    "example": "Can you cut to the chase and tell me what happened?",
+    "remember": "Skip the intro and go straight to the action.",
+    "rarity": 1
+  },
+  {
+    "id": 15,
+    "idiom": "be a fly on the wall",
+    "meaning": "to wish you could watch a situation without being noticed",
+    "nomenclature_reason": "A tiny fly can sit on a wall and see everything without anyone seeing it.",
+    "example": "I wish I could be a fly on the wall during the secret meeting.",
+    "remember": "A fly on the wall watches quietly without being seen.",
+    "rarity": 1
+  },
+  {
+    "id": 16,
+    "idiom": "under the weather",
+    "meaning": "feeling sick or not feeling well",
+    "nomenclature_reason": "When the weather is bad, it feels like a rainy cloud is covering you, so you are 'under' it",
+    "example": "I think I'm under the weather, so I'll stay home from school.",
+    "remember": "If you feel sick, you might be under the weather.",
+    "rarity": 1
+  },
+  {
+    "id": 17,
+    "idiom": "a blessing in disguise",
+    "meaning": "something that seems bad at first but turns out to be good",
+    "nomenclature_reason": "It sounds like a hidden gift, like a present wrapped in something that looks plain",
+    "example": "Losing that job was a blessing in disguise because I found a better one.",
+    "remember": "Bad looks can hide good surprises.",
+    "rarity": 1
+  },
+  {
+    "id": 18,
+    "idiom": "once in a blue moon",
+    "meaning": "something that happens very rarely",
+    "nomenclature_reason": "Blue moons are rare, so the phrase shows how uncommon the event is",
+    "example": "We only get pizza for dinner once in a blue moon.",
+    "remember": "Rare events are once in a blue moon.",
+    "rarity": 1
+  },
+  {
+    "id": 19,
+    "idiom": "the tip of the iceberg",
+    "meaning": "only a small, visible part of a much larger problem",
+    "nomenclature_reason": "Only the top of an iceberg shows above water, hiding the big part below",
+    "example": "The broken vase is just the tip of the iceberg; there are many more problems at home.",
+    "remember": "What you see may be just a tiny tip.",
+    "rarity": 1
+  },
+  {
+    "id": 20,
+    "idiom": "turn the tables",
+    "meaning": "reverse a situation so the opposite side now has the advantage",
+    "nomenclature_reason": "Imagine a table being flipped, changing who sits where",
+    "example": "She turned the tables by answering his question first.",
+    "remember": "Flipping the table flips the outcome.",
+    "rarity": 1
+  },
+  {
+    "id": 21,
+    "idiom": "hit the ground running",
+    "meaning": "start something quickly and successfully",
+    "nomenclature_reason": "Like landing and immediately sprinting, you begin fast",
+    "example": "On his first day, Tom hit the ground running and finished the project.",
+    "remember": "Start fast like running right after landing.",
+    "rarity": 1
+  },
+  {
+    "id": 22,
+    "idiom": "keep one's eye on the prize",
+    "meaning": "stay focused on the goal",
+    "nomenclature_reason": "Like watching a prize you want, you never look away",
+    "example": "She kept her eye on the prize and studied hard for the exam.",
+    "remember": "Look at the prize and don't get distracted.",
+    "rarity": 1
+  },
+  {
+    "id": 23,
+    "idiom": "cut corners",
+    "meaning": "do something quickly and cheaply, often lowering quality",
+    "nomenclature_reason": "Imagine cutting off the corners of a shape to make it smaller faster",
+    "example": "The builder cut corners, and the house started leaking.",
+    "remember": "Cutting corners can make things weaker.",
+    "rarity": 1
+  },
+  {
+    "id": 24,
+    "idiom": "bite the dust",
+    "meaning": "to fail or to stop working",
+    "nomenclature_reason": "Picture someone falling to the ground and dust rising, showing something has ended",
+    "example": "The old car finally bit the dust after years of use.",
+    "remember": "When something bites the dust, it's finished.",
+    "rarity": 1
+  },
+  {
+    "id": 25,
+    "idiom": "throw in the towel",
+    "meaning": "give up or quit",
+    "nomenclature_reason": "In boxing, a trainer throws a towel into the ring to stop the fight",
+    "example": "After many tries, she threw in the towel and asked for help.",
+    "remember": "Throwing a towel means stopping.",
+    "rarity": 1
+  },
+  {
+    "id": 26,
+    "idiom": "have a heart of gold",
+    "meaning": "be very kind and generous",
+    "nomenclature_reason": "Gold is precious, so a heart made of gold shows great value",
+    "example": "My grandma has a heart of gold; she always helps others.",
+    "remember": "A golden heart means big kindness.",
+    "rarity": 1
+  },
+  {
+    "id": 27,
+    "idiom": "be on thin ice",
+    "meaning": "be in a risky or dangerous situation",
+    "nomenclature_reason": "Walking on thin ice could break, showing danger",
+    "example": "Skipping homework puts you on thin ice with the teacher.",
+    "remember": "Thin ice means you could slip.",
+    "rarity": 1
+  },
+  {
+    "id": 28,
+    "idiom": "beat a dead horse",
+    "meaning": "keep talking about or trying something that's already decided",
+    "nomenclature_reason": "A dead horse can't move, so beating it does nothing",
+    "example": "We've already decided, so stop beating a dead horse.",
+    "remember": "Beating a dead horse won't change anything.",
+    "rarity": 1
+  },
+  {
+    "id": 29,
+    "idiom": "call the shots",
+    "meaning": "be the person who decides what happens",
+    "nomenclature_reason": "In old movies, the person who fires the gun decides the action",
+    "example": "In our group project, Maya gets to call the shots.",
+    "remember": "The one who calls the shots makes the plans.",
+    "rarity": 1
+  },
+  {
+    "id": 30,
+    "idiom": "take the bull by the horns",
+    "meaning": "face a problem directly and bravely",
+    "nomenclature_reason": "Grabbing a bull's horns shows courage because the bull is strong",
+    "example": "He took the bull by the horns and talked to the principal.",
+    "remember": "Grabbing the horns means being brave.",
+    "rarity": 1
+  },
+  {
+    "id": 31,
+    "idiom": "Burn the midnight oil",
+    "meaning": "Working late into the night.",
+    "nomenclature_reason": "In the past people used oil lamps; burning oil late means staying up working.",
+    "example": "She had to burn the midnight oil to finish her science project.",
+    "remember": "When you work late, think of a lamp burning all night.",
+    "rarity": 1
+  },
+  {
+    "id": 32,
+    "idiom": "The ball is in your court",
+    "meaning": "It's your turn to decide or act.",
+    "nomenclature_reason": "In tennis, after the ball lands in your side, you must hit it back.",
+    "example": "I've given you the plan, now the ball is in your court.",
+    "remember": "Like a tennis ball waiting for you to hit it.",
+    "rarity": 1
+  },
+  {
+    "id": 33,
+    "idiom": "Read between the lines",
+    "meaning": "Find the hidden meaning that isn't said directly.",
+    "nomenclature_reason": "Like looking at the blank spaces on a page to see a secret.",
+    "example": "The teacher's note seemed simple, but you have to read between the lines.",
+    "remember": "Look for the secret message in the quiet spaces.",
+    "rarity": 1
+  },
+  {
+    "id": 34,
+    "idiom": "The devil's in the details",
+    "meaning": "Small parts can cause big problems.",
+    "nomenclature_reason": "A tiny mischievous devil hides in tiny details.",
+    "example": "The recipe looks easy, but the devil's in the details.",
+    "remember": "Tiny troublemakers hide in the little bits.",
+    "rarity": 1
+  },
+  {
+    "id": 35,
+    "idiom": "Throw caution to the wind",
+    "meaning": "Take a risk without worrying.",
+    "nomenclature_reason": "Imagine sending a careful warning note away on a gust of wind.",
+    "example": "He threw caution to the wind and tried the new roller coaster.",
+    "remember": "Let your worries fly away like a kite.",
+    "rarity": 1
+  },
+  {
+    "id": 36,
+    "idiom": "Bite the bullet",
+    "meaning": "Face a painful or difficult situation bravely.",
+    "nomenclature_reason": "Soldiers used to bite a bullet during surgery to stay still.",
+    "example": "She had to bite the bullet and tell the truth.",
+    "remember": "Imagine biting a hard bullet to be brave.",
+    "rarity": 1
+  },
+  {
+    "id": 37,
+    "idiom": "Sail close to the wind",
+    "meaning": "Take a risk that could cause trouble.",
+    "nomenclature_reason": "A sailboat near the wind may tip over.",
+    "example": "He likes to sail close to the wind by breaking the rules.",
+    "remember": "Like a boat almost tipping in a strong breeze.",
+    "rarity": 1
+  },
+  {
+    "id": 38,
+    "idiom": "The writing is on the wall",
+    "meaning": "A sign that something is going to happen, usually bad.",
+    "nomenclature_reason": "Ancient stories had messages appearing on walls as warnings.",
+    "example": "After the sales dropped, the writing was on the wall for the store.",
+    "remember": "Imagine a warning scribbled on a wall.",
+    "rarity": 1
+  },
+  {
+    "id": 39,
+    "idiom": "Put the cart before the horse",
+    "meaning": "Do things in the wrong order.",
+    "nomenclature_reason": "A cart needs a horse to pull; putting it first makes no sense.",
+    "example": "Planning the party before buying the cake is putting the cart before the horse.",
+    "remember": "The horse should go first, not the cart.",
+    "rarity": 1
+  },
+  {
+    "id": 40,
+    "idiom": "Keep your nose to the grindstone",
+    "meaning": "Work hard and stay focused.",
+    "nomenclature_reason": "A grindstone is a tool; keeping your nose close means staying close to work.",
+    "example": "If you keep your nose to the grindstone, you'll finish the puzzle fast.",
+    "remember": "Stay as close to your work as a nose to a stone.",
+    "rarity": 1
+  },
+  {
+    "id": 41,
+    "idiom": "A stitch in time saves nine",
+    "meaning": "Fixing a small problem early prevents bigger trouble later.",
+    "nomenclature_reason": "One quick stitch now avoids needing many later.",
+    "example": "Repairing the leak now is a stitch in time that saves nine.",
+    "remember": "One tiny stitch now stops a big tear later.",
+    "rarity": 1
+  },
+  {
+    "id": 42,
+    "idiom": "Don't count your chickens before they hatch",
+    "meaning": "Don't assume something will happen before it actually does.",
+    "nomenclature_reason": "You can't count chickens that aren't born yet.",
+    "example": "He was already planning his vacation, but I told him not to count his chickens before they hatch.",
+    "remember": "Wait until the eggs turn into chickens.",
+    "rarity": 1
+  },
+  {
+    "id": 43,
+    "idiom": "Let the chips fall where they may",
+    "meaning": "Accept whatever result happens.",
+    "nomenclature_reason": "When you chip wood, the pieces fall wherever; you can't control it.",
+    "example": "She submitted her story and let the chips fall where they may.",
+    "remember": "Like wood chips dropping wherever they want.",
+    "rarity": 1
+  },
+  {
+    "id": 44,
+    "idiom": "In the same boat",
+    "meaning": "Sharing the same situation or problem.",
+    "nomenclature_reason": "People in a small boat face the same water together.",
+    "example": "All the students were late, so we were all in the same boat.",
+    "remember": "Everyone rows together in one boat.",
+    "rarity": 1
+  },
+  {
+    "id": 45,
+    "idiom": "Up in the air",
+    "meaning": "Not decided yet; uncertain.",
+    "nomenclature_reason": "Something floating in the sky hasn't landed yet.",
+    "example": "Our weekend plans are still up in the air.",
+    "remember": "Like a balloon drifting, not sure where it will go.",
+    "rarity": 1
+  },
+  {
+    "id": 46,
+    "idiom": "The proof is in the pudding",
+    "meaning": "You can only know if something works by trying it.",
+    "nomenclature_reason": "The original saying was \"the proof of the pudding is in the eating,\" meaning you have to taste the pudding to see if it's good.",
+    "example": "We can only know if the new game is fun when we play it; the proof is in the pudding.",
+    "remember": "Try it out to see if it works!",
+    "rarity": 1
+  },
+  {
+    "id": 47,
+    "idiom": "A leopard can't change its spots",
+    "meaning": "People cannot change their true nature.",
+    "nomenclature_reason": "A leopard's spots are part of its skin and can't be removed, just like a person's basic traits.",
+    "example": "Even after apologizing, he kept being selfish; a leopard can't change its spots.",
+    "remember": "Some things stay the same, like a leopard's spots.",
+    "rarity": 1
+  },
+  {
+    "id": 48,
+    "idiom": "Don't put all your eggs in one basket",
+    "meaning": "Don't risk everything on a single plan.",
+    "nomenclature_reason": "If you drop one basket holding all the eggs, they all break; spreading them keeps some safe.",
+    "example": "She saved money in both a bank and a piggy bank, because you shouldn't put all your eggs in one basket.",
+    "remember": "Keep your eggs in many baskets.",
+    "rarity": 1
+  },
+  {
+    "id": 49,
+    "idiom": "Every cloud has a silver lining",
+    "meaning": "Bad situations often have a hidden good side.",
+    "nomenclature_reason": "When the sun shines behind a cloud, the edge looks bright like silver.",
+    "example": "Even though the picnic was rained out, we got to play indoor games; every cloud has a silver lining.",
+    "remember": "Look for the bright edge in a dark cloud.",
+    "rarity": 1
+  },
+  {
+    "id": 50,
+    "idiom": "The early bird catches the worm",
+    "meaning": "People who start early get the best chances.",
+    "nomenclature_reason": "Birds that wake up early find worms before others.",
+    "example": "She arrived at the sale first and got the biggest discount; the early bird catches the worm.",
+    "remember": "Get up early to get the prize.",
+    "rarity": 1
+  },
+  {
+    "id": 51,
+    "idiom": "You can't judge a book by its cover",
+    "meaning": "Appearances don't show the true value.",
+    "nomenclature_reason": "A book's cover may look plain, but the story inside could be wonderful.",
+    "example": "He seemed shy, but he tells great jokes; you can't judge a book by its cover.",
+    "remember": "Look inside before deciding.",
+    "rarity": 1
+  },
+  {
+    "id": 52,
+    "idiom": "A watched pot never boils",
+    "meaning": "Waiting feels longer when you keep checking.",
+    "nomenclature_reason": "If you stare at a pot, time seems to move slower, though the water boils at the same speed.",
+    "example": "Stop checking the oven every minute; a watched pot never boils.",
+    "remember": "Don't stare; let things happen.",
+    "rarity": 1
+  },
+  {
+    "id": 53,
+    "idiom": "Actions speak louder than words",
+    "meaning": "What you do matters more than what you say.",
+    "nomenclature_reason": "Loud sounds are heard better than quiet words; deeds are clearer than promises.",
+    "example": "He promised to help, and then he actually cleaned the room; actions speak louder than words.",
+    "remember": "Do it, don't just say it.",
+    "rarity": 1
+  },
+  {
+    "id": 54,
+    "idiom": "All that glitters is not gold",
+    "meaning": "Something that looks valuable may not be.",
+    "nomenclature_reason": "Some shiny things look like gold but aren't really gold.",
+    "example": "The toy looked fancy but broke quickly; all that glitters is not gold.",
+    "remember": "Shiny isn't always real gold.",
+    "rarity": 1
+  },
+  {
+    "id": 55,
+    "idiom": "Cross that bridge when you come to it",
+    "meaning": "Deal with problems when they happen, not before.",
+    "nomenclature_reason": "You don't need to cross a bridge until you reach it.",
+    "example": "We don't need to plan the trip's parking now; we'll cross that bridge when we come to it.",
+    "remember": "Handle it when you get there.",
+    "rarity": 1
+  },
+  {
+    "id": 56,
+    "idiom": "Don't bite the hand that feeds you",
+    "meaning": "Don't hurt those who help you.",
+    "nomenclature_reason": "If you bite the hand giving you food, you lose the source of food.",
+    "example": "She thanked her teacher instead of complaining; she didn't bite the hand that feeds her.",
+    "remember": "Be kind to helpers.",
+    "rarity": 1
+  },
+  {
+    "id": 57,
+    "idiom": "Give the benefit of the doubt",
+    "meaning": "Assume someone is innocent or right when you're not sure.",
+    "nomenclature_reason": "You give them a \"benefit\" (a good point) when you don't have proof.",
+    "example": "He might be late because of traffic, so we give him the benefit of the doubt.",
+    "remember": "Think the best until you know.",
+    "rarity": 1
+  },
+  {
+    "id": 58,
+    "idiom": "In the nick of time",
+    "meaning": "Just before it is too late.",
+    "nomenclature_reason": "\"Nick\" means a tiny cut; being saved by a tiny amount of time.",
+    "example": "She submitted the homework in the nick of time before the deadline.",
+    "remember": "Just in time!",
+    "rarity": 1
+  },
+  {
+    "id": 59,
+    "idiom": "Make a mountain out of a molehill",
+    "meaning": "Exaggerate a small problem.",
+    "nomenclature_reason": "A molehill is tiny, a mountain is huge; turning a tiny issue into a big one.",
+    "example": "He got upset over a small mistake, making a mountain out of a molehill.",
+    "remember": "Don't blow small things big.",
+    "rarity": 1
+  },
+  {
+    "id": 60,
+    "idiom": "No pain, no gain",
+    "meaning": "Hard work is needed for success.",
+    "nomenclature_reason": "You must feel some discomfort (pain) to achieve something valuable (gain).",
+    "example": "She practiced piano daily; no pain, no gain.",
+    "remember": "Work hard to win.",
+    "rarity": 1
+  },
+  {
+    "id": 61,
+    "idiom": "go out on a limb",
+    "meaning": "to take a risk by supporting something that might fail",
+    "nomenclature_reason": "Imagine someone climbing a thin, far-out branch; if it breaks they could fall, so the picture shows taking a risk.",
+    "example": "She went out on a limb and said she believed the new idea would work.",
+    "remember": "Going out on a limb means being brave enough to try something risky.",
+    "rarity": 1
+  },
+  {
+    "id": 62,
+    "idiom": "jump on the bandwagon",
+    "meaning": "to join others in doing something popular",
+    "nomenclature_reason": "A bandwagon is a cart in a parade; when it moves, people hop on to be part of the fun, showing you follow the crowd.",
+    "example": "When the new game became popular, many kids jumped on the bandwagon.",
+    "remember": "Jump on the bandwagon when everyone else is doing it.",
+    "rarity": 1
+  },
+  {
+    "id": 63,
+    "idiom": "cut the mustard",
+    "meaning": "to meet expectations or be good enough",
+    "nomenclature_reason": "In old kitchens a sharp cut of mustard seed meant quality; if it 'cuts the mustard' it works just right.",
+    "example": "The new teacher really cut the mustard and helped us learn.",
+    "remember": "If something cuts the mustard, it does the job well.",
+    "rarity": 1
+  },
+  {
+    "id": 64,
+    "idiom": "burn the candle at both ends",
+    "meaning": "to work or stay awake for too long, using up energy quickly",
+    "nomenclature_reason": "A candle can only burn from one end; lighting both ends makes it finish faster, just like using too much energy.",
+    "example": "He was burning the candle at both ends, studying all night and still going to soccer practice.",
+    "remember": "Burning a candle at both ends means using up your energy fast.",
+    "rarity": 1
+  },
+  {
+    "id": 65,
+    "idiom": "throw someone under the bus",
+    "meaning": "to blame or sacrifice someone to protect yourself",
+    "nomenclature_reason": "Picture a bus driving by and someone being pushed under it; it shows an unfair blame.",
+    "example": "When the project failed, the manager threw the intern under the bus.",
+    "remember": "Throwing someone under the bus means blaming them to save yourself.",
+    "rarity": 1
+  },
+  {
+    "id": 66,
+    "idiom": "get a taste of your own medicine",
+    "meaning": "to experience the same bad treatment you gave to others",
+    "nomenclature_reason": "Medicine can be bitter; if you gave someone a bitter pill, feeling it yourself shows the meaning.",
+    "example": "After teasing his friend, he got a taste of his own medicine when they teased him back.",
+    "remember": "Taste your own medicine when you get treated the way you treated others.",
+    "rarity": 1
+  },
+  {
+    "id": 67,
+    "idiom": "keep one's head above water",
+    "meaning": "to manage to survive or stay out of trouble, especially financially",
+    "nomenclature_reason": "If you're swimming, keeping your head above water means you aren't sinking.",
+    "example": "She works two jobs to keep her head above water.",
+    "remember": "Keeping your head above water means not sinking.",
+    "rarity": 1
+  },
+  {
+    "id": 68,
+    "idiom": "take the wind out of someone's sails",
+    "meaning": "to make someone feel less confident or excited",
+    "nomenclature_reason": "A sail needs wind to move; if the wind stops, the boat slows, just like a person losing enthusiasm.",
+    "example": "His quiet answer took the wind out of her sails.",
+    "remember": "When the wind leaves your sails, you feel less excited.",
+    "rarity": 1
+  },
+  {
+    "id": 69,
+    "idiom": "turn over a new leaf",
+    "meaning": "to start behaving in a better way",
+    "nomenclature_reason": "A leaf turning green shows a fresh start, like opening a new chapter.",
+    "example": "After the mistake, he decided to turn over a new leaf and study harder.",
+    "remember": "Turning over a new leaf means starting fresh.",
+    "rarity": 1
+  },
+  {
+    "id": 70,
+    "idiom": "be on cloud nine",
+    "meaning": "to feel extremely happy",
+    "nomenclature_reason": "Clouds are soft and high; being on the ninth cloud suggests floating high in joy.",
+    "example": "She was on cloud nine after winning the spelling bee.",
+    "remember": "Being on cloud nine feels like floating in big happiness.",
+    "rarity": 1
+  },
+  {
+    "id": 71,
+    "idiom": "keep your eyes peeled",
+    "meaning": "to watch carefully and be alert",
+    "nomenclature_reason": "Peeling eyes like bananas is silly, but it means opening them wide to see everything.",
+    "example": "Keep your eyes peeled for the missing puzzle piece.",
+    "remember": "Peel your eyes open to see everything.",
+    "rarity": 1
+  },
+  {
+    "id": 72,
+    "idiom": "have a foot in the door",
+    "meaning": "to have a small start or opportunity that could lead to more",
+    "nomenclature_reason": "Imagine a door slightly open with a foot inside; it shows a chance to go further.",
+    "example": "Her internship gave her a foot in the door at the museum.",
+    "remember": "Having a foot in the door means a small chance to get inside.",
+    "rarity": 1
+  },
+  {
+    "id": 73,
+    "idiom": "be a wolf in sheep's clothing",
+    "meaning": "someone who looks harmless but is actually dangerous",
+    "nomenclature_reason": "A wolf disguises itself as a gentle sheep to trick others.",
+    "example": "The smooth salesman turned out to be a wolf in sheep's clothing.",
+    "remember": "A wolf in sheep's clothing pretends to be nice but isn't.",
+    "rarity": 1
+  },
+  {
+    "id": 74,
+    "idiom": "have a finger in every pie",
+    "meaning": "to be involved in many different activities or projects",
+    "nomenclature_reason": "Picture a pie with many fingers touching it, showing many connections.",
+    "example": "She has a finger in every pie at the school, from clubs to sports.",
+    "remember": "Having a finger in every pie means being part of many things.",
+    "rarity": 1
+  },
+  {
+    "id": 75,
+    "idiom": "be a diamond in the rough",
+    "meaning": "someone with great potential but still needs improvement",
+    "nomenclature_reason": "A diamond hidden in rough stone needs polishing to shine.",
+    "example": "The new student is a diamond in the rough; she just needs a little help.",
+    "remember": "A diamond in the rough will shine after a little polishing.",
+    "rarity": 1
+  },
+  {
+    "id": 76,
+    "idiom": "the apple doesn't fall far from the tree",
+    "meaning": "Children often act or think like their parents.",
+    "nomenclature_reason": "Just as an apple drops close to the tree it grew on, people usually resemble their family.",
+    "example": "Sam is great at math, just like his dad; the apple doesn't fall far from the tree.",
+    "remember": "Kids grow like apples near their tree.",
+    "rarity": 1
+  },
+  {
+    "id": 77,
+    "idiom": "the pot calling the kettle black",
+    "meaning": "Criticising someone for a fault you also have.",
+    "nomenclature_reason": "Both the pot and the kettle get black from fire, so it's silly for one to blame the other.",
+    "example": "When Lily said Jake was messy, she was the pot calling the kettle black because her room is a mess too.",
+    "remember": "Don't blame others for a flaw you share.",
+    "rarity": 1
+  },
+  {
+    "id": 78,
+    "idiom": "the squeaky wheel gets the grease",
+    "meaning": "People who speak up about problems get attention and help.",
+    "nomenclature_reason": "A wheel that squeaks is noticed and oiled, while quiet wheels are ignored.",
+    "example": "Tom reminded the teacher about the broken projector; the squeaky wheel gets the grease.",
+    "remember": "Speak up, like a squeaky wheel.",
+    "rarity": 1
+  },
+  {
+    "id": 79,
+    "idiom": "the grass is always greener on the other side",
+    "meaning": "We often think other people's situations are better than our own.",
+    "nomenclature_reason": "From far away another lawn looks greener, even if it's not really.",
+    "example": "Emma thought the new school would be better, but the grass is always greener on the other side.",
+    "remember": "Every lawn looks greener from far away.",
+    "rarity": 1
+  },
+  {
+    "id": 80,
+    "idiom": "a bird in the hand is worth two in the bush",
+    "meaning": "It's safer to keep what you have than to risk losing it by chasing something better.",
+    "nomenclature_reason": "Holding one bird is sure, while chasing two birds in the bushes might lose both.",
+    "example": "Jake kept his part-time job instead of looking for a new one; a bird in the hand is worth two in the bush.",
+    "remember": "Hold the bird you already have.",
+    "rarity": 1
+  },
+  {
+    "id": 81,
+    "idiom": "a rolling stone gathers no moss",
+    "meaning": "Someone who keeps moving never settles down or builds lasting ties.",
+    "nomenclature_reason": "A stone that rolls never stays still long enough for moss to grow on it.",
+    "example": "Mia changes jobs every year; a rolling stone gathers no moss.",
+    "remember": "Keep moving, and moss won't stick.",
+    "rarity": 1
+  },
+  {
+    "id": 82,
+    "idiom": "a picture is worth a thousand words",
+    "meaning": "A single image can convey a lot of information.",
+    "nomenclature_reason": "Seeing a picture can tell a story faster than writing many words.",
+    "example": "Instead of describing the map, the teacher showed a picture; a picture is worth a thousand words.",
+    "remember": "One picture can tell many stories.",
+    "rarity": 1
+  },
+  {
+    "id": 83,
+    "idiom": "to have a green thumb",
+    "meaning": "Being good at growing plants.",
+    "nomenclature_reason": "A thumb that looks green from touching plants shows skill with gardening.",
+    "example": "Grandma can make any flower grow; she really has a green thumb.",
+    "remember": "Your thumb turns plants green.",
+    "rarity": 1
+  },
+  {
+    "id": 84,
+    "idiom": "to be a loose cannon",
+    "meaning": "Someone who acts unpredictably and can cause trouble.",
+    "nomenclature_reason": "A cannon that isn't fixed can roll around and fire at random places.",
+    "example": "When Tom talks without thinking, he can be a loose cannon in class.",
+    "remember": "A wandering cannon can fire anywhere.",
+    "rarity": 1
+  },
+  {
+    "id": 85,
+    "idiom": "to be a bull in a china shop",
+    "meaning": "Someone who is clumsy and breaks things in a delicate place.",
+    "nomenclature_reason": "A big, strong bull would easily smash fragile china if it entered the shop.",
+    "example": "Emily rushed through the art studio and knocked over the easels; she was a bull in a china shop.",
+    "remember": "Big bull, tiny china-watch out!",
+    "rarity": 1
+  },
+  {
+    "id": 86,
+    "idiom": "to be a night owl",
+    "meaning": "A person who stays up late and is active at night.",
+    "nomenclature_reason": "Owls are birds that hunt and hoot when it's dark.",
+    "example": "Sam reads books until midnight; he's a real night owl.",
+    "remember": "Like an owl, you love the night.",
+    "rarity": 1
+  },
+  {
+    "id": 87,
+    "idiom": "as cool as a cucumber",
+    "meaning": "Very calm and relaxed, especially in a stressful situation.",
+    "nomenclature_reason": "Cucumbers stay cool and fresh even when it's hot around them.",
+    "example": "During the fire drill, Maya stayed as cool as a cucumber.",
+    "remember": "Stay fresh like a cucumber.",
+    "rarity": 1
+  },
+  {
+    "id": 88,
+    "idiom": "as fit as a fiddle",
+    "meaning": "In very good health and physical condition.",
+    "nomenclature_reason": "A well-made fiddle works smoothly and sounds perfect, just like a healthy body.",
+    "example": "After his daily runs, Leo feels as fit as a fiddle.",
+    "remember": "Your body can play like a perfect fiddle.",
+    "rarity": 1
+  },
+  {
+    "id": 89,
+    "idiom": "as stubborn as a mule",
+    "meaning": "Refusing to change your mind or give up, no matter what.",
+    "nomenclature_reason": "Mules are known for not moving when asked, even if you pull hard.",
+    "example": "Even after many hints, Maya kept her opinion; she's as stubborn as a mule.",
+    "remember": "Mules won't budge, and neither do they.",
+    "rarity": 1
+  },
+  {
+    "id": 90,
+    "idiom": "a red herring",
+    "meaning": "A clue or detail that misleads you from the real issue.",
+    "nomenclature_reason": "In old stories, a smoked red herring was used to throw hunting dogs off the trail.",
+    "example": "The detective realized the mysterious note was just a red herring.",
+    "remember": "A smelly fish can lead you the wrong way.",
+    "rarity": 1
+  },
+  {
+    "id": 91,
+    "idiom": "Pyrrhic victory",
+    "meaning": "Winning a battle but losing so much that it feels like a loss.",
+    "nomenclature_reason": "Named after King Pyrrus who won a fight but his army was almost destroyed.",
+    "example": "The team won the game, but many players got hurt, making it a Pyrrhic victory.",
+    "remember": "Sometimes winning hurts more than losing.",
+    "rarity": 2
+  },
+  {
+    "id": 92,
+    "idiom": "Cross the Rubicon",
+    "meaning": "To make an irreversible decision.",
+    "nomenclature_reason": "Julius Caesar crossed the Rubicon River, starting a war that couldn't be undone.",
+    "example": "When she decided to move to another country, she crossed the Rubicon.",
+    "remember": "Crossing the Rubicon means you can't go back.",
+    "rarity": 2
+  },
+  {
+    "id": 93,
+    "idiom": "Achilles' heel",
+    "meaning": "A small weakness in someone strong.",
+    "nomenclature_reason": "In myth, Achilles was invincible except for his heel.",
+    "example": "The superhero could lift cars, but his Achilles' heel was forgetting passwords.",
+    "remember": "Even heroes have a tiny weak spot.",
+    "rarity": 2
+  },
+  {
+    "id": 94,
+    "idiom": "Pandora's box",
+    "meaning": "Something that seems harmless but releases many problems.",
+    "nomenclature_reason": "Pandora opened a box that let out all the world's troubles.",
+    "example": "Downloading that unknown app was like opening Pandora's box.",
+    "remember": "Opening Pandora's box lets trouble spill out.",
+    "rarity": 2
+  },
+  {
+    "id": 95,
+    "idiom": "Sword of Damocles",
+    "meaning": "A constant feeling of danger.",
+    "nomenclature_reason": "Damocles sat under a sword hanging by a single thread, showing how fragile safety can be.",
+    "example": "The climber felt the Sword of Damocles while hanging on the ledge.",
+    "remember": "A sword hanging above you means danger is close.",
+    "rarity": 2
+  },
+  {
+    "id": 96,
+    "idiom": "Cast pearls before swine",
+    "meaning": "Giving something valuable to someone who doesn't appreciate it.",
+    "nomenclature_reason": "Pearls are precious; swine (pigs) can't understand their value.",
+    "example": "He tried to explain the math, but it was like casting pearls before swine.",
+    "remember": "Don't give treasures to those who can't see them.",
+    "rarity": 2
+  },
+  {
+    "id": 97,
+    "idiom": "Gild the lily",
+    "meaning": "To add unnecessary decoration to something already perfect.",
+    "nomenclature_reason": "A lily is beautiful; covering it with gold is overdoing it.",
+    "example": "Adding glitter to the already bright drawing was gilding the lily.",
+    "remember": "Don't over-decorate what's already beautiful.",
+    "rarity": 2
+  },
+  {
+    "id": 98,
+    "idiom": "Sisyphean task",
+    "meaning": "A job that never ends and feels pointless.",
+    "nomenclature_reason": "Sisyphus rolled a stone up a hill only for it to roll back down forever.",
+    "example": "Cleaning the messy room felt like a Sisyphean task.",
+    "remember": "A Sisyphean task never really finishes.",
+    "rarity": 2
+  },
+  {
+    "id": 99,
+    "idiom": "Between Scylla and Charybdis",
+    "meaning": "Being stuck between two dangerous choices.",
+    "nomenclature_reason": "In Greek myth, sailors had to avoid the monster Scylla on one side and the whirlpool Charybdis on the other.",
+    "example": "Choosing between lying and telling the truth put him between Scylla and Charybdis.",
+    "remember": "Two dangers, pick the lesser one.",
+    "rarity": 2
+  },
+  {
+    "id": 100,
+    "idiom": "Tilt at windmills",
+    "meaning": "Fighting imaginary enemies or pointless battles.",
+    "nomenclature_reason": "From Don Quixote, who imagined windmills were giants.",
+    "example": "She kept trying to prove the rumor, tilting at windmills.",
+    "remember": "Don't fight windmills that aren't real.",
+    "rarity": 2
+  },
+  {
+    "id": 101,
+    "idiom": "Throw down the gauntlet",
+    "meaning": "To challenge someone.",
+    "nomenclature_reason": "Knights would throw a glove (gauntlet) to invite a duel.",
+    "example": "He threw down the gauntlet and asked for a chess match.",
+    "remember": "Throwing a gauntlet means saying 'I challenge you'.",
+    "rarity": 2
+  },
+  {
+    "id": 102,
+    "idiom": "Open a can of worms",
+    "meaning": "To start a complicated problem.",
+    "nomenclature_reason": "Opening a can full of wriggly worms creates a messy situation.",
+    "example": "Talking about money opened a can of worms at dinner.",
+    "remember": "Opening the can makes a mess of problems.",
+    "rarity": 2
+  },
+  {
+    "id": 103,
+    "idiom": "Moth to a flame",
+    "meaning": "Being drawn to something dangerous.",
+    "nomenclature_reason": "Moths are attracted to bright flames even though they can get burned.",
+    "example": "He kept checking the scary video, like a moth to a flame.",
+    "remember": "Moths go to light even if it hurts.",
+    "rarity": 2
+  },
+  {
+    "id": 104,
+    "idiom": "Go down the rabbit hole",
+    "meaning": "To enter a strange, confusing, or endless situation.",
+    "nomenclature_reason": "In Alice's story, she fell into a rabbit hole leading to a weird world.",
+    "example": "Researching dinosaurs made her go down the rabbit hole of ancient history.",
+    "remember": "A rabbit hole leads you deep into something weird.",
+    "rarity": 2
+  },
+  {
+    "id": 105,
+    "idiom": "The pen is mightier than the sword",
+    "meaning": "Writing can be more powerful than violence.",
+    "nomenclature_reason": "A pen (words) can change minds more than a sword (force).",
+    "example": "She solved the argument with a letter, proving the pen is mightier than the sword.",
+    "remember": "Words can win more than weapons.",
+    "rarity": 2
+  },
+  {
+    "id": 106,
+    "idiom": "Trojan horse",
+    "meaning": "something that looks harmless but hides a danger",
+    "nomenclature_reason": "Greeks hid soldiers inside a wooden horse to enter Troy",
+    "example": "The email looked friendly but was a Trojan horse containing a virus.",
+    "remember": "A gift can hide secret soldiers.",
+    "rarity": 2
+  },
+  {
+    "id": 107,
+    "idiom": "Herculean task",
+    "meaning": "a very difficult job that requires great strength",
+    "nomenclature_reason": "Hercules performed twelve impossible labors",
+    "example": "Building the new library was a Herculean task for the small town.",
+    "remember": "Like Hercules, it needs super strength.",
+    "rarity": 2
+  },
+  {
+    "id": 108,
+    "idiom": "Rome wasn't built in a day",
+    "meaning": "important things take time",
+    "nomenclature_reason": "The great city of Rome took many years to become powerful",
+    "example": "Learning to play the piano well takes practice; Rome wasn't built in a day.",
+    "remember": "Big things need many days.",
+    "rarity": 2
+  },
+  {
+    "id": 109,
+    "idiom": "All roads lead to Rome",
+    "meaning": "many different ways can reach the same goal",
+    "nomenclature_reason": "In the old empire, many roads were built that all ended in Rome",
+    "example": "Whether you study math or science, all roads lead to Rome if you want a career in engineering.",
+    "remember": "Different paths can end at the same place.",
+    "rarity": 2
+  },
+  {
+    "id": 110,
+    "idiom": "When in Rome, do as the Romans do",
+    "meaning": "follow the customs of the place you are in",
+    "nomenclature_reason": "Visitors to Rome were expected to act like locals",
+    "example": "He tried the local food because when in Rome, do as the Romans do.",
+    "remember": "Copy what the locals are doing.",
+    "rarity": 2
+  },
+  {
+    "id": 111,
+    "idiom": "It's all Greek to me",
+    "meaning": "something is completely confusing",
+    "nomenclature_reason": "Ancient Greek was hard for many to understand",
+    "example": "The math proof was all Greek to me.",
+    "remember": "If it sounds like Greek, it's confusing.",
+    "rarity": 2
+  },
+  {
+    "id": 112,
+    "idiom": "the die is cast",
+    "meaning": "a decision has been made that cannot be changed",
+    "nomenclature_reason": "Caesar said \"Alea iacta est\" when he crossed the Rubicon, meaning the dice were thrown",
+    "example": "After signing the contract, the die is cast.",
+    "remember": "Once the dice roll, you can't pick them up.",
+    "rarity": 2
+  },
+  {
+    "id": 113,
+    "idiom": "Midas touch",
+    "meaning": "the ability to make money easily",
+    "nomenclature_reason": "King Midas turned everything he touched into gold",
+    "example": "The investor seemed to have the Midas touch, turning small ideas into big profits.",
+    "remember": "Touch turns to gold like Midas.",
+    "rarity": 2
+  },
+  {
+    "id": 114,
+    "idiom": "the game is afoot",
+    "meaning": "Something important has just begun.",
+    "nomenclature_reason": "In old plays, a game starting was described as being 'afoot', meaning it is moving forward like a footstep.",
+    "example": "When the treasure map was found, the game is afoot.",
+    "remember": "When adventure starts, the game is afoot!",
+    "rarity": 2
+  },
+  {
+    "id": 115,
+    "idiom": "a foregone conclusion",
+    "meaning": "Something that is certain to happen.",
+    "nomenclature_reason": "Long ago people thought a conclusion that is already decided was already 'gone' before it was spoken.",
+    "example": "The rain was a foregone conclusion after the dark clouds gathered.",
+    "remember": "If you can see the ending already, it's a foregone conclusion.",
+    "rarity": 2
+  },
+  {
+    "id": 116,
+    "idiom": "born with a silver spoon in one's mouth",
+    "meaning": "A person who is born into wealth or privilege.",
+    "nomenclature_reason": "In old times, a silver spoon was a sign of riches, and being given one at birth showed great wealth.",
+    "example": "She never had to work for money because she was born with a silver spoon in her mouth.",
+    "remember": "A shiny spoon at birth means a rich start.",
+    "rarity": 2
+  },
+  {
+    "id": 117,
+    "idiom": "cast the first stone",
+    "meaning": "To be the first to criticize or blame someone.",
+    "nomenclature_reason": "In old stories, people would throw a stone at someone they thought was guilty; the first stone shows who starts the blame.",
+    "example": "He shouldn't cast the first stone until he knows the whole story.",
+    "remember": "The first stone thrown starts the blame game.",
+    "rarity": 2
+  },
+  {
+    "id": 118,
+    "idiom": "straw man",
+    "meaning": "A weak or false argument that is easy to defeat.",
+    "nomenclature_reason": "People used to make a dummy out of straw to practice fighting; it was easy to knock down, just like a weak argument.",
+    "example": "She built a straw man just to prove her point.",
+    "remember": "A straw man falls down easily, just like a weak argument.",
+    "rarity": 2
+  },
+  {
+    "id": 119,
+    "idiom": "cold fish",
+    "meaning": "Someone who shows little emotion or warmth.",
+    "nomenclature_reason": "A fish feels cold to the touch, so calling someone a cold fish means they seem unemotional.",
+    "example": "Even after the surprise party, he acted like a cold fish.",
+    "remember": "A fish feels cold, so a cold fish feels unemotional.",
+    "rarity": 2
+  },
+  {
+    "id": 120,
+    "idiom": "scurvy dog",
+    "meaning": "A mean, dishonest, or contemptible person.",
+    "nomenclature_reason": "In old sailor slang, 'scurvy' meant diseased, and a 'dog' was lowly, so together they described a nasty person.",
+    "example": "Don't listen to that scurvy dog; he never tells the truth.",
+    "remember": "A scurvy dog is a nasty, untrustworthy person.",
+    "rarity": 2
+  },
+  {
+    "id": 121,
+    "idiom": "fine kettle of fish",
+    "meaning": "A confusing or troublesome situation.",
+    "nomenclature_reason": "In old markets, a kettle of fish could be messy; calling it 'fine' adds irony to the trouble.",
+    "example": "When the lights went out during the play, it became a fine kettle of fish.",
+    "remember": "A messy kettle of fish means a tricky situation.",
+    "rarity": 2
+  },
+  {
+    "id": 122,
+    "idiom": "feather in one's cap",
+    "meaning": "An achievement or honor that one can be proud of.",
+    "nomenclature_reason": "Long ago hunters would put a bird feather in their hat as a trophy for a successful hunt.",
+    "example": "Winning the spelling bee was a feather in her cap.",
+    "remember": "A feather in your cap shows something you did well.",
+    "rarity": 2
+  },
+  {
+    "id": 123,
+    "idiom": "wild-goose chase",
+    "meaning": "A futile or hopeless pursuit.",
+    "nomenclature_reason": "People used to chase geese for sport, but the birds would fly away, making the chase useless.",
+    "example": "Looking for the lost key under the couch was a wild-goose chase.",
+    "remember": "Chasing a wild goose never catches anything.",
+    "rarity": 2
+  },
+  {
+    "id": 124,
+    "idiom": "green-eyed monster",
+    "meaning": "Jealousy.",
+    "nomenclature_reason": "Shakespeare called jealousy a monster that is green, like a jealous creature turning green with envy.",
+    "example": "He felt the green-eyed monster when his friend got the new bike.",
+    "remember": "Jealousy is the green-eyed monster inside us.",
+    "rarity": 2
+  },
+  {
+    "id": 125,
+    "idiom": "wear one's heart on one's sleeve",
+    "meaning": "To show one's emotions openly.",
+    "nomenclature_reason": "In old tournaments, a knight would tie a token of love to his sleeve, showing his feelings for all to see.",
+    "example": "She wears her heart on her sleeve and cries easily during movies.",
+    "remember": "If your heart is on your sleeve, everyone sees how you feel.",
+    "rarity": 2
+  },
+  {
+    "id": 126,
+    "idiom": "the world is your oyster",
+    "meaning": "You have many opportunities and can achieve anything you want.",
+    "nomenclature_reason": "Just as an oyster can hold a pearl, the world can hold wonderful things for those who look inside.",
+    "example": "After graduation, the world is your oyster.",
+    "remember": "A big world like an oyster can give you many pearls.",
+    "rarity": 2
+  },
+  {
+    "id": 127,
+    "idiom": "apple of one's eye",
+    "meaning": "A person who is very dear and cherished.",
+    "nomenclature_reason": "Long ago, the pupil of the eye was called the 'apple' because it looked like a small round fruit; something precious to protect.",
+    "example": "His little sister is the apple of his eye.",
+    "remember": "The apple in your eye is something you love most.",
+    "rarity": 2
+  },
+  {
+    "id": 128,
+    "idiom": "dog in the manger",
+    "meaning": "Someone who prevents others from using something they don't need themselves.",
+    "nomenclature_reason": "A dog might lie in a manger (where hay is stored) and stop cows from eating, even though the dog doesn't eat hay.",
+    "example": "He keeps the video games locked away even though he never plays them-he's a dog in the manger.",
+    "remember": "A dog in the manger blocks others, even if it doesn't need it.",
+    "rarity": 2
+  },
+  {
+    "id": 129,
+    "idiom": "In a pickle",
+    "meaning": "Being in a difficult or troublesome situation.",
+    "nomenclature_reason": "The phrase comes from the idea of being stuck in a brine jar, which would be uncomfortable.",
+    "example": "I forgot my homework, and now I'm in a pickle.",
+    "remember": "If you're stuck like a cucumber in brine, you're in a pickle!",
+    "rarity": 2
+  },
+  {
+    "id": 130,
+    "idiom": "Dead ringer",
+    "meaning": "A person who looks exactly like someone else.",
+    "nomenclature_reason": "A \"ringer\" was a term for a duplicate, and \"dead\" means exact.",
+    "example": "She is a dead ringer for her aunt.",
+    "remember": "If you see a twin, it's a dead ringer!",
+    "rarity": 2
+  },
+  {
+    "id": 131,
+    "idiom": "Cat's paw",
+    "meaning": "Someone who is used by another person to do a tricky or unpleasant job.",
+    "nomenclature_reason": "In an old play a cat's paw was a paw used by a cat to fetch things for it.",
+    "example": "The bully made him a cat's paw to deliver the note.",
+    "remember": "If you're the cat's paw, you're doing the cat's dirty work.",
+    "rarity": 2
+  },
+  {
+    "id": 132,
+    "idiom": "Horse of a different colour",
+    "meaning": "Something that is completely different from what was expected.",
+    "nomenclature_reason": "Shakespeare used the phrase to describe a horse that was not the one being talked about.",
+    "example": "Finding a bike is a horse of a different colour when we wanted a car.",
+    "remember": "A different colour horse means a different kind of thing.",
+    "rarity": 2
+  },
+  {
+    "id": 133,
+    "idiom": "Storm in a teacup",
+    "meaning": "A big fuss over something very small.",
+    "nomenclature_reason": "Imagining a huge storm inside a tiny teacup shows how exaggerated the worry is.",
+    "example": "The argument over the missing crayon was just a storm in a teacup.",
+    "remember": "A tiny teacup can't hold a real storm!",
+    "rarity": 2
+  },
+  {
+    "id": 134,
+    "idiom": "White elephant",
+    "meaning": "A possession that is more trouble than it is worth.",
+    "nomenclature_reason": "In royal courts a rare white elephant was costly to keep and hard to use.",
+    "example": "The old computer became a white elephant because it broke all the time.",
+    "remember": "A white elephant looks fancy but needs too much care.",
+    "rarity": 2
+  },
+  {
+    "id": 135,
+    "idiom": "Dead as a doornail",
+    "meaning": "Completely lifeless or not working.",
+    "nomenclature_reason": "A doornail was hammered in so tightly it couldn't move, like being dead.",
+    "example": "The battery is dead as a doornail.",
+    "remember": "If it's as still as a nailed door, it's dead as a doornail.",
+    "rarity": 2
+  },
+  {
+    "id": 136,
+    "idiom": "Fool's errand",
+    "meaning": "A task that is pointless or will not succeed.",
+    "nomenclature_reason": "Sending a fool on a useless mission is a waste of effort.",
+    "example": "Looking for a unicorn in the backyard is a fool's errand.",
+    "remember": "A fool's errand is a wild goose chase without the goose!",
+    "rarity": 2
+  },
+  {
+    "id": 137,
+    "idiom": "The lady doth protest too much",
+    "meaning": "Someone who denies something so strongly it seems suspicious.",
+    "nomenclature_reason": "From Shakespeare's play where a lady repeatedly says she doesn't love.",
+    "example": "He kept saying he didn't take the cookie, but the lady doth protest too much.",
+    "remember": "If you say \"no\" too many times, the lady doth protest too much.",
+    "rarity": 2
+  },
+  {
+    "id": 138,
+    "idiom": "Swan song",
+    "meaning": "A final performance or act before retirement or death.",
+    "nomenclature_reason": "Swans were once believed to sing a beautiful song just before they die.",
+    "example": "The actor's last movie was his swan song.",
+    "remember": "A swan's last song is its swan song.",
+    "rarity": 2
+  },
+  {
+    "id": 139,
+    "idiom": "Cry wolf",
+    "meaning": "To raise a false alarm, causing others not to trust you later.",
+    "nomenclature_reason": "From the story of a boy who shouted \"wolf\" when none came.",
+    "example": "He kept saying the fire alarm was broken, and when it really rang, nobody believed him.",
+    "remember": "If you keep shouting \"wolf\", people stop listening.",
+    "rarity": 2
+  },
+  {
+    "id": 140,
+    "idiom": "With bated breath",
+    "meaning": "Waiting anxiously or excitedly.",
+    "nomenclature_reason": "\"Bated\" is short for \"abated\", meaning held back.",
+    "example": "She waited with bated breath for the results.",
+    "remember": "Hold your breath tight when you're excited!",
+    "rarity": 2
+  },
+  {
+    "id": 141,
+    "idiom": "Golden goose",
+    "meaning": "Something that continuously provides profit or benefit.",
+    "nomenclature_reason": "From the fairy tale where a goose laid golden eggs.",
+    "example": "The garden became a golden goose, giving fresh veggies every day.",
+    "remember": "A goose that lays gold makes a golden goose.",
+    "rarity": 2
+  },
+  {
+    "id": 142,
+    "idiom": "Thorn in the side",
+    "meaning": "A constant source of irritation or trouble.",
+    "nomenclature_reason": "A thorn stuck in your side would keep hurting you.",
+    "example": "The noisy neighbor was a thorn in his side.",
+    "remember": "A thorn that pokes you is a thorn in the side.",
+    "rarity": 2
+  },
+  {
+    "id": 143,
+    "idiom": "Skeleton in the closet",
+    "meaning": "A hidden secret that could cause embarrassment if revealed.",
+    "nomenclature_reason": "A skeleton hidden in a closet would be a shocking surprise.",
+    "example": "The politician had a skeleton in the closet that the reporters discovered.",
+    "remember": "A hidden skeleton is a skeleton in the closet.",
+    "rarity": 2
+  },
+  {
+    "id": 144,
+    "idiom": "Turn the other cheek",
+    "meaning": "Respond to a hurtful act by not fighting back, but showing forgiveness.",
+    "nomenclature_reason": "Jesus said if someone hits you, turn the other cheek so they have nowhere to hit you, showing kindness.",
+    "example": "When Tom was teased, he turned the other cheek and smiled instead of arguing.",
+    "remember": "If you turn the other cheek, you choose peace over a fight.",
+    "rarity": 2
+  },
+  {
+    "id": 145,
+    "idiom": "Good Samaritan",
+    "meaning": "A person who helps strangers in need.",
+    "nomenclature_reason": "From a Bible story where a Samaritan helped a hurt traveler while others ignored him.",
+    "example": "Maya stopped to help the lost puppy; she was a Good Samaritan.",
+    "remember": "A Good Samaritan is a kind helper you meet on the road.",
+    "rarity": 2
+  },
+  {
+    "id": 146,
+    "idiom": "Blind leading the blind",
+    "meaning": "People who don't know something trying to guide others who also don't know.",
+    "nomenclature_reason": "Jesus warned that a blind person cannot lead another blind person without both stumbling.",
+    "example": "The new student tried to teach the class, but it was a blind leading the blind situation.",
+    "remember": "When the blind lead the blind, everyone trips.",
+    "rarity": 2
+  },
+  {
+    "id": 147,
+    "idiom": "Lion's den",
+    "meaning": "A very dangerous or risky place.",
+    "nomenclature_reason": "Daniel was thrown into a den of hungry lions but survived; the den is scary.",
+    "example": "Going into the dark forest alone felt like entering a lion's den.",
+    "remember": "A lion's den is a place where danger roars.",
+    "rarity": 2
+  },
+  {
+    "id": 148,
+    "idiom": "Prodigal son",
+    "meaning": "Someone who leaves home, wastes money, then returns humbled.",
+    "nomenclature_reason": "A parable about a son who spent his inheritance and came back asking for forgiveness.",
+    "example": "After spending all his allowance, Jake felt like the prodigal son when he asked his parents for help.",
+    "remember": "The prodigal son learns that home is where love waits.",
+    "rarity": 2
+  },
+  {
+    "id": 149,
+    "idiom": "Knight in shining armor",
+    "meaning": "A hero who rescues someone from trouble.",
+    "nomenclature_reason": "Medieval knights wore bright armor and rode to save people in need.",
+    "example": "When Lily fell, her friend acted like a knight in shining armor and helped her up.",
+    "remember": "A knight in shining armor rides in to save the day.",
+    "rarity": 2
+  },
+  {
+    "id": 150,
+    "idiom": "Castles in the air",
+    "meaning": "Plans or dreams that are unrealistic and unlikely to happen.",
+    "nomenclature_reason": "Building a castle high in the sky is impossible, so the phrase means dreaming too big.",
+    "example": "Sam wanted to own a dragon and a flying carpet-just castles in the air.",
+    "remember": "Castles in the air are beautiful dreams that can't be built.",
+    "rarity": 2
+  },
+  {
+    "id": 151,
+    "idiom": "Man of the cloth",
+    "meaning": "A male member of the clergy, like a priest.",
+    "nomenclature_reason": "Clergy wear special cloth (robes) for their work, so they are called \"men of the cloth.\"",
+    "example": "Father Thomas is a man of the cloth who leads the Sunday service.",
+    "remember": "A man of the cloth wears special robes and helps people pray.",
+    "rarity": 2
+  },
+  {
+    "id": 152,
+    "idiom": "White knight",
+    "meaning": "Someone who comes to rescue or defend another, often in a bold way.",
+    "nomenclature_reason": "Knights wore white armor to show purity and bravery, so a \"white knight\" is a brave rescuer.",
+    "example": "When the bully tried to take her book, a classmate acted as a white knight and stopped him.",
+    "remember": "A white knight rides in shining white to protect friends.",
+    "rarity": 2
+  },
+  {
+    "id": 153,
+    "idiom": "Holy grail",
+    "meaning": "Something people search for because it is extremely valuable or perfect.",
+    "nomenclature_reason": "In the legends, the Holy Grail was a sacred cup that knights sought; it represents the ultimate prize.",
+    "example": "Finding a quiet place to read is the holy grail for busy kids.",
+    "remember": "The holy grail is the most treasured thing you can imagine.",
+    "rarity": 2
+  },
+  {
+    "id": 154,
+    "idiom": "Lord of the manor",
+    "meaning": "The person who owns and runs a large estate or house.",
+    "nomenclature_reason": "In medieval times, the lord owned the manor and made decisions for everyone living there.",
+    "example": "In the story, the old oak tree was the lord of the manor of the forest.",
+    "remember": "The lord of the manor is the boss of the big house.",
+    "rarity": 2
+  },
+  {
+    "id": 155,
+    "idiom": "Sow the dragon's teeth",
+    "meaning": "To do something that creates many problems or conflicts.",
+    "nomenclature_reason": "In a myth, planting dragon's teeth grew into armed warriors, so \"sowing the dragon's teeth\" means starting trouble.",
+    "example": "Posting a mean comment online can sow the dragon's teeth and cause a big argument.",
+    "remember": "When you sow dragon's teeth, you plant trouble that grows fast.",
+    "rarity": 2
+  },
+  {
+    "id": 156,
+    "idiom": "Judas kiss",
+    "meaning": "A friendly gesture that hides betrayal.",
+    "nomenclature_reason": "Judas kissed Jesus to show loyalty while planning to betray him.",
+    "example": "The new friend gave a Judas kiss when he promised to keep the secret but told the teacher.",
+    "remember": "A Judas kiss looks kind but hides a backstab.",
+    "rarity": 2
+  },
+  {
+    "id": 157,
+    "idiom": "King's ransom",
+    "meaning": "A huge amount of money.",
+    "nomenclature_reason": "In old times, a king could demand a huge sum to free a captive; that sum became known as a king's ransom.",
+    "example": "The rare comic book sold for a king's ransom at the auction.",
+    "remember": "A king's ransom is a treasure worth a king's gold.",
+    "rarity": 2
+  },
+  {
+    "id": 158,
+    "idiom": "Black sheep",
+    "meaning": "A person who is different from or disliked by the rest of a family or group.",
+    "nomenclature_reason": "In a flock, a sheep with dark wool stands out; calling someone a black sheep means they stand out in a not-so-good way.",
+    "example": "Tim felt like the black sheep because he liked painting instead of sports.",
+    "remember": "A black sheep is the family member who looks different from the rest.",
+    "rarity": 2
+  },
+  {
+    "id": 159,
+    "idiom": "taken aback",
+    "meaning": "surprised or shocked by something unexpected.",
+    "nomenclature_reason": "Ships used to be 'abaft' the wind; being taken aback meant the wind hit the front, stopping the ship suddenly, just like a surprise stops you.",
+    "example": "She was taken aback when the magician made the rabbit disappear.",
+    "remember": "Imagine a ship that stops suddenly because the wind hits it - that feeling is being taken aback.",
+    "rarity": 2
+  },
+  {
+    "id": 160,
+    "idiom": "in the doldrums",
+    "meaning": "feeling bored, sad, or lacking energy.",
+    "nomenclature_reason": "The doldrils are calm parts of the sea where there is no wind, so ships drift without moving, just like a person who feels stuck.",
+    "example": "He felt in the doldrums after finishing his big project.",
+    "remember": "Think of a boat stuck in a wind-less sea - that's being in the doldrums.",
+    "rarity": 2
+  },
+  {
+    "id": 161,
+    "idiom": "batten down the hatches",
+    "meaning": "prepare for a difficult or dangerous situation.",
+    "nomenclature_reason": "Sailors would secure the ship's hatches with battens to keep out stormy water, just like we get ready for trouble.",
+    "example": "We need to batten down the hatches before the big exam tomorrow.",
+    "remember": "When a storm comes, sailors close the hatches - that's getting ready for a challenge.",
+    "rarity": 2
+  },
+  {
+    "id": 162,
+    "idiom": "run a tight ship",
+    "meaning": "manage something with strict rules and good order.",
+    "nomenclature_reason": "A well-run ship had tight ropes and clear commands, so everything worked smoothly.",
+    "example": "The teacher runs a tight ship in her classroom.",
+    "remember": "A ship with tight ropes stays steady - that's what running a tight ship means.",
+    "rarity": 2
+  },
+  {
+    "id": 163,
+    "idiom": "weigh anchor",
+    "meaning": "to start moving or begin a new activity.",
+    "nomenclature_reason": "Ships lifted (weighed) their heavy anchors to set sail, just like we lift a weight to start moving.",
+    "example": "After the holidays, the students will weigh anchor and start the new term.",
+    "remember": "When a ship lifts its anchor, it can go - that's weighing anchor.",
+    "rarity": 2
+  },
+  {
+    "id": 164,
+    "idiom": "law unto oneself",
+    "meaning": "someone who does what they want without following rules.",
+    "nomenclature_reason": "In old courts, a person who acted like their own judge was said to be a 'law unto themselves'.",
+    "example": "He rides his bike wherever he likes; he's a law unto himself.",
+    "remember": "Imagine a person writing their own rules - that's a law unto oneself.",
+    "rarity": 2
+  },
+  {
+    "id": 165,
+    "idiom": "legal eagle",
+    "meaning": "a very skilled and knowledgeable lawyer.",
+    "nomenclature_reason": "Eagles soar high and see far, just like a sharp lawyer sees all the details of a case.",
+    "example": "She became a legal eagle after years of studying law.",
+    "remember": "Think of an eagle flying high and spotting everything - that's a legal eagle.",
+    "rarity": 2
+  },
+  {
+    "id": 166,
+    "idiom": "moot point",
+    "meaning": "an issue that no longer matters or cannot be decided.",
+    "nomenclature_reason": "In old debates, a 'moot' was a mock case for practice; if it was just for show, it was a moot point.",
+    "example": "Whether we wear hats is a moot point now that school is over.",
+    "remember": "A moot point is like a practice case - it doesn't affect the real outcome.",
+    "rarity": 2
+  },
+  {
+    "id": 167,
+    "idiom": "case in point",
+    "meaning": "an example that clearly shows what is being discussed.",
+    "nomenclature_reason": "Lawyers point to a specific case to illustrate a rule, so the example becomes the 'case in point'.",
+    "example": "She loves reading; a case in point is her favorite book club.",
+    "remember": "When a lawyer shows a case to prove a rule, that case is the case in point.",
+    "rarity": 2
+  },
+  {
+    "id": 168,
+    "idiom": "jack of all trades, master of none",
+    "meaning": "someone who knows a little about many things but isn't an expert in any.",
+    "nomenclature_reason": "In old guilds, a 'jack' was a worker who tried many crafts but never mastered one.",
+    "example": "Tom can fix toys, bake cakes, and paint walls, but he's a jack of all trades, master of none.",
+    "remember": "Picture a worker trying many jobs but not becoming a master of any - that's the meaning.",
+    "rarity": 2
+  },
+  {
+    "id": 169,
+    "idiom": "scapegoat",
+    "meaning": "a person who is blamed for the problems of others.",
+    "nomenclature_reason": "In ancient rituals, a goat was sent into the desert carrying the community's sins, becoming the scapegoat.",
+    "example": "When the project failed, the intern became the scapegoat.",
+    "remember": "Think of a goat carrying away all the blame - that's a scapegoat.",
+    "rarity": 2
+  },
+  {
+    "id": 170,
+    "idiom": "fall guy",
+    "meaning": "someone who takes the blame for something they didn't do.",
+    "nomenclature_reason": "In old street slang, the 'guy' who fell was the one caught and blamed.",
+    "example": "The manager made the assistant the fall guy for the missing files.",
+    "remember": "Imagine someone tripping and getting blamed - that person is the fall guy.",
+    "rarity": 2
+  },
+  {
+    "id": 171,
+    "idiom": "cutpurse",
+    "meaning": "a thief who steals money from people's pockets.",
+    "nomenclature_reason": "In old markets, pickpockets used a small 'cut' (knife) to open purses quickly.",
+    "example": "The bustling fair attracted many cutpurses looking for easy loot.",
+    "remember": "Think of a sneaky person cutting open a purse - that's a cutpurse.",
+    "rarity": 2
+  },
+  {
+    "id": 172,
+    "idiom": "turn the tide",
+    "meaning": "to cause a change in a situation, especially for the better.",
+    "nomenclature_reason": "Sailors watched the tide rise or fall; when it turned, the ship's direction changed.",
+    "example": "Her kind words turned the tide of his bad mood.",
+    "remember": "When the ocean tide flips, the water moves differently - that's turning the tide.",
+    "rarity": 2
+  },
+  {
+    "id": 173,
+    "idiom": "sail under false colors",
+    "meaning": "to pretend to be something you are not, especially to deceive.",
+    "nomenclature_reason": "Pirates would raise a friendly flag (false colors) to get close before attacking.",
+    "example": "The salesman tried to sail under false colors by claiming the toy was brand new.",
+    "remember": "Picture a ship waving a friendly flag while hiding its true intent - that's sailing under false colors.",
+    "rarity": 2
+  },
+  {
+    "id": 174,
+    "idiom": "snake in the grass",
+    "meaning": "a hidden, treacherous person",
+    "nomenclature_reason": "Snakes hide in grass and can bite you when you least expect it, just like a secret betrayer.",
+    "example": "She thought her friend was nice, but he turned out to be a snake in the grass.",
+    "remember": "Remember the sneaky snake hiding in the grass when someone pretends to be friendly.",
+    "rarity": 2
+  },
+  {
+    "id": 175,
+    "idiom": "lion's share",
+    "meaning": "the biggest part of something",
+    "nomenclature_reason": "A lion is the strongest animal in the jungle, so it would take the biggest piece of a meal.",
+    "example": "When the cookies were divided, Tom got the lion's share because he helped bake them.",
+    "remember": "Think of a lion taking the biggest bite of a big steak.",
+    "rarity": 2
+  },
+  {
+    "id": 176,
+    "idiom": "lamb to the slaughter",
+    "meaning": "an innocent person walking into danger without knowing it",
+    "nomenclature_reason": "A lamb is gentle, and slaughter is a sudden end, so the picture means someone harmless is led into trouble.",
+    "example": "The new student was a lamb to the slaughter when he walked into the surprise prank.",
+    "remember": "A quiet lamb should not be led into a scary place.",
+    "rarity": 2
+  },
+  {
+    "id": 177,
+    "idiom": "pig in a poke",
+    "meaning": "something bought or accepted without checking it first, which may turn out to be bad",
+    "nomenclature_reason": "Long ago, merchants would sell a closed bag (a 'poke') that might contain a pig or something worthless.",
+    "example": "He bought the game without reading reviews and got a pig in a poke.",
+    "remember": "Imagine opening a bag expecting a toy but finding a pig instead.",
+    "rarity": 2
+  },
+  {
+    "id": 178,
+    "idiom": "harebrained scheme",
+    "meaning": "a foolish or poorly thought-out plan",
+    "nomenclature_reason": "Hares are quick and jumpy, and a plan that jumps around without thinking is called harebrained.",
+    "example": "Building a treehouse without nails was a harebrained scheme.",
+    "remember": "Think of a hare bouncing around with a wild idea.",
+    "rarity": 2
+  },
+  {
+    "id": 179,
+    "idiom": "chicken out",
+    "meaning": "to decide not to do something because of fear",
+    "nomenclature_reason": "Chickens are known to run away when they sense danger, just like a person who backs out of a challenge.",
+    "example": "He wanted to jump off the high dive, but he chickened out at the last second.",
+    "remember": "Remember a chicken running away when it's scared.",
+    "rarity": 2
+  },
+  {
+    "id": 180,
+    "idiom": "black swan",
+    "meaning": "a very rare and unexpected event that has a big impact",
+    "nomenclature_reason": "For centuries people thought all swans were white; a black swan was thought impossible until one was seen.",
+    "example": "The sudden storm was a black swan that ruined the picnic.",
+    "remember": "Picture a surprising black swan swimming where only white swans were expected.",
+    "rarity": 2
+  },
+  {
+    "id": 181,
+    "idiom": "cut the Gordian knot",
+    "meaning": "Solve a complex problem with a bold, simple solution.",
+    "nomenclature_reason": "Alexander the Great sliced the legendary knot instead of untying it, showing a clever shortcut.",
+    "example": "When the computer crashed, Jamie cut the Gordian knot by reinstalling the whole system.",
+    "remember": "When a puzzle looks impossible, think of a sharp cut like Alexander.",
+    "rarity": 3
+  },
+  {
+    "id": 182,
+    "idiom": "pearl of great price",
+    "meaning": "Something very valuable or cherished.",
+    "nomenclature_reason": "Ancient traders prized pearls like treasure from the sea, calling them priceless.",
+    "example": "Grandma's old recipe book is a pearl of great price to the family.",
+    "remember": "Think of a shining pearl you would never trade away.",
+    "rarity": 3
+  },
+  {
+    "id": 183,
+    "idiom": "have a Cassandra complex",
+    "meaning": "Being ignored even when you warn others about danger.",
+    "nomenclature_reason": "Cassandra, a prophetess in Greek myth, told the truth but nobody believed her.",
+    "example": "When Lily warned about the storm, she felt she had a Cassandra complex when no one listened.",
+    "remember": "Cassandra's warnings fell on deaf ears.",
+    "rarity": 3
+  },
+  {
+    "id": 184,
+    "idiom": "maintain Spartan discipline",
+    "meaning": "Live with strict self-control and simplicity.",
+    "nomenclature_reason": "Spartans were famous for their tough training and plain lives, never indulging in luxuries.",
+    "example": "During the science fair prep, the team had to maintain Spartan discipline to finish on time.",
+    "remember": "Think of a soldier who never relaxes - that's Spartan discipline.",
+    "rarity": 3
+  },
+  {
+    "id": 185,
+    "idiom": "in Davy Jones' locker",
+    "meaning": "Lost at sea; dead or gone forever.",
+    "nomenclature_reason": "Sailors believed the sea god Davy Jones kept drowned souls in his underwater chest.",
+    "example": "The old pirate ship vanished and was said to be in Davy Jones' locker.",
+    "remember": "If something sinks deep, it's in Davy Jones' hidden chest.",
+    "rarity": 3
+  },
+  {
+    "id": 186,
+    "idiom": "face a Gordian knot",
+    "meaning": "Encounter a problem that seems impossible to solve.",
+    "nomenclature_reason": "The legendary knot was so tangled that only a bold cut could free it.",
+    "example": "When the math puzzle got too tricky, Sam felt he had to face a Gordian knot.",
+    "remember": "A knot so tangled you might need a clever cut.",
+    "rarity": 3
+  },
+  {
+    "id": 187,
+    "idiom": "hold the line like a Roman legion",
+    "meaning": "Stay firm and unyielding in a difficult situation.",
+    "nomenclature_reason": "Roman legions were famous for standing their ground without wavering.",
+    "example": "During the debate, Maya held the line like a Roman legion and didn't back down.",
+    "remember": "Think of brave soldiers who never move.",
+    "rarity": 3
+  },
+  {
+    "id": 188,
+    "idiom": "drink from the cup of Hyacinth",
+    "meaning": "Enjoy a fleeting, beautiful moment that soon fades.",
+    "nomenclature_reason": "Hyacinth was a beautiful youth whose life ended quickly, and his memory lived on in a flower.",
+    "example": "The sunset was so gorgeous that it felt like drinking from the cup of Hyacinth.",
+    "remember": "A beautiful sip that disappears fast.",
+    "rarity": 3
+  },
+  {
+    "id": 189,
+    "idiom": "march to the beat of a Roman drum",
+    "meaning": "Follow a strict, orderly routine.",
+    "nomenclature_reason": "Roman soldiers marched in perfect rhythm to the drum, never missing a step.",
+    "example": "Every morning, Lily marched to the beat of a Roman drum, brushing her teeth and packing her bag.",
+    "remember": "Imagine soldiers moving together on a drum's rhythm.",
+    "rarity": 3
+  },
+  {
+    "id": 190,
+    "idiom": "the world is my oyster",
+    "meaning": "I have many chances and can achieve anything I want.",
+    "nomenclature_reason": "In Shakespeare an oyster can hold a pearl; the world is like a big oyster that can give you treasure.",
+    "example": "When Lily got the scholarship, she said the world is my oyster.",
+    "remember": "Think of a shiny pearl inside a huge oyster waiting just for you.",
+    "rarity": 3
+  },
+  {
+    "id": 191,
+    "idiom": "cock and bull story",
+    "meaning": "A silly or unbelievable tale.",
+    "nomenclature_reason": "The phrase mixes a rooster (cock) and a bull, two unlikely animals trying to tell a story together.",
+    "example": "Tom's excuse for being late was just a cock and bull story.",
+    "remember": "Imagine a rooster and a bull trying to tell a tale - it must be a tall one!",
+    "rarity": 3
+  },
+  {
+    "id": 192,
+    "idiom": "a tempest in a teapot",
+    "meaning": "A big fuss over something very small.",
+    "nomenclature_reason": "A tempest is a huge storm, but here it is imagined inside a tiny teapot, showing the exaggeration.",
+    "example": "She made a tempest in a teapot about the missing cookie.",
+    "remember": "Picture a massive storm brewing inside a tiny teacup.",
+    "rarity": 3
+  },
+  {
+    "id": 193,
+    "idiom": "cat among the pigeons",
+    "meaning": "Someone who causes trouble or chaos in a calm place.",
+    "nomenclature_reason": "Cats scare pigeons; putting a cat among them makes a noisy mess.",
+    "example": "When Jake shouted, he was a cat among the pigeons in the quiet library.",
+    "remember": "Think of a sneaky cat making the pigeons flutter.",
+    "rarity": 3
+  },
+  {
+    "id": 194,
+    "idiom": "play devil's advocate",
+    "meaning": "To argue the opposite side just to test ideas.",
+    "nomenclature_reason": "The devil is known for challenging good people; playing his role means questioning everything.",
+    "example": "Even though she liked the plan, Maya decided to play devil's advocate.",
+    "remember": "Pretend you're the devil asking, \"what if\u2026?\"",
+    "rarity": 3
+  },
+  {
+    "id": 195,
+    "idiom": "go on a fool's errand",
+    "meaning": "To try to do something that is pointless.",
+    "nomenclature_reason": "A fool goes on a task that leads nowhere, like chasing shadows.",
+    "example": "Looking for a unicorn in the backyard was a fool's errand.",
+    "remember": "Picture a silly person chasing something that isn't there.",
+    "rarity": 3
+  },
+  {
+    "id": 196,
+    "idiom": "cock of the walk",
+    "meaning": "A person who thinks they are the most important.",
+    "nomenclature_reason": "A cock (rooster) struts proudly as if the whole street belongs to him.",
+    "example": "After winning the race, he strutted like the cock of the walk.",
+    "remember": "Imagine a proud rooster marching down the street.",
+    "rarity": 3
+  },
+  {
+    "id": 197,
+    "idiom": "fox in the henhouse",
+    "meaning": "A sneaky person who causes trouble where they shouldn't.",
+    "nomenclature_reason": "A fox in a henhouse will eat the chickens, causing chaos.",
+    "example": "The new kid was a fox in the henhouse, stealing snacks.",
+    "remember": "Imagine a clever fox sneaking into a chicken coop.",
+    "rarity": 3
+  },
+  {
+    "id": 198,
+    "idiom": "to throw the baby out with the bathwater",
+    "meaning": "to get rid of something good while trying to get rid of something bad",
+    "nomenclature_reason": "If you tip out a washtub too fast, the baby could go out with the dirty water.",
+    "example": "She deleted the whole folder to remove one bad photo and threw the baby out with the bathwater.",
+    "remember": "Keep the baby when you pour out the dirty water.",
+    "rarity": 3
+  },
+  {
+    "id": 199,
+    "idiom": "fish out of water",
+    "meaning": "Someone who feels uncomfortable in a new situation.",
+    "nomenclature_reason": "A fish cannot breathe outside water, so it looks uneasy and out of place.",
+    "example": "On her first day at the new school, Maya felt like a fish out of water.",
+    "remember": "Imagine a fish flopping on dry land.",
+    "rarity": 3
+  },
+  {
+    "id": 200,
+    "idiom": "a Roland for an Oliver",
+    "meaning": "A great mismatch; two things that are completely unsuitable for each other.",
+    "nomenclature_reason": "Roland was a mighty French hero, Oliver a small English one; putting them together shows they don't fit.",
+    "example": "Giving a tiny toy car to a giant is a Roland for an Oliver.",
+    "remember": "Big hero and tiny hero don't match, just like a Roland for an Oliver.",
+    "rarity": 3
+  },
+  {
+    "id": 201,
+    "idiom": "caviare to the general",
+    "meaning": "A luxury given to someone of high rank.",
+    "nomenclature_reason": "Generals were served the finest foods, like caviare, to show respect.",
+    "example": "The new computer was caviare to the general for the school principal.",
+    "remember": "Fancy food for a fancy boss.",
+    "rarity": 3
+  },
+  {
+    "id": 202,
+    "idiom": "a Daniel come to judgement",
+    "meaning": "A person who is very wise and just, especially in a courtroom.",
+    "nomenclature_reason": "Daniel in the Bible was known for his wise decisions before kings.",
+    "example": "The teacher was a Daniel come to judgement when she settled the playground dispute.",
+    "remember": "Think of Daniel the wise judge.",
+    "rarity": 3
+  },
+  {
+    "id": 203,
+    "idiom": "more honoured in the breach than the observance",
+    "meaning": "A rule is better broken than followed.",
+    "nomenclature_reason": "If breaking a rule makes you look better, the breach is more honoured.",
+    "example": "Skipping bedtime on a school night is more honoured in the breach than the observance.",
+    "remember": "Sometimes breaking a rule looks better.",
+    "rarity": 3
+  },
+  {
+    "id": 204,
+    "idiom": "run with the hare and hunt with the hounds",
+    "meaning": "To try to please both sides of a conflict, often ending up in trouble.",
+    "nomenclature_reason": "Hares run away while hounds chase; doing both puts you in danger from each.",
+    "example": "She tried to run with the hare and hunt with the hounds, pleasing both groups but making no one trust her.",
+    "remember": "Being on both sides can get you caught.",
+    "rarity": 3
+  },
+  {
+    "id": 205,
+    "idiom": "three sheets to the wind",
+    "meaning": "very drunk",
+    "nomenclature_reason": "Sailors call a loose sail a 'sheet'; when three of them are loose the ship spins wildly, just like a drunk person stumbling.",
+    "example": "After the party, Jake was three sheets to the wind and could barely stand.",
+    "remember": "Loose sails make a wobbling ship, like a drunk wobbling on land.",
+    "rarity": 3
+  },
+  {
+    "id": 206,
+    "idiom": "caught between the devil and the deep blue sea",
+    "meaning": "stuck between two dangerous choices",
+    "nomenclature_reason": "Imagine being trapped between a scary devil and a dangerous ocean-both are frightening, so you feel trapped.",
+    "example": "She was caught between the devil and the deep blue sea, having to choose between moving away or staying with her sick mother.",
+    "remember": "Two scary sides, no easy way out.",
+    "rarity": 3
+  },
+  {
+    "id": 207,
+    "idiom": "shipshape and Bristol fashion",
+    "meaning": "very neat and orderly",
+    "nomenclature_reason": "Sailors from Bristol were famous for keeping their ships tidy; 'shipshape' means tidy, so the whole phrase means perfectly neat.",
+    "example": "The classroom was shipshape and Bristol fashion after everyone helped clean.",
+    "remember": "A tidy room is shipshape and Bristol fashion.",
+    "rarity": 3
+  },
+  {
+    "id": 208,
+    "idiom": "trial by fire",
+    "meaning": "a hard test that shows if you can handle something",
+    "nomenclature_reason": "In old times people were tested by being put near fire; today it means a very tough challenge.",
+    "example": "His first day at the new job was a trial by fire.",
+    "remember": "A big challenge is a trial by fire.",
+    "rarity": 3
+  },
+  {
+    "id": 209,
+    "idiom": "walk the plank",
+    "meaning": "be forced to accept a punishment or danger",
+    "nomenclature_reason": "Pirates made prisoners walk off a wooden board into the sea as a scary punishment.",
+    "example": "When the team lost the game, the coach made them walk the plank and do extra drills.",
+    "remember": "Being made to do something scary is like walking the plank.",
+    "rarity": 3
+  },
+  {
+    "id": 210,
+    "idiom": "fair wind and following seas",
+    "meaning": "wishing someone good luck and smooth travel",
+    "nomenclature_reason": "Sailors hope the wind blows from behind and the sea moves with them, giving an easy journey.",
+    "example": "Before the school trip, the teacher said, 'Fair wind and following seas!'",
+    "remember": "Good wishes for a smooth journey.",
+    "rarity": 3
+  },
+  {
+    "id": 211,
+    "idiom": "letter of the law",
+    "meaning": "following the exact wording, not the spirit",
+    "nomenclature_reason": "A 'letter' is a written rule; taking it literally means no flexibility, just the words.",
+    "example": "The librarian followed the letter of the law and wouldn't let anyone copy books.",
+    "remember": "Reading every word, not the meaning.",
+    "rarity": 3
+  },
+  {
+    "id": 212,
+    "idiom": "spirit of the law",
+    "meaning": "the intention behind a rule, not just the words",
+    "nomenclature_reason": "The 'spirit' is the feeling or purpose behind the written rule, like the heart of the law.",
+    "example": "The teacher applied the spirit of the law by letting the sick student take the test later.",
+    "remember": "What the rule really wants.",
+    "rarity": 3
+  },
+  {
+    "id": 213,
+    "idiom": "wind in one's sails",
+    "meaning": "something that gives you energy or confidence",
+    "nomenclature_reason": "A ship moves faster when the wind fills its sails, giving it a boost.",
+    "example": "Winning the prize gave her wind in her sails for the next competition.",
+    "remember": "A boost that pushes you forward.",
+    "rarity": 3
+  },
+  {
+    "id": 214,
+    "idiom": "calm before the storm",
+    "meaning": "a quiet period before trouble starts",
+    "nomenclature_reason": "Before a storm, the air often feels still and quiet.",
+    "example": "The playground was quiet-a calm before the storm of recess.",
+    "remember": "Quiet now, trouble soon.",
+    "rarity": 3
+  },
+  {
+    "id": 215,
+    "idiom": "needle in a haystack",
+    "meaning": "something very hard to find",
+    "nomenclature_reason": "Looking for a tiny needle among lots of hay is almost impossible, just like a very hard search.",
+    "example": "Finding my lost earring was like looking for a needle in a haystack.",
+    "remember": "Tiny thing in a huge pile.",
+    "rarity": 3
+  },
+  {
+    "id": 216,
+    "idiom": "separate the wheat from the chaff",
+    "meaning": "distinguish valuable things from worthless ones",
+    "nomenclature_reason": "Farmers shake grain to let the light chaff blow away, keeping only the good wheat.",
+    "example": "The teacher helped us separate the wheat from the chaff in the story.",
+    "remember": "Find the good stuff, leave the junk.",
+    "rarity": 3
+  },
+  {
+    "id": 217,
+    "idiom": "rule of thumb",
+    "meaning": "a general guideline based on experience",
+    "nomenclature_reason": "Old carpenters used their thumb to measure roughly, giving a quick, practical rule.",
+    "example": "A good rule of thumb is to wash your hands before meals.",
+    "remember": "A simple helpful rule.",
+    "rarity": 3
+  },
+  {
+    "id": 218,
+    "idiom": "red sky at morning",
+    "meaning": "a warning of bad weather or trouble ahead",
+    "nomenclature_reason": "Sailors noticed that a red sunrise often meant a storm was coming, so it became a warning.",
+    "example": "The dark clouds and red sky at morning told us to stay inside.",
+    "remember": "Red sunrise means watch out.",
+    "rarity": 3
+  },
+  {
+    "id": 219,
+    "idiom": "straight from the horse's mouth",
+    "meaning": "information that comes directly from the original source",
+    "nomenclature_reason": "We picture hearing news straight from the horse that was told, so it's the most reliable way to hear it",
+    "example": "I heard the news straight from the horse's mouth, so it's definitely true.",
+    "remember": "If you want the real story, hear it straight from the horse's mouth.",
+    "rarity": 3
+  },
+  {
+    "id": 220,
+    "idiom": "to carry coals to Newcastle",
+    "meaning": "to do something pointless because that place already has plenty of it",
+    "nomenclature_reason": "Newcastle once had so much coal that bringing more coal there was a wasted trip.",
+    "example": "Giving the librarian another book about libraries was like carrying coals to Newcastle.",
+    "remember": "Do not bring extra coal to a town that is already full of coal.",
+    "rarity": 3
+  },
+  {
+    "id": 221,
+    "idiom": "go to the dogs",
+    "meaning": "to become ruined or decline",
+    "nomenclature_reason": "When something 'goes to the dogs,' it ends up in a messy, uncontrolled state",
+    "example": "The old playground has gone to the dogs and needs repair.",
+    "remember": "When things fall apart, they go to the dogs.",
+    "rarity": 3
+  },
+  {
+    "id": 222,
+    "idiom": "the wolf at the door",
+    "meaning": "a threat of poverty or danger knocking",
+    "nomenclature_reason": "A hungry wolf at your door means trouble is coming close",
+    "example": "With the bills unpaid, the wolf at the door was loud.",
+    "remember": "When trouble knocks, it's the wolf at the door.",
+    "rarity": 3
+  },
+  {
+    "id": 223,
+    "idiom": "the elephant in the room",
+    "meaning": "an obvious problem that people ignore",
+    "nomenclature_reason": "An elephant is huge, so it's hard to miss, yet people pretend not to see it",
+    "example": "Nobody talked about the broken window; it was the elephant in the room.",
+    "remember": "A big issue we ignore is the elephant in the room.",
+    "rarity": 3
+  },
+  {
+    "id": 224,
+    "idiom": "eat one's hat",
+    "meaning": "to do something impossible, often said when you're sure something won't happen",
+    "nomenclature_reason": "It imagines someone actually eating a hat, which is absurd, so it shows how unlikely the event is",
+    "example": "If I ever finish all my homework early, I'll eat my hat.",
+    "remember": "Eating a hat means something is so unlikely you'll only do it if it really happens.",
+    "rarity": 3
+  },
+  {
+    "id": 225,
+    "idiom": "eat humble pie",
+    "meaning": "to apologize and accept that you were wrong",
+    "nomenclature_reason": "In old times, \"humble pie\" was a lowly dish, so eating it means accepting a low position",
+    "example": "After bragging about the game, Maya had to eat humble pie when she lost.",
+    "remember": "Eating humble pie is like saying sorry and learning your lesson.",
+    "rarity": 3
+  },
+  {
+    "id": 226,
+    "idiom": "have a bun in the oven",
+    "meaning": "to be pregnant",
+    "nomenclature_reason": "A bun baking in an oven is like a baby growing inside a mother",
+    "example": "Grandma whispered that Aunt Lily has a bun in the oven.",
+    "remember": "A bun in the oven means a baby is on the way.",
+    "rarity": 3
+  },
+  {
+    "id": 227,
+    "idiom": "wear the trousers",
+    "meaning": "to be the person who makes the decisions, usually in a family",
+    "nomenclature_reason": "Long ago, the person who wore trousers (often the man) was seen as the boss",
+    "example": "Even though Mom works, she still wears the trousers at home.",
+    "remember": "Wearing the trousers means being the boss.",
+    "rarity": 3
+  },
+  {
+    "id": 228,
+    "idiom": "keep something under one's hat",
+    "meaning": "to keep a secret",
+    "nomenclature_reason": "Hiding something under a hat keeps it out of sight, just like a secret",
+    "example": "The surprise party is a secret; keep it under your hat.",
+    "remember": "Something under the hat stays hidden.",
+    "rarity": 3
+  },
+  {
+    "id": 229,
+    "idiom": "dress to the nines",
+    "meaning": "to dress very elegantly and fashionably",
+    "nomenclature_reason": "The phrase suggests being dressed as finely as the number nine, a perfect score",
+    "example": "For the royal ball, the princess will dress to the nines.",
+    "remember": "Dress to the nines means looking your very best.",
+    "rarity": 3
+  },
+  {
+    "id": 230,
+    "idiom": "make a silk purse out of a sow's ear",
+    "meaning": "to turn something poor into something valuable",
+    "nomenclature_reason": "A sow's ear is rough, a silk purse is fine; turning one into the other shows great skill",
+    "example": "The carpenter made a silk purse out of a sow's ear by turning old wood into a beautiful table.",
+    "remember": "Making a silk purse out of a sow's ear means changing something plain into something precious.",
+    "rarity": 3
+  },
+  {
+    "id": 231,
+    "idiom": "keep the home fires burning",
+    "meaning": "to maintain a warm, comfortable household, especially during hard times",
+    "nomenclature_reason": "In old houses, a fire in the hearth kept the home warm; keeping it burning means caring for the family",
+    "example": "While Grandpa was away, Mom kept the home fires burning.",
+    "remember": "Keeping the home fires burning means caring for your family.",
+    "rarity": 3
+  },
+  {
+    "id": 232,
+    "idiom": "lock the stable door after the horse has bolted",
+    "meaning": "to try to prevent something after it's already happened; too late",
+    "nomenclature_reason": "If the horse has already run away, locking the stable door doesn't help",
+    "example": "She tried to apologize after the vase broke, but it was like locking the stable door after the horse had bolted.",
+    "remember": "Locking the stable door after the horse has bolted means it's too late.",
+    "rarity": 3
+  },
+  {
+    "id": 233,
+    "idiom": "sweep something under the rug",
+    "meaning": "to hide a problem instead of dealing with it",
+    "nomenclature_reason": "Sweeping dust under a rug hides it from view, just like ignoring an issue",
+    "example": "The kids tried to sweep the broken toy under the rug instead of fixing it.",
+    "remember": "Sweeping under the rug hides the mess.",
+    "rarity": 3
+  },
+  {
+    "id": 234,
+    "idiom": "have a roof over one's head",
+    "meaning": "to have a place to live; shelter",
+    "nomenclature_reason": "A roof protects you from rain and wind, showing you have a home",
+    "example": "Even after the storm, we were grateful to have a roof over our heads.",
+    "remember": "A roof over your head means you have a home.",
+    "rarity": 3
+  },
+  {
+    "id": 235,
+    "idiom": "be as snug as a bug in a rug",
+    "meaning": "to be very comfortable and warm",
+    "nomenclature_reason": "A bug tucked into a rug is cozy and safe",
+    "example": "The kitten curled up and was as snug as a bug in a rug.",
+    "remember": "As snug as a bug in a rug means very cozy.",
+    "rarity": 3
+  },
+  {
+    "id": 236,
+    "idiom": "be as clean as a whistle",
+    "meaning": "to be perfectly clean or pure",
+    "nomenclature_reason": "A whistle makes a clear sound; being as clean as a whistle suggests spotless",
+    "example": "After washing the dishes, the kitchen was as clean as a whistle.",
+    "remember": "As clean as a whistle means sparkling clean.",
+    "rarity": 3
+  },
+  {
+    "id": 237,
+    "idiom": "meet one's Waterloo",
+    "meaning": "to suffer a final and decisive defeat, especially after a long period of success",
+    "nomenclature_reason": "The Battle of Waterloo was where Napoleon was finally beaten, so meeting it means meeting defeat",
+    "example": "After losing the final match, the champion finally met his Waterloo.",
+    "remember": "Think of the famous battle that stopped a great leader.",
+    "rarity": 3
+  },
+  {
+    "id": 238,
+    "idiom": "die with one's boots on",
+    "meaning": "to die while still active, often in battle or while doing something you love",
+    "nomenclature_reason": "Soldiers wear boots in battle, so dying with them on means dying on the battlefield",
+    "example": "The brave explorer died with his boots on, climbing the highest mountain.",
+    "remember": "If you're still wearing your boots, you're still in the fight.",
+    "rarity": 3
+  },
+  {
+    "id": 239,
+    "idiom": "fight a losing battle",
+    "meaning": "to keep trying even though success is almost impossible",
+    "nomenclature_reason": "A battle that cannot be won still looks like a fight, so the phrase warns against futile effort",
+    "example": "She kept arguing with the bully, but it was a losing battle.",
+    "remember": "Sometimes fighting is brave, even if you can't win.",
+    "rarity": 3
+  },
+  {
+    "id": 240,
+    "idiom": "go down in flames",
+    "meaning": "to fail spectacularly and dramatically",
+    "nomenclature_reason": "When a plane crashes, it often bursts into flames, showing a dramatic failure",
+    "example": "The new toy went down in flames after the first use.",
+    "remember": "A big, bright failure looks like a fire in the sky.",
+    "rarity": 3
+  },
+  {
+    "id": 241,
+    "idiom": "hold the line",
+    "meaning": "to keep a firm position and not give up",
+    "nomenclature_reason": "In battle soldiers stand on a line and must not let enemies break through",
+    "example": "Even when the game got hard, she held the line and kept playing.",
+    "remember": "Imagine soldiers staying strong on a straight line.",
+    "rarity": 3
+  },
+  {
+    "id": 242,
+    "idiom": "soldier of fortune",
+    "meaning": "a mercenary; someone who fights for pay rather than loyalty",
+    "nomenclature_reason": "A soldier who works for fortune (money) fights for whoever pays him",
+    "example": "The adventure story featured a soldier of fortune who traveled the world.",
+    "remember": "Think of a brave fighter who follows the gold.",
+    "rarity": 3
+  },
+  {
+    "id": 243,
+    "idiom": "fight tooth and nail",
+    "meaning": "to fight very fiercely and with all your strength",
+    "nomenclature_reason": "Using both teeth and nails suggests using every possible weapon, even the smallest",
+    "example": "The team fought tooth and nail to win the championship.",
+    "remember": "Picture a fierce animal using its teeth and claws.",
+    "rarity": 3
+  },
+  {
+    "id": 244,
+    "idiom": "war of words",
+    "meaning": "a heated argument where people exchange angry statements",
+    "nomenclature_reason": "Instead of swords, people use words as weapons in a conflict",
+    "example": "The two friends had a war of words after the misunderstanding.",
+    "remember": "Imagine a battle where the weapons are spoken words.",
+    "rarity": 3
+  },
+  {
+    "id": 245,
+    "idiom": "battle of wits",
+    "meaning": "a contest where people try to outsmart each other",
+    "nomenclature_reason": "Wits are clever thoughts; a battle of wits is a mental fight",
+    "example": "The riddles turned the game into a battle of wits.",
+    "remember": "Think of a chess match where brains are the swords.",
+    "rarity": 3
+  },
+  {
+    "id": 246,
+    "idiom": "war of attrition",
+    "meaning": "a long conflict that wears down the opponent slowly",
+    "nomenclature_reason": "Attrition means wearing away; a war of attrition wears down both sides over time",
+    "example": "The long school project became a war of attrition for the team.",
+    "remember": "Imagine a battle that lasts so long it makes everyone tired.",
+    "rarity": 3
+  },
+  {
+    "id": 247,
+    "idiom": "war of nerves",
+    "meaning": "a struggle where each side tries to outlast the other's patience or courage",
+    "nomenclature_reason": "Nerves are bravery; a war of nerves tests who can stay calm the longest",
+    "example": "During the game, the players entered a war of nerves, waiting for the other to slip.",
+    "remember": "Picture two knights trying not to blink first.",
+    "rarity": 3
+  },
+  {
+    "id": 248,
+    "idiom": "be a warhorse",
+    "meaning": "to be experienced, reliable, and often used many times, especially in performance or work",
+    "nomenclature_reason": "Warhorses carried soldiers into many battles, showing strength and endurance",
+    "example": "The actor became a warhorse, starring in play after play.",
+    "remember": "Think of a sturdy horse that never gets tired.",
+    "rarity": 3
+  },
+  {
+    "id": 249,
+    "idiom": "be a man of honor",
+    "meaning": "to act with honesty, fairness, and respect for promises",
+    "nomenclature_reason": "Honor is a knight's badge; a man who carries it follows a noble code",
+    "example": "He returned the lost wallet because he wanted to be a man of honor.",
+    "remember": "Imagine a knight keeping his shining badge of honor.",
+    "rarity": 3
+  },
+  {
+    "id": 250,
+    "idiom": "keep one's word",
+    "meaning": "to do exactly what you promised",
+    "nomenclature_reason": "A word is like a promise; keeping it shows trustworthiness",
+    "example": "She promised to help and kept her word.",
+    "remember": "Treat your promise like a treasure you never lose.",
+    "rarity": 3
+  },
+  {
+    "id": 251,
+    "idiom": "stand one's ground",
+    "meaning": "to refuse to move or give up, especially when faced with pressure",
+    "nomenclature_reason": "In battle, soldiers stand firm on the ground to protect their position",
+    "example": "Even when the wind blew hard, the little tree stood its ground.",
+    "remember": "Picture a brave soldier who never steps back.",
+    "rarity": 3
+  },
+  {
+    "id": 252,
+    "idiom": "All the world's a stage",
+    "meaning": "Life is like a play where everyone has a role.",
+    "nomenclature_reason": "Shakespeare compared life to a theater stage, so we picture people acting like actors.",
+    "example": "When Sam moved to a new school, his teacher reminded him that all the world's a stage and he could make new friends.",
+    "remember": "Think of life as a big stage where you get to act.",
+    "rarity": 3
+  },
+  {
+    "id": 253,
+    "idiom": "The show must go on",
+    "meaning": "Even if something bad happens, we keep continuing.",
+    "nomenclature_reason": "In theater, the performance continues no matter what problems arise.",
+    "example": "Even after the power went out, the kids sang loudly because the show must go on.",
+    "remember": "Keep going, just like a performance that never stops.",
+    "rarity": 3
+  },
+  {
+    "id": 254,
+    "idiom": "Play to the gallery",
+    "meaning": "Do something just to impress people watching.",
+    "nomenclature_reason": "In old theatres, the gallery was the cheap seats where actors tried to wow the crowd.",
+    "example": "Lily told a funny story at dinner just to play to the gallery.",
+    "remember": "Imagine acting for the audience in the cheap seats.",
+    "rarity": 3
+  },
+  {
+    "id": 255,
+    "idiom": "Steal the limelight",
+    "meaning": "Attract all the attention away from others.",
+    "nomenclature_reason": "Limelight was a bright stage light; stealing it means taking the brightest spot.",
+    "example": "When the magician performed his trick, he stole the limelight from the other acts.",
+    "remember": "Picture grabbing the brightest stage light for yourself.",
+    "rarity": 3
+  },
+  {
+    "id": 256,
+    "idiom": "Take a bow",
+    "meaning": "Accept praise after doing something well.",
+    "nomenclature_reason": "Actors bow at the end of a performance to thank the audience.",
+    "example": "After winning the spelling bee, Maya took a bow and thanked her teacher.",
+    "remember": "Think of bowing after a great show.",
+    "rarity": 3
+  },
+  {
+    "id": 257,
+    "idiom": "Read the fine print",
+    "meaning": "Look carefully at the small details before agreeing.",
+    "nomenclature_reason": "Printed contracts have tiny words that hold important rules.",
+    "example": "Before joining the club, Jake read the fine print to see the meeting times.",
+    "remember": "Look at the tiny words, just like a detective.",
+    "rarity": 3
+  },
+  {
+    "id": 258,
+    "idiom": "On the same page",
+    "meaning": "Agreeing or understanding each other.",
+    "nomenclature_reason": "When people read the same page of a book, they share the same story.",
+    "example": "The science project partners were on the same page about the experiment steps.",
+    "remember": "Imagine reading the same page together.",
+    "rarity": 3
+  },
+  {
+    "id": 259,
+    "idiom": "Set the type",
+    "meaning": "Prepare something carefully before it is used.",
+    "nomenclature_reason": "Old printers arranged metal letters (type) before printing a page.",
+    "example": "Before the play, the director set the type for the script notes.",
+    "remember": "Think of arranging letters before printing.",
+    "rarity": 3
+  },
+  {
+    "id": 260,
+    "idiom": "Ink a deal",
+    "meaning": "Sign an agreement officially.",
+    "nomenclature_reason": "People used ink to write contracts, making the deal real.",
+    "example": "The two schools inked a deal to share library books.",
+    "remember": "Picture signing with a big ink pen.",
+    "rarity": 3
+  },
+  {
+    "id": 261,
+    "idiom": "Man of letters",
+    "meaning": "A person who is very learned and reads a lot.",
+    "nomenclature_reason": "Letters are the building blocks of books, so a man of letters loves them.",
+    "example": "Grandpa is a man of letters; his shelves are full of classic novels.",
+    "remember": "Think of someone surrounded by many letters.",
+    "rarity": 3
+  },
+  {
+    "id": 262,
+    "idiom": "Mind like a steel trap",
+    "meaning": "Very quick and sharp at understanding or remembering.",
+    "nomenclature_reason": "A steel trap snaps shut fast, just like a quick mind.",
+    "example": "When the quiz started, Maya's mind was like a steel trap and she answered everything.",
+    "remember": "Imagine a fast-snapping steel trap in your head.",
+    "rarity": 3
+  },
+  {
+    "id": 263,
+    "idiom": "Cut above the rest",
+    "meaning": "Better than everyone else.",
+    "nomenclature_reason": "If you cut a piece higher than the others, it stands out.",
+    "example": "Lila's artwork was a cut above the rest in the school exhibition.",
+    "remember": "Think of a piece that sticks out higher.",
+    "rarity": 3
+  },
+  {
+    "id": 264,
+    "idiom": "Fountain of knowledge",
+    "meaning": "A source that provides a lot of information.",
+    "nomenclature_reason": "A fountain constantly flows water; a fountain of knowledge constantly flows facts.",
+    "example": "The library is a fountain of knowledge for curious kids.",
+    "remember": "Imagine a water fountain spilling out books.",
+    "rarity": 3
+  },
+  {
+    "id": 265,
+    "idiom": "to sell the Brooklyn Bridge",
+    "meaning": "to trick someone with a story that is obviously false",
+    "nomenclature_reason": "Long ago, tricksters pretended they could sell a famous bridge that was not theirs.",
+    "example": "His email about free gold was just selling the Brooklyn Bridge.",
+    "remember": "Nobody can really sell you a bridge the city already owns.",
+    "rarity": 3
+  },
+  {
+    "id": 266,
+    "idiom": "tower of Babel",
+    "meaning": "a situation where people cannot understand each other because of confusion",
+    "nomenclature_reason": "In the Bible, people tried to build a tower to reach heaven, but God confused their languages, making the tower a symbol of chaos",
+    "example": "The classroom became a tower of Babel when everyone tried to speak at once.",
+    "remember": "A tower of Babel is a big mess of mixed-up words.",
+    "rarity": 3
+  },
+  {
+    "id": 267,
+    "idiom": "beware of Greeks bearing gifts",
+    "meaning": "be careful of people who offer something that seems kind but may hide danger",
+    "nomenclature_reason": "In the tale of Troy, the Greeks pretended to give a gift, a wooden horse, which actually held soldiers inside",
+    "example": "The new game looked fun, but Mom said, \"Beware of Greeks bearing gifts; sometimes freebies have hidden costs\"",
+    "remember": "If a gift feels too good, remember the Greeks' trick",
+    "rarity": 3
+  },
+  {
+    "id": 268,
+    "idiom": "hoist with one's own petard",
+    "meaning": "to be hurt by the very plan you made yourself",
+    "nomenclature_reason": "A petard was a tiny bomb used to break down walls; if it exploded and lifted the person who set it, they were 'hoisted' by their own bomb.",
+    "example": "Tom tried to set a prank on his brother, but the prank backfired and Tom was hoist with his own petard.",
+    "remember": "If your trick blows up on you, you're hoist with your own petard.",
+    "rarity": 3
+  },
+  {
+    "id": 269,
+    "idiom": "black letter law",
+    "meaning": "A rule that is clearly established and widely accepted in law.",
+    "nomenclature_reason": "In old legal books, the most important rules were printed in bold black letters so everyone could see them easily.",
+    "example": "The rule that you must stop at a red light is black letter law.",
+    "remember": "Think of a rule written in bold black letters-it's a black letter law!",
+    "rarity": 3
+  },
+  {
+    "id": 270,
+    "idiom": "a flash in the pan",
+    "meaning": "something that looks exciting for a moment and then disappears",
+    "nomenclature_reason": "Old guns sometimes flashed in the pan without firing the shot.",
+    "example": "The magic trick was a flash in the pan, and everyone forgot it the next day.",
+    "remember": "A quick flash is not the same as a real shot.",
+    "rarity": 3
+  }
+]

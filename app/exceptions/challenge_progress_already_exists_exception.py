@@ -1,0 +1,2 @@
+class ChallengeProgressAlreadyExistsException(Exception):
+    pass

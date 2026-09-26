@@ -1,13 +1,21 @@
 import asyncio
 import os
+import sys
 from logging.config import fileConfig
+from pathlib import Path
 
-from alembic import context
+from dotenv import load_dotenv
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import async_engine_from_config
+
+from alembic import context
+
+app_directory = Path(__file__).resolve().parents[1] / "app"
+if str(app_directory) not in sys.path:
+    sys.path.insert(0, str(app_directory))
+
 from app.db.base import Base
-from app.db import models
-from dotenv import load_dotenv
+from app.db.models import challenge_progress, conversation, message, session, user  # noqa: F401
 
 config = context.config
 

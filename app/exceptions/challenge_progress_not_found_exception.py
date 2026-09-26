@@ -1,0 +1,2 @@
+class ChallengeProgressNotFoundException(Exception):
+    pass

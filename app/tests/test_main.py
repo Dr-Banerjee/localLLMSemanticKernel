@@ -43,3 +43,8 @@ def test_main_includesConversationAndSessionRouters(mainModule):
     assert "/api/conversations/summaries" in openApiPaths
     assert "/api/sessions/session" in openApiPaths
     assert "/api/sessions/me" in openApiPaths
+    assert "/api/challenge/create" in openApiPaths
+    assert "/api/challenge/update" in openApiPaths
+    assert "/api/challenge/get" in openApiPaths
+    assert "/api/challenge/node" in openApiPaths
+    assert "/api/challenge/visited/{nodeId}" in openApiPaths
