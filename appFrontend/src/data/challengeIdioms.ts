@@ -46,9 +46,48 @@ export function idiomsForCheckpointQuiz(checkpointId: number): ChallengeIdiom[] 
   return idiomsBeforeCheckpoint(checkpointId - 1);
 }
 
+export type NextChallengeTarget =
+  | { kind: "quiz"; checkpointId: number }
+  | { kind: "idiom"; idiom: ChallengeIdiom };
+
+function quizAlreadyPassed(checkpointId: number, clearedThrough: number): boolean {
+  return clearedThrough >= checkpointId;
+}
+
+export function nextChallengeTarget(
+  idiomId: number,
+  clearedThrough: number,
+): NextChallengeTarget | null {
+  const quizCheckpoint = isStoneBeforeCheckpoint(idiomId)
+    ? idiomId + 1
+    : idiomId === challengeIdiomCount
+      ? challengeIdiomCount
+      : null;
+
+  if (quizCheckpoint !== null && !quizAlreadyPassed(quizCheckpoint, clearedThrough)) {
+    return { kind: "quiz", checkpointId: quizCheckpoint };
+  }
+
+  const next = challengeIdioms.find((entry) => entry.id === idiomId + 1);
+  return next ? { kind: "idiom", idiom: next } : null;
+}
+
 export function idiomsForFinalQuiz(): ChallengeIdiom[] {
   const startId = challengeIdiomCount - checkpointInterval + 1;
   return challengeIdioms.filter((idiom) => idiom.id >= startId && idiom.id <= challengeIdiomCount);
+}
+
+export function clearedCheckpointStorageKey(userId: string): string {
+  return `pip-checkpoint-quiz:${userId}`;
+}
+
+export function readClearedCheckpoint(userId: string): number {
+  const value = Number(localStorage.getItem(clearedCheckpointStorageKey(userId)));
+  return Number.isInteger(value) && value > 0 ? value : 0;
+}
+
+export function writeClearedCheckpoint(userId: string, through: number): void {
+  localStorage.setItem(clearedCheckpointStorageKey(userId), String(through));
 }
 
 export function formatChallengeExplanation(idiom: ChallengeIdiom): string {

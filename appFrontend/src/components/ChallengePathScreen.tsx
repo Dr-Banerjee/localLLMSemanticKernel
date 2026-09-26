@@ -9,6 +9,8 @@ import {
   idiomsForFinalQuiz,
   isCheckpoint,
   isStoneBeforeCheckpoint,
+  readClearedCheckpoint,
+  writeClearedCheckpoint,
   type ChallengeIdiom,
 } from "../data/challengeIdioms";
 import { useAdvanceChallengeStep, useChallengeProgress } from "../hooks/useChallengeProgress";
@@ -20,18 +22,11 @@ import styles from "./ChallengePathScreen.module.css";
 type ChallengePathScreenProps = {
   onBackHome: () => void;
   onOpenIdiom: (idiom: ChallengeIdiom) => Promise<void>;
+  openCheckpointQuiz?: number | null;
+  onCheckpointQuizOpened?: () => void;
 };
 
 type NodeState = "done" | "current" | "locked";
-
-function clearedStorageKey(userId: string): string {
-  return `pip-checkpoint-quiz:${userId}`;
-}
-
-function readClearedThrough(userId: string): number {
-  const value = Number(localStorage.getItem(clearedStorageKey(userId)));
-  return Number.isInteger(value) && value > 0 ? value : 0;
-}
 
 function nodeState(id: number, step: number): NodeState {
   if (id < step) {
@@ -93,6 +88,8 @@ function rewardTeaser(step: number): string {
 export function ChallengePathScreen({
   onBackHome,
   onOpenIdiom,
+  openCheckpointQuiz = null,
+  onCheckpointQuizOpened,
 }: ChallengePathScreenProps) {
   const progressQuery = useChallengeProgress();
   const advanceStep = useAdvanceChallengeStep();
@@ -114,7 +111,7 @@ export function ChallengePathScreen({
     if (clearedForUser?.userId === userId) {
       clearedThrough = clearedForUser.through;
     } else {
-      clearedThrough = readClearedThrough(userId);
+      clearedThrough = readClearedCheckpoint(userId);
       setClearedForUser({ userId, through: clearedThrough });
     }
   }
@@ -127,6 +124,16 @@ export function ChallengePathScreen({
   useEffect(() => {
     currentRef.current?.scrollIntoView({ block: "center" });
   }, [progress?.challenge_step, quizBlocking, onFinalQuiz, atFinalHouse]);
+
+  useEffect(() => {
+    if (openCheckpointQuiz === null || !progress) {
+      return;
+    }
+    if (clearedThrough < openCheckpointQuiz) {
+      setActiveCheckpoint(openCheckpointQuiz);
+    }
+    onCheckpointQuizOpened?.();
+  }, [openCheckpointQuiz, progress, clearedThrough, onCheckpointQuizOpened]);
 
   async function continueToLesson(idiom: ChallengeIdiom, advance: boolean) {
     if (!progress) {
@@ -184,7 +191,7 @@ export function ChallengePathScreen({
       return;
     }
     const next = Math.max(clearedThrough, activeCheckpoint);
-    localStorage.setItem(clearedStorageKey(userId), String(next));
+    writeClearedCheckpoint(userId, next);
     setClearedForUser({ userId, through: next });
     setActiveCheckpoint(null);
   }

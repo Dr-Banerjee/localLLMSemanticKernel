@@ -1,14 +1,16 @@
-import { lazy, Suspense, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { messageForApiError } from "./api/errors";
 import { fetchVisitedChallengeNode } from "./api/challenge";
+import { challengeKeys } from "./api/queryKeys";
 import { ScreenFallback } from "./components/ScreenFallback";
-import type { ChallengeIdiom } from "./data/challengeIdioms";
+import { nextChallengeTarget, readClearedCheckpoint, type ChallengeIdiom } from "./data/challengeIdioms";
 import { useInitialiseSession } from "./hooks/useInitialiseSession";
 import { conversationMessagesQueryOptions } from "./hooks/useConversationMessages";
+import { useAdvanceChallengeStep } from "./hooks/useChallengeProgress";
 import { useSendConversationMessage } from "./hooks/useSendConversationMessage";
 import { useStartChallengeNode } from "./hooks/useStartChallengeNode";
-import type { AppScreen, ChatMessage, ConversationSummary } from "./types";
+import type { AppScreen, ChallengeProgress, ChatMessage, ConversationSummary } from "./types";
 import {
   createConversationId,
   createMessageId,
@@ -25,6 +27,11 @@ const HomeScreen = lazy(async () => {
 const ConversationScreen = lazy(async () => {
   const module = await import("./components/ConversationScreen");
   return { default: module.ConversationScreen };
+});
+
+const ChallengeConversationScreen = lazy(async () => {
+  const module = await import("./components/ChallengeConversationScreen");
+  return { default: module.ChallengeConversationScreen };
 });
 
 const ConversationSummariesScreen = lazy(async () => {
@@ -45,9 +52,15 @@ export default function App() {
   const queryClient = useQueryClient();
   const sendMessage = useSendConversationMessage();
   const startChallengeNodeMutation = useStartChallengeNode();
+  const advanceStep = useAdvanceChallengeStep();
   useInitialiseSession();
 
   const [screen, setScreen] = useState<AppScreen>("home");
+  const [challengeStoneId, setChallengeStoneId] = useState<number | null>(null);
+  const [requestedQuiz, setRequestedQuiz] = useState<number | null>(null);
+  const clearRequestedQuiz = useCallback(() => {
+    setRequestedQuiz(null);
+  }, []);
   const [idiom, setIdiom] = useState("");
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -107,6 +120,7 @@ export default function App() {
     };
 
     openedSummaryRef.current = null;
+    setChallengeStoneId(null);
     setConversationId(nextConversationId);
     setIdiom(trimmed);
     setMessages([userMessage]);
@@ -137,6 +151,7 @@ export default function App() {
     const token = requestTokenRef.current + 1;
     requestTokenRef.current = token;
     openedSummaryRef.current = summary;
+    setChallengeStoneId(null);
     setIsSending(false);
     setConversationId(summary.id);
     setIdiom(summary.initialMessage);
@@ -185,6 +200,7 @@ export default function App() {
     openedSummaryRef.current = null;
     setIsSending(false);
     setIsLoadingHistory(false);
+    setChallengeStoneId(null);
     setScreen("home");
     setIdiom("");
     setConversationId(null);
@@ -208,6 +224,7 @@ export default function App() {
     setIsLoadingHistory(false);
     setError(null);
     setErrorKind(null);
+    setChallengeStoneId(null);
     setScreen("challenge");
   }
 
@@ -235,7 +252,30 @@ export default function App() {
     setMessages(mapped);
     setError(null);
     setErrorKind(null);
+    setChallengeStoneId(entry.id);
     setScreen("conversation");
+  }
+
+  async function goToNextChallengeStone() {
+    if (challengeStoneId === null) {
+      return;
+    }
+    const progress = queryClient.getQueryData<ChallengeProgress>(challengeKeys.progress);
+    const clearedThrough = progress ? readClearedCheckpoint(progress.user_id) : 0;
+    const next = nextChallengeTarget(challengeStoneId, clearedThrough);
+    if (!next) {
+      return;
+    }
+    if (next.kind === "quiz") {
+      setRequestedQuiz(next.checkpointId);
+      setScreen("challenge");
+      return;
+    }
+
+    if (progress && progress.challenge_step === next.idiom.id) {
+      await advanceStep.mutateAsync(next.idiom.id + 1);
+    }
+    await openVisitedChallengeNode(next.idiom);
   }
 
   return (
@@ -261,9 +301,27 @@ export default function App() {
           <ChallengePathScreen
             onBackHome={resetToHome}
             onOpenIdiom={openVisitedChallengeNode}
+            openCheckpointQuiz={requestedQuiz}
+            onCheckpointQuizOpened={clearRequestedQuiz}
           />
         ) : null}
-        {screen === "conversation" ? (
+        {screen === "conversation" && challengeStoneId !== null ? (
+          <ChallengeConversationScreen
+            stoneId={challengeStoneId}
+            idiom={idiom}
+            messages={messages}
+            isSending={isSending}
+            isLoadingHistory={isLoadingHistory}
+            error={error}
+            onAsk={askFollowUp}
+            onRetry={retryLast}
+            onNewIdiom={resetToHome}
+            onViewSummaries={goToSummaries}
+            onOpenChallenge={goToChallenge}
+            onNextStone={goToNextChallengeStone}
+          />
+        ) : null}
+        {screen === "conversation" && challengeStoneId === null ? (
           <ConversationScreen
             idiom={idiom}
             messages={messages}
