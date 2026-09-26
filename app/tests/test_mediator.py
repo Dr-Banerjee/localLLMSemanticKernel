@@ -157,7 +157,7 @@ async def test_send_routesChallengeProgressQuery(mediator, userId):
 
 @pytest.mark.asyncio
 async def test_send_routesStartChallengeNodeCommand(mediator, userId):
-    command = StartChallengeNodeCommand(userId, 1)
+    command = StartChallengeNodeCommand(userId, 1, 1790391174385)
 
     result = await mediator.send(command)
 
@@ -165,6 +165,7 @@ async def test_send_routesStartChallengeNodeCommand(mediator, userId):
     mediator.startChallengeNodeCommandHandler.handleStartChallengeNodeCommand.assert_awaited_once_with(
         userId,
         1,
+        1790391174385,
     )
 
 

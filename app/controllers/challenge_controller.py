@@ -100,6 +100,7 @@ class ChallengeController:
                     StartChallengeNodeCommand(
                         userId=currentUser.id,
                         nodeId=request.node_id,
+                        conversationId=request.conversation_id,
                     )
                 )
             except ChallengeNodeNotFoundException:

@@ -95,6 +95,7 @@ class Mediator:
                 return await self.startChallengeNodeCommandHandler.handleStartChallengeNodeCommand(
                     commandOrQuery.userId,
                     commandOrQuery.nodeId,
+                    commandOrQuery.conversationId,
                 )
             case OpenVisitedChallengeNodeQuery():
                 return await self.openVisitedChallengeNodeQueryHandler.handleOpenVisitedChallengeNodeQuery(

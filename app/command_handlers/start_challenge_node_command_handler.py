@@ -1,4 +1,3 @@
-import time
 from uuid import UUID
 
 from abstractions.i_unit_of_work_factory import IUnitOfWorkFactory
@@ -16,13 +15,13 @@ class StartChallengeNodeCommandHandler:
         self,
         userId: UUID,
         nodeId: int,
+        conversationId: int,
     ) -> ChallengeNodeConversation:
         idioms = load_challenge_idioms()
         entry = idioms.get(nodeId)
         if entry is None:
             raise ChallengeNodeNotFoundException("Challenge node not found")
 
-        conversationId = time.time_ns() // 1_000_000
         systemPrompt = LoadPrompt().loadPrompt("system_prompts.txt")
         assistantMessage = format_challenge_response(entry)
 

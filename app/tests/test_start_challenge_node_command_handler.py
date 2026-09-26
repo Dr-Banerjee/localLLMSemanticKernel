@@ -15,11 +15,12 @@ async def test_handleStartChallengeNodeCommand_createsConversation(
 ):
     handler = StartChallengeNodeCommandHandler(unitOfWorkFactory)
 
-    result = await handler.handleStartChallengeNodeCommand(userId, 1)
+    result = await handler.handleStartChallengeNodeCommand(userId, 1, 1790391174385)
 
     entry = load_challenge_idioms()[1]
     createCall = unitOfWork.conversationRepository.createConversation.await_args
-    assert createCall.args[0] == result.conversation_id
+    assert result.conversation_id == 1790391174385
+    assert createCall.args[0] == 1790391174385
     assert createCall.args[1] == userId
     messages = unitOfWork.conversationRepository.addMessage.await_args_list
     assert [call.args[1] for call in messages] == ["system", "user", "assistant"]
@@ -36,4 +37,4 @@ async def test_handleStartChallengeNodeCommand_unknownNode(
     handler = StartChallengeNodeCommandHandler(unitOfWorkFactory)
 
     with pytest.raises(ChallengeNodeNotFoundException):
-        await handler.handleStartChallengeNodeCommand(userId, 999999)
+        await handler.handleStartChallengeNodeCommand(userId, 999999, 1790391174385)
