@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from controllers.challenge_controller import ChallengeController
 from controllers.conversations_controller import ConversationsController
 from controllers.sessions_controller import SessionsController
 from auth.anonymous_session_service import AnonymousSessionService
@@ -8,15 +9,28 @@ from auth.current_user_dependency import CurrentUserDependency
 from auth.current_user_service import CurrentUserService
 from auth.session_token_service import SessionTokenService
 from command_handlers.chat_command_handler import ChatCommandHandler
+from command_handlers.create_challenge_progress_command_handler import (
+    CreateChallengeProgressCommandHandler,
+)
 from command_handlers.delete_conversation_command_handler import (
     DeleteConversationCommandHandler,
+)
+from command_handlers.start_challenge_node_command_handler import (
+    StartChallengeNodeCommandHandler,
+)
+from command_handlers.update_challenge_progress_command_handler import (
+    UpdateChallengeProgressCommandHandler,
 )
 from config.settings import Settings
 from db.database import Database
 from db.unit_of_work_factory import UnitOfWorkFactory
 from kernel.semantic_kernel_chat_completion import SemanticKernelChatCompletion
+from query_handlers.challenge_progress_query_handler import ChallengeProgressQueryHandler
 from query_handlers.conversation_messages_query_handler import ConversationMessagesQueryHandler
 from query_handlers.conversation_summaries_query_handler import ConversationSummariesQueryHandler
+from query_handlers.open_visited_challenge_node_query_handler import (
+    OpenVisitedChallengeNodeQueryHandler,
+)
 from utils.mediator import Mediator
 
 app = FastAPI()
@@ -37,11 +51,27 @@ chatCommandHandler = ChatCommandHandler(unitOfWorkFactory, chatCompletion)
 conversationSummariesQueryHandler = ConversationSummariesQueryHandler(unitOfWorkFactory)
 conversationMessagesQueryHandler = ConversationMessagesQueryHandler(unitOfWorkFactory)
 deleteConversationCommandHandler = DeleteConversationCommandHandler(unitOfWorkFactory)
+createChallengeProgressCommandHandler = CreateChallengeProgressCommandHandler(
+    unitOfWorkFactory
+)
+updateChallengeProgressCommandHandler = UpdateChallengeProgressCommandHandler(
+    unitOfWorkFactory
+)
+challengeProgressQueryHandler = ChallengeProgressQueryHandler(unitOfWorkFactory)
+startChallengeNodeCommandHandler = StartChallengeNodeCommandHandler(unitOfWorkFactory)
+openVisitedChallengeNodeQueryHandler = OpenVisitedChallengeNodeQueryHandler(
+    unitOfWorkFactory
+)
 mediator = Mediator(
     chatCommandHandler,
     conversationSummariesQueryHandler,
     conversationMessagesQueryHandler,
     deleteConversationCommandHandler,
+    createChallengeProgressCommandHandler,
+    updateChallengeProgressCommandHandler,
+    challengeProgressQueryHandler,
+    startChallengeNodeCommandHandler,
+    openVisitedChallengeNodeQueryHandler,
 )
 sessionTokenService = SessionTokenService()
 anonymousSessionService = AnonymousSessionService(
@@ -68,5 +98,11 @@ sessionsController = SessionsController(
     settings,
 )
 
+challengeController = ChallengeController(
+    mediator,
+    currentUserDependency,
+)
+
 app.include_router(conversationsController.router)
 app.include_router(sessionsController.router)
+app.include_router(challengeController.router)

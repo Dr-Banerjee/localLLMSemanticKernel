@@ -1,0 +1,247 @@
+.screen {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.2rem 1rem 2.6rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.header {
+  display: grid;
+  gap: 0.55rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.back,
+.banner button {
+  padding: 0.65rem 0.95rem;
+  border: 4px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 5px 0 rgba(58, 42, 26, 0.14);
+  font-family: "Fredoka", "Nunito", sans-serif;
+}
+
+.kicker {
+  padding: 0.25rem 0.8rem;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: #fffdf6;
+  font-family: "Fredoka", "Nunito", sans-serif;
+}
+
+.header h1 {
+  max-width: 14ch;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.lead,
+.teaser,
+.status {
+  max-width: min(36rem, 100%);
+}
+
+.progress {
+  font-family: "Fredoka", "Nunito", sans-serif;
+}
+
+.meter {
+  width: min(100%, 22rem);
+  height: 1.15rem;
+  padding: 3px;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: #fffdf6;
+}
+
+.meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--leaf), var(--sun));
+}
+
+.teaser {
+  padding: 0.45rem 0.8rem;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  background: #fff7cc;
+}
+
+.banner,
+.status {
+  justify-self: center;
+  text-align: center;
+}
+
+.banner {
+  display: grid;
+  gap: 0.7rem;
+  justify-items: center;
+  padding: 1rem;
+  border: 4px solid var(--ink);
+  border-radius: 24px;
+  background: #ffe0ea;
+}
+
+.trail {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  margin: 0;
+  padding: 1.4rem 0 2rem;
+  list-style: none;
+}
+
+.trail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 16px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(196, 165, 116, 0.55) 0 16px,
+    rgba(255, 253, 246, 0.2) 16px 24px
+  );
+}
+
+.stop {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 280px);
+}
+
+.left,
+.right {
+  justify-self: center;
+}
+
+@media (min-width: 720px) {
+  .stop {
+    width: min(100%, 420px);
+  }
+
+  .left {
+    justify-self: start;
+    margin-left: 4%;
+  }
+
+  .right {
+    justify-self: end;
+    margin-right: 4%;
+  }
+}
+
+.connector {
+  width: 10px;
+  height: 18px;
+  margin-bottom: 0.15rem;
+  border-radius: 999px;
+  background: #c4a574;
+}
+
+.locked {
+  color: inherit;
+}
+
+.locked .connector,
+.locked .stone {
+  background: #d5d5d5;
+  color: #6d6d6d;
+  box-shadow: none;
+}
+
+.locked .stone {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+
+.stoneWrap {
+  position: relative;
+  display: grid;
+  justify-items: center;
+}
+
+.stone {
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  min-width: 4.4rem;
+  max-width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 4px solid var(--ink);
+  border-radius: 28px;
+  background: radial-gradient(circle at 30% 25%, #fffdf6, #f0d7b4 46%, #d7b48a);
+  box-shadow: 0 6px 0 rgba(58, 42, 26, 0.18);
+  font-family: "Fredoka", "Nunito", sans-serif;
+}
+
+.done .stone {
+  background: radial-gradient(circle at 30% 25%, #f3ffe4, #8fbc6a 55%, #2f7d4a);
+  color: #143222;
+}
+
+.current .stone {
+  background: radial-gradient(circle at 30% 25%, #fff7c2, #ffd45a 60%, #ffb085);
+}
+
+.next .stone {
+  animation: invite 1.4s ease-in-out infinite;
+}
+
+.number {
+  font-size: 1.15rem;
+}
+
+.phrase {
+  font-size: 0.92rem;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.pip {
+  position: absolute;
+  z-index: 2;
+  width: 64px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.pipOnStone {
+  top: -52px;
+}
+
+.pipOnTree {
+  top: -118px;
+}
+
+.pipInHouse {
+  top: -168px;
+}
+
+@keyframes invite {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .next .stone {
+    animation: none;
+  }
+}

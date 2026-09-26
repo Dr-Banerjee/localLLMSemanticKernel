@@ -1,12 +1,15 @@
 export class ApiError extends Error {
   override name = "ApiError";
+  readonly detail?: string;
 
   constructor(
     message: string,
     readonly status?: number,
     options?: ErrorOptions,
+    detail?: string,
   ) {
     super(message, options);
+    this.detail = detail;
   }
 }
 

@@ -1,10 +1,13 @@
 import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { messageForApiError } from "./api/errors";
+import { fetchVisitedChallengeNode } from "./api/challenge";
 import { ScreenFallback } from "./components/ScreenFallback";
+import type { ChallengeIdiom } from "./data/challengeIdioms";
 import { useInitialiseSession } from "./hooks/useInitialiseSession";
 import { conversationMessagesQueryOptions } from "./hooks/useConversationMessages";
 import { useSendConversationMessage } from "./hooks/useSendConversationMessage";
+import { useStartChallengeNode } from "./hooks/useStartChallengeNode";
 import type { AppScreen, ChatMessage, ConversationSummary } from "./types";
 import {
   createConversationId,
@@ -29,6 +32,11 @@ const ConversationSummariesScreen = lazy(async () => {
   return { default: module.ConversationSummariesScreen };
 });
 
+const ChallengePathScreen = lazy(async () => {
+  const module = await import("./components/ChallengePathScreen");
+  return { default: module.ChallengePathScreen };
+});
+
 function lastUserContent(messages: ChatMessage[]): string | null {
   return messages.findLast((message) => message.role === "user")?.content ?? null;
 }
@@ -36,6 +44,7 @@ function lastUserContent(messages: ChatMessage[]): string | null {
 export default function App() {
   const queryClient = useQueryClient();
   const sendMessage = useSendConversationMessage();
+  const startChallengeNodeMutation = useStartChallengeNode();
   useInitialiseSession();
 
   const [screen, setScreen] = useState<AppScreen>("home");
@@ -193,18 +202,65 @@ export default function App() {
     setScreen("summaries");
   }
 
+  function goToChallenge() {
+    requestTokenRef.current += 1;
+    setIsSending(false);
+    setIsLoadingHistory(false);
+    setError(null);
+    setErrorKind(null);
+    setScreen("challenge");
+  }
+
+  async function openVisitedChallengeNode(entry: ChallengeIdiom) {
+    const token = requestTokenRef.current + 1;
+    requestTokenRef.current = token;
+    const visited = await fetchVisitedChallengeNode(entry.id, (nodeId) =>
+      startChallengeNodeMutation.mutateAsync(nodeId),
+    );
+    if (token !== requestTokenRef.current) {
+      return;
+    }
+
+    const mapped = mapConversationMessages(visited.messages);
+    openedSummaryRef.current = {
+      id: visited.conversationId,
+      createdAt: "",
+      updatedAt: "",
+      initialMessage: entry.idiom,
+    };
+    setIsSending(false);
+    setIsLoadingHistory(false);
+    setConversationId(visited.conversationId);
+    setIdiom(idiomFromMessages(mapped, entry.idiom));
+    setMessages(mapped);
+    setError(null);
+    setErrorKind(null);
+    setScreen("conversation");
+  }
+
   return (
     <div className={styles.shell}>
       <Suspense fallback={<ScreenFallback />}>
         {screen === "home" ? (
-          <HomeScreen onStart={startConversation} onViewSummaries={goToSummaries} />
+          <HomeScreen
+            onStart={startConversation}
+            onViewSummaries={goToSummaries}
+            onOpenChallenge={goToChallenge}
+          />
         ) : null}
         {screen === "summaries" ? (
           <ConversationSummariesScreen
             onBackHome={resetToHome}
+            onOpenChallenge={goToChallenge}
             onOpenConversation={(summary) => {
               void openExistingConversation(summary);
             }}
+          />
+        ) : null}
+        {screen === "challenge" ? (
+          <ChallengePathScreen
+            onBackHome={resetToHome}
+            onOpenIdiom={openVisitedChallengeNode}
           />
         ) : null}
         {screen === "conversation" ? (
@@ -218,6 +274,7 @@ export default function App() {
             onRetry={retryLast}
             onNewIdiom={resetToHome}
             onViewSummaries={goToSummaries}
+            onOpenChallenge={goToChallenge}
           />
         ) : null}
       </Suspense>

@@ -23,6 +23,14 @@ export const axiosClient = axios.create({
   },
 });
 
+function responseDetail(error: AxiosError): string | undefined {
+  const data = error.response?.data;
+  if (typeof data !== "object" || data === null || !("detail" in data)) {
+    return undefined;
+  }
+  return typeof data.detail === "string" ? data.detail : undefined;
+}
+
 function toApiError(error: unknown): ApiError {
   if (error instanceof ApiError) {
     return error;
@@ -34,7 +42,13 @@ function toApiError(error: unknown): ApiError {
     }
 
     if (error.response) {
-      return new ApiError("Pip ran into a wobbly answer. Let’s try again!", error.response.status);
+      const detail = responseDetail(error);
+      return new ApiError(
+        "Pip ran into a wobbly answer. Let’s try again!",
+        error.response.status,
+        undefined,
+        detail,
+      );
     }
 
     return new ApiError(

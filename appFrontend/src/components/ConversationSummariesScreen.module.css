@@ -34,6 +34,13 @@
   max-width: 36rem;
 }
 
+.headerActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
 .homeButton,
 .more,
 .banner button,

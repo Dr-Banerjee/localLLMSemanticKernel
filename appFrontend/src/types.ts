@@ -59,4 +59,11 @@ export type FeaturedIdiom = {
   accent: "sky" | "rose" | "violet" | "mint" | "amber" | "peach";
 };
 
-export type AppScreen = "home" | "summaries" | "conversation";
+export type ChallengeProgress = {
+  user_id: string;
+  created_at: string;
+  updated_at: string;
+  challenge_step: number;
+};
+
+export type AppScreen = "home" | "summaries" | "conversation" | "challenge";

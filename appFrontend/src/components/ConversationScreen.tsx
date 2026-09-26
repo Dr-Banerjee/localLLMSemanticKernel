@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { followUpPrompts } from "../data/featuredIdioms";
 import type { ChatMessage } from "../types";
 import { parseExplanation } from "../utils/chat";
+import { ChallengeNavButton } from "./ChallengeNavButton";
 import { ChatBubble } from "./ChatBubble";
 import { Composer } from "./Composer";
 import { ExplanationCard } from "./ExplanationCard";
@@ -19,6 +20,7 @@ type ConversationScreenProps = {
   onRetry: () => void;
   onNewIdiom: () => void;
   onViewSummaries: () => void;
+  onOpenChallenge: () => void;
 };
 
 function encouragementFor(followUpCount: number): string {
@@ -44,6 +46,7 @@ export function ConversationScreen({
   onRetry,
   onNewIdiom,
   onViewSummaries,
+  onOpenChallenge,
 }: ConversationScreenProps) {
   const endRef = useRef<HTMLDivElement>(null);
   const followUpCount = messages.filter((message) => message.kind === "followup").length;
@@ -65,11 +68,12 @@ export function ConversationScreen({
           </div>
         </div>
         <div className={styles.actions}>
+          <ChallengeNavButton onClick={onOpenChallenge} />
           <button className={styles.newSaying} type="button" onClick={onViewSummaries}>
-            Your sayings
+            Your idioms
           </button>
           <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
-            New saying
+            New idiom
           </button>
         </div>
       </header>

@@ -1,0 +1,2 @@
+class ChallengeNodeNotFoundException(Exception):
+    pass

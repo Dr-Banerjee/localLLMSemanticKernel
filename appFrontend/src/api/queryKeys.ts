@@ -8,3 +8,7 @@ export const conversationKeys = {
 export const sessionKeys = {
   current: ["session"] as const,
 };
+
+export const challengeKeys = {
+  progress: ["challenge", "progress"] as const,
+};

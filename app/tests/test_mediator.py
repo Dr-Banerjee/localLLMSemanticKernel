@@ -3,9 +3,14 @@ from unittest.mock import AsyncMock, MagicMock
 import pytest
 
 from commands.chat_command import ChatCommand
+from commands.create_challenge_progress_command import CreateChallengeProgressCommand
 from commands.delete_conversation_command import DeleteConversationCommand
+from commands.start_challenge_node_command import StartChallengeNodeCommand
+from commands.update_challenge_progress_command import UpdateChallengeProgressCommand
 from data_transfer_objects.request import UserRequest
 from data_transfer_objects.response import ResponseToUserRequest
+from queries.challenge_progress_query import ChallengeProgressQuery
+from queries.open_visited_challenge_node_query import OpenVisitedChallengeNodeQuery
 from queries.conversationMessagesQuery import ConversationMessagesQuery
 from queries.conversationSummariesQuery import ConversationSummariesQuery
 from utils.mediator import Mediator
@@ -25,7 +30,37 @@ def mediator():
     )
     deleteHandler = MagicMock()
     deleteHandler.handleDeleteConversationCommand = AsyncMock(return_value=None)
-    return Mediator(chatHandler, summariesHandler, messagesHandler, deleteHandler)
+    createChallengeHandler = MagicMock()
+    createChallengeHandler.handleCreateChallengeProgressCommand = AsyncMock(
+        return_value="created"
+    )
+    updateChallengeHandler = MagicMock()
+    updateChallengeHandler.handleUpdateChallengeProgressCommand = AsyncMock(
+        return_value="updated"
+    )
+    challengeProgressHandler = MagicMock()
+    challengeProgressHandler.handleChallengeProgressQuery = AsyncMock(
+        return_value="progress"
+    )
+    startNodeHandler = MagicMock()
+    startNodeHandler.handleStartChallengeNodeCommand = AsyncMock(
+        return_value="conversation"
+    )
+    visitedNodeHandler = MagicMock()
+    visitedNodeHandler.handleOpenVisitedChallengeNodeQuery = AsyncMock(
+        return_value="visited"
+    )
+    return Mediator(
+        chatHandler,
+        summariesHandler,
+        messagesHandler,
+        deleteHandler,
+        createChallengeHandler,
+        updateChallengeHandler,
+        challengeProgressHandler,
+        startNodeHandler,
+        visitedNodeHandler,
+    )
 
 
 @pytest.mark.asyncio
@@ -79,6 +114,71 @@ async def test_send_routesDeleteConversationCommand(mediator, userId):
     mediator.deleteConversationCommandHandler.handleDeleteConversationCommand.assert_awaited_once_with(
         4,
         userId,
+    )
+
+
+@pytest.mark.asyncio
+async def test_send_routesCreateChallengeProgressCommand(mediator, userId):
+    command = CreateChallengeProgressCommand(userId, 1)
+
+    result = await mediator.send(command)
+
+    assert result == "created"
+    mediator.createChallengeProgressCommandHandler.handleCreateChallengeProgressCommand.assert_awaited_once_with(
+        userId,
+        1,
+    )
+
+
+@pytest.mark.asyncio
+async def test_send_routesUpdateChallengeProgressCommand(mediator, userId):
+    command = UpdateChallengeProgressCommand(userId, 2)
+
+    result = await mediator.send(command)
+
+    assert result == "updated"
+    mediator.updateChallengeProgressCommandHandler.handleUpdateChallengeProgressCommand.assert_awaited_once_with(
+        userId,
+        2,
+    )
+
+
+@pytest.mark.asyncio
+async def test_send_routesChallengeProgressQuery(mediator, userId):
+    query = ChallengeProgressQuery(userId)
+
+    result = await mediator.send(query)
+
+    assert result == "progress"
+    mediator.challengeProgressQueryHandler.handleChallengeProgressQuery.assert_awaited_once_with(
+        userId,
+    )
+
+
+@pytest.mark.asyncio
+async def test_send_routesStartChallengeNodeCommand(mediator, userId):
+    command = StartChallengeNodeCommand(userId, 1, 1790391174385)
+
+    result = await mediator.send(command)
+
+    assert result == "conversation"
+    mediator.startChallengeNodeCommandHandler.handleStartChallengeNodeCommand.assert_awaited_once_with(
+        userId,
+        1,
+        1790391174385,
+    )
+
+
+@pytest.mark.asyncio
+async def test_send_routesOpenVisitedChallengeNodeQuery(mediator, userId):
+    query = OpenVisitedChallengeNodeQuery(userId, 3)
+
+    result = await mediator.send(query)
+
+    assert result == "visited"
+    mediator.openVisitedChallengeNodeQueryHandler.handleOpenVisitedChallengeNodeQuery.assert_awaited_once_with(
+        userId,
+        3,
     )
 
 
