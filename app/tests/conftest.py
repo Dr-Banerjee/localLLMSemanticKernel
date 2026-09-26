@@ -68,6 +68,10 @@ def unitOfWork():
     uow.sessionRepository.createSession = AsyncMock()
     uow.userRepository.createUser = AsyncMock()
     uow.userRepository.getUser = AsyncMock()
+    uow.challengeRepository = MagicMock()
+    uow.challengeRepository.getChallengeProgress = AsyncMock()
+    uow.challengeRepository.createChallengeProgress = AsyncMock()
+    uow.challengeRepository.updateChallengeProgress = AsyncMock()
     return uow
 
 

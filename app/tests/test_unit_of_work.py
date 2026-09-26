@@ -2,6 +2,7 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 
+from db.repositories.challenge_repository import ChallengeRepository
 from db.unit_of_work import UnitOfWork
 from db.unit_of_work_factory import UnitOfWorkFactory
 
@@ -17,6 +18,7 @@ async def test_unitOfWork_commitsOnSuccess():
 
     async with UnitOfWork(database) as unitOfWork:
         assert unitOfWork.session is session
+        assert isinstance(unitOfWork.challengeRepository, ChallengeRepository)
 
     session.commit.assert_awaited_once()
     session.rollback.assert_not_awaited()

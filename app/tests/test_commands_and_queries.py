@@ -1,6 +1,9 @@
 from commands.chat_command import ChatCommand
+from commands.create_challenge_progress_command import CreateChallengeProgressCommand
 from commands.delete_conversation_command import DeleteConversationCommand
+from commands.update_challenge_progress_command import UpdateChallengeProgressCommand
 from data_transfer_objects.request import UserRequest
+from queries.challenge_progress_query import ChallengeProgressQuery
 from queries.conversationMessagesQuery import ConversationMessagesQuery
 from queries.conversationSummariesQuery import ConversationSummariesQuery
 from uuid import uuid7
@@ -33,3 +36,15 @@ def test_conversationQueries_storeFields():
     assert messagesQuery.userId == userId
     assert summariesQuery.page == 3
     assert summariesQuery.pageSize == 15
+
+
+def test_challengeProgressCommandAndQuery_storeFields():
+    userId = uuid7()
+    createCommand = CreateChallengeProgressCommand(userId, 1)
+    updateCommand = UpdateChallengeProgressCommand(userId, 2)
+    query = ChallengeProgressQuery(userId)
+
+    assert createCommand.userId == userId
+    assert createCommand.challengeStep == 1
+    assert updateCommand.challengeStep == 2
+    assert query.userId == userId

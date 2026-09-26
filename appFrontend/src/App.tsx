@@ -1,7 +1,10 @@
 import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { messageForApiError } from "./api/errors";
+import { startChallengeNode, fetchVisitedChallengeNode } from "./api/challenge";
+import { conversationKeys } from "./api/queryKeys";
 import { ScreenFallback } from "./components/ScreenFallback";
+import type { ChallengeIdiom } from "./data/challengeIdioms";
 import { useInitialiseSession } from "./hooks/useInitialiseSession";
 import { conversationMessagesQueryOptions } from "./hooks/useConversationMessages";
 import { useSendConversationMessage } from "./hooks/useSendConversationMessage";
@@ -27,6 +30,11 @@ const ConversationScreen = lazy(async () => {
 const ConversationSummariesScreen = lazy(async () => {
   const module = await import("./components/ConversationSummariesScreen");
   return { default: module.ConversationSummariesScreen };
+});
+
+const ChallengePathScreen = lazy(async () => {
+  const module = await import("./components/ChallengePathScreen");
+  return { default: module.ChallengePathScreen };
 });
 
 function lastUserContent(messages: ChatMessage[]): string | null {
@@ -193,18 +201,88 @@ export default function App() {
     setScreen("summaries");
   }
 
+  function goToChallenge() {
+    requestTokenRef.current += 1;
+    setIsSending(false);
+    setIsLoadingHistory(false);
+    setError(null);
+    setErrorKind(null);
+    setScreen("challenge");
+  }
+
+  async function openNewChallengeNode(entry: ChallengeIdiom) {
+    const token = requestTokenRef.current + 1;
+    requestTokenRef.current = token;
+    const started = await startChallengeNode(entry.id);
+    const history = await queryClient.fetchQuery(
+      conversationMessagesQueryOptions(started.conversation_id),
+    );
+    if (token !== requestTokenRef.current) {
+      return;
+    }
+
+    const mapped = mapConversationMessages(history);
+    openedSummaryRef.current = null;
+    setIsSending(false);
+    setIsLoadingHistory(false);
+    setConversationId(started.conversation_id);
+    setIdiom(idiomFromMessages(mapped, entry.idiom));
+    setMessages(mapped);
+    setError(null);
+    setErrorKind(null);
+    setScreen("conversation");
+    void queryClient.invalidateQueries({ queryKey: conversationKeys.summaries() });
+  }
+
+  async function openVisitedChallengeNode(entry: ChallengeIdiom) {
+    const token = requestTokenRef.current + 1;
+    requestTokenRef.current = token;
+    const visited = await fetchVisitedChallengeNode(entry.id);
+    if (token !== requestTokenRef.current) {
+      return;
+    }
+
+    const mapped = mapConversationMessages(visited.messages);
+    openedSummaryRef.current = {
+      id: visited.conversationId,
+      createdAt: "",
+      updatedAt: "",
+      initialMessage: entry.idiom,
+    };
+    setIsSending(false);
+    setIsLoadingHistory(false);
+    setConversationId(visited.conversationId);
+    setIdiom(idiomFromMessages(mapped, entry.idiom));
+    setMessages(mapped);
+    setError(null);
+    setErrorKind(null);
+    setScreen("conversation");
+  }
+
   return (
     <div className={styles.shell}>
       <Suspense fallback={<ScreenFallback />}>
         {screen === "home" ? (
-          <HomeScreen onStart={startConversation} onViewSummaries={goToSummaries} />
+          <HomeScreen
+            onStart={startConversation}
+            onViewSummaries={goToSummaries}
+            onOpenChallenge={goToChallenge}
+          />
         ) : null}
         {screen === "summaries" ? (
           <ConversationSummariesScreen
             onBackHome={resetToHome}
+            onOpenChallenge={goToChallenge}
             onOpenConversation={(summary) => {
               void openExistingConversation(summary);
             }}
+          />
+        ) : null}
+        {screen === "challenge" ? (
+          <ChallengePathScreen
+            onBackHome={resetToHome}
+            onOpenIdiom={openVisitedChallengeNode}
+            onOpenNewNode={openNewChallengeNode}
           />
         ) : null}
         {screen === "conversation" ? (
@@ -218,6 +296,7 @@ export default function App() {
             onRetry={retryLast}
             onNewIdiom={resetToHome}
             onViewSummaries={goToSummaries}
+            onOpenChallenge={goToChallenge}
           />
         ) : null}
       </Suspense>

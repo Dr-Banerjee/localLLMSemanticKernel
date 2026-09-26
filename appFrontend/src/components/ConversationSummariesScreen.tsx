@@ -5,17 +5,20 @@ import { useConversationSummaries } from "../hooks/useConversationSummaries";
 import { useDeleteConversation } from "../hooks/useDeleteConversation";
 import type { ConversationSummary } from "../types";
 import { ConversationSummaryCard } from "./ConversationSummaryCard";
+import { ChallengeNavButton } from "./ChallengeNavButton";
 import { Mascot } from "./Mascot";
 import styles from "./ConversationSummariesScreen.module.css";
 
 type ConversationSummariesScreenProps = {
   onBackHome: () => void;
   onOpenConversation: (summary: ConversationSummary) => void;
+  onOpenChallenge: () => void;
 };
 
 export function ConversationSummariesScreen({
   onBackHome,
   onOpenConversation,
+  onOpenChallenge,
 }: ConversationSummariesScreenProps) {
   const queryClient = useQueryClient();
   const summariesQuery = useConversationSummaries();
@@ -42,9 +45,12 @@ export function ConversationSummariesScreen({
         <p className={styles.lead}>
           Pick a favorite and ask another curious question. Pip is happy to keep teaching!
         </p>
-        <button className={styles.homeButton} type="button" onClick={onBackHome}>
-          Learn a new saying
-        </button>
+        <div className={styles.headerActions}>
+          <ChallengeNavButton onClick={onOpenChallenge} />
+          <button className={styles.homeButton} type="button" onClick={onBackHome}>
+            Learn a new saying
+          </button>
+        </div>
       </header>
 
       {isLoading ? (

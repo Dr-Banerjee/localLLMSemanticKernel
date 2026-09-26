@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+from abstractions.i_challenge_repository import IChallengeRepository
 from abstractions.i_conversation_repository import IConversationRepository
 from abstractions.i_session_repository import ISessionRepository
 from abstractions.i_user_repository import IUserRepository
@@ -9,6 +10,7 @@ class IUnitOfWork(ABC):
     conversationRepository: IConversationRepository
     userRepository: IUserRepository
     sessionRepository: ISessionRepository
+    challengeRepository: IChallengeRepository
 
     @abstractmethod
     async def __aenter__(self) -> "IUnitOfWork":

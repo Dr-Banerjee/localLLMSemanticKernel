@@ -1,0 +1,29 @@
+.reward {
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+}
+
+.locked {
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+.tree {
+  width: 108px;
+  height: auto;
+}
+
+.house {
+  width: min(168px, 42vw);
+  height: auto;
+}
+
+.caption {
+  padding: 0.15rem 0.55rem;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: #fffdf6;
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-size: 0.82rem;
+}
