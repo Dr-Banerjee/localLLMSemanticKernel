@@ -1,15 +1,11 @@
 import { HttpStatusCode } from "axios";
 import { ApiError } from "./errors";
+import { createConversationId } from "../utils/chat";
 import { axiosClient } from "./axiosClient";
 import type { ChallengeProgress, ConversationMessage } from "../types";
 
 type RequestOptions = {
   signal?: AbortSignal;
-};
-
-export type ChallengeProgressLoad = {
-  progress: ChallengeProgress;
-  newlyCreated: boolean;
 };
 
 export async function fetchChallengeProgress({
@@ -38,7 +34,9 @@ export async function updateChallengeProgress(challengeStep: number): Promise<Ch
   return data;
 }
 
-export async function fetchVisitedChallengeNode(
+const missingConversationDetail = "Conversation not found";
+
+async function getVisitedChallengeNode(
   nodeId: number,
 ): Promise<{ conversationId: number; messages: ConversationMessage[] }> {
   const { data } = await axiosClient.get<{
@@ -48,13 +46,38 @@ export async function fetchVisitedChallengeNode(
   return data;
 }
 
+function isMissingChallengeConversation(error: unknown): boolean {
+  return (
+    error instanceof ApiError &&
+    error.status === HttpStatusCode.NotFound &&
+    error.detail === missingConversationDetail
+  );
+}
+
+export async function fetchVisitedChallengeNode(
+  nodeId: number,
+  startNode: (nodeId: number) => Promise<{ conversation_id: number }> = startChallengeNode,
+): Promise<{ conversationId: number; messages: ConversationMessage[] }> {
+  try {
+    return await getVisitedChallengeNode(nodeId);
+  } catch (error) {
+    if (!isMissingChallengeConversation(error)) {
+      throw error;
+    }
+  }
+
+  await startNode(nodeId);
+  return getVisitedChallengeNode(nodeId);
+}
+
 export async function startChallengeNode(
   nodeId: number,
   { signal }: RequestOptions = {},
 ): Promise<{ conversation_id: number }> {
+  const conversationId = createConversationId();
   const { data } = await axiosClient.post<{ conversation_id: number }>(
     "/api/challenge/node",
-    { node_id: nodeId },
+    { node_id: nodeId, conversation_id: conversationId },
     { signal },
   );
   return data;
@@ -62,10 +85,9 @@ export async function startChallengeNode(
 
 export async function fetchOrCreateChallengeProgress({
   signal,
-}: RequestOptions = {}): Promise<ChallengeProgressLoad> {
+}: RequestOptions = {}): Promise<ChallengeProgress> {
   try {
-    const progress = await fetchChallengeProgress({ signal });
-    return { progress, newlyCreated: false };
+    return await fetchChallengeProgress({ signal });
   } catch (error) {
     if (!(error instanceof ApiError) || error.status !== HttpStatusCode.NotFound) {
       throw error;
@@ -73,12 +95,10 @@ export async function fetchOrCreateChallengeProgress({
   }
 
   try {
-    const progress = await createChallengeProgress(1, { signal });
-    return { progress, newlyCreated: true };
+    return await createChallengeProgress(1, { signal });
   } catch (error) {
     if (error instanceof ApiError && error.status === HttpStatusCode.Conflict) {
-      const progress = await fetchChallengeProgress({ signal });
-      return { progress, newlyCreated: false };
+      return fetchChallengeProgress({ signal });
     }
     throw error;
   }

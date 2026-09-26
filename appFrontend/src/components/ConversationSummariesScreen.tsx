@@ -41,20 +41,20 @@ export function ConversationSummariesScreen({
       <header className={styles.header}>
         <Mascot mood="happy" className={styles.mascot} />
         <p className={styles.kicker}>Your idiom nest</p>
-        <h1>Sayings you already started exploring</h1>
+        <h1>Idioms you already started exploring</h1>
         <p className={styles.lead}>
           Pick a favorite and ask another curious question. Pip is happy to keep teaching!
         </p>
         <div className={styles.headerActions}>
           <ChallengeNavButton onClick={onOpenChallenge} />
           <button className={styles.homeButton} type="button" onClick={onBackHome}>
-            Learn a new saying
+            Learn a new idiom
           </button>
         </div>
       </header>
 
       {isLoading ? (
-        <div className={styles.grid} aria-busy="true" aria-label="Loading your sayings">
+        <div className={styles.grid} aria-busy="true" aria-label="Loading your idioms">
           {Array.from({ length: 6 }, (_, index) => (
             <div key={index} className={styles.skeleton} />
           ))}
@@ -77,10 +77,10 @@ export function ConversationSummariesScreen({
 
       {!isLoading && !error && summaries.length === 0 ? (
         <div className={styles.empty}>
-          <p>Your nest is waiting for its first saying!</p>
+          <p>Your nest is waiting for its first idiom!</p>
           <p>Learn one with Pip, then it will show up here so you can visit it again.</p>
           <button type="button" onClick={onBackHome}>
-            Let’s learn a saying
+            Let’s learn an idiom
           </button>
         </div>
       ) : null}

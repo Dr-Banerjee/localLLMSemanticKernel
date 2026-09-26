@@ -1,13 +1,13 @@
 import { lazy, Suspense, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { messageForApiError } from "./api/errors";
-import { startChallengeNode, fetchVisitedChallengeNode } from "./api/challenge";
-import { conversationKeys } from "./api/queryKeys";
+import { fetchVisitedChallengeNode } from "./api/challenge";
 import { ScreenFallback } from "./components/ScreenFallback";
 import type { ChallengeIdiom } from "./data/challengeIdioms";
 import { useInitialiseSession } from "./hooks/useInitialiseSession";
 import { conversationMessagesQueryOptions } from "./hooks/useConversationMessages";
 import { useSendConversationMessage } from "./hooks/useSendConversationMessage";
+import { useStartChallengeNode } from "./hooks/useStartChallengeNode";
 import type { AppScreen, ChatMessage, ConversationSummary } from "./types";
 import {
   createConversationId,
@@ -44,6 +44,7 @@ function lastUserContent(messages: ChatMessage[]): string | null {
 export default function App() {
   const queryClient = useQueryClient();
   const sendMessage = useSendConversationMessage();
+  const startChallengeNodeMutation = useStartChallengeNode();
   useInitialiseSession();
 
   const [screen, setScreen] = useState<AppScreen>("home");
@@ -210,34 +211,12 @@ export default function App() {
     setScreen("challenge");
   }
 
-  async function openNewChallengeNode(entry: ChallengeIdiom) {
-    const token = requestTokenRef.current + 1;
-    requestTokenRef.current = token;
-    const started = await startChallengeNode(entry.id);
-    const history = await queryClient.fetchQuery(
-      conversationMessagesQueryOptions(started.conversation_id),
-    );
-    if (token !== requestTokenRef.current) {
-      return;
-    }
-
-    const mapped = mapConversationMessages(history);
-    openedSummaryRef.current = null;
-    setIsSending(false);
-    setIsLoadingHistory(false);
-    setConversationId(started.conversation_id);
-    setIdiom(idiomFromMessages(mapped, entry.idiom));
-    setMessages(mapped);
-    setError(null);
-    setErrorKind(null);
-    setScreen("conversation");
-    void queryClient.invalidateQueries({ queryKey: conversationKeys.summaries() });
-  }
-
   async function openVisitedChallengeNode(entry: ChallengeIdiom) {
     const token = requestTokenRef.current + 1;
     requestTokenRef.current = token;
-    const visited = await fetchVisitedChallengeNode(entry.id);
+    const visited = await fetchVisitedChallengeNode(entry.id, (nodeId) =>
+      startChallengeNodeMutation.mutateAsync(nodeId),
+    );
     if (token !== requestTokenRef.current) {
       return;
     }
@@ -282,7 +261,6 @@ export default function App() {
           <ChallengePathScreen
             onBackHome={resetToHome}
             onOpenIdiom={openVisitedChallengeNode}
-            onOpenNewNode={openNewChallengeNode}
           />
         ) : null}
         {screen === "conversation" ? (

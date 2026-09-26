@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { startChallengeNode } from "../api/challenge";
+import { updateChallengeProgress } from "../api/challenge";
 import { messageForApiError } from "../api/errors";
 import { challengeKeys } from "../api/queryKeys";
 import {
@@ -8,7 +8,7 @@ import {
   challengeIdioms,
   type ChallengeIdiom,
 } from "../data/challengeIdioms";
-import { useAdvanceChallengeStep, useChallengeProgress } from "../hooks/useChallengeProgress";
+import { useChallengeProgress } from "../hooks/useChallengeProgress";
 import { Birdhouse, houseName, Tree } from "./ChallengeScenery";
 import { Mascot } from "./Mascot";
 import styles from "./ChallengePathScreen.module.css";
@@ -16,10 +16,9 @@ import styles from "./ChallengePathScreen.module.css";
 type ChallengePathScreenProps = {
   onBackHome: () => void;
   onOpenIdiom: (idiom: ChallengeIdiom) => Promise<void>;
-  onOpenNewNode: (idiom: ChallengeIdiom) => Promise<void>;
 };
 
-type NodeState = "done" | "current" | "next" | "locked";
+type NodeState = "done" | "current" | "locked";
 
 function nodeState(id: number, step: number): NodeState {
   if (id < step) {
@@ -27,9 +26,6 @@ function nodeState(id: number, step: number): NodeState {
   }
   if (id === step) {
     return "current";
-  }
-  if (id === step + 1) {
-    return "next";
   }
   return "locked";
 }
@@ -53,50 +49,24 @@ function rewardTeaser(step: number): string {
   return "Keep hopping. Pip loves a curious friend.";
 }
 
-let initialChallengeNodeStart: Promise<void> | null = null;
-
 export function ChallengePathScreen({
   onBackHome,
   onOpenIdiom,
-  onOpenNewNode,
 }: ChallengePathScreenProps) {
   const queryClient = useQueryClient();
   const progressQuery = useChallengeProgress();
-  const advance = useAdvanceChallengeStep();
   const currentRef = useRef<HTMLLIElement>(null);
   const [actionError, setActionError] = useState<string | null>(null);
   const [isOpening, setIsOpening] = useState(false);
-  const progress = progressQuery.data?.progress;
+  const progress = progressQuery.data;
   const step = progress?.challenge_step ?? 1;
 
   useEffect(() => {
     currentRef.current?.scrollIntoView({ block: "center" });
   }, [progress?.challenge_step]);
 
-  useEffect(() => {
-    if (!progressQuery.data?.newlyCreated || !progress) {
-      return;
-    }
-
-    if (initialChallengeNodeStart) {
-      return;
-    }
-
-    initialChallengeNodeStart = startChallengeNode(1)
-      .then(() => {
-        queryClient.setQueryData(challengeKeys.progress, {
-          progress,
-          newlyCreated: false,
-        });
-      })
-      .catch((error: unknown) => {
-        initialChallengeNodeStart = null;
-        setActionError(messageForApiError(error));
-      });
-  }, [progress, progressQuery.data?.newlyCreated, queryClient]);
-
   async function openNode(idiom: ChallengeIdiom) {
-    if (!progress || advance.isPending || isOpening) {
+    if (!progress || isOpening) {
       return;
     }
 
@@ -108,10 +78,9 @@ export function ChallengePathScreen({
     setActionError(null);
     setIsOpening(true);
     try {
-      if (state === "next") {
-        await advance.mutateAsync(idiom.id);
-        await onOpenNewNode(idiom);
-        return;
+      if (state === "current") {
+        await updateChallengeProgress(progress.challenge_step + 1);
+        await queryClient.invalidateQueries({ queryKey: challengeKeys.progress });
       }
       await onOpenIdiom(idiom);
     } catch (error) {
@@ -130,8 +99,8 @@ export function ChallengePathScreen({
         <p className={styles.kicker}>Pip’s journey</p>
         <h1>Pip's idiom Challenge</h1>
         <p className={styles.lead}>
-          Hop with Pip from the first saying to the last. You can open stones Pip already
-          visited, the stone Pip is standing on, and the very next one.
+          Hop with Pip from the first idiom to the last. You can open the stone Pip is
+          standing on, and the stones already behind.
         </p>
         {progress ? (
           <>
@@ -186,7 +155,7 @@ export function ChallengePathScreen({
               idiom.id % 9 === 0 ? "house" : idiom.id % 3 === 0 ? "tree" : null;
             const label = locked
               ? `Saying ${idiom.id}, still ahead`
-              : `Saying ${idiom.id}, ${idiom.idiom}${state === "current" ? ", Pip is here" : state === "next" ? ", next hop" : ""}`;
+              : `Saying ${idiom.id}, ${idiom.idiom}${state === "current" ? ", Pip is here" : ""}`;
 
             return (
               <li
@@ -215,7 +184,7 @@ export function ChallengePathScreen({
                   <button
                     type="button"
                     className={styles.stone}
-                    disabled={locked || advance.isPending || isOpening}
+                    disabled={locked || isOpening}
                     aria-label={label}
                     onClick={() => {
                       void openNode(idiom);

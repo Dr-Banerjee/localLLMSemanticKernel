@@ -70,10 +70,10 @@ export function ConversationScreen({
         <div className={styles.actions}>
           <ChallengeNavButton onClick={onOpenChallenge} />
           <button className={styles.newSaying} type="button" onClick={onViewSummaries}>
-            Your sayings
+            Your idioms
           </button>
           <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
-            New saying
+            New idiom
           </button>
         </div>
       </header>
