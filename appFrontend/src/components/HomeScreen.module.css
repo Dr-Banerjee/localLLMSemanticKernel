@@ -1,11 +1,12 @@
 .screen {
   position: relative;
-  overflow: hidden;
   display: grid;
   gap: 1.6rem;
+  width: 100%;
+  min-width: 0;
+  max-width: 42rem;
   padding: 1.4rem 1.1rem 2.4rem;
   margin: auto;
-  max-width: 60%;  
 }
 
 .sun {
@@ -71,6 +72,8 @@
   display: grid;
   gap: 0.7rem;
   justify-items: center;
+  min-width: 0;
+  max-width: 100%;
   text-align: center;
 }
 
@@ -86,7 +89,9 @@
 .navButton {
   position: relative;
   z-index: 1;
+  max-width: 100%;
   padding: 0.55rem 0.95rem;
+  white-space: normal;
   border: 4px solid var(--ink);
   border-radius: var(--radius-pill);
   background: var(--sun);
@@ -98,6 +103,8 @@
   position: relative;
   z-index: 1;
   display: grid;
+  min-width: 0;
+  max-width: 100%;
   gap: 0.35rem;
   padding: 0.7rem 0.9rem 0.8rem;
   border: 4px solid var(--ink);
@@ -111,9 +118,12 @@
 
 .challengeArt {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.35rem;
   align-items: flex-end;
   justify-content: center;
+  min-width: 0;
+  max-width: 100%;
   padding: 0;
 }
 
@@ -186,6 +196,8 @@
   display: grid;
   gap: 0.28rem;
   justify-items: center;
+  min-width: 0;
+  max-width: 100%;
   text-align: center;
 }
 
@@ -199,14 +211,14 @@
 }
 
 .challengeCopy h2 {
-  max-width: 18ch;
+  max-width: min(18ch, 100%);
   font-family: "Fredoka", "Nunito", sans-serif;
   font-size: clamp(1.25rem, 3vw, 1.65rem);
   line-height: 1.1;
 }
 
 .challengeCopy p:last-of-type {
-  max-width: 38rem;
+  max-width: min(38rem, 100%);
   font-size: 0.95rem;
   line-height: 1.3;
 }
@@ -252,14 +264,14 @@
 }
 
 .hero h1 {
-  max-width: 18ch;
+  max-width: min(18ch, 100%);
   font-family: "Fredoka", "Nunito", sans-serif;
   font-size: clamp(1.8rem, 6vw, 3rem);
   line-height: 1.12;
 }
 
 .lead {
-  max-width: 38rem;
+  max-width: min(38rem, 100%);
   font-size: 1.05rem;
 }
 
@@ -267,6 +279,8 @@
   position: relative;
   z-index: 1;
   display: grid;
+  min-width: 0;
+  max-width: 100%;
   gap: 0.75rem;
   padding: 1rem;
   border: 4px solid var(--ink);
@@ -313,6 +327,8 @@
   position: relative;
   z-index: 1;
   display: grid;
+  min-width: 0;
+  max-width: 100%;
   gap: 0.9rem;
 }
 
