@@ -11,4 +11,5 @@ export const sessionKeys = {
 
 export const challengeKeys = {
   progress: ["challenge", "progress"] as const,
+  visited: (nodeId: number) => ["challenge", "visited", nodeId] as const,
 };

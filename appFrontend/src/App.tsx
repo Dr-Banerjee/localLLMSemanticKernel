@@ -1,15 +1,15 @@
 import { lazy, Suspense, useCallback, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { messageForApiError } from "./api/errors";
-import { fetchVisitedChallengeNode } from "./api/challenge";
 import { challengeKeys } from "./api/queryKeys";
 import { ScreenFallback } from "./components/ScreenFallback";
 import { nextChallengeTarget, readClearedCheckpoint, type ChallengeIdiom } from "./data/challengeIdioms";
 import { useInitialiseSession } from "./hooks/useInitialiseSession";
-import { conversationMessagesQueryOptions } from "./hooks/useConversationMessages";
+import { useConversationMessages } from "./hooks/useConversationMessages";
 import { useAdvanceChallengeStep } from "./hooks/useChallengeProgress";
 import { useSendConversationMessage } from "./hooks/useSendConversationMessage";
 import { useStartChallengeNode } from "./hooks/useStartChallengeNode";
+import { ensureVisitedChallengeNode, useVisitedChallengeNode } from "./hooks/useVisitedChallengeNode";
 import type { AppScreen, ChallengeProgress, ChatMessage, ConversationSummary } from "./types";
 import {
   createConversationId,
@@ -48,6 +48,19 @@ function lastUserContent(messages: ChatMessage[]): string | null {
   return messages.findLast((message) => message.role === "user")?.content ?? null;
 }
 
+function visibleThread(
+  serverMessages: ChatMessage[] | null,
+  draftMessages: ChatMessage[] | null,
+): ChatMessage[] {
+  if (
+    serverMessages &&
+    (draftMessages === null || serverMessages.length >= draftMessages.length)
+  ) {
+    return serverMessages;
+  }
+  return draftMessages ?? [];
+}
+
 export default function App() {
   const queryClient = useQueryClient();
   const sendMessage = useSendConversationMessage();
@@ -63,44 +76,86 @@ export default function App() {
   }, []);
   const [idiom, setIdiom] = useState("");
   const [conversationId, setConversationId] = useState<number | null>(null);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
-  const [isSending, setIsSending] = useState(false);
-  const [isLoadingHistory, setIsLoadingHistory] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [errorKind, setErrorKind] = useState<"send" | "load" | null>(null);
-  const requestTokenRef = useRef(0);
-  const openedSummaryRef = useRef<ConversationSummary | null>(null);
+  const [syncMessages, setSyncMessages] = useState(false);
+  const [draftMessages, setDraftMessages] = useState<ChatMessage[] | null>(null);
+  const [sendingConversationId, setSendingConversationId] = useState<number | null>(null);
+  const [sendError, setSendError] = useState<string | null>(null);
+  const navigationRef = useRef(0);
+  const activeSendIdRef = useRef<number | null>(null);
+  const visitedQuery = useVisitedChallengeNode(challengeStoneId);
+  const visitedConversationId = visitedQuery.data?.conversationId ?? null;
+  const activeConversationId =
+    challengeStoneId !== null ? visitedConversationId : conversationId;
+  const messageQueryId =
+    challengeStoneId !== null ? visitedConversationId : syncMessages ? conversationId : null;
+  const messagesQuery = useConversationMessages(messageQueryId);
+  const serverMessages = messagesQuery.data ? mapConversationMessages(messagesQuery.data) : null;
+  const messages = visibleThread(serverMessages, draftMessages);
+  const displayedIdiom = idiomFromMessages(messages, idiom);
+  const showingDraft =
+    draftMessages !== null &&
+    (serverMessages === null || draftMessages.length > serverMessages.length);
+  const isSending =
+    sendingConversationId !== null &&
+    sendingConversationId === activeConversationId &&
+    sendMessage.isPending &&
+    showingDraft;
+  const isLoadingHistory =
+    messages.length === 0 &&
+    ((challengeStoneId !== null && visitedQuery.isLoading) || messagesQuery.isLoading);
+  const loadError =
+    messageQueryId !== null && messagesQuery.isError && !messagesQuery.data
+      ? messageForApiError(messagesQuery.error)
+      : null;
+  const visitedError =
+    challengeStoneId !== null && visitedQuery.isError && !visitedQuery.data
+      ? messageForApiError(visitedQuery.error)
+      : null;
+  const error = sendError ?? visitedError ?? loadError;
+
+  function stopOutgoingSend() {
+    activeSendIdRef.current = null;
+    setSendingConversationId(null);
+    setSendError(null);
+  }
 
   async function askPip(nextConversationId: number, userInput: string) {
-    const token = requestTokenRef.current + 1;
-    requestTokenRef.current = token;
-    setIsSending(true);
-    setError(null);
-    setErrorKind(null);
+    activeSendIdRef.current = nextConversationId;
+    setSendingConversationId(nextConversationId);
+    setSendError(null);
 
     try {
       const { response } = await sendMessage.mutateAsync({
         conversationId: nextConversationId,
         userInput,
       });
-      if (token !== requestTokenRef.current) {
+      if (activeSendIdRef.current !== nextConversationId) {
         return;
       }
-      const assistantMessage: ChatMessage = {
-        id: createMessageId(),
-        role: "assistant",
-        content: response,
-      };
-      setMessages((current) => [...current, assistantMessage]);
+      setSyncMessages(true);
+      setDraftMessages((current) => {
+        if (!current) {
+          return current;
+        }
+        const last = current[current.length - 1];
+        if (last?.role === "assistant") {
+          return current;
+        }
+        const assistantMessage: ChatMessage = {
+          id: createMessageId(),
+          role: "assistant",
+          content: response,
+        };
+        return [...current, assistantMessage];
+      });
     } catch (caught) {
-      if (token !== requestTokenRef.current) {
+      if (activeSendIdRef.current !== nextConversationId) {
         return;
       }
-      setError(messageForApiError(caught));
-      setErrorKind("send");
+      setSendError(messageForApiError(caught));
     } finally {
-      if (token === requestTokenRef.current) {
-        setIsSending(false);
+      if (activeSendIdRef.current === nextConversationId) {
+        setSendingConversationId(null);
       }
     }
   }
@@ -119,21 +174,20 @@ export default function App() {
       kind: "idiom",
     };
 
-    openedSummaryRef.current = null;
+    navigationRef.current += 1;
+    stopOutgoingSend();
     setChallengeStoneId(null);
+    setSyncMessages(false);
     setConversationId(nextConversationId);
     setIdiom(trimmed);
-    setMessages([userMessage]);
-    setIsLoadingHistory(false);
-    setError(null);
-    setErrorKind(null);
+    setDraftMessages([userMessage]);
     setScreen("conversation");
     void askPip(nextConversationId, trimmed);
   }
 
   function askFollowUp(question: string) {
     const trimmed = question.trim();
-    if (!trimmed || isSending || isLoadingHistory || conversationId === null) {
+    if (!trimmed || isSending || isLoadingHistory || activeConversationId === null) {
       return;
     }
 
@@ -143,115 +197,89 @@ export default function App() {
       content: trimmed,
       kind: "followup",
     };
-    setMessages((current) => [...current, userMessage]);
-    void askPip(conversationId, trimmed);
+    const base =
+      serverMessages &&
+      (draftMessages === null || serverMessages.length >= draftMessages.length)
+        ? serverMessages
+        : (draftMessages ?? []);
+    setDraftMessages([...base, userMessage]);
+    void askPip(activeConversationId, trimmed);
   }
 
-  async function openExistingConversation(summary: ConversationSummary) {
-    const token = requestTokenRef.current + 1;
-    requestTokenRef.current = token;
-    openedSummaryRef.current = summary;
+  function openExistingConversation(summary: ConversationSummary) {
+    navigationRef.current += 1;
+    stopOutgoingSend();
     setChallengeStoneId(null);
-    setIsSending(false);
+    setSyncMessages(true);
+    setDraftMessages(null);
     setConversationId(summary.id);
     setIdiom(summary.initialMessage);
-    setMessages([]);
-    setError(null);
-    setErrorKind(null);
-    setIsLoadingHistory(true);
     setScreen("conversation");
-
-    try {
-      const history = await queryClient.query(conversationMessagesQueryOptions(summary.id));
-      if (token !== requestTokenRef.current) {
-        return;
-      }
-      const mapped = mapConversationMessages(history);
-      setMessages(mapped);
-      setIdiom(idiomFromMessages(mapped, summary.initialMessage));
-    } catch (caught) {
-      if (token !== requestTokenRef.current) {
-        return;
-      }
-      setError(messageForApiError(caught));
-      setErrorKind("load");
-    } finally {
-      if (token === requestTokenRef.current) {
-        setIsLoadingHistory(false);
-      }
-    }
   }
 
   function retryLast() {
-    if (errorKind === "load" && openedSummaryRef.current) {
-      void openExistingConversation(openedSummaryRef.current);
+    if (sendError) {
+      const lastQuestion = lastUserContent(messages);
+      if (!lastQuestion || activeConversationId === null || isSending) {
+        return;
+      }
+      void askPip(activeConversationId, lastQuestion);
       return;
     }
 
-    const lastQuestion = lastUserContent(messages);
-    if (!lastQuestion || conversationId === null || isSending) {
+    if (messageQueryId !== null && messagesQuery.isError) {
+      void messagesQuery.refetch();
       return;
     }
-    void askPip(conversationId, lastQuestion);
+
+    if (challengeStoneId !== null && visitedQuery.isError) {
+      void visitedQuery.refetch();
+    }
   }
 
   function resetToHome() {
-    requestTokenRef.current += 1;
-    openedSummaryRef.current = null;
-    setIsSending(false);
-    setIsLoadingHistory(false);
+    navigationRef.current += 1;
+    stopOutgoingSend();
+    setDraftMessages(null);
+    setSyncMessages(false);
     setChallengeStoneId(null);
     setScreen("home");
     setIdiom("");
     setConversationId(null);
-    setMessages([]);
-    setError(null);
-    setErrorKind(null);
   }
 
   function goToSummaries() {
-    requestTokenRef.current += 1;
-    setIsSending(false);
-    setIsLoadingHistory(false);
-    setError(null);
-    setErrorKind(null);
+    navigationRef.current += 1;
+    stopOutgoingSend();
+    setDraftMessages(null);
     setScreen("summaries");
   }
 
   function goToChallenge() {
-    requestTokenRef.current += 1;
-    setIsSending(false);
-    setIsLoadingHistory(false);
-    setError(null);
-    setErrorKind(null);
+    navigationRef.current += 1;
+    stopOutgoingSend();
+    setDraftMessages(null);
     setChallengeStoneId(null);
     setScreen("challenge");
   }
 
   async function openVisitedChallengeNode(entry: ChallengeIdiom) {
-    const token = requestTokenRef.current + 1;
-    requestTokenRef.current = token;
-    const visited = await fetchVisitedChallengeNode(entry.id, (nodeId) =>
-      startChallengeNodeMutation.mutateAsync(nodeId),
+    const token = navigationRef.current + 1;
+    navigationRef.current = token;
+    stopOutgoingSend();
+    const visited = await ensureVisitedChallengeNode(
+      queryClient,
+      (nodeId) => startChallengeNodeMutation.mutateAsync(nodeId),
+      entry.id,
     );
-    if (token !== requestTokenRef.current) {
+    if (token !== navigationRef.current) {
       return;
     }
 
-    const mapped = mapConversationMessages(visited.messages);
-    openedSummaryRef.current = {
-      id: visited.conversationId,
-      createdAt: "",
-      updatedAt: "",
-      initialMessage: entry.idiom,
-    };
-    setIsSending(false);
-    setIsLoadingHistory(false);
-    setConversationId(visited.conversationId);
-    setIdiom(idiomFromMessages(mapped, entry.idiom));
-    setMessages(mapped);
-    setError(null);
-    setErrorKind(null);
+    setDraftMessages(null);
+    setSyncMessages(true);
+    setConversationId(null);
+    setIdiom(idiomFromMessages(mapConversationMessages(visited.messages), entry.idiom));
     setChallengeStoneId(entry.id);
     setScreen("conversation");
   }
@@ -267,6 +295,9 @@ export default function App() {
       return;
     }
     if (next.kind === "quiz") {
+      navigationRef.current += 1;
+      stopOutgoingSend();
+      setDraftMessages(null);
       setRequestedQuiz(next.checkpointId);
       setScreen("challenge");
       return;
@@ -308,7 +339,7 @@ export default function App() {
         {screen === "conversation" && challengeStoneId !== null ? (
           <ChallengeConversationScreen
             stoneId={challengeStoneId}
-            idiom={idiom}
+            idiom={displayedIdiom}
             messages={messages}
             isSending={isSending}
             isLoadingHistory={isLoadingHistory}
@@ -323,7 +354,7 @@ export default function App() {
         ) : null}
         {screen === "conversation" && challengeStoneId === null ? (
           <ConversationScreen
-            idiom={idiom}
+            idiom={displayedIdiom}
             messages={messages}
             isSending={isSending}
             isLoadingHistory={isLoadingHistory}
