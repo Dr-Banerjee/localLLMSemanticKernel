@@ -59,6 +59,7 @@ Curious questions still help you learn."""
         assistantResponse = await self.chatCompletion.complete(
             self.limitModelContext(chatHistory, conversationCourse.newlyCreated)
         )
+        assistantResponse = self.removeStars(assistantResponse)
         assistantResponse = self.replyToStore(
             assistantResponse,
             conversationCourse.newlyCreated,
@@ -72,6 +73,9 @@ Curious questions still help you learn."""
             )
 
         return ResponseToUserRequest(response=assistantResponse)
+
+    def removeStars(self, assistantResponse: str) -> str:
+        return assistantResponse.replace("*", "")
 
     def replyToStore(self, assistantResponse: str, newlyCreated: bool) -> str:
         if newlyCreated:
