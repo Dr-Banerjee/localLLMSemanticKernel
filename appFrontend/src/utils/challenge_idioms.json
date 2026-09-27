@@ -6,6 +6,8 @@
     "nomenclature_reason": "It pictures someone closing their eyes so they can't see the problem, as if the eye is blind.",
     "example": "The librarian turned a blind eye when the kids whispered in the reading room.",
     "remember": "If you close your eyes, you pretend you didn't see.",
+    "correct_sentence": "Maya turned a blind eye when she saw her friend copy an answer.",
+    "wrong_sentence": "Maya turned a blind eye so she could see the board more clearly.",
     "rarity": 1
   },
   {
@@ -15,6 +17,8 @@
     "nomenclature_reason": "It likens trying to chew a huge bite of food that won't fit in your mouth.",
     "example": "She tried to organize the whole school fair alone and soon realized she had bitten off more than she could chew.",
     "remember": "Don't try to chew a bite that's bigger than your mouth.",
+    "correct_sentence": "Leo joined three clubs at once and soon saw he had bitten off more than he could chew.",
+    "wrong_sentence": "Leo bit off more than he could chew, which only meant his sandwich was too big.",
     "rarity": 1
   },
   {
@@ -24,6 +28,8 @@
     "nomenclature_reason": "Imagine a cat hidden in a bag; when the bag opens, the cat jumps out and everyone sees it.",
     "example": "Tom let the cat out of the bag when he mentioned the surprise party to Sarah.",
     "remember": "When the cat jumps out, the secret is out.",
+    "correct_sentence": "Aisha let the cat out of the bag by whispering the birthday plan in the hallway.",
+    "wrong_sentence": "Aisha let the cat out of the bag so the kitten could play in the yard.",
     "rarity": 1
   },
   {
@@ -33,6 +39,8 @@
     "nomenclature_reason": "It pictures a hammer striking a nail perfectly, so the job is done with one blow.",
     "example": "When Maya said the project needed more planning, she hit the nail on the head.",
     "remember": "A perfect hammer hit means a perfect answer.",
+    "correct_sentence": "When Omar said the team needed a captain, he hit the nail on the head.",
+    "wrong_sentence": "Omar hit the nail on the head, and the wooden birdhouse finally stayed together.",
     "rarity": 1
   },
   {
@@ -42,6 +50,8 @@
     "nomenclature_reason": "It imagines having to give up something as valuable as your arm and leg to pay for it.",
     "example": "The new video game console cost an arm and a leg, so I saved my allowance for months.",
     "remember": "If it needs an arm and a leg, it's super pricey.",
+    "correct_sentence": "Those concert tickets cost an arm and a leg, so we watched from the park instead.",
+    "wrong_sentence": "The bike cost an arm and a leg, which meant it was cheap enough for one week's allowance.",
     "rarity": 1
   },
   {
@@ -51,6 +61,8 @@
     "nomenclature_reason": "It pictures walking farther than the distance you were asked to travel.",
     "example": "The teacher went the extra mile by giving us extra practice worksheets.",
     "remember": "Walk farther than asked to help others.",
+    "correct_sentence": "Noah went the extra mile and walked the new student to every classroom.",
+    "wrong_sentence": "Noah went the extra mile because the race was longer than one mile.",
     "rarity": 1
   },
   {
@@ -60,6 +72,8 @@
     "nomenclature_reason": "Crossing fingers is a old habit that people believed would bring good luck.",
     "example": "I kept my fingers crossed that I would win the spelling bee.",
     "remember": "Crossed fingers bring hopeful wishes.",
+    "correct_sentence": "I kept my fingers crossed that the rain would stop before the picnic.",
+    "wrong_sentence": "I kept my fingers crossed so my hands would stay warm outside.",
     "rarity": 1
   },
   {
@@ -69,6 +83,8 @@
     "nomenclature_reason": "It comes from the old idea of carrying a small piece of wood (a chip) as a sign of being ready to fight.",
     "example": "After losing the game, Jake had a chip on his shoulder and didn't want to play.",
     "remember": "A chip on the shoulder means you feel upset about something.",
+    "correct_sentence": "Priya had a chip on her shoulder after being left out of the game last week.",
+    "wrong_sentence": "Priya had a chip on her shoulder because a crumb from her snack stuck to her shirt.",
     "rarity": 1
   },
   {
@@ -78,6 +94,8 @@
     "nomenclature_reason": "It comes from hunters who would walk around a bush instead of going straight to the animal.",
     "example": "Stop beating around the bush and tell me what you really think.",
     "remember": "Going around the bush means not saying it straight.",
+    "correct_sentence": "Stop beating around the bush and say which game you want to play.",
+    "wrong_sentence": "They were beating around the bush while they searched for the lost ball.",
     "rarity": 1
   },
   {
@@ -87,6 +105,8 @@
     "nomenclature_reason": "Imagine being stuck in boiling water-it's uncomfortable and hard to get out of.",
     "example": "Sam was in hot water after he forgot to do his homework.",
     "remember": "Hot water means you're in a sticky spot.",
+    "correct_sentence": "Ben was in hot water after he borrowed the tablet without asking.",
+    "wrong_sentence": "Ben was in hot water because the bathtub was finally warm enough.",
     "rarity": 1
   },
   {
@@ -96,6 +116,8 @@
     "nomenclature_reason": "If you pour more fuel on a fire, it burns brighter and hotter.",
     "example": "His teasing only added fuel to the fire during the argument.",
     "remember": "More fuel makes the fire grow bigger.",
+    "correct_sentence": "Laughing at Mia's mistake only added fuel to the fire.",
+    "wrong_sentence": "Dad added fuel to the fire so the campfire would cook the marshmallows.",
     "rarity": 1
   },
   {
@@ -105,6 +127,8 @@
     "nomenclature_reason": "It pictures your feet feeling cold because you are scared to move forward.",
     "example": "She got cold feet right before her big piano recital.",
     "remember": "Cold feet mean you feel shaky about trying.",
+    "correct_sentence": "Jonas got cold feet and asked to skip his turn on the talent-show stage.",
+    "wrong_sentence": "Jonas got cold feet because he forgot his socks on the snowy walk.",
     "rarity": 1
   },
   {
@@ -114,6 +138,8 @@
     "nomenclature_reason": "If a dog is sleeping, waking it might cause a bark or bite, so it's safer to leave it alone.",
     "example": "I decided to let sleeping dogs lie and didn't mention the argument from last week.",
     "remember": "Leave the sleeping dog alone so nothing wakes up.",
+    "correct_sentence": "I let sleeping dogs lie and did not bring up the old argument at dinner.",
+    "wrong_sentence": "I let sleeping dogs lie so the puppy could finish its nap on the couch.",
     "rarity": 1
   },
   {
@@ -123,6 +149,8 @@
     "nomenclature_reason": "It comes from movies where you skip the long build-up and go straight to the exciting chase scene.",
     "example": "Can you cut to the chase and tell me what happened?",
     "remember": "Skip the intro and go straight to the action.",
+    "correct_sentence": "Can you cut to the chase and tell us who won the race?",
+    "wrong_sentence": "We cut to the chase by running the shortcut through the park.",
     "rarity": 1
   },
   {
@@ -132,6 +160,8 @@
     "nomenclature_reason": "A tiny fly can sit on a wall and see everything without anyone seeing it.",
     "example": "I wish I could be a fly on the wall during the secret meeting.",
     "remember": "A fly on the wall watches quietly without being seen.",
+    "correct_sentence": "I wish I could be a fly on the wall when the judges pick the winner.",
+    "wrong_sentence": "A fly on the wall kept buzzing, so we opened a window.",
     "rarity": 1
   },
   {
@@ -141,6 +171,8 @@
     "nomenclature_reason": "When the weather is bad, it feels like a rainy cloud is covering you, so you are 'under' it",
     "example": "I think I'm under the weather, so I'll stay home from school.",
     "remember": "If you feel sick, you might be under the weather.",
+    "correct_sentence": "Lila stayed home because she felt under the weather.",
+    "wrong_sentence": "The kite flew under the weather, just below the clouds.",
     "rarity": 1
   },
   {
@@ -150,6 +182,8 @@
     "nomenclature_reason": "It sounds like a hidden gift, like a present wrapped in something that looks plain",
     "example": "Losing that job was a blessing in disguise because I found a better one.",
     "remember": "Bad looks can hide good surprises.",
+    "correct_sentence": "Missing the bus was a blessing in disguise, because I found my lost book at the stop.",
+    "wrong_sentence": "The sunny picnic was a blessing in disguise, since everything went perfectly.",
     "rarity": 1
   },
   {
@@ -159,6 +193,8 @@
     "nomenclature_reason": "Blue moons are rare, so the phrase shows how uncommon the event is",
     "example": "We only get pizza for dinner once in a blue moon.",
     "remember": "Rare events are once in a blue moon.",
+    "correct_sentence": "Grandpa visits our town only once in a blue moon.",
+    "wrong_sentence": "We see a full moon once in a blue moon, every single month.",
     "rarity": 1
   },
   {
@@ -168,6 +204,8 @@
     "nomenclature_reason": "Only the top of an iceberg shows above water, hiding the big part below",
     "example": "The broken vase is just the tip of the iceberg; there are many more problems at home.",
     "remember": "What you see may be just a tiny tip.",
+    "correct_sentence": "The messy desk was just the tip of the iceberg; the whole closet was overflowing.",
+    "wrong_sentence": "The tip of the iceberg was the only part the ship needed to steer around, and the rest was tiny.",
     "rarity": 1
   },
   {
@@ -177,6 +215,8 @@
     "nomenclature_reason": "Imagine a table being flipped, changing who sits where",
     "example": "She turned the tables by answering his question first.",
     "remember": "Flipping the table flips the outcome.",
+    "correct_sentence": "Nina turned the tables by asking her brother the riddle he had asked her.",
+    "wrong_sentence": "Nina turned the tables so the guests could sit on the other side.",
     "rarity": 1
   },
   {
@@ -186,6 +226,8 @@
     "nomenclature_reason": "Like landing and immediately sprinting, you begin fast",
     "example": "On his first day, Tom hit the ground running and finished the project.",
     "remember": "Start fast like running right after landing.",
+    "correct_sentence": "On the first day of camp, Sofia hit the ground running and learned every trail name.",
+    "wrong_sentence": "Sofia hit the ground running when she tripped at the start of the race.",
     "rarity": 1
   },
   {
@@ -195,6 +237,8 @@
     "nomenclature_reason": "Like watching a prize you want, you never look away",
     "example": "She kept her eye on the prize and studied hard for the exam.",
     "remember": "Look at the prize and don't get distracted.",
+    "correct_sentence": "He kept his eye on the prize and practiced the song every afternoon.",
+    "wrong_sentence": "He kept his eye on the prize sticker so nobody would peel it off the box.",
     "rarity": 1
   },
   {
@@ -204,6 +248,8 @@
     "nomenclature_reason": "Imagine cutting off the corners of a shape to make it smaller faster",
     "example": "The builder cut corners, and the house started leaking.",
     "remember": "Cutting corners can make things weaker.",
+    "correct_sentence": "The poster team cut corners, and the paint peeled off the next day.",
+    "wrong_sentence": "We cut corners on the paper to make neat triangles for the collage.",
     "rarity": 1
   },
   {
@@ -213,6 +259,8 @@
     "nomenclature_reason": "Picture someone falling to the ground and dust rising, showing something has ended",
     "example": "The old car finally bit the dust after years of use.",
     "remember": "When something bites the dust, it's finished.",
+    "correct_sentence": "The old scooter finally bit the dust and would not roll anymore.",
+    "wrong_sentence": "The puppy bit the dust on the path and sneezed.",
     "rarity": 1
   },
   {
@@ -222,6 +270,8 @@
     "nomenclature_reason": "In boxing, a trainer throws a towel into the ring to stop the fight",
     "example": "After many tries, she threw in the towel and asked for help.",
     "remember": "Throwing a towel means stopping.",
+    "correct_sentence": "After three failed tries at the puzzle, Eli threw in the towel.",
+    "wrong_sentence": "After swimming, Eli threw in the towel so it would dry on the rack.",
     "rarity": 1
   },
   {
@@ -231,6 +281,8 @@
     "nomenclature_reason": "Gold is precious, so a heart made of gold shows great value",
     "example": "My grandma has a heart of gold; she always helps others.",
     "remember": "A golden heart means big kindness.",
+    "correct_sentence": "Mr. Patel has a heart of gold and stays late to help anyone who is stuck.",
+    "wrong_sentence": "Mr. Patel has a heart of gold jewelry that he wears to the school play.",
     "rarity": 1
   },
   {
@@ -240,6 +292,8 @@
     "nomenclature_reason": "Walking on thin ice could break, showing danger",
     "example": "Skipping homework puts you on thin ice with the teacher.",
     "remember": "Thin ice means you could slip.",
+    "correct_sentence": "Forgetting two quizzes in a row put Amir on thin ice.",
+    "wrong_sentence": "Amir skated on thin ice at the rink and loved how smooth it felt.",
     "rarity": 1
   },
   {
@@ -249,6 +303,8 @@
     "nomenclature_reason": "A dead horse can't move, so beating it does nothing",
     "example": "We've already decided, so stop beating a dead horse.",
     "remember": "Beating a dead horse won't change anything.",
+    "correct_sentence": "We already chose the team name, so stop beating a dead horse.",
+    "wrong_sentence": "Beating a dead horse is how the riders wake it up for the parade.",
     "rarity": 1
   },
   {
@@ -258,6 +314,8 @@
     "nomenclature_reason": "In old movies, the person who fires the gun decides the action",
     "example": "In our group project, Maya gets to call the shots.",
     "remember": "The one who calls the shots makes the plans.",
+    "correct_sentence": "In the club, Rosa gets to call the shots about which game we play.",
+    "wrong_sentence": "Rosa can call the shots because she is the best player at the basketball hoop.",
     "rarity": 1
   },
   {
@@ -267,6 +325,8 @@
     "nomenclature_reason": "Grabbing a bull's horns shows courage because the bull is strong",
     "example": "He took the bull by the horns and talked to the principal.",
     "remember": "Grabbing the horns means being brave.",
+    "correct_sentence": "He took the bull by the horns and told the coach he wanted a different position.",
+    "wrong_sentence": "He took the bull by the horns at the farm and led it into the barn.",
     "rarity": 1
   },
   {
@@ -276,6 +336,8 @@
     "nomenclature_reason": "In the past people used oil lamps; burning oil late means staying up working.",
     "example": "She had to burn the midnight oil to finish her science project.",
     "remember": "When you work late, think of a lamp burning all night.",
+    "correct_sentence": "I had to burn the midnight oil to finish the diorama before morning.",
+    "wrong_sentence": "We burn the midnight oil in the lamp so the porch stays lit all night.",
     "rarity": 1
   },
   {
@@ -285,6 +347,8 @@
     "nomenclature_reason": "In tennis, after the ball lands in your side, you must hit it back.",
     "example": "I've given you the plan, now the ball is in your court.",
     "remember": "Like a tennis ball waiting for you to hit it.",
+    "correct_sentence": "I sent you the choices, so now the ball is in your court.",
+    "wrong_sentence": "The ball is in your court, so it is your turn to serve in tennis.",
     "rarity": 1
   },
   {
@@ -294,6 +358,8 @@
     "nomenclature_reason": "Like looking at the blank spaces on a page to see a secret.",
     "example": "The teacher's note seemed simple, but you have to read between the lines.",
     "remember": "Look for the secret message in the quiet spaces.",
+    "correct_sentence": "Her note sounded cheerful, but you have to read between the lines to see she is worried.",
+    "wrong_sentence": "Read between the lines of the poem so you do not skip any printed words.",
     "rarity": 1
   },
   {
@@ -303,6 +369,8 @@
     "nomenclature_reason": "A tiny mischievous devil hides in tiny details.",
     "example": "The recipe looks easy, but the devil's in the details.",
     "remember": "Tiny troublemakers hide in the little bits.",
+    "correct_sentence": "The model looks simple, but the devil's in the details of those tiny wires.",
+    "wrong_sentence": "The devil's in the details means a costume villain is hiding in the small print.",
     "rarity": 1
   },
   {
@@ -312,6 +380,8 @@
     "nomenclature_reason": "Imagine sending a careful warning note away on a gust of wind.",
     "example": "He threw caution to the wind and tried the new roller coaster.",
     "remember": "Let your worries fly away like a kite.",
+    "correct_sentence": "She threw caution to the wind and tried the highest slide.",
+    "wrong_sentence": "She threw caution to the wind by packing an umbrella for the storm.",
     "rarity": 1
   },
   {
@@ -321,6 +391,8 @@
     "nomenclature_reason": "Soldiers used to bite a bullet during surgery to stay still.",
     "example": "She had to bite the bullet and tell the truth.",
     "remember": "Imagine biting a hard bullet to be brave.",
+    "correct_sentence": "He had to bite the bullet and admit he broke the window.",
+    "wrong_sentence": "He had to bite the bullet in the old story so the metal would not hurt his teeth.",
     "rarity": 1
   },
   {
@@ -330,6 +402,8 @@
     "nomenclature_reason": "A sailboat near the wind may tip over.",
     "example": "He likes to sail close to the wind by breaking the rules.",
     "remember": "Like a boat almost tipping in a strong breeze.",
+    "correct_sentence": "Skipping the safety check is sailing close to the wind.",
+    "wrong_sentence": "The boat can sail close to the wind and still stay perfectly safe.",
     "rarity": 1
   },
   {
@@ -339,6 +413,8 @@
     "nomenclature_reason": "Ancient stories had messages appearing on walls as warnings.",
     "example": "After the sales dropped, the writing was on the wall for the store.",
     "remember": "Imagine a warning scribbled on a wall.",
+    "correct_sentence": "After three empty bake sales, the writing was on the wall for the club.",
+    "wrong_sentence": "The writing was on the wall because the class painted a mural there.",
     "rarity": 1
   },
   {
@@ -348,6 +424,8 @@
     "nomenclature_reason": "A cart needs a horse to pull; putting it first makes no sense.",
     "example": "Planning the party before buying the cake is putting the cart before the horse.",
     "remember": "The horse should go first, not the cart.",
+    "correct_sentence": "Buying decorations before we pick a theme is putting the cart before the horse.",
+    "wrong_sentence": "Putting the cart before the horse helps the horse see where to pull.",
     "rarity": 1
   },
   {
@@ -357,6 +435,8 @@
     "nomenclature_reason": "A grindstone is a tool; keeping your nose close means staying close to work.",
     "example": "If you keep your nose to the grindstone, you'll finish the puzzle fast.",
     "remember": "Stay as close to your work as a nose to a stone.",
+    "correct_sentence": "Keep your nose to the grindstone and you will finish the model by Friday.",
+    "wrong_sentence": "Keep your nose to the grindstone so the stone can sharpen it like a knife.",
     "rarity": 1
   },
   {
@@ -366,6 +446,8 @@
     "nomenclature_reason": "One quick stitch now avoids needing many later.",
     "example": "Repairing the leak now is a stitch in time that saves nine.",
     "remember": "One tiny stitch now stops a big tear later.",
+    "correct_sentence": "Patching the tent tonight is a stitch in time that saves nine.",
+    "wrong_sentence": "A stitch in time saves nine needles, so bring extra thread to sewing class.",
     "rarity": 1
   },
   {
@@ -375,6 +457,8 @@
     "nomenclature_reason": "You can't count chickens that aren't born yet.",
     "example": "He was already planning his vacation, but I told him not to count his chickens before they hatch.",
     "remember": "Wait until the eggs turn into chickens.",
+    "correct_sentence": "Do not count your chickens before they hatch; you have not won the prize yet.",
+    "wrong_sentence": "Count your chickens before they hatch so you know how many eggs are in the nest.",
     "rarity": 1
   },
   {
@@ -384,6 +468,8 @@
     "nomenclature_reason": "When you chip wood, the pieces fall wherever; you can't control it.",
     "example": "She submitted her story and let the chips fall where they may.",
     "remember": "Like wood chips dropping wherever they want.",
+    "correct_sentence": "She entered the contest and let the chips fall where they may.",
+    "wrong_sentence": "She dropped the snack and let the chips fall where they may across the floor.",
     "rarity": 1
   },
   {
@@ -393,6 +479,8 @@
     "nomenclature_reason": "People in a small boat face the same water together.",
     "example": "All the students were late, so we were all in the same boat.",
     "remember": "Everyone rows together in one boat.",
+    "correct_sentence": "The whole class missed the bus, so we were all in the same boat.",
+    "wrong_sentence": "We were all in the same boat, rowing across the lake together.",
     "rarity": 1
   },
   {
@@ -402,6 +490,8 @@
     "nomenclature_reason": "Something floating in the sky hasn't landed yet.",
     "example": "Our weekend plans are still up in the air.",
     "remember": "Like a balloon drifting, not sure where it will go.",
+    "correct_sentence": "Whether we go to the museum is still up in the air.",
+    "wrong_sentence": "The kite is up in the air, so our plan is definitely happening.",
     "rarity": 1
   },
   {
@@ -411,6 +501,8 @@
     "nomenclature_reason": "The original saying was \"the proof of the pudding is in the eating,\" meaning you have to taste the pudding to see if it's good.",
     "example": "We can only know if the new game is fun when we play it; the proof is in the pudding.",
     "remember": "Try it out to see if it works!",
+    "correct_sentence": "We will not know if the shortcut works until we try it; the proof is in the pudding.",
+    "wrong_sentence": "The proof is in the pudding, so the dessert tasted sweet and was finished.",
     "rarity": 1
   },
   {
@@ -420,6 +512,8 @@
     "nomenclature_reason": "A leopard's spots are part of its skin and can't be removed, just like a person's basic traits.",
     "example": "Even after apologizing, he kept being selfish; a leopard can't change its spots.",
     "remember": "Some things stay the same, like a leopard's spots.",
+    "correct_sentence": "He said he would share, then kept every marble; a leopard can't change its spots.",
+    "wrong_sentence": "A leopard can't change its spots, so the zookeeper painted them a new color.",
     "rarity": 1
   },
   {
@@ -429,6 +523,8 @@
     "nomenclature_reason": "If you drop one basket holding all the eggs, they all break; spreading them keeps some safe.",
     "example": "She saved money in both a bank and a piggy bank, because you shouldn't put all your eggs in one basket.",
     "remember": "Keep your eggs in many baskets.",
+    "correct_sentence": "Do not put all your eggs in one basket; try out for two teams, not just one.",
+    "wrong_sentence": "Put all your eggs in one basket so they are easier to carry from the shop.",
     "rarity": 1
   },
   {
@@ -438,6 +534,8 @@
     "nomenclature_reason": "When the sun shines behind a cloud, the edge looks bright like silver.",
     "example": "Even though the picnic was rained out, we got to play indoor games; every cloud has a silver lining.",
     "remember": "Look for the bright edge in a dark cloud.",
+    "correct_sentence": "The game was canceled, but we baked cookies instead; every cloud has a silver lining.",
+    "wrong_sentence": "Every cloud has a silver lining, so the sky stayed gray and nothing good happened.",
     "rarity": 1
   },
   {
@@ -447,6 +545,8 @@
     "nomenclature_reason": "Birds that wake up early find worms before others.",
     "example": "She arrived at the sale first and got the biggest discount; the early bird catches the worm.",
     "remember": "Get up early to get the prize.",
+    "correct_sentence": "She lined up before the shop opened; the early bird catches the worm.",
+    "wrong_sentence": "The early bird catches the worm, so birds that sleep late always get the best food.",
     "rarity": 1
   },
   {
@@ -456,6 +556,8 @@
     "nomenclature_reason": "A book's cover may look plain, but the story inside could be wonderful.",
     "example": "He seemed shy, but he tells great jokes; you can't judge a book by its cover.",
     "remember": "Look inside before deciding.",
+    "correct_sentence": "The scuffed violin sounded beautiful; you can't judge a book by its cover.",
+    "wrong_sentence": "You can't judge a book by its cover, so always pick the book with the brightest jacket.",
     "rarity": 1
   },
   {
@@ -465,6 +567,8 @@
     "nomenclature_reason": "If you stare at a pot, time seems to move slower, though the water boils at the same speed.",
     "example": "Stop checking the oven every minute; a watched pot never boils.",
     "remember": "Don't stare; let things happen.",
+    "correct_sentence": "Quit staring at the download bar; a watched pot never boils.",
+    "wrong_sentence": "A watched pot never boils, so staring at soup makes it cook faster.",
     "rarity": 1
   },
   {
@@ -474,6 +578,8 @@
     "nomenclature_reason": "Loud sounds are heard better than quiet words; deeds are clearer than promises.",
     "example": "He promised to help, and then he actually cleaned the room; actions speak louder than words.",
     "remember": "Do it, don't just say it.",
+    "correct_sentence": "He said he was sorry and then helped clean up; actions speak louder than words.",
+    "wrong_sentence": "Actions speak louder than words, so a long speech matters more than helping.",
     "rarity": 1
   },
   {
@@ -483,6 +589,8 @@
     "nomenclature_reason": "Some shiny things look like gold but aren't really gold.",
     "example": "The toy looked fancy but broke quickly; all that glitters is not gold.",
     "remember": "Shiny isn't always real gold.",
+    "correct_sentence": "The shiny compass broke on day one; all that glitters is not gold.",
+    "wrong_sentence": "All that glitters is not gold, so anything sparkly is always valuable.",
     "rarity": 1
   },
   {
@@ -492,6 +600,8 @@
     "nomenclature_reason": "You don't need to cross a bridge until you reach it.",
     "example": "We don't need to plan the trip's parking now; we'll cross that bridge when we come to it.",
     "remember": "Handle it when you get there.",
+    "correct_sentence": "We will cross that bridge when we come to it; no need to plan the ride home yet.",
+    "wrong_sentence": "We will cross that bridge when we come to it, so let's map every bridge today.",
     "rarity": 1
   },
   {
@@ -501,6 +611,8 @@
     "nomenclature_reason": "If you bite the hand giving you food, you lose the source of food.",
     "example": "She thanked her teacher instead of complaining; she didn't bite the hand that feeds her.",
     "remember": "Be kind to helpers.",
+    "correct_sentence": "Do not bite the hand that feeds you by being rude to the neighbor who shares her garden.",
+    "wrong_sentence": "Do not bite the hand that feeds you means keep your mouth closed while someone passes you bread.",
     "rarity": 1
   },
   {
@@ -510,6 +622,8 @@
     "nomenclature_reason": "You give them a \"benefit\" (a good point) when you don't have proof.",
     "example": "He might be late because of traffic, so we give him the benefit of the doubt.",
     "remember": "Think the best until you know.",
+    "correct_sentence": "She might be late because of the bus, so let's give her the benefit of the doubt.",
+    "wrong_sentence": "Give her the benefit of the doubt means we should assume she is definitely guilty.",
     "rarity": 1
   },
   {
@@ -519,6 +633,8 @@
     "nomenclature_reason": "\"Nick\" means a tiny cut; being saved by a tiny amount of time.",
     "example": "She submitted the homework in the nick of time before the deadline.",
     "remember": "Just in time!",
+    "correct_sentence": "The doors were closing, and we slipped inside in the nick of time.",
+    "wrong_sentence": "We arrived in the nick of time, hours after the show had ended.",
     "rarity": 1
   },
   {
@@ -528,6 +644,8 @@
     "nomenclature_reason": "A molehill is tiny, a mountain is huge; turning a tiny issue into a big one.",
     "example": "He got upset over a small mistake, making a mountain out of a molehill.",
     "remember": "Don't blow small things big.",
+    "correct_sentence": "A spilled drop of paint is not a disaster; do not make a mountain out of a molehill.",
+    "wrong_sentence": "Make a mountain out of a molehill when you want to shrink a huge problem.",
     "rarity": 1
   },
   {
@@ -537,6 +655,8 @@
     "nomenclature_reason": "You must feel some discomfort (pain) to achieve something valuable (gain).",
     "example": "She practiced piano daily; no pain, no gain.",
     "remember": "Work hard to win.",
+    "correct_sentence": "Those extra laps were hard, but no pain, no gain.",
+    "wrong_sentence": "No pain, no gain means the easiest practice gives you the biggest prize.",
     "rarity": 1
   },
   {
@@ -546,6 +666,8 @@
     "nomenclature_reason": "Imagine someone climbing a thin, far-out branch; if it breaks they could fall, so the picture shows taking a risk.",
     "example": "She went out on a limb and said she believed the new idea would work.",
     "remember": "Going out on a limb means being brave enough to try something risky.",
+    "correct_sentence": "I went out on a limb and recommended the quiet new book to the whole class.",
+    "wrong_sentence": "I went out on a limb of the oak tree to pick the highest apple.",
     "rarity": 1
   },
   {
@@ -555,6 +677,8 @@
     "nomenclature_reason": "A bandwagon is a cart in a parade; when it moves, people hop on to be part of the fun, showing you follow the crowd.",
     "example": "When the new game became popular, many kids jumped on the bandwagon.",
     "remember": "Jump on the bandwagon when everyone else is doing it.",
+    "correct_sentence": "Once the bead bracelets got popular, even the older kids jumped on the bandwagon.",
+    "wrong_sentence": "They jumped on the bandwagon and rode it in the parade down the street.",
     "rarity": 1
   },
   {
@@ -564,6 +688,8 @@
     "nomenclature_reason": "In old kitchens a sharp cut of mustard seed meant quality; if it 'cuts the mustard' it works just right.",
     "example": "The new teacher really cut the mustard and helped us learn.",
     "remember": "If something cuts the mustard, it does the job well.",
+    "correct_sentence": "The backup goalie really cut the mustard and saved the match.",
+    "wrong_sentence": "He cut the mustard and spread it on his sandwich at lunch.",
     "rarity": 1
   },
   {
@@ -573,6 +699,8 @@
     "nomenclature_reason": "A candle can only burn from one end; lighting both ends makes it finish faster, just like using too much energy.",
     "example": "He was burning the candle at both ends, studying all night and still going to soccer practice.",
     "remember": "Burning a candle at both ends means using up your energy fast.",
+    "correct_sentence": "Soccer at dawn and homework at midnight means she is burning the candle at both ends.",
+    "wrong_sentence": "Burning the candle at both ends makes the candle last much longer.",
     "rarity": 1
   },
   {
@@ -582,6 +710,8 @@
     "nomenclature_reason": "Picture a bus driving by and someone being pushed under it; it shows an unfair blame.",
     "example": "When the project failed, the manager threw the intern under the bus.",
     "remember": "Throwing someone under the bus means blaming them to save yourself.",
+    "correct_sentence": "When the poster ripped, Chris threw his partner under the bus and blamed her alone.",
+    "wrong_sentence": "Chris threw his partner under the bus so she could catch a ride to school.",
     "rarity": 1
   },
   {
@@ -591,6 +721,8 @@
     "nomenclature_reason": "Medicine can be bitter; if you gave someone a bitter pill, feeling it yourself shows the meaning.",
     "example": "After teasing his friend, he got a taste of his own medicine when they teased him back.",
     "remember": "Taste your own medicine when you get treated the way you treated others.",
+    "correct_sentence": "After hiding everyone's pencils, he got a taste of his own medicine when his vanished too.",
+    "wrong_sentence": "He got a taste of his own medicine when the nurse gave him the syrup he liked.",
     "rarity": 1
   },
   {
@@ -600,6 +732,8 @@
     "nomenclature_reason": "If you're swimming, keeping your head above water means you aren't sinking.",
     "example": "She works two jobs to keep her head above water.",
     "remember": "Keeping your head above water means not sinking.",
+    "correct_sentence": "With two paper routes, she can just keep her head above water.",
+    "wrong_sentence": "She can keep her head above water because she is a strong swimmer.",
     "rarity": 1
   },
   {
@@ -609,6 +743,8 @@
     "nomenclature_reason": "A sail needs wind to move; if the wind stops, the boat slows, just like a person losing enthusiasm.",
     "example": "His quiet answer took the wind out of her sails.",
     "remember": "When the wind leaves your sails, you feel less excited.",
+    "correct_sentence": "The low score took the wind out of his sails after he had bragged all week.",
+    "wrong_sentence": "The breeze took the wind out of his sails and pushed the boat even faster.",
     "rarity": 1
   },
   {
@@ -618,6 +754,8 @@
     "nomenclature_reason": "A leaf turning green shows a fresh start, like opening a new chapter.",
     "example": "After the mistake, he decided to turn over a new leaf and study harder.",
     "remember": "Turning over a new leaf means starting fresh.",
+    "correct_sentence": "After the messy project, he turned over a new leaf and labeled every folder.",
+    "wrong_sentence": "He turned over a new leaf and found a beetle hiding under it.",
     "rarity": 1
   },
   {
@@ -627,6 +765,8 @@
     "nomenclature_reason": "Clouds are soft and high; being on the ninth cloud suggests floating high in joy.",
     "example": "She was on cloud nine after winning the spelling bee.",
     "remember": "Being on cloud nine feels like floating in big happiness.",
+    "correct_sentence": "Winning the art ribbon put Maya on cloud nine.",
+    "wrong_sentence": "The plane flew on cloud nine, which is just an ordinary cloudy day.",
     "rarity": 1
   },
   {
@@ -636,6 +776,8 @@
     "nomenclature_reason": "Peeling eyes like bananas is silly, but it means opening them wide to see everything.",
     "example": "Keep your eyes peeled for the missing puzzle piece.",
     "remember": "Peel your eyes open to see everything.",
+    "correct_sentence": "Keep your eyes peeled for the green trail marker.",
+    "wrong_sentence": "Keep your eyes peeled means rub them when they feel itchy.",
     "rarity": 1
   },
   {
@@ -645,6 +787,8 @@
     "nomenclature_reason": "Imagine a door slightly open with a foot inside; it shows a chance to go further.",
     "example": "Her internship gave her a foot in the door at the museum.",
     "remember": "Having a foot in the door means a small chance to get inside.",
+    "correct_sentence": "Helping in the library gave her a foot in the door for the summer job.",
+    "wrong_sentence": "She has a foot in the door because she forgot to close it behind her.",
     "rarity": 1
   },
   {
@@ -654,6 +798,8 @@
     "nomenclature_reason": "A wolf disguises itself as a gentle sheep to trick others.",
     "example": "The smooth salesman turned out to be a wolf in sheep's clothing.",
     "remember": "A wolf in sheep's clothing pretends to be nice but isn't.",
+    "correct_sentence": "The smiling guide turned out to be a wolf in sheep's clothing and kept the map.",
+    "wrong_sentence": "The farm dog wore a costume and looked like a wolf in sheep's clothing at the fair.",
     "rarity": 1
   },
   {
@@ -663,6 +809,8 @@
     "nomenclature_reason": "Picture a pie with many fingers touching it, showing many connections.",
     "example": "She has a finger in every pie at the school, from clubs to sports.",
     "remember": "Having a finger in every pie means being part of many things.",
+    "correct_sentence": "Jonah has a finger in every pie, from choir to the science fair.",
+    "wrong_sentence": "Jonah has a finger in every pie, so his hands get sticky from the filling.",
     "rarity": 1
   },
   {
@@ -672,6 +820,8 @@
     "nomenclature_reason": "A diamond hidden in rough stone needs polishing to shine.",
     "example": "The new student is a diamond in the rough; she just needs a little help.",
     "remember": "A diamond in the rough will shine after a little polishing.",
+    "correct_sentence": "The shy drummer is a diamond in the rough and will shine with practice.",
+    "wrong_sentence": "That rock is a diamond in the rough, already polished and ready to sell.",
     "rarity": 1
   },
   {
@@ -681,6 +831,8 @@
     "nomenclature_reason": "Just as an apple drops close to the tree it grew on, people usually resemble their family.",
     "example": "Sam is great at math, just like his dad; the apple doesn't fall far from the tree.",
     "remember": "Kids grow like apples near their tree.",
+    "correct_sentence": "Lila tells jokes just like her mom; the apple doesn't fall far from the tree.",
+    "wrong_sentence": "The apple doesn't fall far from the tree, so it rolled all the way down the hill.",
     "rarity": 1
   },
   {
@@ -690,6 +842,8 @@
     "nomenclature_reason": "Both the pot and the kettle get black from fire, so it's silly for one to blame the other.",
     "example": "When Lily said Jake was messy, she was the pot calling the kettle black because her room is a mess too.",
     "remember": "Don't blame others for a flaw you share.",
+    "correct_sentence": "Calling him noisy while you shout is the pot calling the kettle black.",
+    "wrong_sentence": "The pot calling the kettle black means the kettle really is a darker color.",
     "rarity": 1
   },
   {
@@ -699,6 +853,8 @@
     "nomenclature_reason": "A wheel that squeaks is noticed and oiled, while quiet wheels are ignored.",
     "example": "Tom reminded the teacher about the broken projector; the squeaky wheel gets the grease.",
     "remember": "Speak up, like a squeaky wheel.",
+    "correct_sentence": "She kept asking for a new net, and the coach replaced it; the squeaky wheel gets the grease.",
+    "wrong_sentence": "The squeaky wheel gets the grease, so quiet people are always helped first.",
     "rarity": 1
   },
   {
@@ -708,6 +864,8 @@
     "nomenclature_reason": "From far away another lawn looks greener, even if it's not really.",
     "example": "Emma thought the new school would be better, but the grass is always greener on the other side.",
     "remember": "Every lawn looks greener from far away.",
+    "correct_sentence": "He thought the other team had all the fun, but the grass is always greener on the other side.",
+    "wrong_sentence": "The grass is always greener on the other side, so that lawn really does grow better.",
     "rarity": 1
   },
   {
@@ -717,6 +875,8 @@
     "nomenclature_reason": "Holding one bird is sure, while chasing two birds in the bushes might lose both.",
     "example": "Jake kept his part-time job instead of looking for a new one; a bird in the hand is worth two in the bush.",
     "remember": "Hold the bird you already have.",
+    "correct_sentence": "Keep the sure part in the play; a bird in the hand is worth two in the bush.",
+    "wrong_sentence": "A bird in the hand is worth two in the bush, so chase every maybe and drop what you have.",
     "rarity": 1
   },
   {
@@ -726,6 +886,8 @@
     "nomenclature_reason": "A stone that rolls never stays still long enough for moss to grow on it.",
     "example": "Mia changes jobs every year; a rolling stone gathers no moss.",
     "remember": "Keep moving, and moss won't stick.",
+    "correct_sentence": "They switch schools every year; a rolling stone gathers no moss.",
+    "wrong_sentence": "A rolling stone gathers no moss, so it picks up more moss the farther it rolls.",
     "rarity": 1
   },
   {
@@ -735,6 +897,8 @@
     "nomenclature_reason": "Seeing a picture can tell a story faster than writing many words.",
     "example": "Instead of describing the map, the teacher showed a picture; a picture is worth a thousand words.",
     "remember": "One picture can tell many stories.",
+    "correct_sentence": "One photo of the habitat said more than the paragraph; a picture is worth a thousand words.",
+    "wrong_sentence": "A picture is worth a thousand words, so we should skip drawings and only write essays.",
     "rarity": 1
   },
   {
@@ -744,6 +908,8 @@
     "nomenclature_reason": "A thumb that looks green from touching plants shows skill with gardening.",
     "example": "Grandma can make any flower grow; she really has a green thumb.",
     "remember": "Your thumb turns plants green.",
+    "correct_sentence": "Every seedling she touches grows; she has a green thumb.",
+    "wrong_sentence": "She has a green thumb because she spilled paint on her hand.",
     "rarity": 1
   },
   {
@@ -753,6 +919,8 @@
     "nomenclature_reason": "A cannon that isn't fixed can roll around and fire at random places.",
     "example": "When Tom talks without thinking, he can be a loose cannon in class.",
     "remember": "A wandering cannon can fire anywhere.",
+    "correct_sentence": "Blurting out the score early makes him a loose cannon.",
+    "wrong_sentence": "A loose cannon on the old ship is a helpful tool that never causes trouble.",
     "rarity": 1
   },
   {
@@ -762,6 +930,8 @@
     "nomenclature_reason": "A big, strong bull would easily smash fragile china if it entered the shop.",
     "example": "Emily rushed through the art studio and knocked over the easels; she was a bull in a china shop.",
     "remember": "Big bull, tiny china-watch out!",
+    "correct_sentence": "He charged through the pottery room like a bull in a china shop.",
+    "wrong_sentence": "A bull in a china shop moves slowly and never bumps a single cup.",
     "rarity": 1
   },
   {
@@ -771,6 +941,8 @@
     "nomenclature_reason": "Owls are birds that hunt and hoot when it's dark.",
     "example": "Sam reads books until midnight; he's a real night owl.",
     "remember": "Like an owl, you love the night.",
+    "correct_sentence": "Kai reads until late and is a real night owl.",
+    "wrong_sentence": "A night owl sleeps as soon as the sun goes down.",
     "rarity": 1
   },
   {
@@ -780,6 +952,8 @@
     "nomenclature_reason": "Cucumbers stay cool and fresh even when it's hot around them.",
     "example": "During the fire drill, Maya stayed as cool as a cucumber.",
     "remember": "Stay fresh like a cucumber.",
+    "correct_sentence": "When the lights went out, Nia stayed as cool as a cucumber.",
+    "wrong_sentence": "The cucumber in the fridge was as cool as a cucumber, which only describes the snack.",
     "rarity": 1
   },
   {
@@ -789,6 +963,8 @@
     "nomenclature_reason": "A well-made fiddle works smoothly and sounds perfect, just like a healthy body.",
     "example": "After his daily runs, Leo feels as fit as a fiddle.",
     "remember": "Your body can play like a perfect fiddle.",
+    "correct_sentence": "After a summer of swimming, Theo feels as fit as a fiddle.",
+    "wrong_sentence": "The fiddle is as fit as a fiddle because the case snaps shut.",
     "rarity": 1
   },
   {
@@ -798,6 +974,8 @@
     "nomenclature_reason": "Mules are known for not moving when asked, even if you pull hard.",
     "example": "Even after many hints, Maya kept her opinion; she's as stubborn as a mule.",
     "remember": "Mules won't budge, and neither do they.",
+    "correct_sentence": "She would not switch seats no matter what; she is as stubborn as a mule.",
+    "wrong_sentence": "As stubborn as a mule means she changes her mind every few minutes.",
     "rarity": 1
   },
   {
@@ -807,6 +985,8 @@
     "nomenclature_reason": "In old stories, a smoked red herring was used to throw hunting dogs off the trail.",
     "example": "The detective realized the mysterious note was just a red herring.",
     "remember": "A smelly fish can lead you the wrong way.",
+    "correct_sentence": "The muddy footprint was a red herring; the real clue was the open window.",
+    "wrong_sentence": "A red herring is the useful clue that leads you straight to the answer.",
     "rarity": 1
   },
   {
@@ -816,6 +996,8 @@
     "nomenclature_reason": "Named after King Pyrrus who won a fight but his army was almost destroyed.",
     "example": "The team won the game, but many players got hurt, making it a Pyrrhic victory.",
     "remember": "Sometimes winning hurts more than losing.",
+    "correct_sentence": "They won the relay, but three runners were hurt, so it was a Pyrrhic victory.",
+    "wrong_sentence": "An easy win with everyone cheering is called a Pyrrhic victory.",
     "rarity": 2
   },
   {
@@ -825,6 +1007,8 @@
     "nomenclature_reason": "Julius Caesar crossed the Rubicon River, starting a war that couldn't be undone.",
     "example": "When she decided to move to another country, she crossed the Rubicon.",
     "remember": "Crossing the Rubicon means you can't go back.",
+    "correct_sentence": "Sending the application yesterday means she crossed the Rubicon.",
+    "wrong_sentence": "She crossed the Rubicon on the class hike and could still turn back anytime.",
     "rarity": 2
   },
   {
@@ -834,6 +1018,8 @@
     "nomenclature_reason": "In myth, Achilles was invincible except for his heel.",
     "example": "The superhero could lift cars, but his Achilles' heel was forgetting passwords.",
     "remember": "Even heroes have a tiny weak spot.",
+    "correct_sentence": "The star speller's Achilles' heel is mixing up i and e.",
+    "wrong_sentence": "An Achilles' heel is the strongest part of a hero.",
     "rarity": 2
   },
   {
@@ -843,6 +1029,8 @@
     "nomenclature_reason": "Pandora opened a box that let out all the world's troubles.",
     "example": "Downloading that unknown app was like opening Pandora's box.",
     "remember": "Opening Pandora's box lets trouble spill out.",
+    "correct_sentence": "Opening that chain letter was like opening Pandora's box of rumors.",
+    "wrong_sentence": "Pandora's box was a neat kit that solved every problem at once.",
     "rarity": 2
   },
   {
@@ -852,6 +1040,8 @@
     "nomenclature_reason": "Damocles sat under a sword hanging by a single thread, showing how fragile safety can be.",
     "example": "The climber felt the Sword of Damocles while hanging on the ledge.",
     "remember": "A sword hanging above you means danger is close.",
+    "correct_sentence": "Waiting to hear if the club would close felt like a Sword of Damocles.",
+    "wrong_sentence": "A Sword of Damocles is a prize sword hanging safely on the wall.",
     "rarity": 2
   },
   {
@@ -861,6 +1051,8 @@
     "nomenclature_reason": "Pearls are precious; swine (pigs) can't understand their value.",
     "example": "He tried to explain the math, but it was like casting pearls before swine.",
     "remember": "Don't give treasures to those who can't see them.",
+    "correct_sentence": "Explaining the poem to kids who only wanted jokes was casting pearls before swine.",
+    "wrong_sentence": "Casting pearls before swine means sharing treasure with people who treasure it.",
     "rarity": 2
   },
   {
@@ -870,6 +1062,8 @@
     "nomenclature_reason": "A lily is beautiful; covering it with gold is overdoing it.",
     "example": "Adding glitter to the already bright drawing was gilding the lily.",
     "remember": "Don't over-decorate what's already beautiful.",
+    "correct_sentence": "Stickers on an already perfect card are just gilding the lily.",
+    "wrong_sentence": "Gilding the lily means the flower needed paint because it looked dull.",
     "rarity": 2
   },
   {
@@ -879,6 +1073,8 @@
     "nomenclature_reason": "Sisyphus rolled a stone up a hill only for it to roll back down forever.",
     "example": "Cleaning the messy room felt like a Sisyphean task.",
     "remember": "A Sisyphean task never really finishes.",
+    "correct_sentence": "Raking leaves in a windstorm felt like a Sisyphean task.",
+    "wrong_sentence": "A Sisyphean task is a short job you finish once and never repeat.",
     "rarity": 2
   },
   {
@@ -888,6 +1084,8 @@
     "nomenclature_reason": "In Greek myth, sailors had to avoid the monster Scylla on one side and the whirlpool Charybdis on the other.",
     "example": "Choosing between lying and telling the truth put him between Scylla and Charybdis.",
     "remember": "Two dangers, pick the lesser one.",
+    "correct_sentence": "Telling the truth or staying silent put him between Scylla and Charybdis.",
+    "wrong_sentence": "Between Scylla and Charybdis means you have one easy, safe choice.",
     "rarity": 2
   },
   {
@@ -897,6 +1095,8 @@
     "nomenclature_reason": "From Don Quixote, who imagined windmills were giants.",
     "example": "She kept trying to prove the rumor, tilting at windmills.",
     "remember": "Don't fight windmills that aren't real.",
+    "correct_sentence": "Arguing with a rumor nobody believed was tilting at windmills.",
+    "wrong_sentence": "Tilting at windmills means fighting a real enemy you can clearly see.",
     "rarity": 2
   },
   {
@@ -906,6 +1106,8 @@
     "nomenclature_reason": "Knights would throw a glove (gauntlet) to invite a duel.",
     "example": "He threw down the gauntlet and asked for a chess match.",
     "remember": "Throwing a gauntlet means saying 'I challenge you'.",
+    "correct_sentence": "She threw down the gauntlet and challenged him to a spelling duel.",
+    "wrong_sentence": "She threw down the gauntlet because the glove was dirty and she was done wearing it.",
     "rarity": 2
   },
   {
@@ -915,6 +1117,8 @@
     "nomenclature_reason": "Opening a can full of wriggly worms creates a messy situation.",
     "example": "Talking about money opened a can of worms at dinner.",
     "remember": "Opening the can makes a mess of problems.",
+    "correct_sentence": "Asking who broke the lamp opened a can of worms at the table.",
+    "wrong_sentence": "He opened a can of worms to feed the fish in the classroom tank.",
     "rarity": 2
   },
   {
@@ -924,6 +1128,8 @@
     "nomenclature_reason": "Moths are attracted to bright flames even though they can get burned.",
     "example": "He kept checking the scary video, like a moth to a flame.",
     "remember": "Moths go to light even if it hurts.",
+    "correct_sentence": "He kept replaying the scary clip like a moth to a flame.",
+    "wrong_sentence": "A moth to a flame flies away from anything bright and risky.",
     "rarity": 2
   },
   {
@@ -933,6 +1139,8 @@
     "nomenclature_reason": "In Alice's story, she fell into a rabbit hole leading to a weird world.",
     "example": "Researching dinosaurs made her go down the rabbit hole of ancient history.",
     "remember": "A rabbit hole leads you deep into something weird.",
+    "correct_sentence": "One video about caves sent her down the rabbit hole of underground rivers.",
+    "wrong_sentence": "She went down the rabbit hole by hopping into a backyard burrow.",
     "rarity": 2
   },
   {
@@ -942,6 +1150,8 @@
     "nomenclature_reason": "A pen (words) can change minds more than a sword (force).",
     "example": "She solved the argument with a letter, proving the pen is mightier than the sword.",
     "remember": "Words can win more than weapons.",
+    "correct_sentence": "A calm letter ended the fight, so the pen is mightier than the sword.",
+    "wrong_sentence": "The pen is mightier than the sword means a sword always wins an argument.",
     "rarity": 2
   },
   {
@@ -951,6 +1161,8 @@
     "nomenclature_reason": "Greeks hid soldiers inside a wooden horse to enter Troy",
     "example": "The email looked friendly but was a Trojan horse containing a virus.",
     "remember": "A gift can hide secret soldiers.",
+    "correct_sentence": "The cute link was a Trojan horse that hid a pop-up storm.",
+    "wrong_sentence": "A Trojan horse is a friendly gift with nothing hidden inside.",
     "rarity": 2
   },
   {
@@ -960,6 +1172,8 @@
     "nomenclature_reason": "Hercules performed twelve impossible labors",
     "example": "Building the new library was a Herculean task for the small town.",
     "remember": "Like Hercules, it needs super strength.",
+    "correct_sentence": "Moving the whole library up the hill was a Herculean task.",
+    "wrong_sentence": "A Herculean task is a quick chore a toddler could finish.",
     "rarity": 2
   },
   {
@@ -969,6 +1183,8 @@
     "nomenclature_reason": "The great city of Rome took many years to become powerful",
     "example": "Learning to play the piano well takes practice; Rome wasn't built in a day.",
     "remember": "Big things need many days.",
+    "correct_sentence": "Learning the violin takes months; Rome wasn't built in a day.",
+    "wrong_sentence": "Rome wasn't built in a day, so famous cities appear overnight.",
     "rarity": 2
   },
   {
@@ -978,6 +1194,8 @@
     "nomenclature_reason": "In the old empire, many roads were built that all ended in Rome",
     "example": "Whether you study math or science, all roads lead to Rome if you want a career in engineering.",
     "remember": "Different paths can end at the same place.",
+    "correct_sentence": "Flash cards or songs can both get you there; all roads lead to Rome.",
+    "wrong_sentence": "All roads lead to Rome, so only one path can reach the goal.",
     "rarity": 2
   },
   {
@@ -987,6 +1205,8 @@
     "nomenclature_reason": "Visitors to Rome were expected to act like locals",
     "example": "He tried the local food because when in Rome, do as the Romans do.",
     "remember": "Copy what the locals are doing.",
+    "correct_sentence": "At the host school we bowed with everyone, because when in Rome, do as the Romans do.",
+    "wrong_sentence": "When in Rome, do as the Romans do means ignore local habits and keep your own.",
     "rarity": 2
   },
   {
@@ -996,6 +1216,8 @@
     "nomenclature_reason": "Ancient Greek was hard for many to understand",
     "example": "The math proof was all Greek to me.",
     "remember": "If it sounds like Greek, it's confusing.",
+    "correct_sentence": "The code on the screen was all Greek to me.",
+    "wrong_sentence": "It's all Greek to me means I understand every word of it.",
     "rarity": 2
   },
   {
@@ -1005,6 +1227,8 @@
     "nomenclature_reason": "Caesar said \"Alea iacta est\" when he crossed the Rubicon, meaning the dice were thrown",
     "example": "After signing the contract, the die is cast.",
     "remember": "Once the dice roll, you can't pick them up.",
+    "correct_sentence": "Once we mailed the form, the die is cast.",
+    "wrong_sentence": "The die is cast means we can still change the decision tomorrow.",
     "rarity": 2
   },
   {
@@ -1014,6 +1238,8 @@
     "nomenclature_reason": "King Midas turned everything he touched into gold",
     "example": "The investor seemed to have the Midas touch, turning small ideas into big profits.",
     "remember": "Touch turns to gold like Midas.",
+    "correct_sentence": "Every lemonade stand she opens earns money; she has the Midas touch.",
+    "wrong_sentence": "The Midas touch means every project she starts loses money.",
     "rarity": 2
   },
   {
@@ -1023,6 +1249,8 @@
     "nomenclature_reason": "In old plays, a game starting was described as being 'afoot', meaning it is moving forward like a footstep.",
     "example": "When the treasure map was found, the game is afoot.",
     "remember": "When adventure starts, the game is afoot!",
+    "correct_sentence": "The map is unfolded, so the game is afoot.",
+    "wrong_sentence": "The game is afoot means the match ended hours ago.",
     "rarity": 2
   },
   {
@@ -1032,6 +1260,8 @@
     "nomenclature_reason": "Long ago people thought a conclusion that is already decided was already 'gone' before it was spoken.",
     "example": "The rain was a foregone conclusion after the dark clouds gathered.",
     "remember": "If you can see the ending already, it's a foregone conclusion.",
+    "correct_sentence": "With that lead, her win was a foregone conclusion.",
+    "wrong_sentence": "A foregone conclusion is a result nobody can predict.",
     "rarity": 2
   },
   {
@@ -1041,6 +1271,8 @@
     "nomenclature_reason": "In old times, a silver spoon was a sign of riches, and being given one at birth showed great wealth.",
     "example": "She never had to work for money because she was born with a silver spoon in her mouth.",
     "remember": "A shiny spoon at birth means a rich start.",
+    "correct_sentence": "He never saves allowance because he was born with a silver spoon in his mouth.",
+    "wrong_sentence": "Born with a silver spoon in his mouth means he grew up with very little money.",
     "rarity": 2
   },
   {
@@ -1050,6 +1282,8 @@
     "nomenclature_reason": "In old stories, people would throw a stone at someone they thought was guilty; the first stone shows who starts the blame.",
     "example": "He shouldn't cast the first stone until he knows the whole story.",
     "remember": "The first stone thrown starts the blame game.",
+    "correct_sentence": "Do not cast the first stone until you have heard her side.",
+    "wrong_sentence": "Cast the first stone means throw the opening rock in a skipping contest.",
     "rarity": 2
   },
   {
@@ -1059,6 +1293,8 @@
     "nomenclature_reason": "People used to make a dummy out of straw to practice fighting; it was easy to knock down, just like a weak argument.",
     "example": "She built a straw man just to prove her point.",
     "remember": "A straw man falls down easily, just like a weak argument.",
+    "correct_sentence": "He argued against an idea nobody had said; that was a straw man.",
+    "wrong_sentence": "A straw man is the strongest, fairest version of the other person's point.",
     "rarity": 2
   },
   {
@@ -1068,6 +1304,8 @@
     "nomenclature_reason": "A fish feels cold to the touch, so calling someone a cold fish means they seem unemotional.",
     "example": "Even after the surprise party, he acted like a cold fish.",
     "remember": "A fish feels cold, so a cold fish feels unemotional.",
+    "correct_sentence": "Even at the party he stayed a cold fish and barely smiled.",
+    "wrong_sentence": "A cold fish is someone who hugs everyone and laughs out loud.",
     "rarity": 2
   },
   {
@@ -1077,6 +1315,8 @@
     "nomenclature_reason": "In old sailor slang, 'scurvy' meant diseased, and a 'dog' was lowly, so together they described a nasty person.",
     "example": "Don't listen to that scurvy dog; he never tells the truth.",
     "remember": "A scurvy dog is a nasty, untrustworthy person.",
+    "correct_sentence": "Do not trust that scurvy dog who keeps changing the score.",
+    "wrong_sentence": "A scurvy dog is a loyal friend who always tells the truth.",
     "rarity": 2
   },
   {
@@ -1086,6 +1326,8 @@
     "nomenclature_reason": "In old markets, a kettle of fish could be messy; calling it 'fine' adds irony to the trouble.",
     "example": "When the lights went out during the play, it became a fine kettle of fish.",
     "remember": "A messy kettle of fish means a tricky situation.",
+    "correct_sentence": "The missing costumes made opening night a fine kettle of fish.",
+    "wrong_sentence": "A fine kettle of fish means everything is calm and easy to fix.",
     "rarity": 2
   },
   {
@@ -1095,6 +1337,8 @@
     "nomenclature_reason": "Long ago hunters would put a bird feather in their hat as a trophy for a successful hunt.",
     "example": "Winning the spelling bee was a feather in her cap.",
     "remember": "A feather in your cap shows something you did well.",
+    "correct_sentence": "Captaining the winning team was a feather in her cap.",
+    "wrong_sentence": "A feather in her cap means a bird dropped a feather on her hat.",
     "rarity": 2
   },
   {
@@ -1104,6 +1348,8 @@
     "nomenclature_reason": "People used to chase geese for sport, but the birds would fly away, making the chase useless.",
     "example": "Looking for the lost key under the couch was a wild-goose chase.",
     "remember": "Chasing a wild goose never catches anything.",
+    "correct_sentence": "Searching the whole park for a key that was in her pocket was a wild-goose chase.",
+    "wrong_sentence": "A wild-goose chase ends quickly because the goose waits in one spot.",
     "rarity": 2
   },
   {
@@ -1113,6 +1359,8 @@
     "nomenclature_reason": "Shakespeare called jealousy a monster that is green, like a jealous creature turning green with envy.",
     "example": "He felt the green-eyed monster when his friend got the new bike.",
     "remember": "Jealousy is the green-eyed monster inside us.",
+    "correct_sentence": "The green-eyed monster showed up when his cousin got the bigger slice.",
+    "wrong_sentence": "The green-eyed monster is a story creature with green eyes, not a feeling.",
     "rarity": 2
   },
   {
@@ -1122,6 +1370,8 @@
     "nomenclature_reason": "In old tournaments, a knight would tie a token of love to his sleeve, showing his feelings for all to see.",
     "example": "She wears her heart on her sleeve and cries easily during movies.",
     "remember": "If your heart is on your sleeve, everyone sees how you feel.",
+    "correct_sentence": "He wears his heart on his sleeve and grins when he is proud.",
+    "wrong_sentence": "Wear your heart on your sleeve means hide every feeling so nobody notices.",
     "rarity": 2
   },
   {
@@ -1131,6 +1381,8 @@
     "nomenclature_reason": "Just as an oyster can hold a pearl, the world can hold wonderful things for those who look inside.",
     "example": "After graduation, the world is your oyster.",
     "remember": "A big world like an oyster can give you many pearls.",
+    "correct_sentence": "With that scholarship, the world is your oyster.",
+    "wrong_sentence": "The world is your oyster means you have almost no choices left.",
     "rarity": 2
   },
   {
@@ -1140,6 +1392,8 @@
     "nomenclature_reason": "Long ago, the pupil of the eye was called the 'apple' because it looked like a small round fruit; something precious to protect.",
     "example": "His little sister is the apple of his eye.",
     "remember": "The apple in your eye is something you love most.",
+    "correct_sentence": "His little cousin is the apple of his eye.",
+    "wrong_sentence": "The apple of his eye is the fruit he likes best at lunch.",
     "rarity": 2
   },
   {
@@ -1149,6 +1403,8 @@
     "nomenclature_reason": "A dog might lie in a manger (where hay is stored) and stop cows from eating, even though the dog doesn't eat hay.",
     "example": "He keeps the video games locked away even though he never plays them-he's a dog in the manger.",
     "remember": "A dog in the manger blocks others, even if it doesn't need it.",
+    "correct_sentence": "She will not lend the paints she never uses; she is a dog in the manger.",
+    "wrong_sentence": "A dog in the manger shares the hay it does not need.",
     "rarity": 2
   },
   {
@@ -1158,6 +1414,8 @@
     "nomenclature_reason": "The phrase comes from the idea of being stuck in a brine jar, which would be uncomfortable.",
     "example": "I forgot my homework, and now I'm in a pickle.",
     "remember": "If you're stuck like a cucumber in brine, you're in a pickle!",
+    "correct_sentence": "I lost both shoes and now I am in a pickle.",
+    "wrong_sentence": "In a pickle means you are relaxing with nothing to worry about.",
     "rarity": 2
   },
   {
@@ -1167,6 +1425,8 @@
     "nomenclature_reason": "A \"ringer\" was a term for a duplicate, and \"dead\" means exact.",
     "example": "She is a dead ringer for her aunt.",
     "remember": "If you see a twin, it's a dead ringer!",
+    "correct_sentence": "In that coat he is a dead ringer for his older brother.",
+    "wrong_sentence": "A dead ringer is a broken doorbell that will not chime.",
     "rarity": 2
   },
   {
@@ -1176,6 +1436,8 @@
     "nomenclature_reason": "In an old play a cat's paw was a paw used by a cat to fetch things for it.",
     "example": "The bully made him a cat's paw to deliver the note.",
     "remember": "If you're the cat's paw, you're doing the cat's dirty work.",
+    "correct_sentence": "The older kids used him as a cat's paw to sneak the note into class.",
+    "wrong_sentence": "A cat's paw is the soft paw of a kitten that does the work itself.",
     "rarity": 2
   },
   {
@@ -1185,6 +1447,8 @@
     "nomenclature_reason": "Shakespeare used the phrase to describe a horse that was not the one being talked about.",
     "example": "Finding a bike is a horse of a different colour when we wanted a car.",
     "remember": "A different colour horse means a different kind of thing.",
+    "correct_sentence": "Wanting a canoe when we planned a hike is a horse of a different colour.",
+    "wrong_sentence": "A horse of a different colour is the same plan with a new name.",
     "rarity": 2
   },
   {
@@ -1194,6 +1458,8 @@
     "nomenclature_reason": "Imagining a huge storm inside a tiny teacup shows how exaggerated the worry is.",
     "example": "The argument over the missing crayon was just a storm in a teacup.",
     "remember": "A tiny teacup can't hold a real storm!",
+    "correct_sentence": "Arguing for an hour over one marble was a storm in a teacup.",
+    "wrong_sentence": "A storm in a teacup is a huge storm that floods the whole town.",
     "rarity": 2
   },
   {
@@ -1203,6 +1469,8 @@
     "nomenclature_reason": "In royal courts a rare white elephant was costly to keep and hard to use.",
     "example": "The old computer became a white elephant because it broke all the time.",
     "remember": "A white elephant looks fancy but needs too much care.",
+    "correct_sentence": "The giant aquarium was a white elephant we could not afford to keep.",
+    "wrong_sentence": "A white elephant is a rare pet that is easy to care for and very useful.",
     "rarity": 2
   },
   {
@@ -1212,6 +1480,8 @@
     "nomenclature_reason": "A doornail was hammered in so tightly it couldn't move, like being dead.",
     "example": "The battery is dead as a doornail.",
     "remember": "If it's as still as a nailed door, it's dead as a doornail.",
+    "correct_sentence": "The flashlight is dead as a doornail and will not turn on.",
+    "wrong_sentence": "Dead as a doornail means the battery is only a little low.",
     "rarity": 2
   },
   {
@@ -1221,6 +1491,8 @@
     "nomenclature_reason": "Sending a fool on a useless mission is a waste of effort.",
     "example": "Looking for a unicorn in the backyard is a fool's errand.",
     "remember": "A fool's errand is a wild goose chase without the goose!",
+    "correct_sentence": "Hunting for a dragon in the schoolyard is a fool's errand.",
+    "wrong_sentence": "A fool's errand is a task that is sure to succeed.",
     "rarity": 2
   },
   {
@@ -1230,6 +1502,8 @@
     "nomenclature_reason": "From Shakespeare's play where a lady repeatedly says she doesn't love.",
     "example": "He kept saying he didn't take the cookie, but the lady doth protest too much.",
     "remember": "If you say \"no\" too many times, the lady doth protest too much.",
+    "correct_sentence": "He denied it ten times; the lady doth protest too much.",
+    "wrong_sentence": "The lady doth protest too much means a short, calm no is suspicious.",
     "rarity": 2
   },
   {
@@ -1239,6 +1513,8 @@
     "nomenclature_reason": "Swans were once believed to sing a beautiful song just before they die.",
     "example": "The actor's last movie was his swan song.",
     "remember": "A swan's last song is its swan song.",
+    "correct_sentence": "The coach's last game before retirement was her swan song.",
+    "wrong_sentence": "A swan song is the first performance of a long career.",
     "rarity": 2
   },
   {
@@ -1248,6 +1524,8 @@
     "nomenclature_reason": "From the story of a boy who shouted \"wolf\" when none came.",
     "example": "He kept saying the fire alarm was broken, and when it really rang, nobody believed him.",
     "remember": "If you keep shouting \"wolf\", people stop listening.",
+    "correct_sentence": "If you cry wolf about fake fires, nobody will come when one is real.",
+    "wrong_sentence": "Cry wolf means shout for help only when there is a real emergency.",
     "rarity": 2
   },
   {
@@ -1257,6 +1535,8 @@
     "nomenclature_reason": "\"Bated\" is short for \"abated\", meaning held back.",
     "example": "She waited with bated breath for the results.",
     "remember": "Hold your breath tight when you're excited!",
+    "correct_sentence": "We waited with bated breath for the curtain to rise.",
+    "wrong_sentence": "With bated breath means you are bored and barely paying attention.",
     "rarity": 2
   },
   {
@@ -1266,6 +1546,8 @@
     "nomenclature_reason": "From the fairy tale where a goose laid golden eggs.",
     "example": "The garden became a golden goose, giving fresh veggies every day.",
     "remember": "A goose that lays gold makes a golden goose.",
+    "correct_sentence": "The weekly comic booth became a golden goose for the club.",
+    "wrong_sentence": "A golden goose is a bird that lays one egg and then stops forever.",
     "rarity": 2
   },
   {
@@ -1275,6 +1557,8 @@
     "nomenclature_reason": "A thorn stuck in your side would keep hurting you.",
     "example": "The noisy neighbor was a thorn in his side.",
     "remember": "A thorn that pokes you is a thorn in the side.",
+    "correct_sentence": "The dripping faucet was a thorn in his side all semester.",
+    "wrong_sentence": "A thorn in his side is a small sticker he peeled off and forgot.",
     "rarity": 2
   },
   {
@@ -1284,6 +1568,8 @@
     "nomenclature_reason": "A skeleton hidden in a closet would be a shocking surprise.",
     "example": "The politician had a skeleton in the closet that the reporters discovered.",
     "remember": "A hidden skeleton is a skeleton in the closet.",
+    "correct_sentence": "The old prank photo was a skeleton in the closet he hoped stayed hidden.",
+    "wrong_sentence": "A skeleton in the closet is a Halloween decoration stored with the coats.",
     "rarity": 2
   },
   {
@@ -1293,6 +1579,8 @@
     "nomenclature_reason": "Jesus said if someone hits you, turn the other cheek so they have nowhere to hit you, showing kindness.",
     "example": "When Tom was teased, he turned the other cheek and smiled instead of arguing.",
     "remember": "If you turn the other cheek, you choose peace over a fight.",
+    "correct_sentence": "When he was teased, he turned the other cheek and walked away.",
+    "wrong_sentence": "Turn the other cheek means turn your face so you can shout back louder.",
     "rarity": 2
   },
   {
@@ -1302,6 +1590,8 @@
     "nomenclature_reason": "From a Bible story where a Samaritan helped a hurt traveler while others ignored him.",
     "example": "Maya stopped to help the lost puppy; she was a Good Samaritan.",
     "remember": "A Good Samaritan is a kind helper you meet on the road.",
+    "correct_sentence": "The stranger who returned the wallet was a Good Samaritan.",
+    "wrong_sentence": "A Good Samaritan is someone who walks past a person who needs help.",
     "rarity": 2
   },
   {
@@ -1311,6 +1601,8 @@
     "nomenclature_reason": "Jesus warned that a blind person cannot lead another blind person without both stumbling.",
     "example": "The new student tried to teach the class, but it was a blind leading the blind situation.",
     "remember": "When the blind lead the blind, everyone trips.",
+    "correct_sentence": "Two beginners teaching each other the map was the blind leading the blind.",
+    "wrong_sentence": "The blind leading the blind means an expert is guiding a beginner.",
     "rarity": 2
   },
   {
@@ -1320,6 +1612,8 @@
     "nomenclature_reason": "Daniel was thrown into a den of hungry lions but survived; the den is scary.",
     "example": "Going into the dark forest alone felt like entering a lion's den.",
     "remember": "A lion's den is a place where danger roars.",
+    "correct_sentence": "Walking into the principal's office after the prank felt like a lion's den.",
+    "wrong_sentence": "A lion's den is a cozy corner where nothing risky ever happens.",
     "rarity": 2
   },
   {
@@ -1329,6 +1623,8 @@
     "nomenclature_reason": "A parable about a son who spent his inheritance and came back asking for forgiveness.",
     "example": "After spending all his allowance, Jake felt like the prodigal son when he asked his parents for help.",
     "remember": "The prodigal son learns that home is where love waits.",
+    "correct_sentence": "After wasting his savings, he came home humble as the prodigal son.",
+    "wrong_sentence": "A prodigal son is a child who never leaves home and never spends a cent.",
     "rarity": 2
   },
   {
@@ -1338,6 +1634,8 @@
     "nomenclature_reason": "Medieval knights wore bright armor and rode to save people in need.",
     "example": "When Lily fell, her friend acted like a knight in shining armor and helped her up.",
     "remember": "A knight in shining armor rides in to save the day.",
+    "correct_sentence": "When her bike chain jammed, her friend was a knight in shining armor.",
+    "wrong_sentence": "A knight in shining armor is someone who causes the trouble.",
     "rarity": 2
   },
   {
@@ -1347,6 +1645,8 @@
     "nomenclature_reason": "Building a castle high in the sky is impossible, so the phrase means dreaming too big.",
     "example": "Sam wanted to own a dragon and a flying carpet-just castles in the air.",
     "remember": "Castles in the air are beautiful dreams that can't be built.",
+    "correct_sentence": "A plan to live on the moon next week is castles in the air.",
+    "wrong_sentence": "Castles in the air are solid plans you can start building today.",
     "rarity": 2
   },
   {
@@ -1356,6 +1656,8 @@
     "nomenclature_reason": "Clergy wear special cloth (robes) for their work, so they are called \"men of the cloth.\"",
     "example": "Father Thomas is a man of the cloth who leads the Sunday service.",
     "remember": "A man of the cloth wears special robes and helps people pray.",
+    "correct_sentence": "Father Ellis, a man of the cloth, led the holiday service.",
+    "wrong_sentence": "A man of the cloth sews costumes and is not a clergy member.",
     "rarity": 2
   },
   {
@@ -1365,6 +1667,8 @@
     "nomenclature_reason": "Knights wore white armor to show purity and bravery, so a \"white knight\" is a brave rescuer.",
     "example": "When the bully tried to take her book, a classmate acted as a white knight and stopped him.",
     "remember": "A white knight rides in shining white to protect friends.",
+    "correct_sentence": "When the books spilled, a classmate played white knight and helped her up.",
+    "wrong_sentence": "A white knight is the person who starts the mess and walks away.",
     "rarity": 2
   },
   {
@@ -1374,6 +1678,8 @@
     "nomenclature_reason": "In the legends, the Holy Grail was a sacred cup that knights sought; it represents the ultimate prize.",
     "example": "Finding a quiet place to read is the holy grail for busy kids.",
     "remember": "The holy grail is the most treasured thing you can imagine.",
+    "correct_sentence": "A quiet reading nook is the holy grail for a busy family.",
+    "wrong_sentence": "A holy grail is an ordinary cup nobody particularly wants.",
     "rarity": 2
   },
   {
@@ -1383,6 +1689,8 @@
     "nomenclature_reason": "In medieval times, the lord owned the manor and made decisions for everyone living there.",
     "example": "In the story, the old oak tree was the lord of the manor of the forest.",
     "remember": "The lord of the manor is the boss of the big house.",
+    "correct_sentence": "In the story the oak is the lord of the manor of the whole grove.",
+    "wrong_sentence": "The lord of the manor is a guest who does not own the house.",
     "rarity": 2
   },
   {
@@ -1392,6 +1700,8 @@
     "nomenclature_reason": "In a myth, planting dragon's teeth grew into armed warriors, so \"sowing the dragon's teeth\" means starting trouble.",
     "example": "Posting a mean comment online can sow the dragon's teeth and cause a big argument.",
     "remember": "When you sow dragon's teeth, you plant trouble that grows fast.",
+    "correct_sentence": "That rude post can sow the dragon's teeth and start a huge fight.",
+    "wrong_sentence": "Sow the dragon's teeth means plant a garden that grows only peace.",
     "rarity": 2
   },
   {
@@ -1401,6 +1711,8 @@
     "nomenclature_reason": "Judas kissed Jesus to show loyalty while planning to betray him.",
     "example": "The new friend gave a Judas kiss when he promised to keep the secret but told the teacher.",
     "remember": "A Judas kiss looks kind but hides a backstab.",
+    "correct_sentence": "The handshake was a Judas kiss; he had already told the secret.",
+    "wrong_sentence": "A Judas kiss is a kind gesture that proves someone is loyal.",
     "rarity": 2
   },
   {
@@ -1410,6 +1722,8 @@
     "nomenclature_reason": "In old times, a king could demand a huge sum to free a captive; that sum became known as a king's ransom.",
     "example": "The rare comic book sold for a king's ransom at the auction.",
     "remember": "A king's ransom is a treasure worth a king's gold.",
+    "correct_sentence": "The signed card sold for a king's ransom.",
+    "wrong_sentence": "A king's ransom is a few coins, barely enough for a snack.",
     "rarity": 2
   },
   {
@@ -1419,6 +1733,8 @@
     "nomenclature_reason": "In a flock, a sheep with dark wool stands out; calling someone a black sheep means they stand out in a not-so-good way.",
     "example": "Tim felt like the black sheep because he liked painting instead of sports.",
     "remember": "A black sheep is the family member who looks different from the rest.",
+    "correct_sentence": "She felt like the black sheep because she loved chess, not soccer.",
+    "wrong_sentence": "The black sheep is the family member everyone copies and praises.",
     "rarity": 2
   },
   {
@@ -1428,6 +1744,8 @@
     "nomenclature_reason": "Ships used to be 'abaft' the wind; being taken aback meant the wind hit the front, stopping the ship suddenly, just like a surprise stops you.",
     "example": "She was taken aback when the magician made the rabbit disappear.",
     "remember": "Imagine a ship that stops suddenly because the wind hits it - that feeling is being taken aback.",
+    "correct_sentence": "I was taken aback when the quiet kid won the loudest cheer.",
+    "wrong_sentence": "Taken aback means you expected exactly what happened.",
     "rarity": 2
   },
   {
@@ -1437,6 +1755,8 @@
     "nomenclature_reason": "The doldrils are calm parts of the sea where there is no wind, so ships drift without moving, just like a person who feels stuck.",
     "example": "He felt in the doldrums after finishing his big project.",
     "remember": "Think of a boat stuck in a wind-less sea - that's being in the doldrums.",
+    "correct_sentence": "After the festival he sat in the doldrums with nothing fun left to do.",
+    "wrong_sentence": "In the doldrums means you are bursting with energy and excitement.",
     "rarity": 2
   },
   {
@@ -1446,6 +1766,8 @@
     "nomenclature_reason": "Sailors would secure the ship's hatches with battens to keep out stormy water, just like we get ready for trouble.",
     "example": "We need to batten down the hatches before the big exam tomorrow.",
     "remember": "When a storm comes, sailors close the hatches - that's getting ready for a challenge.",
+    "correct_sentence": "We should batten down the hatches before the big recital.",
+    "wrong_sentence": "Batten down the hatches means relax because no trouble is coming.",
     "rarity": 2
   },
   {
@@ -1455,6 +1777,8 @@
     "nomenclature_reason": "A well-run ship had tight ropes and clear commands, so everything worked smoothly.",
     "example": "The teacher runs a tight ship in her classroom.",
     "remember": "A ship with tight ropes stays steady - that's what running a tight ship means.",
+    "correct_sentence": "Coach Diaz runs a tight ship and every cone is back in the bin.",
+    "wrong_sentence": "Run a tight ship means let everyone do whatever they want.",
     "rarity": 2
   },
   {
@@ -1464,6 +1788,8 @@
     "nomenclature_reason": "Ships lifted (weighed) their heavy anchors to set sail, just like we lift a weight to start moving.",
     "example": "After the holidays, the students will weigh anchor and start the new term.",
     "remember": "When a ship lifts its anchor, it can go - that's weighing anchor.",
+    "correct_sentence": "Monday we weigh anchor and start the new science unit.",
+    "wrong_sentence": "Weigh anchor means stop a journey before it begins.",
     "rarity": 2
   },
   {
@@ -1473,6 +1799,8 @@
     "nomenclature_reason": "In old courts, a person who acted like their own judge was said to be a 'law unto themselves'.",
     "example": "He rides his bike wherever he likes; he's a law unto himself.",
     "remember": "Imagine a person writing their own rules - that's a law unto oneself.",
+    "correct_sentence": "He parks his bike anywhere; he is a law unto himself.",
+    "wrong_sentence": "A law unto himself follows every rule without being asked.",
     "rarity": 2
   },
   {
@@ -1482,6 +1810,8 @@
     "nomenclature_reason": "Eagles soar high and see far, just like a sharp lawyer sees all the details of a case.",
     "example": "She became a legal eagle after years of studying law.",
     "remember": "Think of an eagle flying high and spotting everything - that's a legal eagle.",
+    "correct_sentence": "After years of mock trials she became a legal eagle.",
+    "wrong_sentence": "A legal eagle is someone who knows almost nothing about the law.",
     "rarity": 2
   },
   {
@@ -1491,6 +1821,8 @@
     "nomenclature_reason": "In old debates, a 'moot' was a mock case for practice; if it was just for show, it was a moot point.",
     "example": "Whether we wear hats is a moot point now that school is over.",
     "remember": "A moot point is like a practice case - it doesn't affect the real outcome.",
+    "correct_sentence": "Who sits where is a moot point now that the trip is canceled.",
+    "wrong_sentence": "A moot point is the most important question we still must decide.",
     "rarity": 2
   },
   {
@@ -1500,6 +1832,8 @@
     "nomenclature_reason": "Lawyers point to a specific case to illustrate a rule, so the example becomes the 'case in point'.",
     "example": "She loves reading; a case in point is her favorite book club.",
     "remember": "When a lawyer shows a case to prove a rule, that case is the case in point.",
+    "correct_sentence": "She loves bugs; a case in point is the ant farm on her desk.",
+    "wrong_sentence": "A case in point is an example that has nothing to do with the topic.",
     "rarity": 2
   },
   {
@@ -1509,6 +1843,8 @@
     "nomenclature_reason": "In old guilds, a 'jack' was a worker who tried many crafts but never mastered one.",
     "example": "Tom can fix toys, bake cakes, and paint walls, but he's a jack of all trades, master of none.",
     "remember": "Picture a worker trying many jobs but not becoming a master of any - that's the meaning.",
+    "correct_sentence": "He can bake, draw, and fix bikes, but he is a jack of all trades, master of none.",
+    "wrong_sentence": "A jack of all trades, master of none is an expert at one single skill.",
     "rarity": 2
   },
   {
@@ -1518,6 +1854,8 @@
     "nomenclature_reason": "In ancient rituals, a goat was sent into the desert carrying the community's sins, becoming the scapegoat.",
     "example": "When the project failed, the intern became the scapegoat.",
     "remember": "Think of a goat carrying away all the blame - that's a scapegoat.",
+    "correct_sentence": "When the display fell, the newest member became the scapegoat.",
+    "wrong_sentence": "A scapegoat is the person who truly caused the problem and admits it.",
     "rarity": 2
   },
   {
@@ -1527,6 +1865,8 @@
     "nomenclature_reason": "In old street slang, the 'guy' who fell was the one caught and blamed.",
     "example": "The manager made the assistant the fall guy for the missing files.",
     "remember": "Imagine someone tripping and getting blamed - that person is the fall guy.",
+    "correct_sentence": "They made the quiet kid the fall guy for the missing markers.",
+    "wrong_sentence": "A fall guy is the hero who takes credit for a success.",
     "rarity": 2
   },
   {
@@ -1536,6 +1876,8 @@
     "nomenclature_reason": "In old markets, pickpockets used a small 'cut' (knife) to open purses quickly.",
     "example": "The bustling fair attracted many cutpurses looking for easy loot.",
     "remember": "Think of a sneaky person cutting open a purse - that's a cutpurse.",
+    "correct_sentence": "The crowded fair was full of cutpurses watching open backpacks.",
+    "wrong_sentence": "A cutpurse is a person who sews purses and returns lost wallets.",
     "rarity": 2
   },
   {
@@ -1545,6 +1887,8 @@
     "nomenclature_reason": "Sailors watched the tide rise or fall; when it turned, the ship's direction changed.",
     "example": "Her kind words turned the tide of his bad mood.",
     "remember": "When the ocean tide flips, the water moves differently - that's turning the tide.",
+    "correct_sentence": "One kind joke turned the tide and the argument cooled off.",
+    "wrong_sentence": "Turn the tide means keep a bad situation exactly the same.",
     "rarity": 2
   },
   {
@@ -1554,6 +1898,8 @@
     "nomenclature_reason": "Pirates would raise a friendly flag (false colors) to get close before attacking.",
     "example": "The salesman tried to sail under false colors by claiming the toy was brand new.",
     "remember": "Picture a ship waving a friendly flag while hiding its true intent - that's sailing under false colors.",
+    "correct_sentence": "He tried to sail under false colors by pretending the used bike was new.",
+    "wrong_sentence": "Sail under false colors means show everyone exactly who you are.",
     "rarity": 2
   },
   {
@@ -1563,6 +1909,8 @@
     "nomenclature_reason": "Snakes hide in grass and can bite you when you least expect it, just like a secret betrayer.",
     "example": "She thought her friend was nice, but he turned out to be a snake in the grass.",
     "remember": "Remember the sneaky snake hiding in the grass when someone pretends to be friendly.",
+    "correct_sentence": "The smiling teammate was a snake in the grass who copied her notes.",
+    "wrong_sentence": "A snake in the grass is a friend who warns you about hidden trouble.",
     "rarity": 2
   },
   {
@@ -1572,6 +1920,8 @@
     "nomenclature_reason": "A lion is the strongest animal in the jungle, so it would take the biggest piece of a meal.",
     "example": "When the cookies were divided, Tom got the lion's share because he helped bake them.",
     "remember": "Think of a lion taking the biggest bite of a big steak.",
+    "correct_sentence": "Because she built the set, she got the lion's share of the applause.",
+    "wrong_sentence": "The lion's share is the smallest piece left after everyone else picks.",
     "rarity": 2
   },
   {
@@ -1581,6 +1931,8 @@
     "nomenclature_reason": "A lamb is gentle, and slaughter is a sudden end, so the picture means someone harmless is led into trouble.",
     "example": "The new student was a lamb to the slaughter when he walked into the surprise prank.",
     "remember": "A quiet lamb should not be led into a scary place.",
+    "correct_sentence": "Walking into the surprise roast, he was a lamb to the slaughter.",
+    "wrong_sentence": "A lamb to the slaughter knows the danger and comes prepared.",
     "rarity": 2
   },
   {
@@ -1590,6 +1942,8 @@
     "nomenclature_reason": "Long ago, merchants would sell a closed bag (a 'poke') that might contain a pig or something worthless.",
     "example": "He bought the game without reading reviews and got a pig in a poke.",
     "remember": "Imagine opening a bag expecting a toy but finding a pig instead.",
+    "correct_sentence": "Buying the sealed box of games was a pig in a poke.",
+    "wrong_sentence": "A pig in a poke is a gift you inspected carefully before accepting.",
     "rarity": 2
   },
   {
@@ -1599,6 +1953,8 @@
     "nomenclature_reason": "Hares are quick and jumpy, and a plan that jumps around without thinking is called harebrained.",
     "example": "Building a treehouse without nails was a harebrained scheme.",
     "remember": "Think of a hare bouncing around with a wild idea.",
+    "correct_sentence": "Building a raft from cardboard was a harebrained scheme.",
+    "wrong_sentence": "A harebrained scheme is a careful plan that is sure to work.",
     "rarity": 2
   },
   {
@@ -1608,6 +1964,8 @@
     "nomenclature_reason": "Chickens are known to run away when they sense danger, just like a person who backs out of a challenge.",
     "example": "He wanted to jump off the high dive, but he chickened out at the last second.",
     "remember": "Remember a chicken running away when it's scared.",
+    "correct_sentence": "He reached the high dive and then chickened out.",
+    "wrong_sentence": "Chicken out means you feel brave and jump right away.",
     "rarity": 2
   },
   {
@@ -1617,6 +1975,8 @@
     "nomenclature_reason": "For centuries people thought all swans were white; a black swan was thought impossible until one was seen.",
     "example": "The sudden storm was a black swan that ruined the picnic.",
     "remember": "Picture a surprising black swan swimming where only white swans were expected.",
+    "correct_sentence": "The surprise snow day was a black swan nobody had planned for.",
+    "wrong_sentence": "A black swan is an ordinary event everyone saw coming.",
     "rarity": 2
   },
   {
@@ -1626,6 +1986,8 @@
     "nomenclature_reason": "Alexander the Great sliced the legendary knot instead of untying it, showing a clever shortcut.",
     "example": "When the computer crashed, Jamie cut the Gordian knot by reinstalling the whole system.",
     "remember": "When a puzzle looks impossible, think of a sharp cut like Alexander.",
+    "correct_sentence": "She cut the Gordian knot by starting the story over instead of patching every plot hole.",
+    "wrong_sentence": "Cut the Gordian knot means spend weeks on every tiny tangle.",
     "rarity": 3
   },
   {
@@ -1635,6 +1997,8 @@
     "nomenclature_reason": "Ancient traders prized pearls like treasure from the sea, calling them priceless.",
     "example": "Grandma's old recipe book is a pearl of great price to the family.",
     "remember": "Think of a shining pearl you would never trade away.",
+    "correct_sentence": "That handwritten songbook is a pearl of great price in our family.",
+    "wrong_sentence": "A pearl of great price is a cheap bead nobody wants to keep.",
     "rarity": 3
   },
   {
@@ -1644,6 +2008,8 @@
     "nomenclature_reason": "Cassandra, a prophetess in Greek myth, told the truth but nobody believed her.",
     "example": "When Lily warned about the storm, she felt she had a Cassandra complex when no one listened.",
     "remember": "Cassandra's warnings fell on deaf ears.",
+    "correct_sentence": "She warned them about the loose step and felt she had a Cassandra complex when they laughed.",
+    "wrong_sentence": "A Cassandra complex means everyone listens the moment you warn them.",
     "rarity": 3
   },
   {
@@ -1653,6 +2019,8 @@
     "nomenclature_reason": "Spartans were famous for their tough training and plain lives, never indulging in luxuries.",
     "example": "During the science fair prep, the team had to maintain Spartan discipline to finish on time.",
     "remember": "Think of a soldier who never relaxes - that's Spartan discipline.",
+    "correct_sentence": "To finish the fair booth they had to maintain Spartan discipline and skip extra snacks.",
+    "wrong_sentence": "Maintain Spartan discipline means relax the rules whenever you feel like it.",
     "rarity": 3
   },
   {
@@ -1662,6 +2030,8 @@
     "nomenclature_reason": "Sailors believed the sea god Davy Jones kept drowned souls in his underwater chest.",
     "example": "The old pirate ship vanished and was said to be in Davy Jones' locker.",
     "remember": "If something sinks deep, it's in Davy Jones' hidden chest.",
+    "correct_sentence": "The toy boat drifted off and was lost in Davy Jones' locker.",
+    "wrong_sentence": "In Davy Jones' locker means the ship is safe in the harbor.",
     "rarity": 3
   },
   {
@@ -1671,6 +2041,8 @@
     "nomenclature_reason": "The legendary knot was so tangled that only a bold cut could free it.",
     "example": "When the math puzzle got too tricky, Sam felt he had to face a Gordian knot.",
     "remember": "A knot so tangled you might need a clever cut.",
+    "correct_sentence": "The tangled schedule made him face a Gordian knot.",
+    "wrong_sentence": "Face a Gordian knot means the problem is simple and already solved.",
     "rarity": 3
   },
   {
@@ -1680,6 +2052,8 @@
     "nomenclature_reason": "Roman legions were famous for standing their ground without wavering.",
     "example": "During the debate, Maya held the line like a Roman legion and didn't back down.",
     "remember": "Think of brave soldiers who never move.",
+    "correct_sentence": "In the debate she held the line like a Roman legion and would not give up her point.",
+    "wrong_sentence": "Hold the line like a Roman legion means retreat as soon as questions start.",
     "rarity": 3
   },
   {
@@ -1689,6 +2063,8 @@
     "nomenclature_reason": "Hyacinth was a beautiful youth whose life ended quickly, and his memory lived on in a flower.",
     "example": "The sunset was so gorgeous that it felt like drinking from the cup of Hyacinth.",
     "remember": "A beautiful sip that disappears fast.",
+    "correct_sentence": "The firefly minute felt like drinking from the cup of Hyacinth.",
+    "wrong_sentence": "Drink from the cup of Hyacinth means enjoy a moment that lasts forever.",
     "rarity": 3
   },
   {
@@ -1698,6 +2074,8 @@
     "nomenclature_reason": "Roman soldiers marched in perfect rhythm to the drum, never missing a step.",
     "example": "Every morning, Lily marched to the beat of a Roman drum, brushing her teeth and packing her bag.",
     "remember": "Imagine soldiers moving together on a drum's rhythm.",
+    "correct_sentence": "Every morning he marches to the beat of a Roman drum: wash, pack, then out the door.",
+    "wrong_sentence": "March to the beat of a Roman drum means ignore routines and wander all day.",
     "rarity": 3
   },
   {
@@ -1707,6 +2085,8 @@
     "nomenclature_reason": "In Shakespeare an oyster can hold a pearl; the world is like a big oyster that can give you treasure.",
     "example": "When Lily got the scholarship, she said the world is my oyster.",
     "remember": "Think of a shiny pearl inside a huge oyster waiting just for you.",
+    "correct_sentence": "After the award she said the world is my oyster.",
+    "wrong_sentence": "The world is my oyster means almost every door is closed.",
     "rarity": 3
   },
   {
@@ -1716,6 +2096,8 @@
     "nomenclature_reason": "The phrase mixes a rooster (cock) and a bull, two unlikely animals trying to tell a story together.",
     "example": "Tom's excuse for being late was just a cock and bull story.",
     "remember": "Imagine a rooster and a bull trying to tell a tale - it must be a tall one!",
+    "correct_sentence": "His story about a dragon eating his homework was a cock and bull story.",
+    "wrong_sentence": "A cock and bull story is a report everyone knows is true.",
     "rarity": 3
   },
   {
@@ -1725,6 +2107,8 @@
     "nomenclature_reason": "A tempest is a huge storm, but here it is imagined inside a tiny teapot, showing the exaggeration.",
     "example": "She made a tempest in a teapot about the missing cookie.",
     "remember": "Picture a massive storm brewing inside a tiny teacup.",
+    "correct_sentence": "She made a tempest in a teapot over one crooked nametag.",
+    "wrong_sentence": "A tempest in a teapot is a huge disaster that hurts the whole town.",
     "rarity": 3
   },
   {
@@ -1734,6 +2118,8 @@
     "nomenclature_reason": "Cats scare pigeons; putting a cat among them makes a noisy mess.",
     "example": "When Jake shouted, he was a cat among the pigeons in the quiet library.",
     "remember": "Think of a sneaky cat making the pigeons flutter.",
+    "correct_sentence": "Yelling the score in the quiet room made him a cat among the pigeons.",
+    "wrong_sentence": "A cat among the pigeons keeps a calm room even calmer.",
     "rarity": 3
   },
   {
@@ -1742,7 +2128,9 @@
     "meaning": "To argue the opposite side just to test ideas.",
     "nomenclature_reason": "The devil is known for challenging good people; playing his role means questioning everything.",
     "example": "Even though she liked the plan, Maya decided to play devil's advocate.",
-    "remember": "Pretend you're the devil asking, \"what if\u2026?\"",
+    "remember": "Pretend you're the devil asking, \"what if…?\"",
+    "correct_sentence": "She liked the idea but played devil's advocate to test it.",
+    "wrong_sentence": "Play devil's advocate means agree with every point and never question it.",
     "rarity": 3
   },
   {
@@ -1752,6 +2140,8 @@
     "nomenclature_reason": "A fool goes on a task that leads nowhere, like chasing shadows.",
     "example": "Looking for a unicorn in the backyard was a fool's errand.",
     "remember": "Picture a silly person chasing something that isn't there.",
+    "correct_sentence": "Searching the attic for a unicorn was going on a fool's errand.",
+    "wrong_sentence": "Go on a fool's errand means take on a job that is sure to pay off.",
     "rarity": 3
   },
   {
@@ -1761,6 +2151,8 @@
     "nomenclature_reason": "A cock (rooster) struts proudly as if the whole street belongs to him.",
     "example": "After winning the race, he strutted like the cock of the walk.",
     "remember": "Imagine a proud rooster marching down the street.",
+    "correct_sentence": "After one goal he strutted like the cock of the walk.",
+    "wrong_sentence": "The cock of the walk is the quiet player who never boasts.",
     "rarity": 3
   },
   {
@@ -1770,6 +2162,8 @@
     "nomenclature_reason": "A fox in a henhouse will eat the chickens, causing chaos.",
     "example": "The new kid was a fox in the henhouse, stealing snacks.",
     "remember": "Imagine a clever fox sneaking into a chicken coop.",
+    "correct_sentence": "Leaving him alone with the snack bin was a fox in the henhouse.",
+    "wrong_sentence": "A fox in the henhouse is a careful guest who protects what is there.",
     "rarity": 3
   },
   {
@@ -1779,6 +2173,8 @@
     "nomenclature_reason": "If you tip out a washtub too fast, the baby could go out with the dirty water.",
     "example": "She deleted the whole folder to remove one bad photo and threw the baby out with the bathwater.",
     "remember": "Keep the baby when you pour out the dirty water.",
+    "correct_sentence": "Deleting the whole album to remove one blurry photo threw the baby out with the bathwater.",
+    "wrong_sentence": "Throw the baby out with the bathwater means toss only the dirty water and keep what is good.",
     "rarity": 3
   },
   {
@@ -1788,6 +2184,8 @@
     "nomenclature_reason": "A fish cannot breathe outside water, so it looks uneasy and out of place.",
     "example": "On her first day at the new school, Maya felt like a fish out of water.",
     "remember": "Imagine a fish flopping on dry land.",
+    "correct_sentence": "At the new dance club she felt like a fish out of water.",
+    "wrong_sentence": "A fish out of water is someone who feels right at home in a new place.",
     "rarity": 3
   },
   {
@@ -1797,6 +2195,8 @@
     "nomenclature_reason": "Roland was a mighty French hero, Oliver a small English one; putting them together shows they don't fit.",
     "example": "Giving a tiny toy car to a giant is a Roland for an Oliver.",
     "remember": "Big hero and tiny hero don't match, just like a Roland for an Oliver.",
+    "correct_sentence": "Giving a tiny teacup to a giant is a Roland for an Oliver.",
+    "wrong_sentence": "A Roland for an Oliver means two things that fit each other perfectly.",
     "rarity": 3
   },
   {
@@ -1806,6 +2206,8 @@
     "nomenclature_reason": "Generals were served the finest foods, like caviare, to show respect.",
     "example": "The new computer was caviare to the general for the school principal.",
     "remember": "Fancy food for a fancy boss.",
+    "correct_sentence": "The fancy microscope was caviare to the general, saved for the head of the lab.",
+    "wrong_sentence": "Caviare to the general means a plain snack shared with everyone equally.",
     "rarity": 3
   },
   {
@@ -1815,6 +2217,8 @@
     "nomenclature_reason": "Daniel in the Bible was known for his wise decisions before kings.",
     "example": "The teacher was a Daniel come to judgement when she settled the playground dispute.",
     "remember": "Think of Daniel the wise judge.",
+    "correct_sentence": "When she settled the argument fairly, she was a Daniel come to judgement.",
+    "wrong_sentence": "A Daniel come to judgement is someone who picks a side without listening.",
     "rarity": 3
   },
   {
@@ -1824,6 +2228,8 @@
     "nomenclature_reason": "If breaking a rule makes you look better, the breach is more honoured.",
     "example": "Skipping bedtime on a school night is more honoured in the breach than the observance.",
     "remember": "Sometimes breaking a rule looks better.",
+    "correct_sentence": "That outdated hallway rule is more honoured in the breach than the observance.",
+    "wrong_sentence": "More honoured in the breach than the observance means everyone should follow the rule strictly.",
     "rarity": 3
   },
   {
@@ -1833,6 +2239,8 @@
     "nomenclature_reason": "Hares run away while hounds chase; doing both puts you in danger from each.",
     "example": "She tried to run with the hare and hunt with the hounds, pleasing both groups but making no one trust her.",
     "remember": "Being on both sides can get you caught.",
+    "correct_sentence": "Cheering for both teams is trying to run with the hare and hunt with the hounds.",
+    "wrong_sentence": "Run with the hare and hunt with the hounds means you pick one side and stay there.",
     "rarity": 3
   },
   {
@@ -1842,6 +2250,8 @@
     "nomenclature_reason": "Sailors call a loose sail a 'sheet'; when three of them are loose the ship spins wildly, just like a drunk person stumbling.",
     "example": "After the party, Jake was three sheets to the wind and could barely stand.",
     "remember": "Loose sails make a wobbling ship, like a drunk wobbling on land.",
+    "correct_sentence": "After too much punch he was three sheets to the wind and could not walk straight.",
+    "wrong_sentence": "Three sheets to the wind means you are wide awake and perfectly steady.",
     "rarity": 3
   },
   {
@@ -1851,6 +2261,8 @@
     "nomenclature_reason": "Imagine being trapped between a scary devil and a dangerous ocean-both are frightening, so you feel trapped.",
     "example": "She was caught between the devil and the deep blue sea, having to choose between moving away or staying with her sick mother.",
     "remember": "Two scary sides, no easy way out.",
+    "correct_sentence": "Stay with a sick friend or make the recital: she was caught between the devil and the deep blue sea.",
+    "wrong_sentence": "Caught between the devil and the deep blue sea means both choices are safe and easy.",
     "rarity": 3
   },
   {
@@ -1860,6 +2272,8 @@
     "nomenclature_reason": "Sailors from Bristol were famous for keeping their ships tidy; 'shipshape' means tidy, so the whole phrase means perfectly neat.",
     "example": "The classroom was shipshape and Bristol fashion after everyone helped clean.",
     "remember": "A tidy room is shipshape and Bristol fashion.",
+    "correct_sentence": "After the cleanup the art room was shipshape and Bristol fashion.",
+    "wrong_sentence": "Shipshape and Bristol fashion means the room is messy and out of order.",
     "rarity": 3
   },
   {
@@ -1869,6 +2283,8 @@
     "nomenclature_reason": "In old times people were tested by being put near fire; today it means a very tough challenge.",
     "example": "His first day at the new job was a trial by fire.",
     "remember": "A big challenge is a trial by fire.",
+    "correct_sentence": "Leading the first assembly was a trial by fire.",
+    "wrong_sentence": "A trial by fire is an easy warm-up that does not test you.",
     "rarity": 3
   },
   {
@@ -1878,6 +2294,8 @@
     "nomenclature_reason": "Pirates made prisoners walk off a wooden board into the sea as a scary punishment.",
     "example": "When the team lost the game, the coach made them walk the plank and do extra drills.",
     "remember": "Being made to do something scary is like walking the plank.",
+    "correct_sentence": "After the loss the coach made them walk the plank with extra laps.",
+    "wrong_sentence": "Walk the plank means receive a reward for a job well done.",
     "rarity": 3
   },
   {
@@ -1887,6 +2305,8 @@
     "nomenclature_reason": "Sailors hope the wind blows from behind and the sea moves with them, giving an easy journey.",
     "example": "Before the school trip, the teacher said, 'Fair wind and following seas!'",
     "remember": "Good wishes for a smooth journey.",
+    "correct_sentence": "As the bus left, the coach called, fair wind and following seas.",
+    "wrong_sentence": "Fair wind and following seas is a warning that the trip will go badly.",
     "rarity": 3
   },
   {
@@ -1896,6 +2316,8 @@
     "nomenclature_reason": "A 'letter' is a written rule; taking it literally means no flexibility, just the words.",
     "example": "The librarian followed the letter of the law and wouldn't let anyone copy books.",
     "remember": "Reading every word, not the meaning.",
+    "correct_sentence": "She followed the letter of the law and refused a late pass even for a good reason.",
+    "wrong_sentence": "The letter of the law means you follow the purpose of a rule, not its exact words.",
     "rarity": 3
   },
   {
@@ -1905,6 +2327,8 @@
     "nomenclature_reason": "The 'spirit' is the feeling or purpose behind the written rule, like the heart of the law.",
     "example": "The teacher applied the spirit of the law by letting the sick student take the test later.",
     "remember": "What the rule really wants.",
+    "correct_sentence": "Letting the sick student test later followed the spirit of the law.",
+    "wrong_sentence": "The spirit of the law means you obey only the exact words and ignore the purpose.",
     "rarity": 3
   },
   {
@@ -1914,6 +2338,8 @@
     "nomenclature_reason": "A ship moves faster when the wind fills its sails, giving it a boost.",
     "example": "Winning the prize gave her wind in her sails for the next competition.",
     "remember": "A boost that pushes you forward.",
+    "correct_sentence": "The kind note put wind in her sails before the next match.",
+    "wrong_sentence": "Wind in her sails means something that leaves her tired and unsure.",
     "rarity": 3
   },
   {
@@ -1923,6 +2349,8 @@
     "nomenclature_reason": "Before a storm, the air often feels still and quiet.",
     "example": "The playground was quiet-a calm before the storm of recess.",
     "remember": "Quiet now, trouble soon.",
+    "correct_sentence": "The quiet hallway was the calm before the storm of recess.",
+    "wrong_sentence": "The calm before the storm means the trouble is already over.",
     "rarity": 3
   },
   {
@@ -1932,6 +2360,8 @@
     "nomenclature_reason": "Looking for a tiny needle among lots of hay is almost impossible, just like a very hard search.",
     "example": "Finding my lost earring was like looking for a needle in a haystack.",
     "remember": "Tiny thing in a huge pile.",
+    "correct_sentence": "Finding one blue bead in the gym was like finding a needle in a haystack.",
+    "wrong_sentence": "A needle in a haystack is something sitting in plain sight.",
     "rarity": 3
   },
   {
@@ -1941,6 +2371,8 @@
     "nomenclature_reason": "Farmers shake grain to let the light chaff blow away, keeping only the good wheat.",
     "example": "The teacher helped us separate the wheat from the chaff in the story.",
     "remember": "Find the good stuff, leave the junk.",
+    "correct_sentence": "Sorting real facts from rumors helped us separate the wheat from the chaff.",
+    "wrong_sentence": "Separate the wheat from the chaff means mix the useful and the useless together.",
     "rarity": 3
   },
   {
@@ -1950,6 +2382,8 @@
     "nomenclature_reason": "Old carpenters used their thumb to measure roughly, giving a quick, practical rule.",
     "example": "A good rule of thumb is to wash your hands before meals.",
     "remember": "A simple helpful rule.",
+    "correct_sentence": "A good rule of thumb is to pack a pencil for every test.",
+    "wrong_sentence": "A rule of thumb is a law written in a book that never bends.",
     "rarity": 3
   },
   {
@@ -1959,6 +2393,8 @@
     "nomenclature_reason": "Sailors noticed that a red sunrise often meant a storm was coming, so it became a warning.",
     "example": "The dark clouds and red sky at morning told us to stay inside.",
     "remember": "Red sunrise means watch out.",
+    "correct_sentence": "That red sky at morning told the sailors a storm was coming.",
+    "wrong_sentence": "Red sky at morning means the day ahead will be calm and bright.",
     "rarity": 3
   },
   {
@@ -1968,6 +2404,8 @@
     "nomenclature_reason": "We picture hearing news straight from the horse that was told, so it's the most reliable way to hear it",
     "example": "I heard the news straight from the horse's mouth, so it's definitely true.",
     "remember": "If you want the real story, hear it straight from the horse's mouth.",
+    "correct_sentence": "I heard the date straight from the horse's mouth, from the coach herself.",
+    "wrong_sentence": "Straight from the horse's mouth means you heard a rumor from a stranger.",
     "rarity": 3
   },
   {
@@ -1977,6 +2415,8 @@
     "nomenclature_reason": "Newcastle once had so much coal that bringing more coal there was a wasted trip.",
     "example": "Giving the librarian another book about libraries was like carrying coals to Newcastle.",
     "remember": "Do not bring extra coal to a town that is already full of coal.",
+    "correct_sentence": "Bringing sand to the beach is carrying coals to Newcastle.",
+    "wrong_sentence": "Carry coals to Newcastle means bring something the place badly needs.",
     "rarity": 3
   },
   {
@@ -1986,6 +2426,8 @@
     "nomenclature_reason": "When something 'goes to the dogs,' it ends up in a messy, uncontrolled state",
     "example": "The old playground has gone to the dogs and needs repair.",
     "remember": "When things fall apart, they go to the dogs.",
+    "correct_sentence": "The old garden has gone to the dogs and the paths are full of weeds.",
+    "wrong_sentence": "Go to the dogs means a place becomes cleaner and more popular.",
     "rarity": 3
   },
   {
@@ -1995,6 +2437,8 @@
     "nomenclature_reason": "A hungry wolf at your door means trouble is coming close",
     "example": "With the bills unpaid, the wolf at the door was loud.",
     "remember": "When trouble knocks, it's the wolf at the door.",
+    "correct_sentence": "With rent due, they could hear the wolf at the door.",
+    "wrong_sentence": "The wolf at the door means plenty of money and no worry ahead.",
     "rarity": 3
   },
   {
@@ -2004,6 +2448,8 @@
     "nomenclature_reason": "An elephant is huge, so it's hard to miss, yet people pretend not to see it",
     "example": "Nobody talked about the broken window; it was the elephant in the room.",
     "remember": "A big issue we ignore is the elephant in the room.",
+    "correct_sentence": "Nobody mentioned the cracked trophy; it was the elephant in the room.",
+    "wrong_sentence": "The elephant in the room is a tiny problem nobody has noticed.",
     "rarity": 3
   },
   {
@@ -2013,6 +2459,8 @@
     "nomenclature_reason": "It imagines someone actually eating a hat, which is absurd, so it shows how unlikely the event is",
     "example": "If I ever finish all my homework early, I'll eat my hat.",
     "remember": "Eating a hat means something is so unlikely you'll only do it if it really happens.",
+    "correct_sentence": "If that quiet kid ever shouts in class, I will eat my hat.",
+    "wrong_sentence": "Eat one's hat means you expect something to happen and it does.",
     "rarity": 3
   },
   {
@@ -2022,6 +2470,8 @@
     "nomenclature_reason": "In old times, \"humble pie\" was a lowly dish, so eating it means accepting a low position",
     "example": "After bragging about the game, Maya had to eat humble pie when she lost.",
     "remember": "Eating humble pie is like saying sorry and learning your lesson.",
+    "correct_sentence": "After boasting, he had to eat humble pie when he lost.",
+    "wrong_sentence": "Eat humble pie means celebrate because you were right all along.",
     "rarity": 3
   },
   {
@@ -2031,6 +2481,8 @@
     "nomenclature_reason": "A bun baking in an oven is like a baby growing inside a mother",
     "example": "Grandma whispered that Aunt Lily has a bun in the oven.",
     "remember": "A bun in the oven means a baby is on the way.",
+    "correct_sentence": "Aunt Rosa has a bun in the oven and is expecting a baby in spring.",
+    "wrong_sentence": "Have a bun in the oven means a loaf of bread is baking for dinner.",
     "rarity": 3
   },
   {
@@ -2040,6 +2492,8 @@
     "nomenclature_reason": "Long ago, the person who wore trousers (often the man) was seen as the boss",
     "example": "Even though Mom works, she still wears the trousers at home.",
     "remember": "Wearing the trousers means being the boss.",
+    "correct_sentence": "In that house, Dad wears the trousers and picks the weekend plans.",
+    "wrong_sentence": "Wear the trousers means you own a pair of pants and nothing more.",
     "rarity": 3
   },
   {
@@ -2049,6 +2503,8 @@
     "nomenclature_reason": "Hiding something under a hat keeps it out of sight, just like a secret",
     "example": "The surprise party is a secret; keep it under your hat.",
     "remember": "Something under the hat stays hidden.",
+    "correct_sentence": "The surprise is a secret, so keep it under your hat.",
+    "wrong_sentence": "Keep it under your hat means tell the secret to everyone you meet.",
     "rarity": 3
   },
   {
@@ -2058,6 +2514,8 @@
     "nomenclature_reason": "The phrase suggests being dressed as finely as the number nine, a perfect score",
     "example": "For the royal ball, the princess will dress to the nines.",
     "remember": "Dress to the nines means looking your very best.",
+    "correct_sentence": "For the concert she will dress to the nines in her best coat.",
+    "wrong_sentence": "Dress to the nines means wear your oldest, plainest clothes.",
     "rarity": 3
   },
   {
@@ -2067,6 +2525,8 @@
     "nomenclature_reason": "A sow's ear is rough, a silk purse is fine; turning one into the other shows great skill",
     "example": "The carpenter made a silk purse out of a sow's ear by turning old wood into a beautiful table.",
     "remember": "Making a silk purse out of a sow's ear means changing something plain into something precious.",
+    "correct_sentence": "Turning scrap wood into a bookshelf is making a silk purse out of a sow's ear.",
+    "wrong_sentence": "Make a silk purse out of a sow's ear means ruin something that was already fine.",
     "rarity": 3
   },
   {
@@ -2076,6 +2536,8 @@
     "nomenclature_reason": "In old houses, a fire in the hearth kept the home warm; keeping it burning means caring for the family",
     "example": "While Grandpa was away, Mom kept the home fires burning.",
     "remember": "Keeping the home fires burning means caring for your family.",
+    "correct_sentence": "While he was away at camp, his sister kept the home fires burning.",
+    "wrong_sentence": "Keep the home fires burning means let the house go cold and empty.",
     "rarity": 3
   },
   {
@@ -2085,6 +2547,8 @@
     "nomenclature_reason": "If the horse has already run away, locking the stable door doesn't help",
     "example": "She tried to apologize after the vase broke, but it was like locking the stable door after the horse had bolted.",
     "remember": "Locking the stable door after the horse has bolted means it's too late.",
+    "correct_sentence": "Apologizing after the vase shattered was locking the stable door after the horse has bolted.",
+    "wrong_sentence": "Lock the stable door after the horse has bolted means you stopped the problem in time.",
     "rarity": 3
   },
   {
@@ -2094,6 +2558,8 @@
     "nomenclature_reason": "Sweeping dust under a rug hides it from view, just like ignoring an issue",
     "example": "The kids tried to sweep the broken toy under the rug instead of fixing it.",
     "remember": "Sweeping under the rug hides the mess.",
+    "correct_sentence": "They tried to sweep the broken mug under the rug instead of telling anyone.",
+    "wrong_sentence": "Sweep something under the rug means clean it up and deal with it openly.",
     "rarity": 3
   },
   {
@@ -2103,6 +2569,8 @@
     "nomenclature_reason": "A roof protects you from rain and wind, showing you have a home",
     "example": "Even after the storm, we were grateful to have a roof over our heads.",
     "remember": "A roof over your head means you have a home.",
+    "correct_sentence": "After the move we were glad to have a roof over our heads.",
+    "wrong_sentence": "A roof over one's head means you have nowhere to sleep tonight.",
     "rarity": 3
   },
   {
@@ -2112,6 +2580,8 @@
     "nomenclature_reason": "A bug tucked into a rug is cozy and safe",
     "example": "The kitten curled up and was as snug as a bug in a rug.",
     "remember": "As snug as a bug in a rug means very cozy.",
+    "correct_sentence": "Wrapped in the quilt, the puppy was as snug as a bug in a rug.",
+    "wrong_sentence": "As snug as a bug in a rug means cold, cramped, and uncomfortable.",
     "rarity": 3
   },
   {
@@ -2121,6 +2591,8 @@
     "nomenclature_reason": "A whistle makes a clear sound; being as clean as a whistle suggests spotless",
     "example": "After washing the dishes, the kitchen was as clean as a whistle.",
     "remember": "As clean as a whistle means sparkling clean.",
+    "correct_sentence": "The washed windows were as clean as a whistle.",
+    "wrong_sentence": "As clean as a whistle means still smudged and dusty.",
     "rarity": 3
   },
   {
@@ -2130,6 +2602,8 @@
     "nomenclature_reason": "The Battle of Waterloo was where Napoleon was finally beaten, so meeting it means meeting defeat",
     "example": "After losing the final match, the champion finally met his Waterloo.",
     "remember": "Think of the famous battle that stopped a great leader.",
+    "correct_sentence": "The long winning streak ended when she met her Waterloo in the final.",
+    "wrong_sentence": "Meet one's Waterloo means win the biggest victory of your life.",
     "rarity": 3
   },
   {
@@ -2139,6 +2613,8 @@
     "nomenclature_reason": "Soldiers wear boots in battle, so dying with them on means dying on the battlefield",
     "example": "The brave explorer died with his boots on, climbing the highest mountain.",
     "remember": "If you're still wearing your boots, you're still in the fight.",
+    "correct_sentence": "The gardener wanted to die with his boots on, still planting trees.",
+    "wrong_sentence": "Die with one's boots on means stop working and rest for years first.",
     "rarity": 3
   },
   {
@@ -2148,6 +2624,8 @@
     "nomenclature_reason": "A battle that cannot be won still looks like a fight, so the phrase warns against futile effort",
     "example": "She kept arguing with the bully, but it was a losing battle.",
     "remember": "Sometimes fighting is brave, even if you can't win.",
+    "correct_sentence": "Arguing with the closed gate was fighting a losing battle.",
+    "wrong_sentence": "Fight a losing battle means the win is almost certain if you keep going.",
     "rarity": 3
   },
   {
@@ -2157,6 +2635,8 @@
     "nomenclature_reason": "When a plane crashes, it often bursts into flames, showing a dramatic failure",
     "example": "The new toy went down in flames after the first use.",
     "remember": "A big, bright failure looks like a fire in the sky.",
+    "correct_sentence": "The cardboard rocket went down in flames on its first launch.",
+    "wrong_sentence": "Go down in flames means succeed in a quiet, modest way.",
     "rarity": 3
   },
   {
@@ -2166,6 +2646,8 @@
     "nomenclature_reason": "In battle soldiers stand on a line and must not let enemies break through",
     "example": "Even when the game got hard, she held the line and kept playing.",
     "remember": "Imagine soldiers staying strong on a straight line.",
+    "correct_sentence": "Even when the score fell behind, she held the line.",
+    "wrong_sentence": "Hold the line means give up your spot as soon as it gets hard.",
     "rarity": 3
   },
   {
@@ -2175,6 +2657,8 @@
     "nomenclature_reason": "A soldier who works for fortune (money) fights for whoever pays him",
     "example": "The adventure story featured a soldier of fortune who traveled the world.",
     "remember": "Think of a brave fighter who follows the gold.",
+    "correct_sentence": "The story's hero was a soldier of fortune who fought only for pay.",
+    "wrong_sentence": "A soldier of fortune fights only for loyalty to a home country.",
     "rarity": 3
   },
   {
@@ -2184,6 +2668,8 @@
     "nomenclature_reason": "Using both teeth and nails suggests using every possible weapon, even the smallest",
     "example": "The team fought tooth and nail to win the championship.",
     "remember": "Picture a fierce animal using its teeth and claws.",
+    "correct_sentence": "They fought tooth and nail to keep the club open.",
+    "wrong_sentence": "Fight tooth and nail means argue gently and give up quickly.",
     "rarity": 3
   },
   {
@@ -2193,6 +2679,8 @@
     "nomenclature_reason": "Instead of swords, people use words as weapons in a conflict",
     "example": "The two friends had a war of words after the misunderstanding.",
     "remember": "Imagine a battle where the weapons are spoken words.",
+    "correct_sentence": "The captains had a war of words over who should kick first.",
+    "wrong_sentence": "A war of words is a calm chat where nobody raises a voice.",
     "rarity": 3
   },
   {
@@ -2202,6 +2690,8 @@
     "nomenclature_reason": "Wits are clever thoughts; a battle of wits is a mental fight",
     "example": "The riddles turned the game into a battle of wits.",
     "remember": "Think of a chess match where brains are the swords.",
+    "correct_sentence": "The riddle contest became a battle of wits.",
+    "wrong_sentence": "A battle of wits is a contest decided by who can run fastest.",
     "rarity": 3
   },
   {
@@ -2211,6 +2701,8 @@
     "nomenclature_reason": "Attrition means wearing away; a war of attrition wears down both sides over time",
     "example": "The long school project became a war of attrition for the team.",
     "remember": "Imagine a battle that lasts so long it makes everyone tired.",
+    "correct_sentence": "The month-long debate turned into a war of attrition.",
+    "wrong_sentence": "A war of attrition ends in one quick moment.",
     "rarity": 3
   },
   {
@@ -2220,6 +2712,8 @@
     "nomenclature_reason": "Nerves are bravery; a war of nerves tests who can stay calm the longest",
     "example": "During the game, the players entered a war of nerves, waiting for the other to slip.",
     "remember": "Picture two knights trying not to blink first.",
+    "correct_sentence": "The penalty kicks became a war of nerves.",
+    "wrong_sentence": "A war of nerves is a contest of who can lift the heaviest weight.",
     "rarity": 3
   },
   {
@@ -2229,6 +2723,8 @@
     "nomenclature_reason": "Warhorses carried soldiers into many battles, showing strength and endurance",
     "example": "The actor became a warhorse, starring in play after play.",
     "remember": "Think of a sturdy horse that never gets tired.",
+    "correct_sentence": "After twenty plays, the actor was a warhorse the school could count on.",
+    "wrong_sentence": "A warhorse is a beginner who has never been on stage.",
     "rarity": 3
   },
   {
@@ -2238,6 +2734,8 @@
     "nomenclature_reason": "Honor is a knight's badge; a man who carries it follows a noble code",
     "example": "He returned the lost wallet because he wanted to be a man of honor.",
     "remember": "Imagine a knight keeping his shining badge of honor.",
+    "correct_sentence": "He returned the wallet because he wanted to be a man of honor.",
+    "wrong_sentence": "A man of honor keeps a promise only when it is easy.",
     "rarity": 3
   },
   {
@@ -2247,6 +2745,8 @@
     "nomenclature_reason": "A word is like a promise; keeping it shows trustworthiness",
     "example": "She promised to help and kept her word.",
     "remember": "Treat your promise like a treasure you never lose.",
+    "correct_sentence": "She said she would bring the balls, and she kept her word.",
+    "wrong_sentence": "Keep one's word means promise something and then forget it.",
     "rarity": 3
   },
   {
@@ -2256,6 +2756,8 @@
     "nomenclature_reason": "In battle, soldiers stand firm on the ground to protect their position",
     "example": "Even when the wind blew hard, the little tree stood its ground.",
     "remember": "Picture a brave soldier who never steps back.",
+    "correct_sentence": "When they teased her idea, she stood her ground.",
+    "wrong_sentence": "Stand one's ground means step aside the moment someone disagrees.",
     "rarity": 3
   },
   {
@@ -2265,6 +2767,8 @@
     "nomenclature_reason": "Shakespeare compared life to a theater stage, so we picture people acting like actors.",
     "example": "When Sam moved to a new school, his teacher reminded him that all the world's a stage and he could make new friends.",
     "remember": "Think of life as a big stage where you get to act.",
+    "correct_sentence": "Starting at a new school, he remembered that all the world's a stage.",
+    "wrong_sentence": "All the world's a stage means life has no roles and nobody is watching.",
     "rarity": 3
   },
   {
@@ -2274,6 +2778,8 @@
     "nomenclature_reason": "In theater, the performance continues no matter what problems arise.",
     "example": "Even after the power went out, the kids sang loudly because the show must go on.",
     "remember": "Keep going, just like a performance that never stops.",
+    "correct_sentence": "The microphone died, but the show must go on.",
+    "wrong_sentence": "The show must go on means cancel everything when one thing goes wrong.",
     "rarity": 3
   },
   {
@@ -2283,6 +2789,8 @@
     "nomenclature_reason": "In old theatres, the gallery was the cheap seats where actors tried to wow the crowd.",
     "example": "Lily told a funny story at dinner just to play to the gallery.",
     "remember": "Imagine acting for the audience in the cheap seats.",
+    "correct_sentence": "He told the joke only to play to the gallery.",
+    "wrong_sentence": "Play to the gallery means perform for yourself and ignore the crowd.",
     "rarity": 3
   },
   {
@@ -2292,6 +2800,8 @@
     "nomenclature_reason": "Limelight was a bright stage light; stealing it means taking the brightest spot.",
     "example": "When the magician performed his trick, he stole the limelight from the other acts.",
     "remember": "Picture grabbing the brightest stage light for yourself.",
+    "correct_sentence": "Her solo stole the limelight from the rest of the band.",
+    "wrong_sentence": "Steal the limelight means stay in the back so others get the attention.",
     "rarity": 3
   },
   {
@@ -2301,6 +2811,8 @@
     "nomenclature_reason": "Actors bow at the end of a performance to thank the audience.",
     "example": "After winning the spelling bee, Maya took a bow and thanked her teacher.",
     "remember": "Think of bowing after a great show.",
+    "correct_sentence": "After the winning goal she took a bow.",
+    "wrong_sentence": "Take a bow means refuse any praise and leave quietly.",
     "rarity": 3
   },
   {
@@ -2310,6 +2822,8 @@
     "nomenclature_reason": "Printed contracts have tiny words that hold important rules.",
     "example": "Before joining the club, Jake read the fine print to see the meeting times.",
     "remember": "Look at the tiny words, just like a detective.",
+    "correct_sentence": "Before he signed, he read the fine print about practice days.",
+    "wrong_sentence": "Read the fine print means glance at the title and skip the details.",
     "rarity": 3
   },
   {
@@ -2319,6 +2833,8 @@
     "nomenclature_reason": "When people read the same page of a book, they share the same story.",
     "example": "The science project partners were on the same page about the experiment steps.",
     "remember": "Imagine reading the same page together.",
+    "correct_sentence": "The partners were on the same page about the experiment.",
+    "wrong_sentence": "On the same page means you disagree about every step.",
     "rarity": 3
   },
   {
@@ -2328,6 +2844,8 @@
     "nomenclature_reason": "Old printers arranged metal letters (type) before printing a page.",
     "example": "Before the play, the director set the type for the script notes.",
     "remember": "Think of arranging letters before printing.",
+    "correct_sentence": "Before the show, the director set the type for the cue cards.",
+    "wrong_sentence": "Set the type means start using something before it is prepared.",
     "rarity": 3
   },
   {
@@ -2337,6 +2855,8 @@
     "nomenclature_reason": "People used ink to write contracts, making the deal real.",
     "example": "The two schools inked a deal to share library books.",
     "remember": "Picture signing with a big ink pen.",
+    "correct_sentence": "The two clubs inked a deal to share the field.",
+    "wrong_sentence": "Ink a deal means talk about an agreement and never sign it.",
     "rarity": 3
   },
   {
@@ -2346,6 +2866,8 @@
     "nomenclature_reason": "Letters are the building blocks of books, so a man of letters loves them.",
     "example": "Grandpa is a man of letters; his shelves are full of classic novels.",
     "remember": "Think of someone surrounded by many letters.",
+    "correct_sentence": "Grandpa is a man of letters, always in the middle of a classic novel.",
+    "wrong_sentence": "A man of letters is someone who rarely reads and avoids books.",
     "rarity": 3
   },
   {
@@ -2355,6 +2877,8 @@
     "nomenclature_reason": "A steel trap snaps shut fast, just like a quick mind.",
     "example": "When the quiz started, Maya's mind was like a steel trap and she answered everything.",
     "remember": "Imagine a fast-snapping steel trap in your head.",
+    "correct_sentence": "At the quiz her mind was like a steel trap.",
+    "wrong_sentence": "A mind like a steel trap forgets names and dates right away.",
     "rarity": 3
   },
   {
@@ -2364,6 +2888,8 @@
     "nomenclature_reason": "If you cut a piece higher than the others, it stands out.",
     "example": "Lila's artwork was a cut above the rest in the school exhibition.",
     "remember": "Think of a piece that sticks out higher.",
+    "correct_sentence": "Her model bridge was a cut above the rest.",
+    "wrong_sentence": "A cut above the rest means about the same as everyone else.",
     "rarity": 3
   },
   {
@@ -2373,6 +2899,8 @@
     "nomenclature_reason": "A fountain constantly flows water; a fountain of knowledge constantly flows facts.",
     "example": "The library is a fountain of knowledge for curious kids.",
     "remember": "Imagine a water fountain spilling out books.",
+    "correct_sentence": "The librarian is a fountain of knowledge about local history.",
+    "wrong_sentence": "A fountain of knowledge is a person with very little to share.",
     "rarity": 3
   },
   {
@@ -2382,6 +2910,8 @@
     "nomenclature_reason": "Long ago, tricksters pretended they could sell a famous bridge that was not theirs.",
     "example": "His email about free gold was just selling the Brooklyn Bridge.",
     "remember": "Nobody can really sell you a bridge the city already owns.",
+    "correct_sentence": "The email about free gold was just selling the Brooklyn Bridge.",
+    "wrong_sentence": "Sell the Brooklyn Bridge means offer a deal everyone can check and trust.",
     "rarity": 3
   },
   {
@@ -2391,6 +2921,8 @@
     "nomenclature_reason": "In the Bible, people tried to build a tower to reach heaven, but God confused their languages, making the tower a symbol of chaos",
     "example": "The classroom became a tower of Babel when everyone tried to speak at once.",
     "remember": "A tower of Babel is a big mess of mixed-up words.",
+    "correct_sentence": "When every group shouted a different plan, the room was a tower of Babel.",
+    "wrong_sentence": "A tower of Babel is a meeting where everyone understands each other at once.",
     "rarity": 3
   },
   {
@@ -2400,6 +2932,8 @@
     "nomenclature_reason": "In the tale of Troy, the Greeks pretended to give a gift, a wooden horse, which actually held soldiers inside",
     "example": "The new game looked fun, but Mom said, \"Beware of Greeks bearing gifts; sometimes freebies have hidden costs\"",
     "remember": "If a gift feels too good, remember the Greeks' trick",
+    "correct_sentence": "The free game looked fun, but beware of Greeks bearing gifts.",
+    "wrong_sentence": "Beware of Greeks bearing gifts means every kind offer is safe to accept.",
     "rarity": 3
   },
   {
@@ -2409,6 +2943,8 @@
     "nomenclature_reason": "A petard was a tiny bomb used to break down walls; if it exploded and lifted the person who set it, they were 'hoisted' by their own bomb.",
     "example": "Tom tried to set a prank on his brother, but the prank backfired and Tom was hoist with his own petard.",
     "remember": "If your trick blows up on you, you're hoist with your own petard.",
+    "correct_sentence": "His own prank tripped him, so he was hoist with his own petard.",
+    "wrong_sentence": "Hoist with one's own petard means your clever plan works exactly as you hoped.",
     "rarity": 3
   },
   {
@@ -2418,6 +2954,8 @@
     "nomenclature_reason": "In old legal books, the most important rules were printed in bold black letters so everyone could see them easily.",
     "example": "The rule that you must stop at a red light is black letter law.",
     "remember": "Think of a rule written in bold black letters-it's a black letter law!",
+    "correct_sentence": "Stopping for a red light is black letter law.",
+    "wrong_sentence": "Black letter law means a rule nobody is sure about.",
     "rarity": 3
   },
   {
@@ -2427,6 +2965,8 @@
     "nomenclature_reason": "Old guns sometimes flashed in the pan without firing the shot.",
     "example": "The magic trick was a flash in the pan, and everyone forgot it the next day.",
     "remember": "A quick flash is not the same as a real shot.",
+    "correct_sentence": "The sudden dance craze was a flash in the pan and faded by Friday.",
+    "wrong_sentence": "A flash in the pan is a success that lasts for years.",
     "rarity": 3
   }
 ]
