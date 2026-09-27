@@ -42,6 +42,11 @@ body,
   min-height: 100dvh;
 }
 
+html {
+  overflow-x: clip;
+  overflow-y: auto;
+}
+
 body {
   margin: 0;
   min-width: 320px;
