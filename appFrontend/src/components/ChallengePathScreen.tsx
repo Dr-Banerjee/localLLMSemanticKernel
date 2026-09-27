@@ -244,9 +244,8 @@ export function ChallengePathScreen({
     <section className={styles.screen}>
       <header className={styles.header}>
         <button className={styles.back} type="button" onClick={onBackHome}>
-          Back to the nest
+          Home
         </button>
-        <p className={styles.kicker}>Pip’s journey</p>
         <h1>Pip's idiom Challenge</h1>
         <p className={styles.lead}>
           Hop with Pip from the first idiom to the last. A quiz stone sits before each

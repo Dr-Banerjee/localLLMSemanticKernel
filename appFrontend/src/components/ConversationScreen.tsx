@@ -73,7 +73,7 @@ export function ConversationScreen({
             Your idioms
           </button>
           <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
-            New idiom
+            Home
           </button>
         </div>
       </header>
