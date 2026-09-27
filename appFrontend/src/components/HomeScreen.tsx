@@ -77,6 +77,7 @@ export function HomeScreen({ onStart, onViewSummaries, onOpenChallenge }: HomeSc
             value={idiom}
             placeholder='Try “piece of cake” or “break the ice”'
             autoComplete="off"
+            maxLength={500}
             onChange={(event) => setIdiom(event.target.value)}
           />
           <button className={styles.cta} type="submit" disabled={idiom.trim().length === 0}>

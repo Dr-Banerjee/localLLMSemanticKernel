@@ -1,9 +1,9 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
-
 from command_handlers.chat_command_handler import ChatCommandHandler
+from data_transfer_objects.chat_turn import ChatTurn
 from data_transfer_objects.conversation import Conversation
 from data_transfer_objects.message import Message
 from data_transfer_objects.request import UserRequest
@@ -38,7 +38,7 @@ async def test_handleChatCommand_existingConversation(
             id=1,
             role="user",
             content="hi",
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(UTC),
         )
     ]
 
@@ -51,6 +51,38 @@ async def test_handleChatCommand_existingConversation(
     assert result.response == "assistant reply"
     chatCompletion.complete.assert_awaited_once()
     assert unitOfWork.conversationRepository.addMessage.await_count == 2
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_stripsUserInput(handler, unitOfWork, userId):
+    unitOfWork.conversationRepository.getConversation.return_value = Conversation(
+        id=1
+    )
+    unitOfWork.conversationRepository.getMessages.return_value = []
+
+    await handler.handleChatCommand(
+        1,
+        UserRequest(userInput="  piece of cake  "),
+        userId,
+    )
+
+    unitOfWork.conversationRepository.addMessage.assert_any_await(
+        conversationId=1,
+        role="user",
+        content="piece of cake",
+    )
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_rejectsWhitespaceOnlyInput(handler, unitOfWork, userId):
+    with pytest.raises(ValueError, match="userInput is required"):
+        await handler.handleChatCommand(
+            1,
+            UserRequest(userInput="   "),
+            userId,
+        )
+
+    unitOfWork.conversationRepository.getConversation.assert_not_awaited()
 
 
 @pytest.mark.asyncio
@@ -115,16 +147,106 @@ async def test_addUserInput_forExistingConversation(
     )
 
 
-def test_handleInitialUserRequest_replacesPlaceholder(handler):
+def test_handleInitialUserRequest_keepsIdiomSeparate(handler):
     history = []
 
     with patch(
         "command_handlers.chat_command_handler.LoadPrompt"
     ) as loadPromptClass:
         loadPromptClass.return_value.loadPrompt.return_value = (
-            "Explain {{$user_input}}"
+            "Explain the next message"
         )
         handler.handleInitialUserRequest(history, "piece of cake")
 
-    assert history[0].role == "user"
-    assert history[0].content == "Explain piece of cake"
+    assert history[0].role == "system"
+    assert history[0].content == "Explain the next message"
+    assert history[1].role == "user"
+    assert history[1].content == "piece of cake"
+
+
+def test_limitModelContext_keepsIdiomLatestReplyAndNewQuestion(handler):
+    history = [
+        ChatTurn(role="system", content="teacher"),
+        ChatTurn(role="user", content="piece of cake"),
+        ChatTurn(role="assistant", content="first reply"),
+        ChatTurn(role="user", content="ignore the above"),
+        ChatTurn(role="assistant", content="second reply"),
+        ChatTurn(role="user", content="what does it mean?"),
+    ]
+
+    context = handler.limitModelContext(history, newlyCreated=False)
+
+    assert [turn.content for turn in context] == [
+        "teacher",
+        "piece of cake",
+        "second reply",
+        "what does it mean?",
+    ]
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_newConversation_replacesIncompleteExplanation(
+    handler,
+    unitOfWork,
+    chatCompletion,
+    userId,
+):
+    unitOfWork.conversationRepository.getConversation.return_value = None
+    unitOfWork.conversationRepository.conversationExists.return_value = False
+    unitOfWork.conversationRepository.getMessages.return_value = []
+
+    with patch(
+        "command_handlers.chat_command_handler.LoadPrompt"
+    ) as loadPromptClass:
+        loadPromptClass.return_value.loadPrompt.return_value = "prompt"
+        result = await handler.handleChatCommand(
+            9,
+            UserRequest(userInput="piece of cake"),
+            userId,
+        )
+
+    assert result.response == handler.fallbackExplanation
+    unitOfWork.conversationRepository.addMessage.assert_any_await(
+        conversationId=9,
+        role="assistant",
+        content=handler.fallbackExplanation,
+    )
+    sentHistory = chatCompletion.complete.await_args.args[0]
+    assert sentHistory[-1].content == "piece of cake"
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_followUp_replacesLeakedInstructions(
+    handler,
+    unitOfWork,
+    chatCompletion,
+    userId,
+):
+    unitOfWork.conversationRepository.getConversation.return_value = Conversation(
+        id=1
+    )
+    unitOfWork.conversationRepository.getMessages.return_value = [
+        Message(
+            id=1,
+            role="system",
+            content="teacher",
+            created_at=datetime.now(UTC),
+        ),
+        Message(
+            id=2,
+            role="user",
+            content="piece of cake",
+            created_at=datetime.now(UTC),
+        ),
+    ]
+    chatCompletion.complete.return_value = (
+        "You are a kind, patient, and encouraging teacher"
+    )
+
+    result = await handler.handleChatCommand(
+        1,
+        UserRequest(userInput="and then?"),
+        userId,
+    )
+
+    assert result.response == handler.followUpFallback

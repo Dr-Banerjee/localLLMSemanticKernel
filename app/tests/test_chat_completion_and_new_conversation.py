@@ -26,15 +26,22 @@ async def test_addUserInput_forNewConversation_usesInitialPrompt(
         "command_handlers.chat_command_handler.LoadPrompt"
     ) as loadPromptClass:
         loadPromptClass.return_value.loadPrompt.return_value = (
-            "Explain {{$user_input}}"
+            "Explain the next message"
         )
         result = await handler.addUserInputToConversationCourse(
             course,
             "break the ice",
         )
 
-    assert result[-1].content == "Explain break the ice"
-    unitOfWork.conversationRepository.addMessage.assert_awaited_once()
+    assert result[-2].role == "system"
+    assert result[-2].content == "Explain the next message"
+    assert result[-1].role == "user"
+    assert result[-1].content == "break the ice"
+    unitOfWork.conversationRepository.addMessage.assert_awaited_once_with(
+        conversationId=3,
+        role="user",
+        content="break the ice",
+    )
 
 
 @pytest.mark.asyncio

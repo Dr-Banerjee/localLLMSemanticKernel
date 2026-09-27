@@ -35,6 +35,7 @@ export function Composer({ placeholder, submitLabel, disabled = false, onSubmit 
         placeholder={placeholder}
         autoComplete="off"
         disabled={disabled}
+        maxLength={500}
         onChange={(event) => setValue(event.target.value)}
       />
       <button className={styles.send} type="submit" disabled={disabled || value.trim().length === 0}>

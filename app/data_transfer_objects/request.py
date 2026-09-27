@@ -1,8 +1,7 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
+
 
 class UserRequest(BaseModel):
-    # makes it immutable and is almost like a record in C#
     model_config = ConfigDict(frozen=True)
-    
-    #The string supplied by the user as input.
-    userInput: str
+
+    userInput: str = Field(min_length=1, max_length=500)
