@@ -35,7 +35,6 @@ export function HomeScreen({ onStart, onViewSummaries, onOpenChallenge }: HomeSc
             Idioms you’ve learned
           </button>
           <Mascot mood="cheer" />
-          <p className={styles.kicker}>Pip’s Idiom Nest</p>
           <h1>Come learn idioms with Pip!</h1>
           <p className={styles.lead}>
             An idiom is a playful phrase that means something special, not exactly what the words
