@@ -2,7 +2,6 @@ import { useState } from "react";
 import { nextChallengeTarget, readClearedCheckpoint } from "../data/challengeIdioms";
 import { useChallengeProgress } from "../hooks/useChallengeProgress";
 import { ConversationScreen } from "./ConversationScreen";
-import styles from "./ChallengeConversationScreen.module.css";
 
 type ChallengeConversationScreenProps = {
   stoneId: number;
@@ -48,23 +47,16 @@ export function ChallengeConversationScreen({
   }
 
   return (
-    <div className={styles.frame}>
-      <ConversationScreen
-        {...conversation}
-        isSending={isSending}
-        isLoadingHistory={isLoadingHistory}
-      />
-      <div className={styles.nav}>
-        <button
-          type="button"
-          disabled={!nextTarget || busy}
-          onClick={() => {
-            void goNext();
-          }}
-        >
-          Next stone
-        </button>
-      </div>
-    </div>
+    <ConversationScreen
+      {...conversation}
+      isSending={isSending}
+      isLoadingHistory={isLoadingHistory}
+      nextStone={{
+        disabled: !nextTarget || busy,
+        onNext: () => {
+          void goNext();
+        },
+      }}
+    />
   );
 }
