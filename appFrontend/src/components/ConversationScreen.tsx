@@ -10,6 +10,11 @@ import { FollowUpChips } from "./FollowUpChips";
 import { Mascot } from "./Mascot";
 import styles from "./ConversationScreen.module.css";
 
+type NextStoneAction = {
+  disabled: boolean;
+  onNext: () => void;
+};
+
 type ConversationScreenProps = {
   idiom: string;
   messages: ChatMessage[];
@@ -21,6 +26,7 @@ type ConversationScreenProps = {
   onNewIdiom: () => void;
   onViewSummaries: () => void;
   onOpenChallenge: () => void;
+  nextStone?: NextStoneAction;
 };
 
 function encouragementFor(followUpCount: number): string {
@@ -47,6 +53,7 @@ export function ConversationScreen({
   onNewIdiom,
   onViewSummaries,
   onOpenChallenge,
+  nextStone,
 }: ConversationScreenProps) {
   const endRef = useRef<HTMLDivElement>(null);
   const followUpCount = messages.filter((message) => message.kind === "followup").length;
@@ -135,12 +142,24 @@ export function ConversationScreen({
       </div>
 
       <div className={styles.composerWrap}>
-        <Composer
-          placeholder="Ask Pip another question..."
-          submitLabel="Ask"
-          disabled={isSending || isLoadingHistory}
-          onSubmit={onAsk}
-        />
+        <div className={styles.composer}>
+          <Composer
+            placeholder="Ask Pip another question..."
+            submitLabel="Ask"
+            disabled={isSending || isLoadingHistory}
+            onSubmit={onAsk}
+          />
+        </div>
+        {nextStone ? (
+          <button
+            className={styles.nextStone}
+            type="button"
+            disabled={nextStone.disabled}
+            onClick={nextStone.onNext}
+          >
+            Next stone
+          </button>
+        ) : null}
       </div>
     </section>
   );

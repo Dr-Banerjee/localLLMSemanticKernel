@@ -53,6 +53,44 @@ async def test_handleChatCommand_existingConversation(
     assert unitOfWork.conversationRepository.addMessage.await_count == 2
 
 
+def test_removeStars(handler):
+    assert handler.removeStars("**bold** and *italic*") == "bold and italic"
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_removesStarsFromModelReply(
+    handler,
+    unitOfWork,
+    chatCompletion,
+    userId,
+):
+    unitOfWork.conversationRepository.getConversation.return_value = Conversation(
+        id=1
+    )
+    unitOfWork.conversationRepository.getMessages.return_value = [
+        Message(
+            id=1,
+            role="user",
+            content="hi",
+            created_at=datetime.now(UTC),
+        )
+    ]
+    chatCompletion.complete.return_value = "**Piece of cake** means something is easy."
+
+    result = await handler.handleChatCommand(
+        1,
+        UserRequest(userInput="next"),
+        userId,
+    )
+
+    assert result.response == "Piece of cake means something is easy."
+    unitOfWork.conversationRepository.addMessage.assert_any_await(
+        conversationId=1,
+        role="assistant",
+        content="Piece of cake means something is easy.",
+    )
+
+
 @pytest.mark.asyncio
 async def test_handleChatCommand_stripsUserInput(handler, unitOfWork, userId):
     unitOfWork.conversationRepository.getConversation.return_value = Conversation(
