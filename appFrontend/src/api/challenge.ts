@@ -36,38 +36,28 @@ export async function updateChallengeProgress(challengeStep: number): Promise<Ch
 
 const missingConversationDetail = "Conversation not found";
 
-async function getVisitedChallengeNode(
+export type VisitedChallengeNode = {
+  conversationId: number;
+  messages: ConversationMessage[];
+};
+
+export async function getVisitedChallengeNode(
   nodeId: number,
-): Promise<{ conversationId: number; messages: ConversationMessage[] }> {
-  const { data } = await axiosClient.get<{
-    conversationId: number;
-    messages: ConversationMessage[];
-  }>(`/api/challenge/visited/${nodeId}`);
+  { signal }: RequestOptions = {},
+): Promise<VisitedChallengeNode> {
+  const { data } = await axiosClient.get<VisitedChallengeNode>(
+    `/api/challenge/visited/${nodeId}`,
+    { signal },
+  );
   return data;
 }
 
-function isMissingChallengeConversation(error: unknown): boolean {
+export function isMissingChallengeConversation(error: unknown): boolean {
   return (
     error instanceof ApiError &&
     error.status === HttpStatusCode.NotFound &&
     error.detail === missingConversationDetail
   );
-}
-
-export async function fetchVisitedChallengeNode(
-  nodeId: number,
-  startNode: (nodeId: number) => Promise<{ conversation_id: number }> = startChallengeNode,
-): Promise<{ conversationId: number; messages: ConversationMessage[] }> {
-  try {
-    return await getVisitedChallengeNode(nodeId);
-  } catch (error) {
-    if (!isMissingChallengeConversation(error)) {
-      throw error;
-    }
-  }
-
-  await startNode(nodeId);
-  return getVisitedChallengeNode(nodeId);
 }
 
 export async function startChallengeNode(

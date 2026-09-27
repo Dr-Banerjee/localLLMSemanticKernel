@@ -195,6 +195,19 @@
   background: radial-gradient(circle at 30% 25%, #fff7c2, #ffd45a 60%, #ffb085);
 }
 
+.quiz .stone {
+  background: radial-gradient(circle at 30% 25%, #fffdf6, #d5e6ff 50%, #7eaddd);
+}
+
+.quiz.done .stone {
+  background: radial-gradient(circle at 30% 25%, #f3ffe4, #8fbc6a 55%, #2f7d4a);
+  color: #143222;
+}
+
+.quiz.current .stone {
+  background: radial-gradient(circle at 30% 25%, #fff7c2, #ffd45a 55%, #7eaddd);
+}
+
 .next .stone {
   animation: invite 1.4s ease-in-out infinite;
 }
