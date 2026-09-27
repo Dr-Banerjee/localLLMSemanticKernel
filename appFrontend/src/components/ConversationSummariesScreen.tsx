@@ -40,15 +40,14 @@ export function ConversationSummariesScreen({
     <section className={styles.screen}>
       <header className={styles.header}>
         <Mascot mood="happy" className={styles.mascot} />
-        <p className={styles.kicker}>Your idiom nest</p>
         <h1>Idioms you already started exploring</h1>
         <p className={styles.lead}>
           Pick a favorite and ask another curious question. Pip is happy to keep teaching!
         </p>
         <div className={styles.headerActions}>
           <ChallengeNavButton onClick={onOpenChallenge} />
-          <button className={styles.homeButton} type="button" onClick={onBackHome}>
-            Learn a new idiom
+          <button className={styles.kicker} type="button" onClick={onBackHome}>
+            Home
           </button>
         </div>
       </header>

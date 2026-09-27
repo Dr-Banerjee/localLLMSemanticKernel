@@ -35,7 +35,6 @@ export function HomeScreen({ onStart, onViewSummaries, onOpenChallenge }: HomeSc
             Idioms you’ve learned
           </button>
           <Mascot mood="cheer" />
-          <p className={styles.kicker}>Pip’s Idiom Nest</p>
           <h1>Come learn idioms with Pip!</h1>
           <p className={styles.lead}>
             An idiom is a playful phrase that means something special, not exactly what the words
@@ -78,6 +77,7 @@ export function HomeScreen({ onStart, onViewSummaries, onOpenChallenge }: HomeSc
             value={idiom}
             placeholder='Try “piece of cake” or “break the ice”'
             autoComplete="off"
+            maxLength={500}
             onChange={(event) => setIdiom(event.target.value)}
           />
           <button className={styles.cta} type="submit" disabled={idiom.trim().length === 0}>

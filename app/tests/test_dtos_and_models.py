@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 from uuid import uuid7
 
+import pytest
 from data_transfer_objects.chat_turn import ChatTurn
 from data_transfer_objects.conversation import Conversation
 from data_transfer_objects.conversation_message import ConversationMessage
@@ -15,6 +16,7 @@ from data_transfer_objects.session import Session
 from models.challenge_progress import ChallengeProgress
 from models.conversation_course import ConversationCourse
 from models.user import User
+from pydantic import ValidationError
 
 
 def test_userRequest_and_response_areFrozen():
@@ -23,6 +25,16 @@ def test_userRequest_and_response_areFrozen():
 
     assert request.userInput == "hi"
     assert response.response == "there"
+
+
+def test_userRequest_rejectsEmptyOrLongInput():
+    request = UserRequest(userInput="  piece of cake  ")
+
+    assert request.userInput == "  piece of cake  "
+    with pytest.raises(ValidationError):
+        UserRequest(userInput="")
+    with pytest.raises(ValidationError):
+        UserRequest(userInput="a" * 501)
 
 
 def test_chatTurn_and_message_models():

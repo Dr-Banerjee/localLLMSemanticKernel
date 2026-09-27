@@ -58,10 +58,7 @@ When someone says "hit the books," they mean "start studying!"
 
 --- Now explain the child's idiom ---
 
-The child has entered:
-
-{{$user_input}}
-
+The next user message is the idiom or question.
 Explain the idiom using the same style as the examples above.
 
 Use exactly this structure:
