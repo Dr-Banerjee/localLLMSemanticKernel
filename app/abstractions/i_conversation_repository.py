@@ -33,6 +33,14 @@ class IConversationRepository(ABC):
         pass
 
     @abstractmethod
+    async def updateSystemMessage(
+        self,
+        conversationId: int,
+        content: str,
+    ) -> None:
+        pass
+
+    @abstractmethod
     async def getMessages(
         self,
         conversationId: int,

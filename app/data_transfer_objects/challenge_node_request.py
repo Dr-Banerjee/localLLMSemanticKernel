@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, ConfigDict
 
 
@@ -6,3 +8,4 @@ class ChallengeNodeRequest(BaseModel):
 
     node_id: int
     conversation_id: int
+    language: Literal["en", "de"] = "en"

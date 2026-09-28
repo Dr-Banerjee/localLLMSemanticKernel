@@ -1,0 +1,22 @@
+.switcher {
+  position: fixed;
+  z-index: 30;
+  top: 0.55rem;
+  left: 0.55rem;
+  display: flex;
+  gap: 0.3rem;
+}
+
+.switcher button {
+  padding: 0.35rem 0.7rem;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 4px 0 rgba(58, 42, 26, 0.14);
+  font-family: "Fredoka", "Nunito", sans-serif;
+  font-size: 0.9rem;
+}
+
+.switcher button[aria-pressed="true"] {
+  background: var(--sun);
+}

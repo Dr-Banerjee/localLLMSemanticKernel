@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./ChallengeNavButton.module.css";
 
 type ChallengeNavButtonProps = {
@@ -5,9 +6,11 @@ type ChallengeNavButtonProps = {
 };
 
 export function ChallengeNavButton({ onClick }: ChallengeNavButtonProps) {
+  const { t } = useTranslation();
+
   return (
     <button className={styles.button} type="button" onClick={onClick}>
-      Pip's idiom Challenge
+      {t("nav.challenge")}
     </button>
   );
 }

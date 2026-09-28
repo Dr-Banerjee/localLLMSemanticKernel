@@ -1,3 +1,4 @@
+import { appLanguage } from "../i18n";
 import { axiosClient } from "./axiosClient";
 import type {
   ConversationMessage,
@@ -47,7 +48,7 @@ export async function postConversationMessage(
   userInput: string,
   { signal }: RequestOptions = {},
 ): Promise<ResponseToUserRequest> {
-  const body: UserRequest = { userInput };
+  const body: UserRequest = { userInput, language: appLanguage() };
   const { data } = await axiosClient.post<ResponseToUserRequest>(
     `/api/conversations/${conversationId}/messages`,
     body,

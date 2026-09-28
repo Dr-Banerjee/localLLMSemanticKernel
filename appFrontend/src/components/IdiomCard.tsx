@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { FeaturedIdiom } from "../types";
 import styles from "./IdiomCard.module.css";
 
@@ -7,6 +8,8 @@ type IdiomCardProps = {
 };
 
 export function IdiomCard({ idiom, onSelect }: IdiomCardProps) {
+  const { t } = useTranslation();
+
   return (
     <button
       type="button"
@@ -17,7 +20,7 @@ export function IdiomCard({ idiom, onSelect }: IdiomCardProps) {
         {idiom.emoji}
       </span>
       <span className={styles.phrase}>{idiom.phrase}</span>
-      <span className={styles.hint}>{idiom.hint}</span>
+      <span className={styles.hint}>{t(idiom.hintKey)}</span>
     </button>
   );
 }

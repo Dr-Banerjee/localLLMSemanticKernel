@@ -73,6 +73,26 @@ class ConversationRepository(IConversationRepository):
             created_at=record.created_at,
         )
 
+    async def updateSystemMessage(
+        self,
+        conversationId: int,
+        content: str,
+    ) -> None:
+        result = await self.session.execute(
+            select(MessageRecord)
+            .where(
+                MessageRecord.conversation_id == conversationId,
+                MessageRecord.role == "system",
+            )
+            .order_by(MessageRecord.id)
+            .limit(1)
+        )
+        record = result.scalar_one_or_none()
+        if record is None or record.content == content:
+            return
+        record.content = content
+        await self.session.flush()
+
     async def getMessages(
         self,
         conversationId: int,

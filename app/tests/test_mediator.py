@@ -166,6 +166,7 @@ async def test_send_routesStartChallengeNodeCommand(mediator, userId):
         userId,
         1,
         1790391174385,
+        "en",
     )
 
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   checkpointPassScore,
   type ChallengeIdiom,
@@ -43,6 +44,7 @@ export function CheckpointQuiz({
   onFail,
   onCancel,
 }: CheckpointQuizProps) {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
@@ -80,10 +82,10 @@ export function CheckpointQuiz({
     <section className={styles.screen}>
       <header className={styles.header}>
         <button className={styles.back} type="button" onClick={onCancel}>
-          Back to the path
+          {t("quiz.backToPath")}
         </button>
-        <p className={styles.kicker}>{finale ? "Last test" : "Checkpoint test"}</p>
-        <h1>{finished ? "How did Pip do?" : houseLabel}</h1>
+        <p className={styles.kicker}>{finale ? t("quiz.lastTest") : t("quiz.checkpoint")}</p>
+        <h1>{finished ? t("quiz.howDidPip") : houseLabel}</h1>
       </header>
 
       <Mascot
@@ -94,19 +96,19 @@ export function CheckpointQuiz({
       {finished ? (
         <div className={styles.card}>
           <p className={styles.score}>
-            {score} of {idioms.length} right
+            {t("quiz.score", { score, total: idioms.length })}
           </p>
           {passed ? (
             <p>
               {finale
-                ? `Pip knows these sayings well enough to reach ${houseLabel}, the grand birdhouse at the end of the path.`
-                : `Pip knows these sayings well enough to hop on to ${houseLabel}.`}
+                ? t("quiz.passFinale", { house: houseLabel })
+                : t("quiz.pass", { house: houseLabel })}
             </p>
           ) : (
             <p>
               {finale
-                ? `Pip is not ready for ${houseLabel} yet. That grand birdhouse is the end of the path. Revisit the stones behind you to freshen up, then try the last test again.`
-                : `Pip is not ready for ${houseLabel} yet. Revisit the stones behind you to freshen up, then try the test again.`}
+                ? t("quiz.failFinale", { house: houseLabel })
+                : t("quiz.fail", { house: houseLabel })}
             </p>
           )}
           {error ? (
@@ -116,22 +118,26 @@ export function CheckpointQuiz({
           ) : null}
           {passed ? (
             <button type="button" className={styles.primary} disabled={busy} onClick={onPass}>
-              {busy ? "Pip is hopping..." : finale ? `Reach ${houseLabel}` : `On to ${houseLabel}`}
+              {busy
+                ? t("quiz.hopping")
+                : finale
+                  ? t("quiz.reach", { house: houseLabel })
+                  : t("quiz.onTo", { house: houseLabel })}
             </button>
           ) : (
             <button type="button" className={styles.primary} onClick={onFail}>
-              Back to the stones
+              {t("quiz.backToStones")}
             </button>
           )}
         </div>
       ) : (
         <div className={styles.card}>
           <p className={styles.progress}>
-            Question {index + 1} of {idioms.length}
+            {t("quiz.question", { current: index + 1, total: idioms.length })}
           </p>
           <h2 className={styles.idiom}>{current.idiom}</h2>
-          <p>Which sentence uses this saying the right way?</p>
-          <div className={styles.choices} role="group" aria-label={`Choices for ${current.idiom}`}>
+          <p>{t("quiz.whichSentence")}</p>
+          <div className={styles.choices} role="group" aria-label={t("quiz.choices", { idiom: current.idiom })}>
             {options.map((option, optionIndex) => {
               const selected = picked === optionIndex;
               return (
@@ -150,7 +156,7 @@ export function CheckpointQuiz({
             })}
           </div>
           <button type="button" className={styles.primary} disabled={picked === null} onClick={goNext}>
-            {index + 1 === idioms.length ? "See the score" : "Next saying"}
+            {index + 1 === idioms.length ? t("quiz.seeScore") : t("quiz.nextSaying")}
           </button>
         </div>
       )}

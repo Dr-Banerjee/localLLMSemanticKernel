@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { messageForApiError } from "../api/errors";
 import {
   challengeIdiomCount,
@@ -14,6 +15,7 @@ import {
   type ChallengeIdiom,
 } from "../data/challengeIdioms";
 import { useAdvanceChallengeStep, useChallengeProgress } from "../hooks/useChallengeProgress";
+import i18n from "../i18n";
 import { Birdhouse, houseName, Tree } from "./ChallengeScenery";
 import { CheckpointQuiz } from "./CheckpointQuiz";
 import { Mascot } from "./Mascot";
@@ -61,28 +63,34 @@ function sideClass(pathIndex: number): string {
 
 function rewardTeaser(step: number): string {
   if (step > challengeIdiomCount) {
-    return "Pip visited every saying. The whole nest is glowing!";
+    return i18n.t("path.nestGlowing");
   }
 
   if (step === challengeIdiomCount) {
-    return `Finish this saying. The last quiz then opens the way to ${houseName(challengeIdiomCount / checkpointInterval)}.`;
+    return i18n.t("path.finishSaying", {
+      house: houseName(challengeIdiomCount / checkpointInterval),
+    });
   }
 
   for (let id = step + 1; id <= challengeIdiomCount; id += 1) {
     const hops = id - step;
-    const hopLabel = hops === 1 ? "the next stone" : `${hops} sayings ahead`;
+    const hopLabel =
+      hops === 1 ? i18n.t("path.nextStone") : i18n.t("path.sayingsAhead", { count: hops });
     if (id % checkpointInterval === 0) {
       if (hops === 1) {
-        return `A quiz stone is waiting before ${houseName(id / checkpointInterval)}.`;
+        return i18n.t("path.quizWaiting", { house: houseName(id / checkpointInterval) });
       }
-      return `${houseName(id / checkpointInterval)} is waiting at ${hopLabel}.`;
+      return i18n.t("path.houseWaiting", {
+        house: houseName(id / checkpointInterval),
+        hop: hopLabel,
+      });
     }
     if (id % 3 === 0) {
-      return `A little tree for Pip is ${hopLabel}.`;
+      return i18n.t("path.treeWaiting", { hop: hopLabel });
     }
   }
 
-  return "Keep hopping. Pip loves a curious friend.";
+  return i18n.t("path.keepHopping");
 }
 
 export function ChallengePathScreen({
@@ -91,6 +99,7 @@ export function ChallengePathScreen({
   openCheckpointQuiz = null,
   onCheckpointQuizOpened,
 }: ChallengePathScreenProps) {
+  const { t } = useTranslation();
   const progressQuery = useChallengeProgress();
   const advanceStep = useAdvanceChallengeStep();
   const currentRef = useRef<HTMLLIElement>(null);
@@ -207,8 +216,8 @@ export function ChallengePathScreen({
     );
     setEncouragement(
       activeCheckpoint === challengeIdiomCount
-        ? `Pip is not ready for ${house} yet. That grand birdhouse is the end of the path. Revisit the stones behind you to freshen up, then try the last test again.`
-        : `Pip is not ready for ${house} yet. Revisit the stones behind you to freshen up, then try the test again.`,
+        ? t("path.notReadyFinale", { house })
+        : t("path.notReady", { house }),
     );
     setActiveCheckpoint(null);
   }
@@ -244,24 +253,23 @@ export function ChallengePathScreen({
     <section className={styles.screen}>
       <header className={styles.header}>
         <button className={styles.back} type="button" onClick={onBackHome}>
-          Home
+          {t("path.home")}
         </button>
-        <h1>Pip's idiom Challenge</h1>
-        <p className={styles.lead}>
-          Hop with Pip from the first idiom to the last. A quiz stone sits before each
-          birdhouse, and one last test waits after the final saying. You can open the stone
-          Pip is standing on, and the stones already behind.
-        </p>
+        <h1>{t("path.title")}</h1>
+        <p className={styles.lead}>{t("path.lead")}</p>
         {progress ? (
           <>
             <p className={styles.progress}>
               {onFinalQuiz
-                ? `Pip is on the last test before ${castleName}`
+                ? t("path.onLastTest", { house: castleName })
                 : atFinalHouse
-                  ? `Pip reached ${castleName}`
+                  ? t("path.reachedHouse", { house: castleName })
                   : quizBlocking
-                    ? `Pip is on the test before ${houseName(step / checkpointInterval)}`
-                    : `Pip is on saying ${reachedSaying} of ${challengeIdiomCount}`}
+                    ? t("path.onTestBefore", { house: houseName(step / checkpointInterval) })
+                    : t("path.onSaying", {
+                        current: reachedSaying,
+                        total: challengeIdiomCount,
+                      })}
             </p>
             <div
               className={styles.meter}
@@ -269,7 +277,7 @@ export function ChallengePathScreen({
               aria-valuemin={1}
               aria-valuemax={challengeIdiomCount}
               aria-valuenow={Math.max(reachedSaying, 1)}
-              aria-label="Sayings Pip has reached"
+              aria-label={t("path.meter")}
             >
               <span
                 style={{
@@ -279,11 +287,11 @@ export function ChallengePathScreen({
             </div>
             <p className={styles.teaser}>
               {onFinalQuiz
-                ? `Pass the last test to reach ${castleName}, the grand birdhouse at the end of the path.`
+                ? t("path.passLast", { house: castleName })
                 : atFinalHouse
-                  ? `${castleName} is the end of the path. The whole nest is glowing!`
+                  ? t("path.houseEnd", { house: castleName })
                   : quizBlocking
-                    ? `Pass the short test to reach ${houseName(step / checkpointInterval)}.`
+                    ? t("path.passShort", { house: houseName(step / checkpointInterval) })
                     : rewardTeaser(step)}
             </p>
           </>
@@ -291,19 +299,19 @@ export function ChallengePathScreen({
       </header>
 
       {progressQuery.isPending ? (
-        <p className={styles.status}>Pip is finding the path...</p>
+        <p className={styles.status}>{t("path.findingPath")}</p>
       ) : null}
 
       {progressQuery.error ? (
         <div className={styles.banner} role="alert">
-          <p>Pip couldn’t open the path just now.</p>
+          <p>{t("path.pathError")}</p>
           <button
             type="button"
             onClick={() => {
               void progressQuery.refetch();
             }}
           >
-            Try again
+            {t("path.tryAgain")}
           </button>
         </div>
       ) : null}
@@ -334,8 +342,10 @@ export function ChallengePathScreen({
                     ? "tree"
                     : null;
             const label = locked
-              ? `Saying ${idiom.id}, still ahead`
-              : `Saying ${idiom.id}, ${idiom.idiom}${state === "current" ? ", Pip is here" : ""}`;
+              ? t("path.sayingLocked", { id: idiom.id })
+              : state === "current"
+                ? t("path.sayingHere", { id: idiom.id, idiom: idiom.idiom })
+                : t("path.sayingOpen", { id: idiom.id, idiom: idiom.idiom });
             const pathIndex = idiomPathIndex(idiom.id);
             const checkpointId = idiom.id + 1;
             const quizState = isStoneBeforeCheckpoint(idiom.id)
@@ -396,8 +406,16 @@ export function ChallengePathScreen({
                         disabled={quizState !== "current" || isOpening}
                         aria-label={
                           quizState === "locked"
-                            ? `Test before ${houseName(checkpointId / checkpointInterval)}, still ahead`
-                            : `Test before ${houseName(checkpointId / checkpointInterval)}${quizState === "current" ? ", Pip is here" : ""}`
+                            ? t("path.testLocked", {
+                                house: houseName(checkpointId / checkpointInterval),
+                              })
+                            : quizState === "current"
+                              ? t("path.testHere", {
+                                  house: houseName(checkpointId / checkpointInterval),
+                                })
+                              : t("path.testOpen", {
+                                  house: houseName(checkpointId / checkpointInterval),
+                                })
                         }
                         onClick={() => {
                           openQuiz(checkpointId);
@@ -405,7 +423,7 @@ export function ChallengePathScreen({
                       >
                         <span className={styles.number}>?</span>
                         {quizState === "locked" ? null : (
-                          <span className={styles.phrase}>Short test</span>
+                          <span className={styles.phrase}>{t("path.shortTest")}</span>
                         )}
                       </button>
                     </div>
@@ -429,16 +447,16 @@ export function ChallengePathScreen({
                 disabled={!onFinalQuiz || isOpening}
                 aria-label={
                   onFinalQuiz
-                    ? `Last test before ${castleName}, Pip is here`
+                    ? t("path.lastHere", { house: castleName })
                     : atFinalHouse
-                      ? `Last test before ${castleName}`
-                      : `Last test before ${castleName}, still ahead`
+                      ? t("path.lastOpen", { house: castleName })
+                      : t("path.lastLocked", { house: castleName })
                 }
                 onClick={openFinalQuiz}
               >
                 <span className={styles.number}>?</span>
                 {onFinalQuiz || atFinalHouse ? (
-                  <span className={styles.phrase}>Last test</span>
+                  <span className={styles.phrase}>{t("path.lastTest")}</span>
                 ) : null}
               </button>
             </div>
@@ -447,7 +465,9 @@ export function ChallengePathScreen({
             ref={atFinalHouse ? currentRef : undefined}
             className={`${styles.stop} ${atFinalHouse ? styles.current : styles.locked} ${sideClass(idiomPathIndex(challengeIdiomCount) + 2)}`}
             aria-label={
-              atFinalHouse ? `${castleName}, Pip is here` : `${castleName}, still ahead`
+              atFinalHouse
+                ? t("path.houseHere", { house: castleName })
+                : t("path.houseAhead", { house: castleName })
             }
           >
             <span className={styles.connector} aria-hidden="true" />

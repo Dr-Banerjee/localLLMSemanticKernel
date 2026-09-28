@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { ConversationSummary, FeaturedIdiom } from "../types";
 import { formatFriendlyDate } from "../utils/dates";
 import styles from "./ConversationSummaryCard.module.css";
@@ -21,12 +22,13 @@ export function ConversationSummaryCard({
   isDeleting = false,
   onPrefetch,
 }: ConversationSummaryCardProps) {
+  const { t } = useTranslation();
   const accent = accents[index % accents.length];
   const updatedLabel = formatFriendlyDate(summary.updatedAt);
 
   return (
     <article className={`${styles.card} ${styles[accent]}`}>
-      <p className={styles.kicker}>Let’s keep exploring</p>
+      <p className={styles.kicker}>{t("summaries.cardKicker")}</p>
       <button
         type="button"
         className={styles.idiom}
@@ -36,12 +38,14 @@ export function ConversationSummaryCard({
       >
         {summary.initialMessage}
       </button>
-      {updatedLabel ? <p className={styles.meta}>Last visited {updatedLabel}</p> : null}
-      <p className={styles.hint}>Tap the saying to ask more questions!</p>
+      {updatedLabel ? (
+        <p className={styles.meta}>{t("summaries.lastVisited", { when: updatedLabel })}</p>
+      ) : null}
+      <p className={styles.hint}>{t("summaries.hint")}</p>
       <button
         type="button"
         className={styles.delete}
-        aria-label={`Delete ${summary.initialMessage}`}
+        aria-label={t("summaries.delete", { idiom: summary.initialMessage })}
         disabled={isDeleting}
         onClick={() => onDelete(summary)}
       >

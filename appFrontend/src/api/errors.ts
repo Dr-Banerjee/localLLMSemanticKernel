@@ -1,3 +1,5 @@
+import i18n from "../i18n";
+
 export class ApiError extends Error {
   override name = "ApiError";
   readonly detail?: string;
@@ -18,5 +20,5 @@ export function messageForApiError(error: unknown): string {
     return error.message;
   }
 
-  return "Something wobbled. Let’s try again in a moment!";
+  return i18n.t("errors.wobbled");
 }

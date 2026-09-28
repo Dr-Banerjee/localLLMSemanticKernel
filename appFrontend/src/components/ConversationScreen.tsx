@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { followUpPrompts } from "../data/featuredIdioms";
+import { useTranslation } from "react-i18next";
+import { followUpPromptKeys } from "../data/featuredIdioms";
 import type { ChatMessage } from "../types";
 import { parseExplanation } from "../utils/chat";
 import { ChallengeNavButton } from "./ChallengeNavButton";
@@ -29,17 +30,17 @@ type ConversationScreenProps = {
   nextStone?: NextStoneAction;
 };
 
-function encouragementFor(followUpCount: number): string {
+function encouragementKey(followUpCount: number): string {
   if (followUpCount >= 5) {
-    return "Wow! You are a super idiom explorer.";
+    return "conversation.encouragement5";
   }
   if (followUpCount >= 3) {
-    return "Beautiful curiosity. Your brain is growing!";
+    return "conversation.encouragement3";
   }
   if (followUpCount >= 1) {
-    return "Great question! Keep exploring.";
+    return "conversation.encouragement1";
   }
-  return "Curious questions help you remember.";
+  return "conversation.encouragement0";
 }
 
 export function ConversationScreen({
@@ -55,7 +56,9 @@ export function ConversationScreen({
   onOpenChallenge,
   nextStone,
 }: ConversationScreenProps) {
+  const { t } = useTranslation();
   const endRef = useRef<HTMLDivElement>(null);
+  const followUpPrompts = followUpPromptKeys.map((key) => t(key));
   const followUpCount = messages.filter((message) => message.kind === "followup").length;
   const firstAssistantId = messages.find((message) => message.role === "assistant")?.id;
   const hasAssistantReply = Boolean(firstAssistantId);
@@ -70,32 +73,34 @@ export function ConversationScreen({
         <div className={styles.brand}>
           <Mascot mood={isSending ? "think" : "happy"} className={styles.mascot} />
           <div>
-            <p className={styles.kicker}>Learning with Pip</p>
+            <p className={styles.kicker}>{t("conversation.kicker")}</p>
             <h1 className={styles.idiom}>{idiom}</h1>
           </div>
         </div>
         <div className={styles.actions}>
           <ChallengeNavButton onClick={onOpenChallenge} />
           <button className={styles.newSaying} type="button" onClick={onViewSummaries}>
-            Your idioms
+            {t("conversation.yourIdioms")}
           </button>
           <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
-            Home
+            {t("conversation.home")}
           </button>
         </div>
       </header>
 
       <p className={styles.stars} aria-live="polite">
         <span aria-hidden="true">⭐</span>
-        {encouragementFor(followUpCount)}
-        {followUpCount > 0 ? ` Curious questions: ${followUpCount}` : ""}
+        {t(encouragementKey(followUpCount))}
+        {followUpCount > 0 ? ` ${t("conversation.curiousCount", { count: followUpCount })}` : ""}
       </p>
 
       <div className={styles.thread} role="log" aria-live="polite" aria-relevant="additions">
         {messages.map((message) => {
           if (message.role === "user") {
             const label =
-              message.kind === "idiom" ? `What does “${message.content}” mean?` : message.content;
+              message.kind === "idiom"
+                ? t("conversation.userIdiom", { idiom: message.content })
+                : message.content;
             return <ChatBubble key={message.id} role="user">{label}</ChatBubble>;
           }
 
@@ -113,14 +118,12 @@ export function ConversationScreen({
         })}
 
         {isSending || isLoadingHistory ? (
-          <div className={styles.thinking} aria-label="Pip is thinking">
+          <div className={styles.thinking} aria-label={t("conversation.thinking")}>
             <span />
             <span />
             <span />
             <p>
-              {isLoadingHistory
-                ? "Pip is opening this saying for you..."
-                : "Pip is thinking of a kind, simple answer..."}
+              {isLoadingHistory ? t("conversation.opening") : t("conversation.answering")}
             </p>
           </div>
         ) : null}
@@ -129,7 +132,7 @@ export function ConversationScreen({
           <div className={styles.error} role="alert">
             <p>{error}</p>
             <button type="button" onClick={onRetry}>
-              Try again
+              {t("conversation.tryAgain")}
             </button>
           </div>
         ) : null}
@@ -144,8 +147,8 @@ export function ConversationScreen({
       <div className={styles.composerWrap}>
         <div className={styles.composer}>
           <Composer
-            placeholder="Ask Pip another question..."
-            submitLabel="Ask"
+            placeholder={t("conversation.placeholder")}
+            submitLabel={t("conversation.ask")}
             disabled={isSending || isLoadingHistory}
             onSubmit={onAsk}
           />
@@ -157,7 +160,7 @@ export function ConversationScreen({
             disabled={nextStone.disabled}
             onClick={nextStone.onNext}
           >
-            Next stone
+            {t("conversation.nextStone")}
           </button>
         ) : null}
       </div>

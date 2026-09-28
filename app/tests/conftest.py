@@ -62,6 +62,7 @@ def unitOfWork():
     uow.conversationRepository.createConversation = AsyncMock()
     uow.conversationRepository.getMessages = AsyncMock()
     uow.conversationRepository.addMessage = AsyncMock()
+    uow.conversationRepository.updateSystemMessage = AsyncMock()
     uow.conversationRepository.getConversationSummaries = AsyncMock()
     uow.conversationRepository.deleteConversation = AsyncMock()
     uow.sessionRepository.getValidSession = AsyncMock()
