@@ -4,6 +4,7 @@ import {
   checkpointPassScore,
   type ChallengeIdiom,
 } from "../data/challengeIdioms";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Mascot } from "./Mascot";
 import styles from "./CheckpointQuiz.module.css";
 
@@ -81,9 +82,12 @@ export function CheckpointQuiz({
   return (
     <section className={styles.screen}>
       <header className={styles.header}>
-        <button className={styles.back} type="button" onClick={onCancel}>
-          {t("quiz.backToPath")}
-        </button>
+        <div className={styles.corner}>
+          <LanguageSwitcher />
+          <button className={styles.back} type="button" onClick={onCancel}>
+            {t("quiz.backToPath")}
+          </button>
+        </div>
         <p className={styles.kicker}>{finale ? t("quiz.lastTest") : t("quiz.checkpoint")}</p>
         <h1>{finished ? t("quiz.howDidPip") : houseLabel}</h1>
       </header>

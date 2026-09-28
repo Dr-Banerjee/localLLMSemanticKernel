@@ -17,6 +17,7 @@ import {
 import { useAdvanceChallengeStep, useChallengeProgress } from "../hooks/useChallengeProgress";
 import i18n from "../i18n";
 import { Birdhouse, houseName, Tree } from "./ChallengeScenery";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { CheckpointQuiz } from "./CheckpointQuiz";
 import { Mascot } from "./Mascot";
 import styles from "./ChallengePathScreen.module.css";
@@ -252,9 +253,12 @@ export function ChallengePathScreen({
   return (
     <section className={styles.screen}>
       <header className={styles.header}>
-        <button className={styles.back} type="button" onClick={onBackHome}>
-          {t("path.home")}
-        </button>
+        <div className={styles.corner}>
+          <LanguageSwitcher />
+          <button className={styles.back} type="button" onClick={onBackHome}>
+            {t("path.home")}
+          </button>
+        </div>
         <h1>{t("path.title")}</h1>
         <p className={styles.lead}>{t("path.lead")}</p>
         {progress ? (

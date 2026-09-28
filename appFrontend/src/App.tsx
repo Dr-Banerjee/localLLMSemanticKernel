@@ -2,7 +2,6 @@ import { lazy, Suspense, useCallback, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { messageForApiError } from "./api/errors";
 import { challengeKeys } from "./api/queryKeys";
-import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { ScreenFallback } from "./components/ScreenFallback";
 import { nextChallengeTarget, readClearedCheckpoint, type ChallengeIdiom } from "./data/challengeIdioms";
 import { useInitialiseSession } from "./hooks/useInitialiseSession";
@@ -312,7 +311,6 @@ export default function App() {
 
   return (
     <div className={styles.shell}>
-      <LanguageSwitcher />
       <Suspense fallback={<ScreenFallback />}>
         {screen === "home" ? (
           <HomeScreen
