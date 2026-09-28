@@ -2,8 +2,8 @@
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   min-height: 100dvh;
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 42rem;
+  margin: auto;
 }
 
 .header {
