@@ -70,23 +70,25 @@ export function ConversationScreen({
 
   return (
     <section className={styles.screen}>
-      <header className={styles.topbar}>
-        <LanguageSwitcher />
+      <header className={styles.header}>
+        <div className={styles.topbar}>
+          <LanguageSwitcher />
+          <div className={styles.actions}>
+            <ChallengeNavButton onClick={onOpenChallenge} />
+            <button className={styles.newSaying} type="button" onClick={onViewSummaries}>
+              {t("conversation.yourIdioms")}
+            </button>
+            <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
+              {t("conversation.home")}
+            </button>
+          </div>
+        </div>
         <div className={styles.brand}>
           <Mascot mood={isSending ? "think" : "happy"} className={styles.mascot} />
           <div>
             <p className={styles.kicker}>{t("conversation.kicker")}</p>
             <h1 className={styles.idiom}>{idiom}</h1>
           </div>
-        </div>
-        <div className={styles.actions}>
-          <ChallengeNavButton onClick={onOpenChallenge} />
-          <button className={styles.newSaying} type="button" onClick={onViewSummaries}>
-            {t("conversation.yourIdioms")}
-          </button>
-          <button className={styles.newSaying} type="button" onClick={onNewIdiom}>
-            {t("conversation.home")}
-          </button>
         </div>
       </header>
 
