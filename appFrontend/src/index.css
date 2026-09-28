@@ -24,7 +24,7 @@
   line-height: 1.45;
   font-weight: 700;
   color: var(--ink);
-  background: var(--sky);
+  background: linear-gradient(180deg, #8fd6ef 0%, #b8e6f5 38%, #ffe7a3 78%, #8fbc6a 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -45,6 +45,7 @@ body,
 html {
   overflow-x: clip;
   overflow-y: auto;
+  overscroll-behavior-y: none;
 }
 
 body {
