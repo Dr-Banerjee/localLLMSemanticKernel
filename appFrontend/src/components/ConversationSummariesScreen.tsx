@@ -7,6 +7,7 @@ import { useDeleteConversation } from "../hooks/useDeleteConversation";
 import type { ConversationSummary } from "../types";
 import { ConversationSummaryCard } from "./ConversationSummaryCard";
 import { ChallengeNavButton } from "./ChallengeNavButton";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Mascot } from "./Mascot";
 import styles from "./ConversationSummariesScreen.module.css";
 
@@ -41,7 +42,10 @@ export function ConversationSummariesScreen({
   return (
     <section className={styles.screen}>
       <header className={styles.header}>
-        <Mascot mood="happy" className={styles.mascot} />
+        <div className={styles.corner}>
+          <LanguageSwitcher />
+          <Mascot mood="happy" className={styles.mascot} />
+        </div>
         <h1>{t("summaries.title")}</h1>
         <p className={styles.lead}>{t("summaries.lead")}</p>
         <div className={styles.headerActions}>

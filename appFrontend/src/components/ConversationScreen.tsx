@@ -8,6 +8,7 @@ import { ChatBubble } from "./ChatBubble";
 import { Composer } from "./Composer";
 import { ExplanationCard } from "./ExplanationCard";
 import { FollowUpChips } from "./FollowUpChips";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Mascot } from "./Mascot";
 import styles from "./ConversationScreen.module.css";
 
@@ -70,6 +71,7 @@ export function ConversationScreen({
   return (
     <section className={styles.screen}>
       <header className={styles.topbar}>
+        <LanguageSwitcher />
         <div className={styles.brand}>
           <Mascot mood={isSending ? "think" : "happy"} className={styles.mascot} />
           <div>
