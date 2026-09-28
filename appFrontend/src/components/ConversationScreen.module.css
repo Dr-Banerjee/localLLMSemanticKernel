@@ -67,7 +67,6 @@
   gap: 0.9rem;
   align-content: start;
   overflow: auto;
-  overscroll-behavior: contain;
   padding: 0.7rem 1rem 1.1rem;
 }
 
