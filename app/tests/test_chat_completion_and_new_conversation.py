@@ -25,7 +25,7 @@ async def test_addUserInput_forNewConversation_usesInitialPrompt(
     with patch(
         "command_handlers.chat_command_handler.LoadPrompt"
     ) as loadPromptClass:
-        loadPromptClass.return_value.loadPrompt.return_value = (
+        loadPromptClass.return_value.loadPromptFor.return_value = (
             "Explain the next message"
         )
         result = await handler.addUserInputToConversationCourse(

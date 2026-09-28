@@ -30,3 +30,29 @@ def test_promptsDirectory_pointsAtAppPrompts():
 
     assert loader.promptsDirectory.name == "prompts"
     assert isinstance(loader.promptsDirectory, Path)
+
+
+def test_promptFileName_selectsLanguage():
+    loader = LoadPrompt()
+
+    assert loader.promptFileName("system", "en") == "system_prompts.txt"
+    assert loader.promptFileName("system", "de") == "system_prompts_de.txt"
+    assert loader.promptFileName("answer", "en") == "answer_prompts.txt"
+    assert loader.promptFileName("answer", "de") == "answer_prompts_de.txt"
+
+
+def test_germanPrompts_keepEnglishIdiomsAndExamples():
+    loader = LoadPrompt()
+    systemPrompt = loader.loadPromptFor("system", "de")
+    answerPrompt = loader.loadPromptFor("answer", "de")
+
+    assert "auf Englisch bleiben" in systemPrompt
+    assert "niemals deutsche" in systemPrompt
+    assert "Meaning:" in answerPrompt
+    assert "Example:" in answerPrompt
+    assert "Tom told a funny joke to break the ice" in answerPrompt
+
+
+def test_loadPromptFor_rejectsUnknownLanguage():
+    with pytest.raises(ValueError, match="language must be en or de"):
+        LoadPrompt().loadPromptFor("system", "fr")

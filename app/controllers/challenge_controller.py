@@ -101,6 +101,7 @@ class ChallengeController:
                         userId=currentUser.id,
                         nodeId=request.node_id,
                         conversationId=request.conversation_id,
+                        language=request.language,
                     )
                 )
             except ChallengeNodeNotFoundException:

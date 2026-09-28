@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n";
 import styles from "./ChallengeScenery.module.css";
 
 const houseNames = [
@@ -34,7 +36,11 @@ const houseNames = [
 ] as const;
 
 export function houseName(level: number): string {
-  return houseNames[level - 1] ?? "Birdhouse";
+  const named = houseNames[level - 1];
+  if (!named) {
+    return i18n.t("houses.fallback");
+  }
+  return i18n.t(`houses.${level}`);
 }
 
 type SceneryProps = {
@@ -42,6 +48,8 @@ type SceneryProps = {
 };
 
 export function Tree({ locked }: SceneryProps) {
+  const { t } = useTranslation();
+
   return (
     <div className={`${styles.reward} ${locked ? styles.locked : ""}`} aria-hidden="true">
       <svg className={styles.tree} viewBox="0 0 140 110">
@@ -53,7 +61,7 @@ export function Tree({ locked }: SceneryProps) {
         <circle cx="70" cy="42" r="28" fill="#2f7d4a" stroke="#215736" strokeWidth="3" />
         <circle cx="80" cy="30" r="7" fill="#d9ffb0" />
       </svg>
-      {locked ? null : <p className={styles.caption}>A perch for Pip</p>}
+      {locked ? null : <p className={styles.caption}>{t("scenery.perch")}</p>}
     </div>
   );
 }
@@ -63,6 +71,7 @@ type BirdhouseProps = SceneryProps & {
 };
 
 export function Birdhouse({ level, locked }: BirdhouseProps) {
+  useTranslation();
   const hue = 14 + (level - 1) * 11;
   const wall = `hsl(${hue} 74% ${Math.max(48, 72 - Math.floor(level / 2))}%)`;
   const roof = level >= 16 ? "#ffd45a" : level >= 8 ? "#e05a6f" : "#6b3f2a";

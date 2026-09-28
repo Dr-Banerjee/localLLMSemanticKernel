@@ -1,5 +1,8 @@
+export type AppLanguage = "en" | "de";
+
 export type UserRequest = {
   userInput: string;
+  language: AppLanguage;
 };
 
 export type ResponseToUserRequest = {
@@ -54,7 +57,7 @@ export type ParsedExplanation = {
 
 export type FeaturedIdiom = {
   phrase: string;
-  hint: string;
+  hintKey: string;
   emoji: string;
   accent: "sky" | "rose" | "violet" | "mint" | "amber" | "peach";
 };

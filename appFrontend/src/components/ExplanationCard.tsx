@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { ParsedExplanation } from "../types";
 import styles from "./ExplanationCard.module.css";
 
@@ -6,15 +7,17 @@ type ExplanationCardProps = {
 };
 
 const sections = [
-  { key: "meaning", title: "What it means", emoji: "💡", field: "meaning" },
-  { key: "why", title: "Why people say it", emoji: "🌈", field: "why" },
-  { key: "example", title: "A friendly example", emoji: "📖", field: "example" },
-  { key: "remember", title: "Remember this", emoji: "⭐", field: "remember" },
+  { key: "meaning", titleKey: "explanation.meaning", emoji: "💡", field: "meaning" },
+  { key: "why", titleKey: "explanation.why", emoji: "🌈", field: "why" },
+  { key: "example", titleKey: "explanation.example", emoji: "📖", field: "example" },
+  { key: "remember", titleKey: "explanation.remember", emoji: "⭐", field: "remember" },
 ] as const;
 
 export function ExplanationCard({ explanation }: ExplanationCardProps) {
+  const { t } = useTranslation();
+
   return (
-    <article className={styles.stack} aria-label="Idiom explanation">
+    <article className={styles.stack} aria-label={t("explanation.label")}>
       {sections.map((section) => {
         const body = explanation[section.field];
         if (!body) {
@@ -25,7 +28,7 @@ export function ExplanationCard({ explanation }: ExplanationCardProps) {
           <section key={section.key} className={`${styles.card} ${styles[section.key]}`}>
             <h3>
               <span aria-hidden="true">{section.emoji}</span>
-              {section.title}
+              {t(section.titleKey)}
             </h3>
             <p>{body}</p>
           </section>

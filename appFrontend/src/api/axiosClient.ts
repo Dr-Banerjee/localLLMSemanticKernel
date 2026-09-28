@@ -1,4 +1,5 @@
 import axios, { AxiosError, HttpStatusCode, isAxiosError } from "axios";
+import i18n from "../i18n";
 import { ApiError } from "./errors";
 
 declare module "axios" {
@@ -38,13 +39,13 @@ function toApiError(error: unknown): ApiError {
 
   if (isAxiosError(error)) {
     if (error.code === AxiosError.ECONNABORTED || error.code === AxiosError.ETIMEDOUT) {
-      return new ApiError("Pip is still thinking. Let’s try that question once more!");
+      return new ApiError(i18n.t("errors.timeout"));
     }
 
     if (error.response) {
       const detail = responseDetail(error);
       return new ApiError(
-        "Pip ran into a wobbly answer. Let’s try again!",
+        i18n.t("errors.wobblyAnswer"),
         error.response.status,
         undefined,
         detail,
@@ -52,11 +53,11 @@ function toApiError(error: unknown): ApiError {
     }
 
     return new ApiError(
-      "Pip couldn’t reach the teacher computer. Ask a grown-up to start the backend, then try again!",
+      i18n.t("errors.offline"),
     );
   }
 
-  return new ApiError("Something wobbled. Let’s try again in a moment!");
+  return new ApiError(i18n.t("errors.wobbled"));
 }
 
 axiosClient.interceptors.response.use(
