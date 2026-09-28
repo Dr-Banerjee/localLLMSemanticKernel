@@ -42,17 +42,21 @@ export function ConversationSummariesScreen({
   return (
     <section className={styles.screen}>
       <header className={styles.header}>
-        <div className={styles.corner}>
+        <div className={styles.topbar}>
           <LanguageSwitcher />
-          <Mascot mood="happy" className={styles.mascot} />
+          <div className={styles.headerActions}>
+            <ChallengeNavButton onClick={onOpenChallenge} />
+            <button className={styles.home} type="button" onClick={onBackHome}>
+              {t("summaries.home")}
+            </button>
+          </div>
         </div>
-        <h1>{t("summaries.title")}</h1>
-        <p className={styles.lead}>{t("summaries.lead")}</p>
-        <div className={styles.headerActions}>
-          <ChallengeNavButton onClick={onOpenChallenge} />
-          <button className={styles.kicker} type="button" onClick={onBackHome}>
-            {t("summaries.home")}
-          </button>
+        <div className={styles.brand}>
+          <Mascot mood="happy" className={styles.mascot} />
+          <div>
+            <h1>{t("summaries.title")}</h1>
+            <p className={styles.lead}>{t("summaries.lead")}</p>
+          </div>
         </div>
       </header>
 
