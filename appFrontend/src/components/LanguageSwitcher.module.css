@@ -1,20 +1,27 @@
 .switcher {
   position: fixed;
   z-index: 30;
-  top: 0.55rem;
-  left: 0.55rem;
+  top: 0.45rem;
+  left: 0.45rem;
   display: flex;
-  gap: 0.3rem;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  box-shadow: 0 3px 0 rgba(58, 42, 26, 0.14);
 }
 
 .switcher button {
-  padding: 0.35rem 0.7rem;
-  border: 3px solid var(--ink);
-  border-radius: var(--radius-pill);
-  background: var(--paper);
-  box-shadow: 0 4px 0 rgba(58, 42, 26, 0.14);
+  padding: 0.12rem 0.42rem;
+  border: 0;
+  background: transparent;
   font-family: "Fredoka", "Nunito", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.switcher button + button {
+  border-left: 2px solid var(--ink);
 }
 
 .switcher button[aria-pressed="true"] {
