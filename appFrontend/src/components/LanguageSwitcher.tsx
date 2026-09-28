@@ -3,9 +3,9 @@ import type { AppLanguage } from "../i18n";
 import styles from "./LanguageSwitcher.module.css";
 
 const languages = [
-  { id: "en", labelKey: "language.english" },
-  { id: "de", labelKey: "language.german" },
-] as const satisfies ReadonlyArray<{ id: AppLanguage; labelKey: string }>;
+  { id: "en", shortLabel: "EN", nameKey: "language.english" },
+  { id: "de", shortLabel: "DE", nameKey: "language.german" },
+] as const satisfies ReadonlyArray<{ id: AppLanguage; shortLabel: string; nameKey: string }>;
 
 export function LanguageSwitcher() {
   const { i18n, t } = useTranslation();
@@ -17,12 +17,13 @@ export function LanguageSwitcher() {
         <button
           key={language.id}
           type="button"
+          aria-label={t(language.nameKey)}
           aria-pressed={active === language.id}
           onClick={() => {
             void i18n.changeLanguage(language.id);
           }}
         >
-          {t(language.labelKey)}
+          {language.shortLabel}
         </button>
       ))}
     </div>
