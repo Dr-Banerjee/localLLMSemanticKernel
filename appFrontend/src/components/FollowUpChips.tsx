@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import styles from "./FollowUpChips.module.css";
 
 type FollowUpChipsProps = {
@@ -7,9 +8,11 @@ type FollowUpChipsProps = {
 };
 
 export function FollowUpChips({ prompts, disabled = false, onSelect }: FollowUpChipsProps) {
+  const { t } = useTranslation();
+
   return (
-    <section className={styles.wrap} aria-label="Curious follow-up ideas">
-      <p className={styles.title}>Still curious? Tap a question!</p>
+    <section className={styles.wrap} aria-label={t("followUp.label")}>
+      <p className={styles.title}>{t("followUp.title")}</p>
       <div className={styles.chips}>
         {prompts.map((prompt) => (
           <button

@@ -16,13 +16,14 @@ class StartChallengeNodeCommandHandler:
         userId: UUID,
         nodeId: int,
         conversationId: int,
+        language: str = "en",
     ) -> ChallengeNodeConversation:
         idioms = load_challenge_idioms()
         entry = idioms.get(nodeId)
         if entry is None:
             raise ChallengeNodeNotFoundException("Challenge node not found")
 
-        systemPrompt = LoadPrompt().loadPrompt("system_prompts.txt")
+        systemPrompt = LoadPrompt().loadPromptFor("system", language)
         assistantMessage = format_challenge_response(entry)
 
         async with self.unitOfWorkFactory.create() as unitOfWork:

@@ -3,46 +3,46 @@ import type { FeaturedIdiom } from "../types";
 export const featuredIdioms: FeaturedIdiom[] = [
   {
     phrase: "Break the ice",
-    hint: "Help new friends feel comfy",
+    hintKey: "featured.breakTheIce",
     emoji: "🧊",
     accent: "sky",
   },
   {
     phrase: "Piece of cake",
-    hint: "Something super easy",
+    hintKey: "featured.pieceOfCake",
     emoji: "🍰",
     accent: "rose",
   },
   {
     phrase: "Hit the books",
-    hint: "Time to study hard",
+    hintKey: "featured.hitTheBooks",
     emoji: "📚",
     accent: "violet",
   },
   {
     phrase: "Raining cats and dogs",
-    hint: "A really wild rainstorm",
+    hintKey: "featured.rainingCatsAndDogs",
     emoji: "🌧️",
     accent: "mint",
   },
   {
     phrase: "Butterflies in my stomach",
-    hint: "Feeling extra nervous",
+    hintKey: "featured.butterflies",
     emoji: "🦋",
     accent: "peach",
   },
   {
     phrase: "Let the cat out of the bag",
-    hint: "Oops, a secret slipped",
+    hintKey: "featured.letTheCatOut",
     emoji: "🐱",
     accent: "amber",
   },
 ];
 
-export const followUpPrompts = [
-  "Can you give me another example?",
-  "When would I say this?",
-  "Why do people say it that way?",
-  "Can you tell a tiny story with it?",
-  "Is there a similar saying?",
-];
+export const followUpPromptKeys = [
+  "followUp.anotherExample",
+  "followUp.whenToSay",
+  "followUp.whyThatWay",
+  "followUp.tinyStory",
+  "followUp.similarSaying",
+] as const;

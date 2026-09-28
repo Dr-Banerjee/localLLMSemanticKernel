@@ -24,6 +24,7 @@ def test_userRequest_and_response_areFrozen():
     response = ResponseToUserRequest(response="there")
 
     assert request.userInput == "hi"
+    assert request.language == "en"
     assert response.response == "there"
 
 

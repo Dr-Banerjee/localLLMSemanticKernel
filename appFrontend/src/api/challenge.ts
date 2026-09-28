@@ -1,4 +1,5 @@
 import { HttpStatusCode } from "axios";
+import { appLanguage } from "../i18n";
 import { ApiError } from "./errors";
 import { createConversationId } from "../utils/chat";
 import { axiosClient } from "./axiosClient";
@@ -67,7 +68,7 @@ export async function startChallengeNode(
   const conversationId = createConversationId();
   const { data } = await axiosClient.post<{ conversation_id: number }>(
     "/api/challenge/node",
-    { node_id: nodeId, conversation_id: conversationId },
+    { node_id: nodeId, conversation_id: conversationId, language: appLanguage() },
     { signal },
   );
   return data;

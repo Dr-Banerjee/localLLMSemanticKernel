@@ -32,10 +32,26 @@ Curious questions still help you learn."""
         self.followUpFallback = (
             "Let's stay with this idiom. Ask me another curious question about it."
         )
+        self.fallbackExplanationDe = """Meaning:
+Das konnte ich gerade nicht erklären.
+
+Why does it mean that?
+Lass uns diese Wörter noch einmal versuchen, oder such dir ein anderes Idiom aus.
+
+Example:
+Pip says, "Piece of cake means something is easy."
+
+Remember:
+Neugierige Fragen helfen dir trotzdem beim Lernen."""
+        self.followUpFallbackDe = (
+            "Lass uns bei diesem Idiom bleiben. Stell mir noch eine neugierige Frage dazu."
+        )
         self.leakedInstructionMarkers = (
             "You are a kind, patient, and encouraging teacher",
             "getIdiomHint",
             "The next user message is the idiom",
+            "Du bist eine freundliche, geduldige und ermutigende Lehrkraft",
+            "Die nächste Nachricht des Kindes ist das Idiom",
         )
 
     async def handleChatCommand(
@@ -51,10 +67,12 @@ Curious questions still help you learn."""
         conversationCourse = await self.getOrCreateConversationCourse(
             conversationId=conversationId,
             userId=userId,
+            language=request.language,
         )
         chatHistory = await self.addUserInputToConversationCourse(
             conversationCourse,
             userInput,
+            request.language,
         )
         assistantResponse = await self.chatCompletion.complete(
             self.limitModelContext(chatHistory, conversationCourse.newlyCreated)
@@ -63,6 +81,7 @@ Curious questions still help you learn."""
         assistantResponse = self.replyToStore(
             assistantResponse,
             conversationCourse.newlyCreated,
+            request.language,
         )
 
         async with self.unitOfWorkFactory.create() as unitOfWork:
@@ -77,16 +96,31 @@ Curious questions still help you learn."""
     def removeStars(self, assistantResponse: str) -> str:
         return assistantResponse.replace("*", "")
 
-    def replyToStore(self, assistantResponse: str, newlyCreated: bool) -> str:
+    def replyToStore(
+        self,
+        assistantResponse: str,
+        newlyCreated: bool,
+        language: str,
+    ) -> str:
         if newlyCreated:
             if self.explanationIsComplete(assistantResponse) and self.replyIsSafeToShow(
                 assistantResponse
             ):
                 return assistantResponse
-            return self.fallbackExplanation
+            return self.fallbackFor(language)
 
         if self.replyIsSafeToShow(assistantResponse):
             return assistantResponse
+        return self.followUpFor(language)
+
+    def fallbackFor(self, language: str) -> str:
+        if language == "de":
+            return self.fallbackExplanationDe
+        return self.fallbackExplanation
+
+    def followUpFor(self, language: str) -> str:
+        if language == "de":
+            return self.followUpFallbackDe
         return self.followUpFallback
 
     def explanationIsComplete(self, text: str) -> bool:
@@ -128,6 +162,7 @@ Curious questions still help you learn."""
         self,
         conversationId: int,
         userId: UUID,
+        language: str = "en",
     ) -> ConversationCourse:
         historyNewlyCreated = False
 
@@ -162,8 +197,7 @@ Curious questions still help you learn."""
         ]
 
         if historyNewlyCreated:
-            loadPrompt = LoadPrompt()
-            systemPrompt = loadPrompt.loadPrompt("system_prompts.txt")
+            systemPrompt = LoadPrompt().loadPromptFor("system", language)
             chatHistory.append(ChatTurn(role="system", content=systemPrompt))
 
             async with self.unitOfWorkFactory.create() as unitOfWork:
@@ -172,6 +206,12 @@ Curious questions still help you learn."""
                     role="system",
                     content=systemPrompt,
                 )
+        else:
+            await self.applyOperatingLanguage(
+                chatHistory,
+                conversationId,
+                language,
+            )
 
         return ConversationCourse(
             conversationId=conversationId,
@@ -179,17 +219,42 @@ Curious questions still help you learn."""
             newlyCreated=historyNewlyCreated,
         )
 
+    async def applyOperatingLanguage(
+        self,
+        chatHistory: list[ChatTurn],
+        conversationId: int,
+        language: str,
+    ) -> None:
+        systemPrompt = LoadPrompt().loadPromptFor("system", language)
+        for index, turn in enumerate(chatHistory):
+            if turn.role != "system":
+                continue
+            if turn.content == systemPrompt:
+                return
+            chatHistory[index] = ChatTurn(role="system", content=systemPrompt)
+            async with self.unitOfWorkFactory.create() as unitOfWork:
+                await unitOfWork.conversationRepository.updateSystemMessage(
+                    conversationId,
+                    systemPrompt,
+                )
+            return
+
     async def addUserInputToConversationCourse(
         self,
         conversationCourse: ConversationCourse,
         userInput: str,
+        language: str = "en",
     ) -> list[ChatTurn]:
         isNewlyCreatedChatHistory = conversationCourse.newlyCreated
         conversationId = conversationCourse.conversationId
         chatHistoryOfConversation = list(conversationCourse.chatHistory)
 
         if isNewlyCreatedChatHistory:
-            self.handleInitialUserRequest(chatHistoryOfConversation, userInput)
+            self.handleInitialUserRequest(
+                chatHistoryOfConversation,
+                userInput,
+                language,
+            )
         else:
             chatHistoryOfConversation.append(
                 ChatTurn(role="user", content=userInput)
@@ -207,7 +272,8 @@ Curious questions still help you learn."""
         self,
         chatHistory: list[ChatTurn],
         userInput: str,
+        language: str = "en",
     ) -> None:
-        formatPrompt = LoadPrompt().loadPrompt("answer_prompts.txt")
+        formatPrompt = LoadPrompt().loadPromptFor("answer", language)
         chatHistory.append(ChatTurn(role="system", content=formatPrompt))
         chatHistory.append(ChatTurn(role="user", content=userInput))

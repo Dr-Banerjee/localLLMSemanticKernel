@@ -158,6 +158,24 @@ async def test_conversationRepository_crudPaths():
 
 
 @pytest.mark.asyncio
+async def test_conversationRepository_updateSystemMessage():
+    session = MagicMock()
+    record = MessageRecord(
+        conversation_id=5,
+        role="system",
+        content="old prompt",
+    )
+    session.execute = AsyncMock(return_value=_result(scalar=record))
+    session.flush = AsyncMock()
+    repository = ConversationRepository(session)
+
+    await repository.updateSystemMessage(5, "new prompt")
+
+    assert record.content == "new prompt"
+    session.flush.assert_awaited()
+
+
+@pytest.mark.asyncio
 async def test_conversationRepository_deleteConversation():
     session = MagicMock()
     session.execute = AsyncMock()

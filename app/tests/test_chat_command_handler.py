@@ -149,7 +149,7 @@ async def test_getOrCreateConversationCourse_createsNew(
     with patch(
         "command_handlers.chat_command_handler.LoadPrompt"
     ) as loadPromptClass:
-        loadPromptClass.return_value.loadPrompt.return_value = "system prompt"
+        loadPromptClass.return_value.loadPromptFor.return_value = "system prompt"
         course = await handler.getOrCreateConversationCourse(5, userId)
 
     assert course.newlyCreated is True
@@ -191,7 +191,7 @@ def test_handleInitialUserRequest_keepsIdiomSeparate(handler):
     with patch(
         "command_handlers.chat_command_handler.LoadPrompt"
     ) as loadPromptClass:
-        loadPromptClass.return_value.loadPrompt.return_value = (
+        loadPromptClass.return_value.loadPromptFor.return_value = (
             "Explain the next message"
         )
         handler.handleInitialUserRequest(history, "piece of cake")
@@ -236,7 +236,7 @@ async def test_handleChatCommand_newConversation_replacesIncompleteExplanation(
     with patch(
         "command_handlers.chat_command_handler.LoadPrompt"
     ) as loadPromptClass:
-        loadPromptClass.return_value.loadPrompt.return_value = "prompt"
+        loadPromptClass.return_value.loadPromptFor.return_value = "prompt"
         result = await handler.handleChatCommand(
             9,
             UserRequest(userInput="piece of cake"),
@@ -288,3 +288,131 @@ async def test_handleChatCommand_followUp_replacesLeakedInstructions(
     )
 
     assert result.response == handler.followUpFallback
+
+
+def promptByKind(kind: str, language: str) -> str:
+    prompts = {
+        ("system", "en"): "english system",
+        ("system", "de"): "german system",
+        ("answer", "en"): "english answer",
+        ("answer", "de"): "german answer",
+    }
+    return prompts[(kind, language)]
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_newConversation_usesGermanPrompts(
+    handler,
+    unitOfWork,
+    chatCompletion,
+    userId,
+):
+    unitOfWork.conversationRepository.getConversation.return_value = None
+    unitOfWork.conversationRepository.conversationExists.return_value = False
+    unitOfWork.conversationRepository.getMessages.return_value = []
+
+    with patch(
+        "command_handlers.chat_command_handler.LoadPrompt"
+    ) as loadPromptClass:
+        loadPromptClass.return_value.loadPromptFor.side_effect = promptByKind
+        result = await handler.handleChatCommand(
+            9,
+            UserRequest(userInput="piece of cake", language="de"),
+            userId,
+        )
+
+    assert result.response == handler.fallbackExplanationDe
+    unitOfWork.conversationRepository.addMessage.assert_any_await(
+        conversationId=9,
+        role="system",
+        content="german system",
+    )
+    sentHistory = chatCompletion.complete.await_args.args[0]
+    assert sentHistory[0].content == "german system"
+    assert sentHistory[1].content == "german answer"
+    assert "Piece of cake means something is easy." in result.response
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_followUp_switchesSystemPromptToGerman(
+    handler,
+    unitOfWork,
+    chatCompletion,
+    userId,
+):
+    unitOfWork.conversationRepository.getConversation.return_value = Conversation(
+        id=1
+    )
+    unitOfWork.conversationRepository.getMessages.return_value = [
+        Message(
+            id=1,
+            role="system",
+            content="english system",
+            created_at=datetime.now(UTC),
+        ),
+        Message(
+            id=2,
+            role="user",
+            content="piece of cake",
+            created_at=datetime.now(UTC),
+        ),
+    ]
+    chatCompletion.complete.return_value = "Eine freundliche Antwort."
+
+    with patch(
+        "command_handlers.chat_command_handler.LoadPrompt"
+    ) as loadPromptClass:
+        loadPromptClass.return_value.loadPromptFor.side_effect = promptByKind
+        result = await handler.handleChatCommand(
+            1,
+            UserRequest(
+                userInput="Gibt es eine ähnliche Redewendung?",
+                language="de",
+            ),
+            userId,
+        )
+
+    assert result.response == "Eine freundliche Antwort."
+    unitOfWork.conversationRepository.updateSystemMessage.assert_awaited_once_with(
+        1,
+        "german system",
+    )
+    sentHistory = chatCompletion.complete.await_args.args[0]
+    assert sentHistory[0].content == "german system"
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_followUp_keepsMatchingEnglishSystemPrompt(
+    handler,
+    unitOfWork,
+    userId,
+):
+    unitOfWork.conversationRepository.getConversation.return_value = Conversation(
+        id=1
+    )
+    unitOfWork.conversationRepository.getMessages.return_value = [
+        Message(
+            id=1,
+            role="system",
+            content="english system",
+            created_at=datetime.now(UTC),
+        ),
+        Message(
+            id=2,
+            role="user",
+            content="piece of cake",
+            created_at=datetime.now(UTC),
+        ),
+    ]
+
+    with patch(
+        "command_handlers.chat_command_handler.LoadPrompt"
+    ) as loadPromptClass:
+        loadPromptClass.return_value.loadPromptFor.side_effect = promptByKind
+        await handler.handleChatCommand(
+            1,
+            UserRequest(userInput="and then?"),
+            userId,
+        )
+
+    unitOfWork.conversationRepository.updateSystemMessage.assert_not_awaited()

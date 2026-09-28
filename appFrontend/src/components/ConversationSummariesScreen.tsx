@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { noop, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { conversationMessagesQueryOptions } from "../hooks/useConversationMessages";
 import { useConversationSummaries } from "../hooks/useConversationSummaries";
 import { useDeleteConversation } from "../hooks/useDeleteConversation";
@@ -20,6 +21,7 @@ export function ConversationSummariesScreen({
   onOpenConversation,
   onOpenChallenge,
 }: ConversationSummariesScreenProps) {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const summariesQuery = useConversationSummaries();
   const deleteConversation = useDeleteConversation();
@@ -40,20 +42,18 @@ export function ConversationSummariesScreen({
     <section className={styles.screen}>
       <header className={styles.header}>
         <Mascot mood="happy" className={styles.mascot} />
-        <h1>Idioms you already started exploring</h1>
-        <p className={styles.lead}>
-          Pick a favorite and ask another curious question. Pip is happy to keep teaching!
-        </p>
+        <h1>{t("summaries.title")}</h1>
+        <p className={styles.lead}>{t("summaries.lead")}</p>
         <div className={styles.headerActions}>
           <ChallengeNavButton onClick={onOpenChallenge} />
           <button className={styles.kicker} type="button" onClick={onBackHome}>
-            Home
+            {t("summaries.home")}
           </button>
         </div>
       </header>
 
       {isLoading ? (
-        <div className={styles.grid} aria-busy="true" aria-label="Loading your idioms">
+        <div className={styles.grid} aria-busy="true" aria-label={t("summaries.loading")}>
           {Array.from({ length: 6 }, (_, index) => (
             <div key={index} className={styles.skeleton} />
           ))}
@@ -62,24 +62,24 @@ export function ConversationSummariesScreen({
 
       {error ? (
         <div className={styles.banner} role="alert">
-          <p>Pip couldn’t find your nest just now. Let’s try again!</p>
+          <p>{t("summaries.error")}</p>
           <button
             type="button"
             onClick={() => {
               void summariesQuery.refetch();
             }}
           >
-            Try again
+            {t("summaries.tryAgain")}
           </button>
         </div>
       ) : null}
 
       {!isLoading && !error && summaries.length === 0 ? (
         <div className={styles.empty}>
-          <p>Your nest is waiting for its first idiom!</p>
-          <p>Learn one with Pip, then it will show up here so you can visit it again.</p>
+          <p>{t("summaries.emptyTitle")}</p>
+          <p>{t("summaries.emptyBody")}</p>
           <button type="button" onClick={onBackHome}>
-            Let’s learn an idiom
+            {t("summaries.emptyCta")}
           </button>
         </div>
       ) : null}
@@ -112,7 +112,7 @@ export function ConversationSummariesScreen({
               }}
               disabled={summariesQuery.isFetchingNextPage}
             >
-              {summariesQuery.isFetchingNextPage ? "Finding more sayings..." : "More conversations"}
+              {summariesQuery.isFetchingNextPage ? t("summaries.moreLoading") : t("summaries.more")}
             </button>
           ) : null}
         </>
