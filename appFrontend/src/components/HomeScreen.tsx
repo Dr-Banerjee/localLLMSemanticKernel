@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { challengeIdiomCount } from "../data/challengeIdioms";
 import { featuredIdioms } from "../data/featuredIdioms";
 import { IdiomCard } from "./IdiomCard";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Mascot } from "./Mascot";
 import styles from "./HomeScreen.module.css";
 
@@ -34,9 +35,12 @@ export function HomeScreen({ onStart, onViewSummaries, onOpenChallenge }: HomeSc
       <div className={`${styles.cloud} ${styles.cloudTwo}`} aria-hidden="true" />
       <section className={styles.screen}>
         <header className={styles.hero}>
-          <button className={styles.navButton} type="button" onClick={onViewSummaries}>
-            {t("home.learned")}
-          </button>
+          <div className={styles.corner}>
+            <LanguageSwitcher />
+            <button className={styles.navButton} type="button" onClick={onViewSummaries}>
+              {t("home.learned")}
+            </button>
+          </div>
           <Mascot mood="cheer" />
           <h1>{t("home.title")}</h1>
           <p className={styles.lead}>{t("home.lead")}</p>
