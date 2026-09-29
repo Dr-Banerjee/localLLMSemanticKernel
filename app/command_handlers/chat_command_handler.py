@@ -8,6 +8,7 @@ from data_transfer_objects.response import ResponseToUserRequest
 from exceptions.conversation_forbidden_exception import ConversationForbiddenException
 from models.conversation_course import ConversationCourse
 from utils.load_prompt import LoadPrompt
+from utils.user_input_sanitizer import UserInputSanitizer
 
 
 class ChatCommandHandler:
@@ -18,6 +19,7 @@ class ChatCommandHandler:
     ) -> None:
         self.unitOfWorkFactory = unitOfWorkFactory
         self.chatCompletion = chatCompletion
+        self.userInputSanitizer = UserInputSanitizer()
         self.fallbackExplanation = """Meaning:
 I couldn't explain that saying just now.
 
@@ -60,9 +62,7 @@ Neugierige Fragen helfen dir trotzdem beim Lernen."""
         request: UserRequest,
         userId: UUID,
     ) -> ResponseToUserRequest:
-        userInput = request.userInput.strip()
-        if not userInput:
-            raise ValueError("userInput is required")
+        userInput = self.userInputSanitizer.sanitize(request.userInput)
 
         conversationCourse = await self.getOrCreateConversationCourse(
             conversationId=conversationId,
