@@ -6,6 +6,7 @@ from commands.delete_conversation_command import DeleteConversationCommand
 from data_transfer_objects.request import UserRequest
 from exceptions.conversation_forbidden_exception import ConversationForbiddenException
 from exceptions.conversation_not_found_exception import ConversationNotFoundException
+from exceptions.invalid_user_input_exception import InvalidUserInputException
 from models.user import User
 from queries.conversationMessagesQuery import ConversationMessagesQuery
 from queries.conversationSummariesQuery import ConversationSummariesQuery
@@ -39,6 +40,11 @@ class ConversationsController:
                         request,
                         currentUser.id,
                     )
+                )
+            except InvalidUserInputException as error:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=str(error),
                 )
             except ConversationForbiddenException:
                 raise HTTPException(
