@@ -8,6 +8,7 @@ from data_transfer_objects.conversation import Conversation
 from data_transfer_objects.message import Message
 from data_transfer_objects.request import UserRequest
 from exceptions.conversation_forbidden_exception import ConversationForbiddenException
+from exceptions.invalid_user_input_exception import InvalidUserInputException
 from models.conversation_course import ConversationCourse
 
 
@@ -113,7 +114,7 @@ async def test_handleChatCommand_stripsUserInput(handler, unitOfWork, userId):
 
 @pytest.mark.asyncio
 async def test_handleChatCommand_rejectsWhitespaceOnlyInput(handler, unitOfWork, userId):
-    with pytest.raises(ValueError, match="userInput is required"):
+    with pytest.raises(InvalidUserInputException, match="userInput is required"):
         await handler.handleChatCommand(
             1,
             UserRequest(userInput="   "),
@@ -121,6 +122,38 @@ async def test_handleChatCommand_rejectsWhitespaceOnlyInput(handler, unitOfWork,
         )
 
     unitOfWork.conversationRepository.getConversation.assert_not_awaited()
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_rejectsUnsafeCharacters(handler, unitOfWork, userId):
+    with pytest.raises(InvalidUserInputException, match="userInput is invalid"):
+        await handler.handleChatCommand(
+            1,
+            UserRequest(userInput="<script>alert(1)</script>"),
+            userId,
+        )
+
+    unitOfWork.conversationRepository.getConversation.assert_not_awaited()
+
+
+@pytest.mark.asyncio
+async def test_handleChatCommand_normalizesDecomposedUnicode(handler, unitOfWork, userId):
+    unitOfWork.conversationRepository.getConversation.return_value = Conversation(
+        id=1
+    )
+    unitOfWork.conversationRepository.getMessages.return_value = []
+
+    await handler.handleChatCommand(
+        1,
+        UserRequest(userInput="cafe\u0301"),
+        userId,
+    )
+
+    unitOfWork.conversationRepository.addMessage.assert_any_await(
+        conversationId=1,
+        role="user",
+        content="café",
+    )
 
 
 @pytest.mark.asyncio

@@ -9,6 +9,7 @@ from controllers.conversations_controller import ConversationsController
 from data_transfer_objects.response import ResponseToUserRequest
 from exceptions.conversation_forbidden_exception import ConversationForbiddenException
 from exceptions.conversation_not_found_exception import ConversationNotFoundException
+from exceptions.invalid_user_input_exception import InvalidUserInputException
 from models.user import User
 
 
@@ -46,6 +47,20 @@ def test_sendMessage_success(appClient, currentUser):
 
     assert response.status_code == 200
     assert response.json()["response"] == "assistant"
+    mediator.send.assert_awaited()
+
+
+def test_sendMessage_invalidUserInput(appClient):
+    client, mediator, _ = appClient
+    mediator.send = AsyncMock(side_effect=InvalidUserInputException("userInput is invalid"))
+
+    response = client.post(
+        "/api/conversations/11/messages",
+        json={"userInput": "<script>alert(1)</script>"},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "userInput is invalid"
     mediator.send.assert_awaited()
 
 
