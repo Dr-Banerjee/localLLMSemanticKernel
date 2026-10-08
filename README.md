@@ -98,6 +98,39 @@ The top of the page shows Pip's progress, for example **Pip is on idiom 64 of 27
 
 ---
 
+# Checkpoint tests
+
+A quiz stone sits before each birdhouse, and one last test waits after the final idiom. You can hop on to the next stones, or reach the grand birdhouse at the end of the path, only if you pass the test.
+
+![A Honey Cottage checkpoint test asking which sentence uses "as fit as a fiddle" the right way](docs/checkpoint-test.png)
+
+## How a test looks
+
+Each test is labelled **Checkpoint test**, or **Last test** for the quiz after the final idiom. The birdhouse you are aiming for is shown at the top, for example **Honey Cottage**.
+
+For every question, Pip shows one idiom you have already met and asks:
+
+**Which sentence uses this idiom the right way?**
+
+There are two sentences. One uses the idiom correctly. The other sounds similar but is wrong. Choose a sentence, then tap **Next idiom**. On the last question the button changes to **See the score**.
+
+A short test covers the nine idioms on the stones leading up to that birdhouse, for example **Question 8 of 9**. The last test works the same way for the last nine idioms on the path.
+
+You can leave with **Back to the path** and try the test again later.
+
+## How to pass
+
+You need **at least 4 answers right** out of 9.
+
+**If you pass**, Pip knows the idioms well enough to hop on. You can then:
+
+- reach the next birdhouse and continue to the stones beyond it, or
+- on the last test, reach the grand birdhouse at the end of the path.
+
+**If you do not pass**, Pip is not ready yet. You cannot hop on to the next stones or the grand birdhouse. Choose **Back to the stones**, revisit the idioms you have already learned to freshen up, then try the test again.
+
+---
+
 # Local Development
 
 This section describes how to get the project running locally from a fresh checkout.
